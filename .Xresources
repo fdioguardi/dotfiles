@@ -1,0 +1,5 @@
+!	The path to each file must not contain neither "~" nor "$HOME" as a relplacement
+!	for the user home directory. Either hardcode the full path along with the username or
+!	use the path relative to this file
+
+#include ".Xresources.d/urxtv"

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# dec-brihtness
+# the same as inc-brightness, just the exact opposite
+
+#primary_monitor=$(xrandr -q | grep primary | cut -f1 -d" ")
+actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
+
+# $1 holds how much the brightness is going to decrease
+min_brightness=0.1
+wanted_brightness=$(bc <<< "$actual_brightness-$1")
+
+if (( $(echo "$wanted_brightness > $min_brightness" | bc -l) )); then
+	new_brightness=$wanted_brightness
+else
+	new_brightness=$min_brightness
+fi
+
+xrandr --output eDP-1 --brightness $new_brightness

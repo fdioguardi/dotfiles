@@ -1,0 +1,88 @@
+"                               ___           ___           ___
+"      ___        ___          /__/\         /  /\         /  /\
+"     /__/\      /  /\        |  |::\       /  /::\       /  /:/
+"     \  \:\    /  /:/        |  |:|:\     /  /:/\:\     /  /:/ 
+"      \  \:\  /__/::\      __|__|:|\:\   /  /:/~/:/    /  /:/  ___
+"  ___  \__\:\ \__\/\:\__  /__/::::| \:\ /__/:/ /:/___ /__/:/  /  /\
+" /__/\ |  |:|    \  \:\/\ \  \:\~~\__\/ \  \:\/:::::/ \  \:\ /  /:/
+" \  \:\|  |:|     \__\::/  \  \:\        \  \::/~~~~   \  \:\  /:/
+"  \  \:\__|:|     /__/:/    \  \:\        \  \:\        \  \:\/:/
+"   \__\::::/      \__\/      \  \:\        \  \:\        \  \::/
+"       ~~~~                   \__\/         \__\/         \__\/
+
+" prepend 'no' to switch an option off
+" e.g.: set ruler != set noruler
+
+
+" start default vim settings
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+" set compatibility to Vim only.
+set nocompatible
+
+" always show current position
+set ruler
+
+" turn on syntax highlighting.
+syntax on
+
+" remove arrow keys and hjkl
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap <Up> <Nop>
+noremap j <Nop>
+noremap h <Nop>
+noremap l <Nop>
+noremap k <Nop>
+
+" show line numbers
+set number
+
+" don’t show currenet mode
+set noshowmode
+
+" ignore case when searching
+set ignorecase
+
+" show partial matches for a search
+set incsearch
+
+" highlight all matching phrases
+set hlsearch
+
+" show incomplete command
+set showcmd
+
+" display completion matches in a status line
+set wildmenu
+
+" show @@@ in the last line if it’s truncated
+set display=truncate
+
+" don’t recognize numbers starting with zero as octal
+set nrformats-=octal
+
+" enable using the mouse if available
+if has('mouse')
+	set mouse=a
+endif
+
+" enable matchit plugin
+packadd! matchit
+
+" enable filetype plugins
+filetype plugin on
+
+" if a word reaches the end of a window, write it in the line below
+" set nowrap		commented out because I think it doesn’t write it in the line bellow, it just doesn’t show it...
+
+" allow <Left>, <Right>, <Backspace>, and <Space>, to move the cursor from the start of a line to the begining of the other and viceversa
+set whichwrap=b,s,<,>,[,]
+
+" display tabs with pretty colors
+set listchars=tab:>-,trail:-
+
+" keep a few lines of contect arround the cursor
+set scrolloff=3
