@@ -10,22 +10,66 @@
 "   \__\::::/      \__\/      \  \:\        \  \:\        \  \::/
 "       ~~~~                   \__\/         \__\/         \__\/
 
+
+
 " prepend 'no' to switch an option off
 " e.g.: set ruler != set noruler
 
 
-" start default vim settings
-unlet! skip_defaults_vim
+" default
+unlet! skip_defaults_vim		" start default vim settings
 source $VIMRUNTIME/defaults.vim
+set nocompatible				" set compatibility to Vim only.
+filetype plugin indent on   
+filetype plugin on				" enable filetype plugins
 
-" set compatibility to Vim only.
-set nocompatible
 
-" always show current position
-set ruler
 
-" turn on syntax highlighting.
-syntax on
+"" general options
+
+" UI
+set ruler				" always show current position
+syntax on				" turn on syntax highlighting.
+set number				" show line numbers
+if has('mouse')
+	set mouse=a			" enable using the mouse if available
+endif
+set scrolloff=3			" keep a few lines of contect arround the cursor
+set noshowmode			" don’t show currenet mode
+set laststatus=2		" always display the statusline in all windows
+set showtabline=2		" always display the tabline, even if there is only one tab
+set t_Co=256			" set tabline color to white
+set display=truncate	" show @@@ in the last line if it’s truncated
+
+
+" misc
+set history=1000					" remember a ton of commands
+set clipboard=unnamed				" use OS clipboard as default yank buffer
+set spell							" enable spell-check
+set spelllang=en,es,it					" enable spell-check in english, spanish, and italian
+set backspace=indent,eol,start		" backspace over everything
+set encoding=utf-8					" default encoding
+set wildmenu						" display completion matches in a status line
+set nrformats-=octal				" don’t recognize numbers starting with zero as octal
+set path+=**						" recursively look through subdirectories when dealing with filepaths
+
+
+" whitespace and indentation
+set tabstop=4					" a tab is four spaces
+set listchars=tab:>-,trail:-	" display tabs with pretty colors
+set shiftwidth=4				" N spaces while auto-indenting
+set softtabstop=4				" N spaces while editing (deletes groups of N spaces)
+set smartindent					" seems to do a decent job with indenting
+
+
+" searching
+set ignorecase		" ignore case when searching
+set incsearch		" show partial matches for a search
+set hlsearch		" highlight all matching phrases
+
+
+
+"" mappings
 
 " remove arrow keys and hjkl
 noremap <Down> <Nop>
@@ -37,52 +81,8 @@ noremap h <Nop>
 noremap l <Nop>
 noremap k <Nop>
 
-" show line numbers
-set number
+set whichwrap=b,s,<,>,[,]		" allow <Left>, <Right>, <Backspace>, and <Space>, to move the cursor from the start of a line to the begining of the other and viceversa
 
-" don’t show currenet mode
-set noshowmode
 
-" ignore case when searching
-set ignorecase
-
-" show partial matches for a search
-set incsearch
-
-" highlight all matching phrases
-set hlsearch
-
-" show incomplete command
-set showcmd
-
-" display completion matches in a status line
-set wildmenu
-
-" show @@@ in the last line if it’s truncated
-set display=truncate
-
-" don’t recognize numbers starting with zero as octal
-set nrformats-=octal
-
-" enable using the mouse if available
-if has('mouse')
-	set mouse=a
-endif
-
-" enable matchit plugin
-packadd! matchit
-
-" enable filetype plugins
-filetype plugin on
-
-" if a word reaches the end of a window, write it in the line below
-" set nowrap		commented out because I think it doesn’t write it in the line bellow, it just doesn’t show it...
-
-" allow <Left>, <Right>, <Backspace>, and <Space>, to move the cursor from the start of a line to the begining of the other and viceversa
-set whichwrap=b,s,<,>,[,]
-
-" display tabs with pretty colors
-set listchars=tab:>-,trail:-
-
-" keep a few lines of contect arround the cursor
-set scrolloff=3
+"" no se que categoria meter
+packadd! matchit		" enable matchit plugin
