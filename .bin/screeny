@@ -1,0 +1,12 @@
+#!/bin/bash
+
+scrot_path=$HOME/.screenshots
+
+[[ -d $scrot_path ]] || mkdir -p $scrot_path
+
+if [[ $1 = "cut" ]]; then
+    sleep 0.2 
+    scrot -s -q 100 -e 'mv $f $scrot_path/$f; feh $scrot_path/$f'
+else
+    scrot -q 100 -e 'mv $f $scrot_path/$f; feh $scrot_path/$f'
+fi

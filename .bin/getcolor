@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function usage
+{
+    echo -e "Usage: $( basename $0 ) COLOR"
+    exit 1
+}
+
+function valid_color
+{
+    local available_colors=($(sed 19q $color_file | cut -d"=" -f1))
+    printf -- '%s\n' "${available_colors[@]}" | grep -w $1
+}
+
+function color_value
+{
+    cat $color_file | grep -w $1 | cut -d'"' -f2
+}
+
+color_file="$HOME/.cache/paintee"
+
+[[ $# -ne 1 ]] || [[ -z $(valid_color ${1^^}) ]] && usage
+
+echo $(color_value ${1^^})
