@@ -1,3 +1,0 @@
-#!/bin/bash
-
-scrot 'Cheese_%a-%d%b%y_%H.%M.png' -q 100 -e 'mv $f ~/Pictures/; feh ~/Pictures/$f'
