@@ -7,14 +7,29 @@ function setup_display
 	xrandr --output $primary_monitor_name --primary --mode 1920x1080 --rotate normal --output $external_monitor_name --mode 1920x1080 --rotate normal --right-of $primary_monitor_name
 }
 
-primary_monitor_name="eDP-1"
-external_monitor_name="HDMI-1"
-external_monitor_status=$(xrandr -q | grep -w "$external_monitor_name")
+function one_monitor_settings
+{
+	bspc monitor $primary_monitor_name -d   1 2 3 4 5 6 7 8 9 10
+}
 
-if [[ $external_monitor_status = *\ connected* ]]; then # disconnected == *connected*, so "\ "solves it
-	setup_display
-	bspc monitor $primary_monitor_name -d I II III IV V
-	bspc monitor $external_monitor_name -d VI VII VIII IX X
-else
-	bspc monitor $primary_monitor_name -d I II III IV V VI VII VIII IX X
-fi
+function start_apps
+{
+    $HOME/.config/polybar/launch.sh
+}
+
+function two_monitor_settings
+{
+    setup_display
+	bspc monitor $primary_monitor_name -d   1 2 3 4 5
+    bspc monitor $external_monitor_name -d  6 7 8 9 10
+    bspc config -m $external_monitor_name top_padding       20
+    bspc config -m $external_monitor_name bottom_padding    30 # +10 because of polybar
+    bspc config -m $external_monitor_name left_padding      20
+    bspc config -m $external_monitor_name right_padding     20
+    start_apps
+}
+
+primary_monitor_name="eDP-1"
+external_monitor_name=$(xrandr -q | grep -w connected | grep -v $primary_monitor_name | cut -f1 -d" ")
+
+[[ $(monitor_count) -eq 2 ]] && two_monitor_settings || one_monitor_settings

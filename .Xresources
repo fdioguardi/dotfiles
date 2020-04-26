@@ -2,4 +2,4 @@
 !	for the user home directory. Either hardcode the full path along with the username or
 !	use the path relative to this file
 
-#include ".Xresources.d/urxtv"
+#include ".Xresources.d/urxvt"

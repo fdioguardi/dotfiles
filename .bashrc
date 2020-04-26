@@ -10,7 +10,7 @@ source /etc/profile
 
 # Enviroment variables
 export PAGER="most"
-export PATH="$PATH:~/.local/bin"
+export BROWSER="firefox"
 export PS1="\W \\$ "
 
 # Keyboard layout
@@ -20,9 +20,13 @@ setxkbmap -layout "us" -variant "intl"
 setxkbmap -option caps:ctrl_modifier
 
 # Bash settings
-set -o vi
-shopt -s autocd	# Allows you to cd into a directory by just typing it’s name
+set -o braceexpand -o notify -o vi
+set show-mode-in-prompt on
+set vi-ins-mode-string ""
+set vi-cmd-mode-string ":"
+bind 'set completion-ignore-case on' 'set colored-stats on' 'set show-all-if-ambiguous on'
 bind :clear-screen
+shopt -s autocd cdspell cmdhist dirspell dotglob globstar histappend interactive_comments lithist no_empty_cmd_completion nocaseglob progcomp_alias shift_verbose
 
 # User specific aliases and functions
 alias brightness='xrandr --output eDP-1 --brightness'
@@ -35,7 +39,7 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
-alias ff='find / -name'
+alias ff='sudo find / -name'
 alias f='find . -name'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -48,16 +52,17 @@ alias watch='watch --color'
 alias mkdir='mkdir -pv'
 alias rmd='rmdir'
 alias mkd='mkdir -pv'
+alias echo='echo -n'
 alias v='vim'
 alias vi='vim'
 alias sv='sudo vim'
 alias SS='sudo systemctl'
 alias g='git'
 alias ka='killall'
-alias ex='extract'
-alias wifi-scan='nmcli device wifi rescan && nmcli device wifi list'
-alias wifi-connect='nmcli device wifi connect'
+alias ex='extract' 
 alias bt='bluetoothctl'
 alias anakin='sudo pacman -Rns $(pacman -Qtdq)'
 alias config='/usr/bin/git --git-dir=/home/felipe/.dotfiles --work-tree=/home/felipe' # Managing dotfiles
 alias pharo='pharo ~/Pharo/images/Pharo8.0-SNAPSHOT-64bit-5173b02.image &'
+alias ducks='du -a ./ | sort -n -r | head -n'
+alias rc='recolorize'
