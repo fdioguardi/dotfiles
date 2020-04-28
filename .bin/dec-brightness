@@ -10,10 +10,6 @@ actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 min_brightness=0.1
 wanted_brightness=$(bc <<< "$actual_brightness-$1")
 
-if (( $(echo "$wanted_brightness > $min_brightness" | bc -l) )); then
-	new_brightness=$wanted_brightness
-else
-	new_brightness=$min_brightness
-fi
+[[ $(echo "$wanted_brightness > $min_brightness" | bc -l) ]] && new_brightness=$wanted_brightness || new_brightness=$min_brightness
 
 xrandr --output eDP-1 --brightness $new_brightness
