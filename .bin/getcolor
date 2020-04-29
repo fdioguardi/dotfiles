@@ -1,24 +1,39 @@
 #!/bin/bash
 
-function usage
+usage()
 {
-    echo -e "Usage: $( basename $0 ) COLOR"
+    echo -e "Usage: $(basename $0) COLOR"
     exit 1
 }
 
-function valid_color
+color_value()
 {
-    local available_colors=($(sed 19q $color_file | cut -d"=" -f1))
-    printf -- '%s\n' "${available_colors[@]}" | grep -w $1
+    local search
+    case $1 in
+        FOREGROUND) search="foreground:"    ;;
+        BACKGROUND) search="background:"    ;;
+        CURSOR)     search="cursorColor:"   ;;
+        BLACK)      search="color0:"        ;;
+        RED)        search="color1:"        ;;
+        GREEN)      search="color2:"        ;;
+        YELLOW)     search="color3:"        ;;
+        BLUE)       search="color4:"        ;;
+        MAGENTA)    search="color5:"        ;;
+        CYAN)       search="color6:"        ;;
+        WHITE)      search="color7:"        ;;
+        ALTBLACK)   search="color8:"        ;;
+        ALTRED)     search="color9:"        ;;
+        ALTGREEN)   search="color10:"       ;;
+        ALTYELLOW)  search="color11:"       ;;
+        ALTBLUE)    search="color12:"       ;;
+        ALTMAGENTA) search="color13:"       ;;
+        ALTCYAN)    search="color14:"       ;;
+        ALTWHITE)   search="color15:"       ;;
+        *)          usage                   ;;
+    esac
+    [[ -n $search ]] && echo $(xrdb -query | grep $search | awk '{print $NF}')
 }
 
-function color_value
-{
-    cat $color_file | grep -w $1 | cut -d'"' -f2
-}
+[[ $# -ne 1 ]] && usage
 
-color_file="$HOME/.cache/paintee"
-
-[[ $# -ne 1 ]] || [[ -z $(valid_color ${1^^}) ]] && usage
-
-echo $(color_value ${1^^})
+color_value ${1^^}

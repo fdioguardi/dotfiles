@@ -38,15 +38,8 @@ Updated: $(date)" >> ~/.cache/paintee
 
 }
 
-while getopts 'larc:x:' opt; do
+while getopts 'arc:x:' opt; do
 	case "$opt" in
-		l)
-			for color in $color_path/*; do
-				echo $(basename $color)
-			done
-			exit 0
-			;;
-
 		a)	cat .cache/paintee | grep "color scheme" | cut -f6 -d"/" | tr -d "'" ; exit 0	;;
 		r)	;; #Placebo effect
 		c)	color_path=$OPTARG		;;
