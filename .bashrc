@@ -15,11 +15,33 @@ source /etc/profile
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # Enviroment variables
-export PATH="${PATH}:$HOME/.bin"
+#export PATH="${PATH}:$HOME/.bin"
 export EDITOR="vim"
 export PAGER="most"
 export BROWSER="firefox"
-export PS1="\W \\$ "
+
+# Prompt
+PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
+
+__prompt_command()
+{
+    local EXIT="$?"             # This needs to be first
+
+    local RCol='\[\e[0m\]'
+
+    local BRed='\[\e[1;31m\]'
+    local BGre='\[\e[1;32m\]'
+    local BYel='\[\e[1;33m\]'
+
+    local Color=''
+    if [ $EXIT != 0 ]; then
+        Color="${BRed}"      # Add red if exit code non 0
+    else
+        Color="${BGre}"
+    fi
+
+    PS1="${BYel}\W$Color $ ${RCol}"
+}
 
 # Keyboard layout
 setxkbmap -layout "us" -variant "intl"
