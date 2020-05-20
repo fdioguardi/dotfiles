@@ -14,12 +14,6 @@ source /etc/profile
 # Enable programmable completion features
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
-# Enviroment variables
-#export PATH="${PATH}:$HOME/.bin"
-export EDITOR="vim"
-export PAGER="most"
-export BROWSER="firefox"
-
 # Prompt
 PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
 
@@ -42,12 +36,6 @@ __prompt_command()
 
     PS1="${BYel}\W$Color $ ${RCol}"
 }
-
-# Keyboard layout
-setxkbmap -layout "us" -variant "intl"
-
-# Reamped keys
-setxkbmap -option caps:ctrl_modifier
 
 # Bash settings
 set -o braceexpand -o notify -o vi

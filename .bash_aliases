@@ -1,9 +1,9 @@
-#  __   __    __   __   ____  ____  ____ 
+#  __   __    __   __   ____  ____  ____
 # / _\ (  )  (  ) / _\ / ___)(  __)/ ___)
 #/    \/ (_/\ )( /    \\___ \ ) _) \___ \
 #\_/\_/\____/(__)\_/\_/(____/(____)(____/
 
-alias syu='sudo pacman --color=auto -Syu'
+alias syu='sudo pacman --color=auto -Syu ; yay -Syu'
 alias ls='ls --color=auto -l'
 alias l='ls --color=auto -lA'
 alias ll='ls --color=auto -la --time-style long-iso'
@@ -25,14 +25,14 @@ alias watch='watch --color'
 alias mkdir='mkdir -pv'
 alias rmd='rmdir'
 alias mkd='mkdir -pv'
-alias echo='echo -n'
-alias v='vim'
-alias vi='vim'
-alias sv='sudo vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias sv='sudo nvim'
 alias SS='sudo systemctl'
 alias g='git'
 alias ka='killall'
-alias ex='extract' 
+alias ex='extract'
 alias bt='bluetoothctl'
 alias anakin='sudo pacman -Rns $(pacman -Qtdq)'
 alias dots='/usr/bin/git --git-dir=/home/felipe/.dotfiles --work-tree=/home/felipe' # Managing dotfiles
