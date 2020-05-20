@@ -1,15 +1,23 @@
 #!/bin/bash
 bspc rule -r "*"
 
-#Enviroment
-export PATH="${PATH}:$HOME/.bin"
+# Enviroment
+export PATH="${PATH}:$HOME/.bin:$HOME/.dotnet/tools"
+
+# Variables
+win_gaps=4
+padding=20
 
 ## Autostart
-[[ -f $HOME/.config/bspwm/autostart.sh ]] && . $HOME/.config/bspwm/autostart.sh
+[[ -f $HOME/.config/bspwm/config/autostart.sh ]] && . "$HOME"/.config/bspwm/config/autostart.sh
 
-## Monitors
-[[ -f $HOME/.config/bspwm/monitors_setup.sh ]] && . $HOME/.config/bspwm/monitors_setup.sh
+## Monitor Settings
+[[ -f $HOME/.config/bspwm/config/monitors_setup.sh ]] && . "$HOME"/.config/bspwm/config/monitors_setup.sh
 
+bspc config  top_padding       $((padding - win_gaps + 10)) # +10 because of polybar
+bspc config  bottom_padding    $((padding - win_gaps))
+bspc config  left_padding      $((padding - win_gaps))
+bspc config  right_padding     $((padding - win_gaps))
 ## Global Settings
 bspc config automatic_scheme	alternate
 bspc config initial_polarity	second_child
@@ -29,18 +37,21 @@ bspc config remove_disabled_monitors	true
 bspc config remove_unplugged_monitors	true
 
 ## Desktop Settings
-bspc config window_gap		12
+bspc config window_gap		$win_gaps
 
 ## Node Settings
-bspc config border_width	5 
+bspc config border_width	2
 
 ## Rule Commands
+# General
+bspc rule -a feh state=floating
 # Desktop 9
 bspc rule -a discord desktop=^9 follow=on state=tiled
 
 # Desktop 10
+bspc rule -a URxvt:ncspot desktop=^10 follow=off state=floating
+bspc rule -a URxvt:bluetoothctl desktop=^10 follow=off state=floating
 bspc rule -a Pavucontrol desktop=^10 follow=off state=floating
 
 ## Colors
-[[ -f $HOME/.config/bspwm/color_setup.sh ]] && . $HOME/.config/bspwm/color_setup.sh
-
+[[ -f $HOME/.config/bspwm/config/color_setup.sh ]] && . "$HOME"/.config/bspwm/config/color_setup.sh

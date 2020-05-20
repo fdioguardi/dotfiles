@@ -8,7 +8,7 @@
 
 usage ()
 {
-	echo -e "Usage: $( basename $0 ) [-c PATH] [-x PATH] FILE..." >&2
+	echo -e "Usage: $( basename "$0" ) [-c PATH] [-x PATH] FILE..." >&2
 }
 
 #getcolors ()

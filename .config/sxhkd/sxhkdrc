@@ -32,7 +32,11 @@ super + D
 
 # power management prompt
 alt + F4
-    power_options.sh
+    ~/.config/bspwm/scripts/power_options.sh
+
+# lock screen
+super + l
+    ~/.config/bspwm/scripts/lockscreen.sh --lock
 
 # take a screenshot
 Print
@@ -74,15 +78,15 @@ super + g
 # state/flags
 #
 
-# toggle between tiled - floating 
+# toggle between floating - last state
 super + s
-    [[ -z $(bspc query -N -n focused.floating) ]] && bspc node -t floating || bspc node -t tiled
+    bspc node -t ~floating
 
-# toggle between tiled - fullscreen
+# toggle between fullscreen - last state
 super + f
-    [[ -z $(bspc query -N -n focused.fullscreen) ]] && bspc node -t fullscreen || bspc node -t tiled
+    bspc node -t ~fullscreen
 
-# toggle between tiled - last state 
+# toggle between tiled - last state
 super + t
     bspc node -t ~tiled
 
@@ -141,15 +145,15 @@ super + ctrl + space
 
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
 
 # move a floating window
 super + alt + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+	bspc node -v {-10 0,0 10,0 -10,10 0}
 
 #
 # adjust media
@@ -161,8 +165,12 @@ XF86Audio{Pause,Play,Next,Prev}
 
 # adjust primary monitor’s brightness
 XF86MonBrightness{Up,Down}
-	{inc-brightness,dec-brightness} 0.05
+    ~/.config/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
 
 # adjust volume
 XF86Audio{Lower,Raise}Volume
 	amixer set Master 5%{-,+}
+
+# previous and next, controlled by mouse
+button{8,9}
+    playerctl {previous,next}

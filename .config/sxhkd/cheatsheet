@@ -5,7 +5,9 @@ super + \                           |-Run firefox
 super + r                           |-Run ranger
 super + a                           |-Run thunar
 super + n                           |-Run ncspot
+super + D                           |-Run discord
 alt + F4                            |-Launch power options menu
+super + l                           |-Lock screen
 Print                               |-Take a screenshot
 super + shift + s                   |-Take a partial screenshot
 super + Escape                      |-Reload sxhkd
@@ -18,8 +20,8 @@ super + m                           |-Toggle between titled and monocle
 super + g                           |-Swap the current node and the biggest node in current desktop
 
                         # state/flags
-super + s                           |-Toggle between tiled and floating
-super + f                           |-Toggle between tiled and fullscreen
+super + s                           |-Toggle between floating and last state
+super + f                           |-Toggle between fullscreen and last state
 super + t                           |-Toggle between tiled and last state
 alt + shift + Down                  |-Normal display orientation
 alt + shift + Up                    |-Inverted display orientation

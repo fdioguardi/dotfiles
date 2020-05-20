@@ -2,7 +2,7 @@
 
 usage()
 {
-    echo -e "Usage: $(basename $0) COLOR"
+    echo -e "Usage: $(basename "$0") COLOR"
     exit 1
 }
 
@@ -31,9 +31,9 @@ color_value()
         ALTWHITE)   search="color15:"       ;;
         *)          usage                   ;;
     esac
-    [[ -n $search ]] && echo $(xrdb -query | grep $search | awk '{print $NF}')
+    [[ -n $search ]] && xrdb -query | grep $search | awk '{print $NF}'
 }
 
 [[ $# -ne 1 ]] && usage
 
-color_value ${1^^}
+color_value "${1^^}"
