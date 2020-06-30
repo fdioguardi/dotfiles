@@ -1,0 +1,46 @@
+##General settings
+
+# Defines if the search results should be cleared on abort
+set abort-clear-search true
+
+# Defines which auto adjustment mode should be used if a document is loaded
+set adjust-open "width"
+
+# Defines if the number of pages per row should be honored when advancing a page
+set advance-pages-per-row true
+
+# Defines whether to save document history at each page change or only when closing a document
+set continuous-hist-save false
+
+# En/Disables incremental search
+set incremental-search true
+
+# Defines the gap in pixels between each rendered page
+set page-padding 1
+
+# En/Disables recoloring
+set recolor true
+
+# Defines the color value that is used to represent dark colors in recoloring mode
+set recolor-darkcolor "#EBDBB2" # rgba(250,250,250,1)
+
+# Defines the color value that is used to represent light colors in recoloring mode
+set recolor-lightcolor "#282828" # rgba(40,40,40,0)
+
+# Defines if the "Loading..." text should be displayed if a page is rendered
+set render-loading true
+
+# Enable copy to clipboard
+set selection-clipboard clipboard
+
+# Defines if a notification should be displayed after selecting text
+set selection-notification false
+
+# Defines the maximum percentage that the zoom level can be
+set zoom-max 1000
+
+# Defines the minimum percentage that the zoom level can be
+set zoom-min 10
+
+# Defines the amount of percent that is zoomed in or out on each command
+set zoom-step 10
