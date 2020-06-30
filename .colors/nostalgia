@@ -1,0 +1,25 @@
+!
+! color nostalgia
+!
+! a theme by http://github.com/mitchweaver
+!
+
+*.background:   #D9D5BA
+*.foreground:   #444444
+*.cursor:       #444444
+*.color0:       #444444
+*.color1:       #825B69
+*.color2:       #69825B
+*.color3:       #82755B
+*.color4:       #5B6982
+*.color5:       #755B82
+*.color6:       #5B8275
+*.color7:       #494949
+*.color8:       #333333
+*.color9:       #BDA0AA
+*.color10:      #AABDA0
+*.color11:      #BDB3A0
+*.color12:      #7484A2
+*.color13:      #B3A0BD
+*.color14:      #A0BDB3
+*.color15:      #494847
