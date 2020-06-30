@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Recolorize
-# A script to load saved color schemes
+# A wrapper for paintee
 
 
 # If you have a script to change the color of an app
@@ -10,10 +10,10 @@
 function update_apps
 {
 	# Bspwm
-	"$HOME"/.config/bspwm/color_setup.sh
-	
-	# Polybar
-	pkill -USR1 polybar
+	"$HOME"/.config/bspwm/config/color_setup.sh
+
+    # Alacritty
+    "$HOME"/.config/alacritty/colorize_alacritty.sh
 }
 
 
@@ -24,18 +24,29 @@ function usage
 
 function update_colors
 {
-	xrdb "$xresources_path" 
-	xrdb -merge "$color_path/$color_basename"
+    xrdb "$xresources_path"
+    xrdb -merge "$color_path/$color_basename"   # May be redundant
 }
 
 function cache_colors
 {
-paintee
-echo -e "
-Current color scheme: '$color_path/$color_basename'
-Current Xresources file: '$xresources_path'
-Updated: $(date)" >> "$cache_file"
+    paintee
+    echo -e "
+    Current color scheme: '$color_path/$color_basename'
+    Current Xresources file: '$xresources_path'
+    Updated: $(date)" >> "$cache_file"
+}
 
+function set_xresources_path
+{
+    [ ! -f "$1" ] && echo "$1 is not a file" && exit 3
+    xresources_path=$1
+}
+
+function set_color_path
+{
+    [ ! -d "$1" ] && echo "$1 is not a directory" && exit 3
+    color_path=$1
 }
 
 cache_file="$HOME/.cache/paintee"
@@ -44,28 +55,25 @@ while getopts 'arc:x:' opt; do
 	case "$opt" in
 		a)	grep "color scheme" "$cache_file" | cut -f6 -d"/" | tr -d "'" ; exit 0	;;
 		r)	;; #Placebo effect
-		c)	color_path=$OPTARG		;;
-		x)	xresources_path=$OPTARG	;;
+		c)	set_color_path "$OPTARG"		;;
+		x)	set_xresources_path "$OPTARG"	;;
 		?)	usage ; exit 2			;;
 	esac
 done
 shift "$((OPTIND - 1))"
 
-# Path to colors’ folder unless [-c PATH] was used
-: "${color_path:=$HOME/.Xresources.d/colors}"
-[[ ! -d $color_path ]] && echo "$color_path is not a directory" && exit 3
+# Default colors’ path
+[ -z "$color_path" ] && set_color_path "$HOME/.colors"
 
-# Path to Xresources unless [-x PATH] was used
-: "${xresources_path:=$HOME/.Xresources}"
-[[ ! -f $xresources_path ]] && echo "$xresources_path is not a file" && exit 3
+[ $# -gt 1 ] && usage && exit 1
 
-[[ $# -gt 1 ]] && usage && exit 1
-
-if [[ $# -eq 1 ]]; then
-	[[ ! -f $color_path/$1 ]] && echo "$color_path/$1 does not exist" && exit 3 || color_basename=$1
+if [ $# -eq 1 ]; then
+	[ ! -f "$color_path"/"$1" ] && echo "$color_path/$1 does not exist" && exit 3 || color_basename=$1
 fi
 
 : "${color_basename:=$(basename "$(shuf -n1 -e "$color_path"/*)")}"
+
+[ -z "$xresources_path" ] && set_xresources_path "$color_path/$color_basename"
 
 update_colors
 cache_colors

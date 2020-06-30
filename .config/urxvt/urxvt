@@ -1,5 +1,5 @@
 ! ------------------------------------------------------------------------------
-! URxvt Fonts 
+! URxvt Fonts
 ! ------------------------------------------------------------------------------
 
 !URxvt*font: xft:Source Code Pro:pixelsize=20:antialiasing=true:autohinting=true,xft:Noto Emoji
@@ -7,7 +7,7 @@ URxvt*font: xft:Fira Code:pixelsize=20
 
 
 ! ------------------------------------------------------------------------------
-! URxvt Settings 
+! URxvt Settings
 ! ------------------------------------------------------------------------------
 
 ! font spacing
@@ -19,14 +19,14 @@ URxvt*saveline:			5000
 URxvt*iso14755:			false
 URxvt.iso14755_52:		false
 URxvt*urgentOnBell:		true
-URxvt*secondaryWheel: 1
+URxvt*secondaryWheel:   1
 
 ! appearence
 URxvt*depth:			24
 URxvt*scrollBar:		false
-URxvt*internalBorder:		5
-URxvt*externalBorder:		0
-URxvt*intensityStyles:		false
+!URxvt*internalBorder:	20
+URxvt*externalBorder:	0
+URxvt*intensityStyles:	false
 URxvt*transparent:		false
 
 ! perl extensions
@@ -35,18 +35,18 @@ URxvt*perl-ext-common: 		default,matcher,selection-to-clipboard,resize-font
 ! copy paste
 !URxvt.perl-ext-common: default,clipboard-osc
 !URxvt.copyCommand:		xclip -i -selection clipboard
-!URxvt.pasteCommand:		xclip -o -selection clipboard
+!URxvt.pasteCommand:	xclip -o -selection clipboard
 !URxvt.keysym.M-c:		perl:clipboard:copy
 !URxvt.keysym.M-v:		perl:clipboard:paste
-!URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
-!URxvt.keysym.M-Escape:		perl:keyboard-select:activate
-!URxvt.keysym.M-s: perl:	keyboard-select:search
-!URxvt.keysym.M-u: perl:	url-select:select_next
+!URxvt.keysym.M-C-v:	perl:clipboard:paste_escaped
+!URxvt.keysym.M-Escape:	perl:keyboard-select:activate
+!URxvt.keysym.M-s: perl:keyboard-select:search
+!URxvt.keysym.M-u: perl:url-select:select_next
 !URxvt.urlLauncher:		firefox
-!URxvt.underlineURLs:		true
+!URxvt.underlineURLs:	true
 !URxvt.urlButton:		1
 
-! scroll one line 
+! scroll one line
 URxvt.keysym.Shift-Up:		command:\003]720;1\007
 URxvt.keysym.Shift-Down:	command:\003]721;1\007
 
@@ -57,10 +57,10 @@ URxvt.keysym.Control-Left:	\033[1;5D
 URxvt.keysym.Control-Right:	\033[1;5C
 
 ! ------------------------------------------------------------------------------
-! Xft Configuration 
+! Xft Configuration
 ! ------------------------------------------------------------------------------
 
-Xft.dpi:		120 
+Xft.dpi:		120
 Xft.antialias:		true
 Xft.hinting:		true
 Xft.rgba:		rgb
