@@ -4,19 +4,19 @@
 
 # terminal emulator
 super + Return
-    urxvt
+    $TERMINAL
 
 # program launcher
 super + d
-    dmenu_run
+    $HOME/.config/bspwm/scripts/menu.sh
 
 # web browser
 super + backslash
-    firefox
+    $BROWSER
 
 # console file manager
 super + r
-    urxvt -name ranger -e ranger
+    $TERMINAL -e ranger
 
 # GUI file manager
 super + a
@@ -24,7 +24,7 @@ super + a
 
 # music player
 super + n
-    urxvt -name ncspot -e ncspot
+    $TERMINAL -e ncspot
 
 # chat
 super + D
@@ -32,11 +32,7 @@ super + D
 
 # power management prompt
 alt + F4
-    ~/.config/bspwm/scripts/power_options.sh
-
-# lock screen
-super + l
-    ~/.config/bspwm/scripts/lockscreen.sh --lock
+    $HOME/.config/bspwm/scripts/sysmenu.sh
 
 # take a screenshot
 Print
@@ -78,17 +74,9 @@ super + g
 # state/flags
 #
 
-# toggle between floating - last state
-super + s
-    bspc node -t ~floating
-
-# toggle between fullscreen - last state
-super + f
-    bspc node -t ~fullscreen
-
-# toggle between tiled - last state
-super + t
-    bspc node -t ~tiled
+# toggle between current and last state
+super + {s,f,t}
+    bspc node -t ~{floating,fullscreen,tiled}
 
 # set display orientation
 alt + shift + {Up,Down}

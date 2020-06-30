@@ -13,7 +13,8 @@ export XDG_CACHE_HOME=${HOME}/.cache
 
 # Preferred application variables
 export EDITOR="nvim"
-export PAGER="most"
+export TERMINAL="alacritty"
+export PAGER="less"
 export BROWSER="firefox"
 
 # Keyboard layout
@@ -21,3 +22,7 @@ setxkbmap -layout "us" -variant "intl"
 
 # Map Caps_Lock to Esc
 setxkbmap -option caps:swapescape
+
+# Remove 'X' cursor
+xsetroot -cursor_name left_ptr
+

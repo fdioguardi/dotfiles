@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Variables
-wallpaper=$(shuf -n1 -e "$HOME"/.wallpaper/nice/*)
-apps=(sxhkd feh pulseaudio bluetoothctl)
+wallpaper=$(shuf -n1 -e "$HOME"/.wallpaper/*/*)
+apps=(sxhkd feh pulseaudio bluetoothctl polybar picom)
 
 ## Kill Apps
 for app in ${apps[*]}
@@ -18,3 +18,8 @@ cp "$wallpaper" /tmp/wallpaper ; feh --bg-fill "$wallpaper" &
 sxhkd &
 
 "$HOME"/.config/polybar/launch.sh
+
+picom -b
+
+# Window swallow
+#pidof "$HOME"/.config/bspwm/scripts/bspswallow.sh || . "$HOME"/.config/bspwm/scripts/bspswallow.sh &

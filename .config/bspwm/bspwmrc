@@ -6,16 +6,16 @@ export PATH="${PATH}:$HOME/.bin:$HOME/.dotnet/tools"
 
 # Variables
 win_gaps=4
-padding=20
+padding=15
 
 ## Autostart
-[[ -f $HOME/.config/bspwm/config/autostart.sh ]] && . "$HOME"/.config/bspwm/config/autostart.sh
+[[ -r $HOME/.config/bspwm/config/autostart.sh ]] && . "$HOME"/.config/bspwm/config/autostart.sh
 
 ## Monitor Settings
-[[ -f $HOME/.config/bspwm/config/monitors_setup.sh ]] && . "$HOME"/.config/bspwm/config/monitors_setup.sh
+[[ -r $HOME/.config/bspwm/config/monitors_setup.sh ]] && . "$HOME"/.config/bspwm/config/monitors_setup.sh
 
-bspc config  top_padding       $((padding - win_gaps + 10)) # +10 because of polybar
-bspc config  bottom_padding    $((padding - win_gaps))
+bspc config  top_padding       $((padding - win_gaps))
+bspc config  bottom_padding    $((padding - win_gaps + 35)) # +10 because of polybar
 bspc config  left_padding      $((padding - win_gaps))
 bspc config  right_padding     $((padding - win_gaps))
 ## Global Settings
@@ -49,9 +49,7 @@ bspc rule -a feh state=floating
 bspc rule -a discord desktop=^9 follow=on state=tiled
 
 # Desktop 10
-bspc rule -a URxvt:ncspot desktop=^10 follow=off state=floating
-bspc rule -a URxvt:bluetoothctl desktop=^10 follow=off state=floating
 bspc rule -a Pavucontrol desktop=^10 follow=off state=floating
 
 ## Colors
-[[ -f $HOME/.config/bspwm/config/color_setup.sh ]] && . "$HOME"/.config/bspwm/config/color_setup.sh
+[[ -r $HOME/.config/bspwm/config/color_setup.sh ]] && . "$HOME"/.config/bspwm/config/color_setup.sh
