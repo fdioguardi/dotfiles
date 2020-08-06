@@ -18,3 +18,6 @@ autocmd InsertEnter * norm zz
 
 " Resize panes when terminal gets resized
 autocmd VimResized * :wincmd =
+
+" Reload buffers on vim resize
+autocmd VimResized * exe 'normal! \<c-w>='

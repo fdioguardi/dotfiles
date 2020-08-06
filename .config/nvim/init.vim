@@ -13,3 +13,6 @@ source $HOME/.config/nvim/config/mappings.vim
 
 " plugins.vim
 source $HOME/.config/nvim/config/plugins.vim
+
+" colors.vim
+source $HOME/.config/nvim/config/colors.vim
