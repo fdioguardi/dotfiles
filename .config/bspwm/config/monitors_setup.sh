@@ -4,7 +4,7 @@
 
 setup_display()
 {
-	xrandr --output "$primary_monitor_name" --primary --mode 1920x1080 --rotate normal --output "$external_monitor_name" --mode 1920x1080 --rotate normal --right-of "$primary_monitor_name"
+	xrandr --output "$primary_monitor_name" --primary --mode 1920x1080 --output "$external_monitor_name" --mode 1920x1080 --rotate normal --right-of "$primary_monitor_name"
 }
 
 one_monitor_settings()
@@ -14,7 +14,7 @@ one_monitor_settings()
 
 start_apps()
 {
-    "$HOME"/.config/polybar/launch.sh
+    "$HOME"/.config/polybar/launch.sh #pkill -USR1 polybar
 }
 
 two_monitor_settings()
@@ -22,10 +22,10 @@ two_monitor_settings()
     setup_display
 	bspc monitor "$primary_monitor_name" -d   1 2 3 4 5
     bspc monitor "$external_monitor_name" -d  6 7 8 9 10
-    bspc config -m "$external_monitor_name" top_padding       20
-    bspc config -m "$external_monitor_name" bottom_padding    30 # +10 because of polybar
-    bspc config -m "$external_monitor_name" left_padding      20
-    bspc config -m "$external_monitor_name" right_padding     20
+    bspc config -m "$external_monitor_name" top_padding       11
+    bspc config -m "$external_monitor_name" bottom_padding    46 # +35 because of polybar
+    bspc config -m "$external_monitor_name" left_padding      11
+    bspc config -m "$external_monitor_name" right_padding     11
     start_apps
 }
 
