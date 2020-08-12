@@ -11,8 +11,8 @@ do
 done
 
 ## Ricing
-recolorize -c "$HOME/.Xresources.d/colors" -x "$HOME/.Xresources" -r
-cp "$wallpaper" /tmp/wallpaper ; feh --bg-fill "$wallpaper" &
+recolorize
+cp "$wallpaper" /tmp/wallpaper ; feh --no-fehbg --bg-fill "$wallpaper" &
 
 ## Start Apps
 sxhkd &
@@ -20,6 +20,8 @@ sxhkd &
 "$HOME"/.config/polybar/launch.sh
 
 picom -b
+
+unclutter --ignore-scrolling --fork
 
 # Window swallow
 #pidof "$HOME"/.config/bspwm/scripts/bspswallow.sh || . "$HOME"/.config/bspwm/scripts/bspswallow.sh &
