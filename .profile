@@ -15,7 +15,7 @@ export XDG_CACHE_HOME=${HOME}/.cache
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PAGER="less"
-export BROWSER="firefox"
+export BROWSER="$HOME/.bin/firefox"
 
 # Keyboard layout
 setxkbmap -layout "us" -variant "intl"
@@ -26,3 +26,5 @@ setxkbmap -option caps:swapescape
 # Remove 'X' cursor
 xsetroot -cursor_name left_ptr
 
+# Increase key speed via a rate change
+xset r rate 300 50

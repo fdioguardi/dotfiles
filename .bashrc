@@ -6,13 +6,11 @@
 # _|| \\_  \\    >>  )(  (__)//   \\  //   \\_  _// \\
 #(__) (__)(__)  (__)(__)    (_") ("_)(__)  (__)(__)(__)
 
-source /etc/profile
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # Enable programmable completion features
-[[ -f /etc/bash_completion ]] && source /etc/bash_completion
+[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 # Prompt
 PROMPT_COMMAND=__prompt_command # Func to gen PS1 after CMDs
@@ -37,13 +35,9 @@ __prompt_command()
     PS1="${BBlu}\W${Color} > ${RCol}"
 }
 
-# Bash settings
+# Shell settings
 set -o braceexpand -o notify -o vi
-bind 'set completion-ignore-case on' 'set colored-stats on' 'set show-all-if-ambiguous on' 'set completion-prefix-display-length 3' 'set show-all-if-unmodified on'
 
-bind :clear-screen
-bind "\C-a":beginning-of-line
-bind "\C-e":end-of-line
 shopt -s autocd cdspell cmdhist dirspell dotglob globstar histappend interactive_comments lithist no_empty_cmd_completion nocaseglob progcomp_alias shift_verbose
 
 # Avoid succesive duplicates in the bash command history

@@ -3,46 +3,68 @@
 #/    \/ (_/\ )( /    \\___ \ ) _) \___ \
 #\_/\_/\____/(__)\_/\_/(____/(____)(____/
 
-alias syu='sudo pacman --color=auto -Syu ; yay -Syu'
-alias ls='ls --color=auto'
-alias l='ls --color=auto -lA'
-alias ll='ls --color=auto -lA --time-style long-iso'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias ....='cd ../../../'
-alias .....='cd ../../../../'
-alias ff='sudo find / -name'
-alias f='find . -name'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias pacman='sudo pacman --color=auto'
-alias p='sudo pacman --color=auto'
-alias y='yay --color=auto'
-alias yeet='yay -Rns'
-alias pactree='pactree --color'
-alias vdir='vdir --color=auto'
-alias watch='watch --color'
-alias mkdir='mkdir -pv'
-alias rmd='rmdir'
-alias mkd='mkdir -pv'
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias vimconf='nvim $HOME/.config/nvim/config'
-alias vimterm='nvim $HOME/.config/alacritty/alacritty.yml.in'
-alias sv='sudo nvim'
-alias SS='sudo systemctl'
-alias g='git'
-alias ka='killall'
-alias ex='extract'
-alias bt='bluetoothctl'
-alias anakin='sudo pacman -Rns $(pacman -Qtdq)'
-alias dots='/usr/bin/git --git-dir=/home/felipe/.dotfiles --work-tree=/home/felipe' # Managing dotfiles
-alias pharo='pharo ~/Pharo/images/Pharo8.0-SNAPSHOT-64bit-a153e04.image &'
-alias ducks='du -a ./ | sort -n -r | head -n'
-alias rc='recolorize'
-alias brightness='xrandr --output eDP-1 --brightness'
-alias :q='exit'
-alias :wq='exit'
+alias                                               \
+    ls='ls --color=auto'                            \
+    l='ls --color=auto -lA'                         \
+    ll='ls --color=auto -lA --time-style long-iso'  \
+    cd..='cd ..'                                    \
+    ..='cd ..'                                      \
+    ...='cd ../../'                                 \
+    ....='cd ../../../'                             \
+    .....='cd ../../../../'                         \
+    ff='sudo find / -name'                          \
+    f='find . -name'                                \
+    grep='grep --color=auto'                        \
+    mkdir='mkdir -pv'                               \
+    rmd='rmdir'                                     \
+    mkd='mkdir -pv'
+
+alias \
+    syu='sudo pacman --color=auto -Syu ; yay -Syu'  \
+    pacman='sudo pacman --color=auto'               \
+    p='sudo pacman --color=auto'                    \
+    y='yay --color=auto'                            \
+    anakin='sudo pacman -Rns --noconfirm $(pacman -Qtdq)'
+
+alias \
+    v='nvim'                                                    \
+    vi='nvim'                                                   \
+    vim='nvim'                                                  \
+    vimconf='nvim $HOME/.config/nvim/config'                    \
+    sv='sudo nvim'
+
+alias \
+    pls='sudo $(fc -ln -1)' \
+    g='git'                 \
+    ka='killall'            \
+    ex='extract'            \
+    firefox='~/.bin/firefox'\
+    bt='bluetoothctl'       \
+    :q='exit'               \
+    :wq='exit'              \
+    rc='recolorize'
+
+alias \
+    brightness='xrandr --output eDP-1 --brightness'                         \
+    dots='/usr/bin/git --git-dir=/home/felipe/.dotfiles --work-tree=/home/felipe' # Managing dotfiles
+
+alias \
+    us='setxkbmap -layout "us" -variant "intl" ; setxkbmap -option caps:swapescape'     \
+    dvorak='setxkbmap -layout us -variant dvp -option compose:102 -option numpad:shift3 -option kpdl:semi -option keypad:atm -option caps:shift'
+
+
+# Useful but unused
+#     egrep='egrep --color=auto'                      \
+#     fgrep='fgrep --color=auto'                      \
+#     pactree='pactree --color'                       \
+#     vdir='vdir --color=auto'                        \
+#     watch='watch --color'                           \
+#     diff='diff --color=auto'                        \
+
+#     vimdiff='nvim -d'                                           \
+#     vimterm='nvim $HOME/.config/alacritty/alacritty.yml.in'     \
+
+#     SS='sudo systemctl'     \
+
+#     dnr='dotnet build && dotnet run'                                        \
+#     pharo='pharo ~/Pharo/images/Pharo8.0-SNAPSHOT-64bit-a153e04.image &'    \

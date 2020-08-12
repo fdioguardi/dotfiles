@@ -1,0 +1,36 @@
+#
+# ~/.inputrc
+#
+
+# never ring the terminal bell
+set bell-style none
+
+# display possible completions with different colors indicating their file type
+set colored-stats on
+
+# case insensitive matching and completion
+set completion-ignore-case on
+
+# replace long common prefixes with an elipsis
+set completion-prefix-display-length 3
+
+# use vi-like keybindings
+set editing-mode vi
+
+# if many possible completions, show them all...
+set show-all-if-ambiguous on
+
+# ...even without any possible partial completion
+set show-all-if-unmodified on
+
+# when completing, don’t duplicate characters
+set skip-completed-text on
+
+# <C-l> to clear the screen
+:clear-screen
+
+# <C-a> go to beginning of line
+"\C-a":beginning-of-line
+
+# <C-e> go to end of line
+"\C-e":end-of-line
