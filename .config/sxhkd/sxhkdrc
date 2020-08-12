@@ -26,6 +26,10 @@ super + a
 super + n
     $TERMINAL -e ncspot
 
+# editor
+super + v
+    $TERMINAL -e $EDITOR
+
 # chat
 super + D
     discord
@@ -75,13 +79,12 @@ super + g
 #
 
 # toggle between current and last state
-super + {s,f,t}
-    bspc node -t ~{floating,fullscreen,tiled}
+super + {t,p,s,f}
+    bspc node -t ~{tiled,pseudo_tiled,floating,fullscreen}
 
 # set display orientation
 alt + shift + {Up,Down}
 	xrandr -o {inverted,normal}
-
 
 #
 # focus/swap
@@ -142,6 +145,14 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + alt + {Left,Down,Up,Right}
 	bspc node -v {-10 0,0 10,0 -10,10 0}
+
+# increase/descrease gap size
+super + {plus}
+	bspc config window_gap $(($(bspc config window_gap) + 1 ))
+
+# increase/descrease gap size
+super + {underscore}
+	[ $(bspc config window_gap) -gt "0" ] && bspc config window_gap $(($(bspc config window_gap) - 1 ))
 
 #
 # adjust media
