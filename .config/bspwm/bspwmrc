@@ -4,21 +4,14 @@ bspc rule -r "*"
 # Enviroment
 export PATH="${PATH}:$HOME/.bin"
 
-# Variables
-win_gaps=4
-padding=15
-panel_size=35
-
 ## Autostart
 [[ -x $HOME/.config/bspwm/config/autostart.sh ]] && . "$HOME"/.config/bspwm/config/autostart.sh
 
 ## Monitor Settings
 [[ -x $HOME/.config/bspwm/config/monitors_setup.sh ]] && . "$HOME"/.config/bspwm/config/monitors_setup.sh
 
-bspc config  top_padding       $((padding - win_gaps))
-bspc config  bottom_padding    $((padding - win_gaps + panel_size))
-bspc config  left_padding      $((padding - win_gaps))
-bspc config  right_padding     $((padding - win_gaps))
+## Desktop Settings
+[[ -x $HOME/.config/bspwm/config/desktop_setup.sh ]] && . "$HOME"/.config/bspwm/config/desktop_setup.sh
 
 ## Global Settings
 bspc config automatic_scheme	alternate
@@ -37,9 +30,6 @@ bspc config click_to_focus	        	none
 bspc config focus_follows_pointer	    true
 bspc config remove_disabled_monitors	true
 bspc config remove_unplugged_monitors	true
-
-## Desktop Settings
-bspc config window_gap		$win_gaps
 
 ## Node Settings
 bspc config border_width	2

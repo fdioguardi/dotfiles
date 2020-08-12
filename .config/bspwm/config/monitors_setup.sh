@@ -22,10 +22,7 @@ two_monitor_settings()
     setup_display
 	bspc monitor "$primary_monitor_name" -d   1 2 3 4 5
     bspc monitor "$external_monitor_name" -d  6 7 8 9 10
-    bspc config -m "$external_monitor_name" top_padding       11
-    bspc config -m "$external_monitor_name" bottom_padding    46 # +35 because of polybar
-    bspc config -m "$external_monitor_name" left_padding      11
-    bspc config -m "$external_monitor_name" right_padding     11
+    [[ -x "$HOME"/.config/bspwm/config/desktop_setup.sh ]] && . "$HOME"/.config/bspwm/config/desktop_setup.sh --monitor "$external_monitor_name"
     start_apps
 }
 

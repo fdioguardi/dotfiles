@@ -147,12 +147,16 @@ super + alt + {Left,Down,Up,Right}
 	bspc node -v {-10 0,0 10,0 -10,10 0}
 
 # increase/descrease gap size
-super + {plus}
+super + plus
 	bspc config window_gap $(($(bspc config window_gap) + 1 ))
 
 # increase/descrease gap size
-super + {underscore}
+super + underscore
 	[ $(bspc config window_gap) -gt "0" ] && bspc config window_gap $(($(bspc config window_gap) - 1 ))
+
+# restore gap size
+super + equal
+    "$HOME"/.config/bspwm/config/desktop_setup.sh
 
 #
 # adjust media
