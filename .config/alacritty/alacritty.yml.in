@@ -56,6 +56,10 @@ window:
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
+
+  # Allow terminal applications to change Alacritty's window title.
+  dynamic_title: true
+
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -238,7 +242,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
 #  animation: EaseOutExpo
   duration: 0
 #  color: '#ffffff'
@@ -254,9 +258,6 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
-
-# Allow terminal applications to change Alacritty's window title.
-dynamic_title: true
 
 cursor:
   # Cursor style
