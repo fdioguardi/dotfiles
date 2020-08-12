@@ -14,18 +14,20 @@ function update_apps
 
     # Alacritty
     "$HOME"/.config/alacritty/colorize_alacritty.sh
-}
 
+    # Zathura
+    "$HOME"/.config/zathura/genzathurarc.sh
+}
 
 function usage
 {
-	echo -e "Usage: $( basename "$0" ) [-c PATH] [-x PATH] FILE..." >&2
+    echo -e "Usage: $( basename "$0" ) (-a | [-c PATH] [-x PATH] [(-r | FILE)])" >&2
 }
 
 function update_colors
 {
     xrdb "$xresources_path"
-    xrdb -merge "$color_path/$color_basename"   # May be redundant
+    [ ! "$xresources_path" -ef "$color_path/$color_basename" ] && xrdb -merge "$color_path/$color_basename"
 }
 
 function cache_colors
@@ -49,11 +51,23 @@ function set_color_path
     color_path=$1
 }
 
+function get_colorscheme
+{
+    grep "color scheme" "$cache_file" | cut -f5 -d"/" | tr -d "'"
+}
+
+function set_color_basename
+{
+    [ -n "$1" ] && [ ! -f "$color_path"/"$1" ] && echo "$color_path/$1 does not exist" && exit 3
+
+    color_basename=${1:-$(basename "$(shuf -n1 -e "$color_path"/*)")}
+}
+
 cache_file="$HOME/.cache/paintee"
 
 while getopts 'arc:x:' opt; do
 	case "$opt" in
-		a)	grep "color scheme" "$cache_file" | cut -f6 -d"/" | tr -d "'" ; exit 0	;;
+		a)	get_colorscheme ; exit 0        ;;
 		r)	;; #Placebo effect
 		c)	set_color_path "$OPTARG"		;;
 		x)	set_xresources_path "$OPTARG"	;;
@@ -62,16 +76,12 @@ while getopts 'arc:x:' opt; do
 done
 shift "$((OPTIND - 1))"
 
+[ $# -gt 1 ] && usage && exit 1
+
 # Default colors’ path
 [ -z "$color_path" ] && set_color_path "$HOME/.colors"
 
-[ $# -gt 1 ] && usage && exit 1
-
-if [ $# -eq 1 ]; then
-	[ ! -f "$color_path"/"$1" ] && echo "$color_path/$1 does not exist" && exit 3 || color_basename=$1
-fi
-
-: "${color_basename:=$(basename "$(shuf -n1 -e "$color_path"/*)")}"
+set_color_basename "$1"
 
 [ -z "$xresources_path" ] && set_xresources_path "$color_path/$color_basename"
 

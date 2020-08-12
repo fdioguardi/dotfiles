@@ -31,7 +31,7 @@ color_value()
         ALTWHITE|15)   search="color15:"        ;;
         *)          usage                       ;;
     esac
-    [[ -n $search ]] && xrdb -query | grep $search | awk '{print $NF}'
+    xrdb -query | grep $search | awk '{print $NF}'
 }
 
 [[ $# -ne 1 ]] && usage
