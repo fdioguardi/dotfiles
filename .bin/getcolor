@@ -2,7 +2,7 @@
 
 usage()
 {
-    echo -e "Usage: $(basename "$0") COLOR"
+    echo "Usage: $(basename "$0") COLOR"
     exit 1
 }
 
@@ -34,6 +34,6 @@ color_value()
     xrdb -query | grep $search | awk '{print $NF}'
 }
 
-[[ $# -ne 1 ]] && usage
+[ $# -ne 1 ] && usage
 
 color_value "${1^^}"

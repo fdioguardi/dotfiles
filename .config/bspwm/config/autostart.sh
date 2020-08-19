@@ -1,27 +1,22 @@
-#!/bin/bash
+#!/bin/sh
 
-## Variables
-wallpaper=$(shuf -n1 -e "$HOME"/.wallpaper/*/*)
-apps=(sxhkd feh pulseaudio bluetoothctl polybar picom)
+## Apps
+__start() { pkill "$1"; "$@" & }
 
-## Kill Apps
-for app in ${apps[*]}
-do
-	killall -Iq -9 "$app"
-done
+__start feh --no-fehbg --bg-fill --randomize "$HOME"/.wallpaper/*/*
 
-## Ricing
-recolorize
-cp "$wallpaper" /tmp/wallpaper ; feh --no-fehbg --bg-fill "$wallpaper" &
+__start sxhkd
 
-## Start Apps
-sxhkd &
+__start picom -b
 
-"$HOME"/.config/polybar/launch.sh
+__start unclutter --ignore-scrolling --fork
 
-picom -b
+__start redshift
 
-unclutter --ignore-scrolling --fork
+# Scripts
+recolorize &
 
-# Window swallow
-#pidof "$HOME"/.config/bspwm/scripts/bspswallow.sh || . "$HOME"/.config/bspwm/scripts/bspswallow.sh &
+"$HOME"/.config/polybar/launch.sh &
+
+# WM-specific keybindings
+sxhkd -c "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/bspwm" &

@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 scrot_path=$HOME/.screenshots
-[[ -d "$scrot_path" ]] || mkdir -p "$scrot_path"
+[ -d "$scrot_path" ] || mkdir -p "$scrot_path"
 
-if [[ $1 = "cut" ]]; then
+if [ "$1" = "cut" ]; then
     sleep 0.2
     scrot -s -q 100 -e 'copy_file.sh $f; mv $f ~/.screenshots/$f; feh ~/.screenshots/$f'
 else

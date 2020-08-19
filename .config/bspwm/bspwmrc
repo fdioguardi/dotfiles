@@ -1,17 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 bspc rule -r "*"
 
-# Enviroment
-export PATH="${PATH}:$HOME/.bin"
-
-## Autostart
-[[ -x $HOME/.config/bspwm/config/autostart.sh ]] && . "$HOME"/.config/bspwm/config/autostart.sh
-
 ## Monitor Settings
-[[ -x $HOME/.config/bspwm/config/monitors_setup.sh ]] && . "$HOME"/.config/bspwm/config/monitors_setup.sh
+[ -x "$HOME"/.config/bspwm/config/monitors_setup.sh ] && "$HOME"/.config/bspwm/config/monitors_setup.sh
 
 ## Desktop Settings
-[[ -x $HOME/.config/bspwm/config/desktop_setup.sh ]] && . "$HOME"/.config/bspwm/config/desktop_setup.sh
+[ -x "$HOME"/.config/bspwm/config/desktop_setup.sh ] && "$HOME"/.config/bspwm/config/desktop_setup.sh
 
 ## Global Settings
 bspc config automatic_scheme	alternate
@@ -45,5 +39,5 @@ bspc rule -a discord desktop=^9 follow=on state=tiled
 # Desktop 10
 bspc rule -a Pavucontrol desktop=^10 follow=off state=floating
 
-## Colors
-[[ -x $HOME/.config/bspwm/config/color_setup.sh ]] && . "$HOME"/.config/bspwm/config/color_setup.sh
+## Autostart
+[ -x "$HOME"/.config/bspwm/config/autostart.sh ] && "$HOME"/.config/bspwm/config/autostart.sh

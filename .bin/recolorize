@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Recolorize
 # A wrapper for paintee
@@ -7,7 +7,7 @@
 # If you have a script to change the color of an app
 # based on either .Xresources or ~/.cache/paintee
 # call it inside this function
-function update_apps
+update_apps()
 {
 	# Bspwm
 	"$HOME"/.config/bspwm/config/color_setup.sh
@@ -19,44 +19,44 @@ function update_apps
     "$HOME"/.config/zathura/genzathurarc.sh
 }
 
-function usage
+usage()
 {
-    echo -e "Usage: $( basename "$0" ) (-a | [-c PATH] [-x PATH] [(-r | FILE)])" >&2
+    echo "Usage: $( basename "$0" ) (-a | [-c PATH] [-x PATH] [FILE])" >&2
 }
 
-function update_colors
+update_colors()
 {
     xrdb "$xresources_path"
-    [ ! "$xresources_path" -ef "$color_path/$color_basename" ] && xrdb -merge "$color_path/$color_basename"
+    [ "$xresources_path" != "$color_path/$color_basename" ] && xrdb -merge "$color_path/$color_basename"
 }
 
-function cache_colors
+cache_colors()
 {
     paintee
-    echo -e "
+    echo "
     Current color scheme: '$color_path/$color_basename'
     Current Xresources file: '$xresources_path'
     Updated: $(date)" >> "$cache_file"
 }
 
-function set_xresources_path
+set_xresources_path()
 {
     [ ! -f "$1" ] && echo "$1 is not a file" && exit 3
     xresources_path=$1
 }
 
-function set_color_path
+set_color_path()
 {
     [ ! -d "$1" ] && echo "$1 is not a directory" && exit 3
     color_path=$1
 }
 
-function get_colorscheme
+get_colorscheme()
 {
     grep "color scheme" "$cache_file" | cut -f5 -d"/" | tr -d "'"
 }
 
-function set_color_basename
+set_color_basename()
 {
     [ -n "$1" ] && [ ! -f "$color_path"/"$1" ] && echo "$color_path/$1 does not exist" && exit 3
 
@@ -65,13 +65,19 @@ function set_color_basename
 
 cache_file="$HOME/.cache/paintee"
 
-while getopts 'arc:x:' opt; do
+while getopts 'ac:x:' opt; do
 	case "$opt" in
-		a)	get_colorscheme ; exit 0        ;;
-		r)	;; #Placebo effect
+		a)	get_colorscheme
+            exit 0
+            ;;
+
 		c)	set_color_path "$OPTARG"		;;
+
 		x)	set_xresources_path "$OPTARG"	;;
-		?)	usage ; exit 2			;;
+
+		?)	usage
+            exit 2
+            ;;
 	esac
 done
 shift "$((OPTIND - 1))"

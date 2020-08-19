@@ -17,14 +17,15 @@ function set_individual_padding()
 
 function set_padding()
 {
-    local padd=
-    local general_side_padding=$((padding - win_gaps))
-    local panel_side_padding=$((general_side_padding + panel_size))
+    local general_padding=$((padding - win_gaps))
 
     for side in "${sides[@]}"
     do
-        [ "$side" = "$panel_side" ] && padd=$panel_side_padding || padd=$general_side_padding
-        set_individual_padding "$side" "$padd"
+        if [ "$side" = "$panel_side" ]; then
+            set_individual_padding "$side" "$((general_padding + panel_size))"
+        else
+            set_individual_padding "$side" "$general_padding"
+        fi
     done
 }
 
