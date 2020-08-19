@@ -1,12 +1,11 @@
-#  __   __    __   __   ____  ____  ____
-# / _\ (  )  (  ) / _\ / ___)(  __)/ ___)
-#/    \/ (_/\ )( /    \\___ \ ) _) \___ \
-#\_/\_/\____/(__)\_/\_/(____/(____)(____/
+#
+# .bash_aliases
+#
 
 alias                                               \
     ls='ls --color=auto'                            \
-    l='ls --color=auto -lA'                         \
-    ll='ls --color=auto -lA --time-style long-iso'  \
+    l='ls --color=auto -lA --group-directories-first'                         \
+    ll='ls --color=auto -lA --time-style long-iso --group-directories-first'  \
     cd..='cd ..'                                    \
     ..='cd ..'                                      \
     ...='cd ../../'                                 \
@@ -20,18 +19,19 @@ alias                                               \
     mkd='mkdir -pv'
 
 alias \
-    syu='sudo pacman --color=auto -Syu ; yay -Syu'  \
     pacman='sudo pacman --color=auto'               \
     p='sudo pacman --color=auto'                    \
-    y='yay --color=auto'                            \
+    i='sudo pacman --color=auto --needed -S'        \
+    r='sudo pacman --color=auto -Rns'               \
+    y='yay'                                         \
+    ia='yay --color=auto -S'                        \
+    ra='yay --color=auto -Rns'                      \
     anakin='sudo pacman -Rns --noconfirm $(pacman -Qtdq)'
 
 alias \
-    v='nvim'                                                    \
-    vi='nvim'                                                   \
-    vim='nvim'                                                  \
-    vimconf='nvim $HOME/.config/nvim/config'                    \
-    sv='sudo nvim'
+    vi='v'                                          \
+    vim='v'                                         \
+    vf='v $(fzf)'
 
 alias \
     pls='sudo $(fc -ln -1)' \

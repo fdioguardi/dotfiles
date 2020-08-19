@@ -1,21 +1,24 @@
 #
-# ~/.profile
+# .profile
 #
 
-[[ -n "$BASH" ]] && [[ -r ~/.bashrc ]] && . ~/.bashrc
+# Path
+export PATH="${PATH}:$HOME/.bin"
 
 # XDG variables
 export XDG_DATA_HOME=${HOME}/.local/share
 export XDG_CONFIG_HOME=${HOME}/.config
-export XDG_DATA_DIRS=/usr/local/share/:/usr/share/
-export XDG_CONFIG_DIRS=/etc/xdg
 export XDG_CACHE_HOME=${HOME}/.cache
 
-# Preferred application variables
+# Default applications
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PAGER="less"
-export BROWSER="$HOME/.bin/firefox"
+export BROWSER="$HOME/.bin/firebox"
+export READER="satura"
+
+# Global variables
+[ -r "$XDG_CONFIG_HOME"/sh/exports.bash ] && . "$XDG_CONFIG_HOME"/sh/exports.bash
 
 # Keyboard layout
 setxkbmap -layout "us" -variant "intl"
@@ -27,4 +30,4 @@ setxkbmap -option caps:swapescape
 xsetroot -cursor_name left_ptr
 
 # Increase key speed via a rate change
-xset r rate 300 50
+xset r rate 200 50
