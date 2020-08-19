@@ -55,12 +55,11 @@ set shortmess+=ac       " use abbreviations for file messages and don’t pass t
 set helplang+=es,it     " accept help in spanish and italian
 
 " 12 selecting text
-set selection=inclusive         " select the last character as well
 
 " 13 editing text
-set undofile                        " maintain undo history between sessions
-set undodir=~/.config/nvim/undodir  " store undo history files
-set infercase                       " case insensitivity for completion
+set undofile                                " maintain undo history between sessions
+set undodir=~/.config/nvim/undodir          " store undo history files
+set infercase                               " case insensitivity for completion
 
 " 14 tabs and indenting
 set tabstop=4           " a tab is four spaces
@@ -97,5 +96,6 @@ set allowrevins                     " allow <Ctrl-_> to toggle backwards inserti
 " 24 multi-byte characters
 
 " 25 various
-set gdefault        " s///g is implied, explicitly adding g negates effect
-set pyxversion=3    " use Python 3, not 2
+set virtualedit=block   " Allow virtual editing in Visual block mode.
+set gdefault            " s///g is implied, explicitly adding g negates effect
+set pyxversion=3        " use Python 3, not 2
