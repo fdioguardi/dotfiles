@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ## Apps
+__clistart() { $TERMINAL --title "$1" --command  "$@" & }
+
 __start() { pkill "$1"; "$@" & }
 
 __start feh --no-fehbg --bg-fill --randomize "$HOME"/.wallpaper/*/*
@@ -13,10 +15,18 @@ __start unclutter --ignore-scrolling --fork
 
 __start redshift
 
+__start pavucontrol
+
+__clistart ncspot
+
+# I haven’t figured out how to set a rule for bluetoothctl yet, this will do
+bspc rule -a Alacritty -o desktop=^10 state=floating rectangle=1358x84+16+934
+__clistart bluetoothctl
+
 # Scripts
-recolorize &
+recolorize gruvbox &
 
 "$HOME"/.config/polybar/launch.sh &
 
 # WM-specific keybindings
-sxhkd -c "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/bspwm" &
+sxhkd -c "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/wm_sxhkdrc" &
