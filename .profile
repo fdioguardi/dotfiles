@@ -3,7 +3,7 @@
 #
 
 # Path
-export PATH="${PATH}:$HOME/.bin"
+export PATH="${PATH}:$HOME/.bin:$HOME/.local/bin"
 
 # XDG variables
 export XDG_DATA_HOME=${HOME}/.local/share
@@ -14,11 +14,12 @@ export XDG_CACHE_HOME=${HOME}/.cache
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PAGER="less"
-export BROWSER="$HOME/.bin/firebox"
-export READER="satura"
+export BROWSER="$HOME/.bin/firefox"
+export READER="zathura"
 
 # Global variables
-[ -r "$XDG_CONFIG_HOME"/sh/exports.bash ] && . "$XDG_CONFIG_HOME"/sh/exports.bash
+[ -r "$XDG_CONFIG_HOME"/sh/env.bash ] && \
+  source "$XDG_CONFIG_HOME"/sh/env.bash
 
 # Keyboard layout
 setxkbmap -layout "us" -variant "intl"
@@ -30,4 +31,4 @@ setxkbmap -option caps:swapescape
 xsetroot -cursor_name left_ptr
 
 # Increase key speed via a rate change
-xset r rate 200 50
+xset r rate 300 50
