@@ -9,35 +9,35 @@
 
 usage ()
 {
-	echo "Usage: $( basename "$0" ) [-c PATH] [-x PATH] FILE..." >&2
+  echo "Usage: $( basename "$0" ) [-c PATH] [-x PATH] FILE..." >&2
 }
 
 getcolors()
 {
-    FOREGROUND=$(getcolor foreground)
-    BACKGROUND=$(getcolor background)
-    CURSOR=$(getcolor cursor)
-    BLACK=$(getcolor black)
-    RED=$(getcolor red)
-    GREEN=$(getcolor green)
-    YELLOW=$(getcolor yellow)
-    BLUE=$(getcolor blue)
-    MAGENTA=$(getcolor magenta)
-    CYAN=$(getcolor cyan)
-    WHITE=$(getcolor white)
-    ALTBLACK=$(getcolor altblack)
-    ALTRED=$(getcolor altred)
-    ALTGREEN=$(getcolor altgreen)
-    ALTYELLOW=$(getcolor altyellow)
-    ALTBLUE=$(getcolor altblue)
-    ALTMAGENTA=$(getcolor altmagenta)
-    ALTCYAN=$(getcolor altcyan)
-    ALTWHITE=$(getcolor altwhite)
+  FOREGROUND=$(getcolor foreground)
+  BACKGROUND=$(getcolor background)
+  CURSOR=$(getcolor cursor)
+  BLACK=$(getcolor black)
+  RED=$(getcolor red)
+  GREEN=$(getcolor green)
+  YELLOW=$(getcolor yellow)
+  BLUE=$(getcolor blue)
+  MAGENTA=$(getcolor magenta)
+  CYAN=$(getcolor cyan)
+  WHITE=$(getcolor white)
+  ALTBLACK=$(getcolor altblack)
+  ALTRED=$(getcolor altred)
+  ALTGREEN=$(getcolor altgreen)
+  ALTYELLOW=$(getcolor altyellow)
+  ALTBLUE=$(getcolor altblue)
+  ALTMAGENTA=$(getcolor altmagenta)
+  ALTCYAN=$(getcolor altcyan)
+  ALTWHITE=$(getcolor altwhite)
 }
 
 cachecolors ()
 {
-	read -d '' cache <<- EOF
+  read -d '' cache <<- EOF
 	FOREGROUND="${FOREGROUND}"
 	BACKGROUND="${BACKGROUND}"
 	CURSOR="${CURSOR}"
@@ -60,29 +60,30 @@ cachecolors ()
 	EOF
 }
 
-sendescape () {
-	for term in /dev/pts/[0-9]*; do
-        printf "%b" "\033]10;$FOREGROUND\007" > "$term" &
-        printf "%b" "\033]11;$BACKGROUND\007" > "$term" &
-        printf "%b" "\033]708;$BACKGROUND\007" > "$term" &
-        printf "%b" "\033]12;$CURSOR\007" > "$term" &
-        printf "%b" "\033]4;0;$BLACK\007" > "$term" &
-        printf "%b" "\033]4;1;$RED\007" > "$term" &
-        printf "%b" "\033]4;2;$GREEN\007" > "$term" &
-        printf "%b" "\033]4;3;$YELLOW\007" > "$term" &
-        printf "%b" "\033]4;4;$BLUE\007" > "$term" &
-        printf "%b" "\033]4;5;$MAGENTA\007" > "$term" &
-        printf "%b" "\033]4;6;$CYAN\007" > "$term" &
-        printf "%b" "\033]4;7;$WHITE\007" > "$term" &
-        printf "%b" "\033]4;8;$ALTBLACK\007" > "$term" &
-        printf "%b" "\033]4;9;$ALTRED\007" > "$term" &
-        printf "%b" "\033]4;10;$ALTGREEN\007" > "$term" &
-        printf "%b" "\033]4;11;$ALTYELLOW\007" > "$term" &
-        printf "%b" "\033]4;12;$ALTBLUE\007" > "$term" &
-        printf "%b" "\033]4;13;$ALTMAGENTA\007" > "$term" &
-        printf "%b" "\033]4;14;$ALTCYAN\007" > "$term" &
-        printf "%b" "\033]4;15;$ALTWHITE\007" > "$term" &
-	done
+sendescape ()
+{
+  for term in /dev/pts/[0-9]*; do
+    printf "%b" "\033]10;$FOREGROUND\007" > "$term" &
+    printf "%b" "\033]11;$BACKGROUND\007" > "$term" &
+    printf "%b" "\033]708;$BACKGROUND\007" > "$term" &
+    printf "%b" "\033]12;$CURSOR\007" > "$term" &
+    printf "%b" "\033]4;0;$BLACK\007" > "$term" &
+    printf "%b" "\033]4;1;$RED\007" > "$term" &
+    printf "%b" "\033]4;2;$GREEN\007" > "$term" &
+    printf "%b" "\033]4;3;$YELLOW\007" > "$term" &
+    printf "%b" "\033]4;4;$BLUE\007" > "$term" &
+    printf "%b" "\033]4;5;$MAGENTA\007" > "$term" &
+    printf "%b" "\033]4;6;$CYAN\007" > "$term" &
+    printf "%b" "\033]4;7;$WHITE\007" > "$term" &
+    printf "%b" "\033]4;8;$ALTBLACK\007" > "$term" &
+    printf "%b" "\033]4;9;$ALTRED\007" > "$term" &
+    printf "%b" "\033]4;10;$ALTGREEN\007" > "$term" &
+    printf "%b" "\033]4;11;$ALTYELLOW\007" > "$term" &
+    printf "%b" "\033]4;12;$ALTBLUE\007" > "$term" &
+    printf "%b" "\033]4;13;$ALTMAGENTA\007" > "$term" &
+    printf "%b" "\033]4;14;$ALTCYAN\007" > "$term" &
+    printf "%b" "\033]4;15;$ALTWHITE\007" > "$term" &
+  done
 }
 
 getcolors

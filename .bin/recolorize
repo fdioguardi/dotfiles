@@ -3,94 +3,106 @@
 # Recolorize
 # A wrapper for paintee
 
-
-# If you have a script to change the color of an app
-# based on either .Xresources or ~/.cache/paintee
-# call it inside this function
+# If you have a script to change the color of an app based on either
+# .Xresources or ~/.cache/paintee, call it inside this function
 update_apps()
 {
-	# Bspwm
-	"$HOME"/.config/bspwm/config/color_setup.sh
+  # Bspwm
+  "$HOME"/.config/bspwm/config/color_setup.sh
 
-    # Alacritty
-    "$HOME"/.config/alacritty/colorize_alacritty.sh
+  # Alacritty
+  "$HOME"/.config/alacritty/colorize_alacritty.sh
 
-    # Zathura
-    "$HOME"/.config/zathura/genzathurarc.sh
+  # Zathura
+  "$HOME"/.config/zathura/genzathurarc.sh
 }
 
 usage()
 {
-    echo "Usage: $( basename "$0" ) (-a | [-c PATH] [-x PATH] [FILE])" >&2
+  echo "Usage: $( basename "$0" ) (-a | [-c PATH] [-x PATH] [FILE])" >&2
 }
 
 update_colors()
 {
-    xrdb "$xresources_path"
-    [ "$xresources_path" != "$color_path/$color_basename" ] && xrdb -merge "$color_path/$color_basename"
-}
+  xrdb "${xresources_path}"
+  [ "${xresources_path}" != "${color_path}/${color_basename}" ] &&
+    xrdb -merge "${color_path}/${color_basename}"
+  }
 
 cache_colors()
 {
-    paintee
-    echo "
-    Current color scheme: '$color_path/$color_basename'
-    Current Xresources file: '$xresources_path'
-    Updated: $(date)" >> "$cache_file"
+  paintee
+  echo "
+  Current color scheme: '${color_path}/${color_basename}'
+  Current Xresources file: '${xresources_path}'
+  Updated: $(date)" >> "${cache_file}"
 }
 
 set_xresources_path()
 {
-    [ ! -f "$1" ] && echo "$1 is not a file" && exit 3
-    xresources_path=$1
+  [ ! -f "$1" ] && echo "$1 is not a file" && exit 3
+  xresources_path=$1
 }
 
 set_color_path()
 {
-    [ ! -d "$1" ] && echo "$1 is not a directory" && exit 3
-    color_path=$1
+  [ ! -d "$1" ] && echo "$1 is not a directory" && exit 3
+  color_path=$1
 }
 
 get_colorscheme()
 {
-    grep "color scheme" "$cache_file" | cut -f5 -d"/" | tr -d "'"
+  current_colorscheme=$(grep "color scheme" "${cache_file}")
+  current_colorscheme="${current_colorscheme##*/}"
+  echo "${current_colorscheme%?}"
 }
 
 set_color_basename()
 {
-    [ -n "$1" ] && [ ! -f "$color_path"/"$1" ] && echo "$color_path/$1 does not exist" && exit 3
+  [ -n "$1" ] && \
+    [ ! -f "${color_path}"/"$1" ] && \
+    echo "${color_path}/$1 does not exist" && \
+    exit 3
 
-    color_basename=${1:-$(basename "$(shuf -n1 -e "$color_path"/*)")}
+  color_basename=${1:-$(basename "$(shuf -n1 -e "${color_path}"/*)")}
 }
 
-cache_file="$HOME/.cache/paintee"
+main()
+{
+  cache_file="${HOME}/.cache/paintee"
 
-while getopts 'ac:x:' opt; do
-	case "$opt" in
-		a)	get_colorscheme
-            exit 0
-            ;;
+  while getopts 'ac:x:' opt; do
+    case "${opt}" in
+      a)
+        get_colorscheme
+        exit 0
+        ;;
 
-		c)	set_color_path "$OPTARG"		;;
+      c) set_color_path "${OPTARG}" ;;
 
-		x)	set_xresources_path "$OPTARG"	;;
+      x) set_xresources_path "${OPTARG}" ;;
 
-		?)	usage
-            exit 2
-            ;;
-	esac
-done
-shift "$((OPTIND - 1))"
+      ?)
+        usage
+        exit 2
+        ;;
+    esac
+  done
+  shift "$((OPTIND - 1))"
 
-[ $# -gt 1 ] && usage && exit 1
+  [ $# -gt 1 ] && usage && exit 1
 
-# Default colors’ path
-[ -z "$color_path" ] && set_color_path "$HOME/.colors"
+  # Default colors’ path
+  [ -z "${color_path}" ] && set_color_path "${XDG_CONFIG_HOME}/colorschemes"
 
-set_color_basename "$1"
+  set_color_basename "$1"
 
-[ -z "$xresources_path" ] && set_xresources_path "$color_path/$color_basename"
+  [ -z "${xresources_path}" ] && \
+    set_xresources_path "${color_path}/${color_basename}"
 
-update_colors
-cache_colors
-update_apps
+  update_colors
+  cache_colors
+  update_apps
+}
+
+main "$@"
