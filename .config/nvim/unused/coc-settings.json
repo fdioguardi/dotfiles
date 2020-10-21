@@ -3,9 +3,6 @@
     "suggest.echodocSupport": true,
     "coc.source.file.ignoreHidden": false,
 
-    //omnisharp
-    "omnisharp.useDotnet": true,
-
     // diagnostics
     "diagnostic.errorSign": " ",
     "diagnostic.warningSign": " ",

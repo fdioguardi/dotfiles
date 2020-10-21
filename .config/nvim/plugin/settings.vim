@@ -4,18 +4,23 @@
 
 " Note: use :options to see a categorized list of options
 
-"" source defaults - must be at the beginning of the file
+" source defaults - must be at the beginning of the file
 filetype plugin indent on	" enable filetype detection
-filetype plugin on			" enable filetype plugins
-source $VIMRUNTIME/mswin.vim
+
+" variables
+let loaded_perl_provider=0      " disable perl provider
+let loaded_ruby_provider=0      " disable ruby provider
+let loaded_python2_provider=0   " disable python2 provider
 
 " 1 important
 
 " 2 moving arround, searching and patterns
-set path+=**		" recursively look through subdirectories when dealing with filepaths
-set autochdir		" switch to directory of file in buffer
-set ignorecase		" ignore case when searching
-set smartcase		" overwrite ignorecase when search pattern contains upper case characteres
+set path+=**		        " recursively look through subdirectories when dealing with filepaths
+set autochdir		        " switch to directory of file in buffer
+set ignorecase		        " ignore case when searching
+set smartcase		        " overwrite ignorecase when search pattern contains upper case characteres
+set inccommand=nosplit          " show the effects of a command incrementally
+set whichwrap=b,s,<,>,[,]	" allow <Left>, <Right>, <Backspace>, and <Space>, to move the cursor between lines
 
 " 3 tags
 
@@ -31,14 +36,14 @@ syntax on			        " turn on syntax highlighting.
 set spelllang=en,es,it		" enable spell-check in english, spanish, and italian
 set cursorline		        " highlights current line
 set termguicolors           " use GUI colors for the terminal
-set colorcolumn=80          " highlight 80th column
 
 " 6 multiple windows
+set laststatus=1            " only show statusline with multiple windows
 set hidden                  " hide a buffer when abandoned
 set splitbelow splitright   " better split behaviour
 
 " 7 multiple tab pages
-set showtabline=2       " always display the tabline, even if there is only one tab
+set showtabline=0       " hide tabline
 
 " 8 terminal
 set icon        " set the text of the icon for this window
@@ -49,26 +54,28 @@ set mouse=a         " enable using the mouse if available
 " 10 printing
 
 " 11 messages and info
+set noruler             " don’t show cursor position
 set noerrorbells        " don’t beep on errors
 set noshowmode		    " don’t show currenet mode
 set shortmess+=ac       " use abbreviations for file messages and don’t pass them to the completion menu
 set helplang+=es,it     " accept help in spanish and italian
 
 " 12 selecting text
+set clipboard+=unnamedplus  " allways use the system’s clipboard
 
 " 13 editing text
+set formatoptions-=ro                       " disable automatic commenting when pressing 'o', 'O', and <CR>
 set undofile                                " maintain undo history between sessions
 set undodir=~/.config/nvim/undodir          " store undo history files
 set infercase                               " case insensitivity for completion
 
 " 14 tabs and indenting
-set tabstop=4           " a tab is four spaces
-set shiftwidth=4        " number of spaces used for each step of (auto)indent
-set softtabstop=4   	" number of spaces to insert for a <Tab>
-set smartindent	        " seems to do a decent job with indenting
-set expandtab	    	" use spaces to insert a tab
+set tabstop=4
+set breakindent
 
 " 15 folding
+set foldmethod=indent   " lines with equal indent form a fold.
+" set foldlevelstart=99    " open every file at least with a level of folding
 
 " 16 diff mode
 
@@ -96,6 +103,6 @@ set allowrevins                     " allow <Ctrl-_> to toggle backwards inserti
 " 24 multi-byte characters
 
 " 25 various
-set virtualedit=block   " Allow virtual editing in Visual block mode.
+set virtualedit=block   " allow cursor to move where there is no text in visual block mode
 set gdefault            " s///g is implied, explicitly adding g negates effect
 set pyxversion=3        " use Python 3, not 2

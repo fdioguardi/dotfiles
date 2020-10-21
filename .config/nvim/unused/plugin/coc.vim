@@ -4,13 +4,12 @@
 
 let s:languages = [
 \   'coc-json',
-\   'coc-omnisharp',
 \   'coc-vimlsp',
+\   'coc-python',
 \   'coc-sh',
 \   ]
 
 let s:utils = [
-\   'coc-explorer',
 \   'coc-highlight',
 \   'coc-snippets',
 \   'coc-pairs',
@@ -41,15 +40,29 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap gR <Plug>(coc-refactor)
 
+" coc-diagnostic
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" vim-prettier
-source $HOME/.config/nvim/config/plugins/coc/vim-prettier.vim
+" Map function and class text objects
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
-" coc-explorer
-source $HOME/.config/nvim/config/plugins/coc/coc-explorer.vim
-
-
+" coc-snippets
 let g:coc_snippet_next = '<tab>'
 
 let g:coc_snippet_prev = '<s-tab>'
+
+" coc-highlihght
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')

@@ -4,10 +4,10 @@
 "
 
 let g:lightline = {
-        \ 'colorscheme': 'onedark',
+        \ 'colorscheme': 'gruvbox',
         \
         \ 'active': {
-        \   'left': [ ],
+        \   'left': [ [ ], [ ],  [ 'filename', 'modified' ] ],
         \
         \   'right': [ [ 'mode' ],
         \              [ 'gitbranch' ] ]
@@ -24,20 +24,25 @@ let g:lightline = {
         \ },
         \
         \ 'tabline': {
-        \    'left': [ [ 'buffers' ] ],
+        \    'left': [ ],
         \
         \    'right': [ ]
         \ },
-        \
-        \ 'component_expand': {
-        \    'buffers': 'lightline#bufferline#buffers'
-        \ },
-        \
-        \ 'component_type': {
-        \    'buffers': 'tabsel'
-        \
-        \ }
-    \ }
+\ }
+		" \ 'tabline': {
+        " \    'left': [ [ 'buffers' ] ],
+        " \
+        " \    'right': [ ]
+        " \ },
+        " \ 'component_expand': {
+        " \    'buffers': 'lightline#bufferline#buffers'
+        " \ },
+        " \
+        " \ 'component_type': {
+        " \    'buffers': 'tabsel'
+        " \
+        " \ }
+    " \ }
 
 " the name to use for unnamed buffers
-let g:lightline#bufferline#unnamed = '[No Name]'
+" let g:lightline#bufferline#unnamed = '[No Name]'
