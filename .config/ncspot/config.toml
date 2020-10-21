@@ -1,5 +1,10 @@
 [keybindings]
+"G" = "move bottom"
+"g" = "move top"
 "=" = "volup"
 "p" = "playpause"
 "L" = "next"
 "H" = "previous"
+
+[saved_state]
+repeat = "playlist"
