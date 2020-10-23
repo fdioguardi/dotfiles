@@ -5,11 +5,9 @@
 call plug#begin('~/.config/nvim/bundle')    " start reading plugins
 
     " UI
-        " Plug 'itchyny/lightline.vim'            " status line
         Plug 'junegunn/rainbow_parentheses.vim' " colorizes matching pairs of parenthesis
 
     " Colorschemes
-        "Plug 'joshdick/onedark.vim'             " onedark colorscheme
         Plug 'morhetz/gruvbox'                  " gruvbox colorscheme
 
     " Functionalitiy
@@ -24,7 +22,7 @@ call plug#begin('~/.config/nvim/bundle')    " start reading plugins
         Plug 'sheerun/vim-polyglot'             " language pack
 
     " Language Server Protocol
-        Plug 'neovim/nvim-lspconfig'
-        Plug 'nvim-lua/completion-nvim'
+        Plug 'neovim/nvim-lspconfig'            " common configurations for lsp client
+        Plug 'nvim-lua/completion-nvim'         " completion framework for lsp
 
 call plug#end()	    " stop reading plugins
