@@ -17,13 +17,14 @@ lua require'nvim_lsp'.jedi_language_server.setup{
 lua require'nvim_lsp'.vimls.setup{ on_attach=require'completion'.on_attach }
 
 " normal-mode mappings for jump to definition and the like
-nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>gsh :lua vim.lsp.buf.signature_help()<CR>
-nnoremap <leader>grf :lua vim.lsp.buf.references()<CR>
-nnoremap <leader>grn :lua vim.lsp.buf.rename()<CR>
-nnoremap K :lua vim.lsp.buf.hover()<CR>
-nnoremap <leader>gca :lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> gd 			<cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K 			<cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD 			<cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gi 			<cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> 		<cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <leader>grf	<cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> <leader>grn	<cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> ga			<cmd>lua vim.lsp.buf.code_action()<CR>
 
 " use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
