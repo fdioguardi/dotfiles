@@ -50,9 +50,11 @@ alt + F6
 # adjust media
 #
 
-# pause, play, next, previous, controlled by headset
+# pause and play with headset
 XF86Audio{Pause,Play}
     playerctl play-pause
+
+# next and previous with headset
 XF86Audio{Next,Prev}
 	playerctl {next,previous}
 
