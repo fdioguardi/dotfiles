@@ -24,7 +24,8 @@ super + n
 
 # chat
 super + D
-    discord-canary
+    discord & \
+    telegram-desktop &
 
 # power management prompt
 alt + F4
