@@ -5,10 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Enable programmable completion features
-[ -f /usr/share/bash-completion/bash_completion ] && \
-  source /usr/share/bash-completion/bash_completion
-
 # Enable git prompt support
 [ -f /usr/share/git/completion/git-prompt.sh ] && \
   source /usr/share/git/completion/git-prompt.sh
