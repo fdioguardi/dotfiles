@@ -1,3 +1,10 @@
+"
+" lsp.vim
+"
+
+" enable servers
+lua require('lsp')
+
 " don’t autoinsert nor open any other menu
 set completeopt=menuone,noinsert,noselect
 
@@ -6,15 +13,6 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " ignore case matching
 let g:completion_matching_ignore_case = 1
-
-"" enable lsp servers
-" python
-lua require'nvim_lsp'.jedi_language_server.setup{
-	\	on_attach=require'completion'.on_attach
-\	}
-
-" viml
-lua require'nvim_lsp'.vimls.setup{ on_attach=require'completion'.on_attach }
 
 " normal-mode mappings for jump to definition and the like
 nnoremap <silent> gd 			<cmd>lua vim.lsp.buf.definition()<CR>
