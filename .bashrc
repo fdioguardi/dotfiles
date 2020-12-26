@@ -44,14 +44,8 @@ shopt -s autocd cdspell cmdhist dirspell dotglob globstar histappend \
   interactive_comments lithist no_empty_cmd_completion nocaseglob \
   progcomp_alias shift_verbose
 
-# Functions
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/functions.bash ] && \
-  source "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/functions.bash
-
-# Aliases
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/aliases.bash ] && \
-  source "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/aliases.bash
-
-# Fzf
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/fzf.bash ] && \
-  source "${XDG_CONFIG_HOME:-$HOME/.config}"/sh/fzf.bash
+# Modules
+for file in ${XDG_CONFIG_HOME:-$HOME/.config}/sh/*; do
+  [ -f "$file" ] && source "$file"
+done
+unset file
