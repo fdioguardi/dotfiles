@@ -52,7 +52,7 @@ alias \
   brightness='xrandr --output eDP-1 --brightness'                         \
   pharo='pharo $HOME/Pharo/Pharo8.0-SNAPSHOT-64bit-1b7a8d8.image &'       \
   activate='source venv/bin/activate'                                     \
-  d='/usr/bin/git --git-dir=/home/felipe/.dotfiles --work-tree=/home/felipe' # Managing dotfiles
+  d='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME' # Managing dotfiles
 
 alias \
   us='setxkbmap -layout "us" -variant "intl" ; setxkbmap -option caps:swapescape'     \
