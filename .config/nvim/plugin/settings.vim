@@ -74,8 +74,7 @@ set tabstop=4
 set breakindent
 
 " 15 folding
-set foldmethod=indent   " lines with equal indent form a fold.
-" set foldlevelstart=99    " open every file at least with a level of folding
+set foldlevelstart=99   " open files unfolded
 
 " 16 diff mode
 

@@ -20,6 +20,7 @@ call plug#begin('~/.config/nvim/bundle')    " start reading plugins
 
     " Syntax highlighting
         Plug 'sheerun/vim-polyglot'             " language pack
+        Plug 'nvim-treesitter/nvim-treesitter'  " parser generator
 
     " Language Server Protocol
         Plug 'neovim/nvim-lspconfig'            " common configurations for lsp client
