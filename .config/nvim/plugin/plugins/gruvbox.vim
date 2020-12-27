@@ -5,6 +5,9 @@
 " enable italic text
 let g:gruvbox_italic = '1'
 
+" clear highlight from sign column
+let g:gruvbox_sign_column = 'bg0'
+
 " use dark mode, hard contrast
 let g:gruvbox_contrast_dark = 'hard'
 
@@ -17,4 +20,3 @@ let g:gruvbox_invert_selection='0'
 
 colorscheme gruvbox
 set background=dark
-
