@@ -5,17 +5,6 @@ let mapleader=' '
 " clear search
 nnoremap <leader>/ :noh<CR>:call clearmatches()<CR>
 
-" remove arrow keys
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-noremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-
-
 " since I constantly mess these up when going fast
 command WQ wq
 command Wq wq
@@ -61,10 +50,10 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Better window navigation between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
