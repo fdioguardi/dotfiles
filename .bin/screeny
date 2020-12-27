@@ -12,5 +12,5 @@ else
   cut=""
 fi
 
-maim -o "$cut" | tee "$name" | xclip -selection clipboard -t image/png
+maim -uo "$cut" | tee "$name" | xclip -selection clipboard -t image/png
 feh "$name"
