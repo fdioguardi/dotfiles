@@ -54,6 +54,10 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-l> <c-w>l
 nnoremap <c-k> <c-w>k
+vnoremap <c-h> <c-w>h
+vnoremap <c-j> <c-w>j
+vnoremap <c-l> <c-w>l
+vnoremap <c-k> <c-w>k
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
