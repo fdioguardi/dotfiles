@@ -19,8 +19,9 @@ __start pavucontrol
 
 __clistart ncspot
 
-# I haven’t figured out how to set a rule for bluetoothctl yet, this will do
-bspc rule -a Alacritty -o desktop=^10 state=floating rectangle=1358x84+16+934
+# I haven’t figured out how to set a rule for bluetoothctl yet, so this will do
+bspc rule -a Alacritty -o desktop=^10 state=floating rectangle=1378x79+15+947
+
 __clistart bluetoothctl
 
 # Scripts

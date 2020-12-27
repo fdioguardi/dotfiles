@@ -19,11 +19,11 @@ bspc config gapless_monocle 	true
 bspc config single_monocle  	false
 
 bspc config pointer_modifier	    	control
-bspc config pointer_action1	        move
-bspc config pointer_action2	        resize_side
-bspc config pointer_action3	        resize_corner
-bspc config click_to_focus	        none
-bspc config focus_follows_pointer	true
+bspc config pointer_action1	        	move
+bspc config pointer_action2	        	resize_side
+bspc config pointer_action3	        	resize_corner
+bspc config click_to_focus	        	none
+bspc config focus_follows_pointer		true
 bspc config remove_disabled_monitors	true
 bspc config remove_unplugged_monitors	true
 
@@ -41,10 +41,10 @@ bspc rule -a TelegramDesktop desktop=^8 follow=on state=tiled
 
 # Desktop 10
 bspc rule -a Pavucontrol \
-  desktop=^10 follow=off state=floating rectangle=517x694+1391+321
+  desktop=^10 follow=off state=floating rectangle=500x660+1401+366
 
 bspc rule -a Alacritty:Alacritty:ncspot \
-  desktop=^10 state=floating rectangle=1357x891+17+25
+  desktop=^10 state=floating rectangle=1378x924+15+15
 
 ## Autostart
 [ -x "$HOME"/.config/bspwm/config/autostart.sh ] && \
