@@ -21,12 +21,6 @@ export READER="zathura"
 [ -r "$XDG_CONFIG_HOME"/sh/env.bash ] && \
   source "$XDG_CONFIG_HOME"/sh/env.bash
 
-# Keyboard layout
-setxkbmap -layout "us" -variant "intl"
-
-# Map Caps_Lock to Esc
-setxkbmap -option caps:swapescape
-
 # Remove 'X' cursor
 xsetroot -cursor_name left_ptr
 
