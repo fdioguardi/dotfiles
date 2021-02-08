@@ -7,7 +7,7 @@ __start() { pkill "$1"; "$@" & }
 
 __start feh --no-fehbg --bg-fill --randomize "$HOME"/.wallpaper/*/*
 
-__start sxhkd
+__start sxhkd -m -1
 
 __start picom -b
 
@@ -28,6 +28,3 @@ __clistart bluetoothctl
 recolorize -q gruvbox &
 
 "$HOME"/.config/polybar/launch.sh &
-
-# WM-specific keybindings
-sxhkd -c "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/wm_sxhkdrc" &
