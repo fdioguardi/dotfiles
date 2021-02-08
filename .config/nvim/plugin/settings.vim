@@ -4,13 +4,11 @@
 
 " Note: use :options to see a categorized list of options
 
-" source defaults - must be at the beginning of the file
-filetype plugin indent on	" enable filetype detection
-
 " variables
+let loaded_node_provider=0		" disable node provider
 let loaded_perl_provider=0      " disable perl provider
+let loaded_python_provider=0    " disable python2 provider
 let loaded_ruby_provider=0      " disable ruby provider
-let loaded_python2_provider=0   " disable python2 provider
 
 " 1 important
 
@@ -33,8 +31,10 @@ set lazyredraw          " don’t redraw while executing macros
 
 " 5 syntax, highlighting and spelling
 syntax on			        " turn on syntax highlighting.
-set spelllang=en,es,it		" enable spell-check in english, spanish, and italian
+set nohlsearch              " don't highlight search matches
 set cursorline		        " highlights current line
+set spelllang=en,es,it		" enable spell-check in english, spanish, and italian
+set spelloptions=camel      " enable spell-checking of camelCased words
 set termguicolors           " use GUI colors for the terminal
 
 " 6 multiple windows
@@ -59,12 +59,13 @@ set noerrorbells        " don’t beep on errors
 set noshowmode		    " don’t show currenet mode
 set shortmess+=ac       " use abbreviations for file messages and don’t pass them to the completion menu
 set helplang+=es,it     " accept help in spanish and italian
+set confirm				" start a dialog when a command fails
 
 " 12 selecting text
 set clipboard+=unnamedplus  " allways use the system’s clipboard
 
 " 13 editing text
-set formatoptions-=ro                       " disable automatic commenting when pressing 'o', 'O', and <CR>
+set completeopt=menuone,noinsert,noselect	" use popup menu for completion
 set undofile                                " maintain undo history between sessions
 set undodir=~/.config/nvim/undodir          " store undo history files
 set infercase                               " case insensitivity for completion
