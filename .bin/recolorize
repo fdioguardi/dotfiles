@@ -10,11 +10,13 @@ update_apps()
   # Bspwm
   "$HOME"/.config/bspwm/config/color_setup.sh
 
-  # Alacritty
-  "$HOME"/.config/alacritty/colorize_alacritty.sh
+  if [ -z "$quickstart" ]; then
+    # Alacritty
+    "$HOME"/.config/alacritty/colorize_alacritty.sh
 
-  # Zathura
-  "$HOME"/.config/zathura/genzathurarc.sh
+    # Zathura
+    "$HOME"/.config/zathura/genzathurarc.sh
+  fi
 }
 
 usage()
@@ -71,7 +73,7 @@ main()
 {
   cache_file="${HOME}/.cache/paintee"
 
-  while getopts 'ac:x:' opt; do
+  while getopts 'ac:x:q' opt; do
     case "${opt}" in
       a)
         get_colorscheme
@@ -81,6 +83,8 @@ main()
       c) set_color_path "${OPTARG}" ;;
 
       x) set_xresources_path "${OPTARG}" ;;
+
+      q) quickstart=true ;;
 
       ?)
         usage

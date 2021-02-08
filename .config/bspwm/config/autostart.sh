@@ -24,8 +24,8 @@ bspc rule -a Alacritty -o desktop=^10 state=floating rectangle=1378x79+15+947
 
 __clistart bluetoothctl
 
-# Scripts
-recolorize gruvbox &
+## Scripts
+recolorize -q gruvbox &
 
 "$HOME"/.config/polybar/launch.sh &
 
