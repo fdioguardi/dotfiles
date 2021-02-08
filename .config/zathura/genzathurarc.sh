@@ -4,8 +4,8 @@
 
 # Modified script from: https://github.com/druskus20
 
-foreground=$(getcolor background)
-background=$(getcolor foreground)
+foreground=$(getcolor foreground)
+background=$(getcolor background)
 color1=$(getcolor 1)
 color2=$(getcolor 2)
 
