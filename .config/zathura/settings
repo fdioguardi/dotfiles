@@ -2,7 +2,7 @@
 # zathurarc
 #
 
-##General settings
+## General settings
 
 # Defines if the search results should be cleared on abort
 set abort-clear-search true
