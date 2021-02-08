@@ -3,17 +3,16 @@
 # dec-brightness
 # the same as inc-brightness, just the exact opposite
 
-[ "$#" -ne 1 ] && echo "Usage: $( basename "$0" ) N" && exit 1
+[ "$#" -ne 1 ] && echo "Usage: $( basename "$0" ) N" && exit 7
 
-# primary_monitor=$(xrandr -q | grep primary | cut -f1 -d" ")
 actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 
 # $1 holds how much the brightness is going to decrease
 min_brightness=0.1
 wanted_brightness=$(echo "$actual_brightness-$1" | bc)
 
-[ "$(echo "$wanted_brightness > $min_brightness" | bc -l)" ] &&
-    new_brightness=$wanted_brightness ||
-    new_brightness=$min_brightness
+[ "$(echo "$wanted_brightness > $min_brightness" | bc -l)" ] \
+    && new_brightness="$wanted_brightness" \
+    || new_brightness="$min_brightness"
 
-xrandr --output eDP-1 --brightness $new_brightness
+xrandr --output eDP-1 --brightness "$new_brightness"

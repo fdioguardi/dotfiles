@@ -40,13 +40,13 @@ cache_colors()
 
 set_xresources_path()
 {
-  [ ! -f "$1" ] && echo "$1 is not a file" && exit 3
+  [ ! -f "$1" ] && echo "$1 is not a file" && exit 2
   xresources_path=$1
 }
 
 set_color_path()
 {
-  [ ! -d "$1" ] && echo "$1 is not a directory" && exit 3
+  [ ! -d "$1" ] && echo "$1 is not a directory" && exit 2
   color_path=$1
 }
 
@@ -62,7 +62,7 @@ set_color_basename()
   [ -n "$1" ] && \
     [ ! -f "${color_path}"/"$1" ] && \
     echo "${color_path}/$1 does not exist" && \
-    exit 3
+    exit 2
 
   color_basename=${1:-$(basename "$(shuf -n1 -e "${color_path}"/*)")}
 }
@@ -84,13 +84,13 @@ main()
 
       ?)
         usage
-        exit 2
+        exit 22
         ;;
     esac
   done
   shift "$((OPTIND - 1))"
 
-  [ $# -gt 1 ] && usage && exit 1
+  [ $# -gt 1 ] && usage && exit 7
 
   # Default colors’ path
   [ -z "${color_path}" ] && set_color_path "${XDG_CONFIG_HOME}/colorschemes"

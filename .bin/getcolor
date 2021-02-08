@@ -3,7 +3,7 @@
 usage()
 {
   echo "Usage: $(basename "$0") COLOR"
-  exit 1
+  exit 7
 }
 
 color_value()
@@ -31,7 +31,7 @@ color_value()
     ALTWHITE|15)   search="color15:"        ;;
     *)          usage                       ;;
   esac
-  xrdb -query | grep $search | awk '{print $NF}'
+  xrdb -query | grep "$search" | awk '{print $NF}'
 }
 
 [ $# -ne 1 ] && usage
