@@ -54,18 +54,9 @@ MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System :' \
 <<< ">> Shut down|>> Reboot|>> Suspend|>> Hibernate|>> Cancel")"
 
 case "$MENU" in
-    *Shut\ down)    shutdown -P now "Shutting down..."   ;;
+    *Shut\ down)   shutdown -P now "Shutting down..."   ;;
     *Reboot)       shutdown -r now "Rebooting..."       ;;
 	*Suspend)      systemctl suspend                    ;;
 	*Hibernate)    systemctl hibernate                  ;;
 	*Cancel)       exit 0                               ;;
 esac
-
-# More Options
-# -fullscreen \
-
-# Theming help
-# color window = background, border, separator
-# color normal = background, foreground, background-alt, highlight-background, highlight-foreground
-# color active = background, foreground, background-alt, highlight-background, highlight-foreground
-# color urgent = background, foreground, background-alt, highlight-background, highlight-foreground
