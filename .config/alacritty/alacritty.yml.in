@@ -509,7 +509,6 @@ key_bindings:
   - { key: PageDown,                      action: ScrollPageDown    }
   - { key: Home,                          action: ScrollToTop,      }
   - { key: End,                           action: ScrollToBottom    }
-  - { key: P,        mods: Control,       action: Paste             }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
