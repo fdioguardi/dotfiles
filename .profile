@@ -14,7 +14,7 @@ export XDG_CACHE_HOME=${HOME}/.cache
 export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PAGER="less"
-export BROWSER="$HOME/.bin/firefox"
+export BROWSER="qutebrowser"
 export READER="zathura"
 
 # Global variables

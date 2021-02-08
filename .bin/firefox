@@ -1,6 +1,0 @@
-#!/bin/sh
-# A hacky script to change ".mozilla" directory location
-# Remember to have this script before the actual firefox in PATH
-# Author: https://github.com/druskus20
-
-HOME="$XDG_DATA_HOME/firefox" /usr/bin/firefox "$@"
