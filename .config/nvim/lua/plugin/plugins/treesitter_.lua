@@ -9,4 +9,5 @@ require('nvim-treesitter.configs').setup {
         disable = { },  -- list of languages that will be disabled
         use_languagetree = true,    -- enable language injection
     },
+    rainbow = { enable = true, },
 }
