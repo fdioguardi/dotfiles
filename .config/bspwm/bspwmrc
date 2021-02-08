@@ -1,13 +1,16 @@
 #!/bin/sh
 bspc rule -r "*"
 
+## Variables
+config="${XDG_CONFIG_HOME:-$HOME/.config}"
+
 ## Monitor Settings
-[ -x "$HOME"/.config/bspwm/config/monitors_setup.sh ] && \
-  "$HOME"/.config/bspwm/config/monitors_setup.sh
+[ -x "$config"/bspwm/config/monitors_setup.sh ] \
+  && "$config"/bspwm/config/monitors_setup.sh
 
 ## Desktop Settings
-[ -x "$HOME"/.config/bspwm/config/desktop_setup.sh ] && \
-  "$HOME"/.config/bspwm/config/desktop_setup.sh
+[ -x "$config"/bspwm/config/desktop_setup.sh ] \
+  && "$config"/bspwm/config/desktop_setup.sh
 
 ## Global Settings
 bspc config automatic_scheme	alternate
@@ -47,5 +50,5 @@ bspc rule -a Alacritty:Alacritty:ncspot \
   desktop=^10 state=floating rectangle=1378x924+15+15
 
 ## Autostart
-[ -x "$HOME"/.config/bspwm/config/autostart.sh ] && \
-  "$HOME"/.config/bspwm/config/autostart.sh
+[ -x "$config"/bspwm/config/autostart.sh ] \
+  && "$config"/bspwm/config/autostart.sh

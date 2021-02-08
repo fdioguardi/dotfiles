@@ -27,4 +27,4 @@ __clistart bluetoothctl
 ## Scripts
 recolorize -q gruvbox &
 
-"$HOME"/.config/polybar/launch.sh &
+"${XDG_CONFIG_HOME:-$HOME/.config}"/polybar/launch.sh &
