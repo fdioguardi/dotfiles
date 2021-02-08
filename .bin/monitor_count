@@ -1,2 +1,0 @@
-#!/bin/sh
-xrandr -q | grep -wc connected
