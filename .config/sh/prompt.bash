@@ -14,6 +14,7 @@ __prompt_command()
 
     local RCol='\[\e[0m\]'
 
+    local BBlack='\[\e[1;30m\]'
     local BRed='\[\e[1;31m\]'
     local BGre='\[\e[1;32m\]'
     local BBlu='\[\e[1;34m\]'
@@ -26,5 +27,5 @@ __prompt_command()
         ExitCodeColor="${BGre}"
     fi
 
-    PS1="${BBlu}\W ${Mag}$(__git_ps1 "(%s)")${ExitCodeColor} | ${RCol}"
+    PS1="${BBlack}: ${BBlu}\W ${Mag}$(__git_ps1 "(%s)")${ExitCodeColor}; ${RCol}"
 }
