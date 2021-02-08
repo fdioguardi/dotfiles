@@ -33,7 +33,10 @@ local function on_attach()
 
   map_lsp()
 
+  require('after.snippets_'):setup()
+
   require('completion').on_attach({
+    enable_snippet = 'snippets.nvim',
     matching_smart_case = 1,
     matching_strategy_list = { 'exact', 'substring', 'fuzzy' },
   })
