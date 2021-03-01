@@ -14,6 +14,6 @@ shopt -s autocd cdspell cmdhist dirspell dotglob globstar histappend \
 
 # Modules
 for file in ${XDG_CONFIG_HOME:-$HOME/.config}/sh/*; do
-  [ -f "$file" ] && source "$file"
+  [ -r "$file" ] && source "$file"
 done
 unset file
