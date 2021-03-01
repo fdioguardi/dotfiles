@@ -17,4 +17,4 @@ g.gruvbox_contrast_dark = 'hard'
 -- don’t invert color of highlighted text
 g.gruvbox_invert_selection = false
 
-require("colorbuddy").colorscheme("gruvbox")
+vim.cmd([[colorscheme gruvbox]])

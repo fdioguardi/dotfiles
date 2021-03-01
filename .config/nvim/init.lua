@@ -10,8 +10,8 @@ local paq = require('paq-nvim').paq
 paq { 'savq/paq-nvim', opt = true }        -- plugin manager
 
   -- Colorschemes
-paq { 'npxbr/gruvbox.nvim' }               -- gruvbox colorscheme
-paq { 'tjdevries/colorbuddy.nvim' }
+paq { 'gruvbox-community/gruvbox' }        -- gruvbox colorscheme
+paq { 'ayu-theme/ayu-vim' }                -- ayu colorscheme
 
   -- Functionalitiy
 paq { 'tpope/vim-surround' }               -- simple quoting/parenthesizing
@@ -23,9 +23,9 @@ paq { 'nvim-lua/popup.nvim' }
 
   -- Syntax highlighting
 paq { 'nvim-treesitter/nvim-treesitter',   -- parser generator
-  hook = function()
-           vim.api.nvim_command('TSUpdate')
-         end }
+  run = function()
+          vim.api.nvim_command('TSUpdate')
+        end }
 paq { 'p00f/nvim-ts-rainbow' }             -- colorizes matching parenthesis
 
   -- Language Server Protocol
