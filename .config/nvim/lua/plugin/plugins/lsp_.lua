@@ -7,13 +7,11 @@ local lspconfig = require('lspconfig')
 local function map_lsp()
   local U = require('utils_')
 
-  -- use <Tab> and <S-Tab> to navigate through popup menu
   U.map('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"', {
     expr = true })
   U.map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', {
     expr = true })
 
-  -- map <c-p> to manually trigger completion
   U.map('i', '<C-Space>', '<Plug>(completion_trigger)', { noremap = false })
 
   local mappings = {
@@ -33,10 +31,9 @@ local function on_attach()
 
   map_lsp()
 
-  require('after.snippets_'):setup()
+  require('snippets_'):setup()
 
   require('completion').on_attach({
-    enable_snippet = 'snippets.nvim',
     matching_smart_case = 1,
     matching_strategy_list = { 'exact', 'substring', 'fuzzy' },
   })
