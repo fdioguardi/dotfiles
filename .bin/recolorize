@@ -8,14 +8,14 @@
 update_apps()
 {
   # Bspwm
-  "$HOME"/.config/bspwm/config/color_setup.sh
+  ${XDG_CONFIG_HOME:-"$HOME/.config"}/bspwm/config/color_setup.sh &
 
   if [ -z "$quickstart" ]; then
     # Alacritty
-    "$HOME"/.config/alacritty/colorize_alacritty.sh
+    ${XDG_CONFIG_HOME:-"$HOME/.config"}/alacritty/colorize_alacritty.sh &
 
     # Zathura
-    "$HOME"/.config/zathura/genzathurarc.sh
+    ${XDG_CONFIG_HOME:-"$HOME/.config"}/zathura/genzathurarc.sh &
   fi
 }
 
@@ -105,8 +105,16 @@ main()
     set_xresources_path "${color_path}/${color_basename}"
 
   update_colors
-  cache_colors
+  cache_colors &
   update_apps
+
+  # This script might fail, loop, or provoque inconsistent states, if called a #
+  # second time right after the first one finished. To avoid this, uncomment   #
+  # the line bellow, at the cost of efficiency.                                #
+  # If you chose to leave it commented out and the script fails in any way,    #
+  # just kill it with Ctrl-c and re execute.                                   #
+
+  # wait
 }
 
 main "$@"
