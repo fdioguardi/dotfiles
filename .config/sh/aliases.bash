@@ -15,17 +15,14 @@ alias \
   f='find . -name'                                \
   grep='grep --color=auto'                        \
   tmp='mc /tmp/$RANDOM'                           \
-  mkdir='mkdir -pv'                               \
   rmd='rmdir'                                     \
   mkd='mkdir -pv'
 
 alias \
-  i='sudo pacman --color=auto --needed -S'        \
-  r='sudo pacman --color=auto -Rns'               \
-  y='yay'                                         \
-  ia='yay --color=auto -S'                        \
-  ra='yay --color=auto -Rns'                      \
-  ro='yay --clean'
+  y='yay'                   \
+  i='yay --color=auto -S'   \
+  r='yay --color=auto -Rns' \
+  ro='yay --clean -Yc'
 
 alias \
   vi='v'                                          \
@@ -36,10 +33,9 @@ alias \
   pls='sudo $(fc -ln -1)' \
   g='git'                 \
   ka='killall'            \
-  bt='bluetoothctl'       \
   rc='recolorize'         \
 
 alias \
-  brightness='xrandr --output eDP-1 --brightness'                         \
-  pharo='pharo $HOME/Pharo/Pharo8.0-SNAPSHOT-64bit-1b7a8d8.image &'       \
+  brightness='xrandr --output eDP-1 --brightness'                   \
+  pharo='pharo $HOME/Pharo/Pharo8.0-SNAPSHOT-64bit-1b7a8d8.image &' \
   d='/usr/bin/git --git-dir="$HOME"/.dotfiles --work-tree="$HOME"' # Managing dotfiles
