@@ -22,3 +22,5 @@ local mappings = {
 for lhs, func in pairs(mappings) do
   map_telescope(lhs, func)
 end
+
+return map_telescope
