@@ -19,10 +19,10 @@ alias \
   mkd='mkdir -pv'
 
 alias \
-  y='yay'                   \
-  i='yay --color=auto -S'   \
-  r='yay --color=auto -Rns' \
-  ro='yay --clean -Yc'
+  p='paru'                   \
+  i='paru -S'   \
+  r='paru -Rns' \
+  ro='paru --clean -Yc'
 
 alias \
   vi='v'                                          \
@@ -39,3 +39,8 @@ alias \
   brightness='xrandr --output eDP-1 --brightness'                   \
   pharo='pharo $HOME/Pharo/Pharo8.0-SNAPSHOT-64bit-1b7a8d8.image &' \
   d='/usr/bin/git --git-dir="$HOME"/.dotfiles --work-tree="$HOME"' # Managing dotfiles
+
+
+[ -r ${XDG_CONFIG_HOME:-$HOME/.config}/sh/completions/complete_alias ] \
+  && source ${XDG_CONFIG_HOME:-$HOME/.config}/sh/completions/complete_alias \
+  && complete -F _complete_alias p g d
