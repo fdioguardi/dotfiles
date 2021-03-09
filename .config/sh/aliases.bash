@@ -19,10 +19,10 @@ alias \
   mkd='mkdir -pv'
 
 alias \
-  p='paru'                   \
-  i='paru -S'   \
-  r='paru -Rns' \
-  ro='paru --clean -Yc'
+  p='paru'          \
+  i='paru -S'       \
+  r='paru -Rns'     \
+  ro='paru --clean'
 
 alias \
   vi='v'                                          \
