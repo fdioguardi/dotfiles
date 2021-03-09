@@ -1,16 +1,25 @@
 #!/bin/bash
 
-readonly path=$HOME/.screenshots/
+readonly dependencies=("maim" "xclip" "feh")
+for dependency in "${dependencies[@]}"; do
+  if ! command -v "$dependency" &> /dev/null; then
+    echo "Missing dependency: $dependency"
+    exit 65
+  fi
+done
+
+readonly path="$HOME"/.screenshots
+[ -d "$path" ] || mkdir -pv "$path"
+
 readonly date=$(date "+%Y-%m-%d")
-readonly files=("$screenshots_path"/*screenshot_date*)
-readonly number=${#files[@]}
-readonly name=$path/$date-$number.png
+readonly number=$(ls "$path" | grep -wc "$date")
+readonly name="${path}"/"${date}"-"${number}".png
 
 if [ "$1" = "cut" ]; then
-  cut="-s"
+  cut="s"
 else
   cut=""
 fi
 
-maim -uo "$cut" | tee "$name" | xclip -selection clipboard -t image/png
+maim -uo"$cut" | tee "$name" | xclip -selection clipboard -t image/png
 feh "$name"
