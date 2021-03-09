@@ -11,15 +11,15 @@ __start sxhkd -m -1
 
 __start unclutter --ignore-scrolling --fork
 
-__start redshift
+__start redshift 2&> /dev/null
 
-__start pavucontrol
+__start recolorize -q ayu
+
+__clistart pulsemixer
 
 __clistart ncspot
 
 __clistart bluetoothctl
 
-## Scripts
-recolorize -q ayu &
 
 "${XDG_CONFIG_HOME:-$HOME/.config}"/polybar/launch.sh &
