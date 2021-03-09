@@ -25,6 +25,10 @@ U.nnoremap('Y', 'y$')
 -- marks go to exact line and column
 U.nnoremap("'", '`')
 
+-- cut into an auxiliar register
+U.nnoremap('<leader>c', '"ac')
+U.nnoremap('<leader>d', '"ad')
+
 -- ]b in normal mode will move to next buffer
 U.nnoremap(']b', ':bnext<CR>')
 -- [b in normal mode will move to previous buffer
