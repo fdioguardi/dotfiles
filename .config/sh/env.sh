@@ -1,6 +1,13 @@
 #
-# exports.bash
+# exports.sh
 #
+
+# Default applications
+export EDITOR="nvim"
+export TERMINAL="alacritty"
+export PAGER="less"
+export BROWSER="qutebrowser"
+export READER="zathura"
 
 # Less
 export LESS_TERMCAP_mb=$'\e[1;32m'

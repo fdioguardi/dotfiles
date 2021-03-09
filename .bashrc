@@ -13,7 +13,7 @@ shopt -s autocd cdspell cmdhist dirspell dotglob globstar histappend \
   progcomp_alias shift_verbose
 
 # Modules
-for file in ${XDG_CONFIG_HOME:-$HOME/.config}/sh/*; do
+for file in ${XDG_CONFIG_HOME:-$HOME/.config}/sh/*.bash; do
   [ -r "$file" ] && source "$file"
 done
 unset file
