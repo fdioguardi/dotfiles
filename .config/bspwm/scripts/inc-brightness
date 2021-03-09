@@ -6,6 +6,10 @@
 
 [ "$#" -ne 1 ] && echo "Usage: $( basename "$0" ) N" && exit 7
 
+monitor=$(xrandr --listactivemonitors \
+  | grep "DP" \
+  | awk 'NF {print $NF}')
+
 actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 
 # $1 holds how much the brightness is going to increase
@@ -16,4 +20,4 @@ wanted_brightness=$(echo "$actual_brightness+$1" | bc)
     && new_brightness="$wanted_brightness" \
     || new_brightness="$max_brightness"
 
-xrandr --output eDP-1 --brightness "$new_brightness"
+xrandr --output "$monitor" --brightness "$new_brightness"

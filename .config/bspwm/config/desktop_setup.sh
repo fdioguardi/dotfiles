@@ -2,7 +2,12 @@
 
 usage()
 {
-  echo -e "Usage: $( basename "$0" ) [ --monitor NAME ] [ --panel_side SIDE ] [ --gaps NUM ] [ --padding NUM ] [ --panel-size NUM ]" >&2
+  echo -ne "Usage: $( basename "$0" ) "
+  echo -ne "[ --monitor NAME ] "
+  echo -ne "[ --panel_side SIDE ] "
+  echo -ne "[ --gaps NUM ] "
+  echo -ne "[ --padding NUM ] "
+  echo -e  "[ --panel-size NUM ]"
 }
 
 check_number()
@@ -19,16 +24,13 @@ set_padding()
 {
   local general_padding=$((padding - win_gaps))
 
-  for side in "${sides[@]}"
-  do
+  for side in "${sides[@]}"; do
     if [ "$side" = "$panel_side" ]; then
         set_individual_padding "$side" "$((general_padding + panel_size))"
     else
         set_individual_padding "$side" "$general_padding"
     fi
   done
-
-  unset general_padding
 }
 
 set_gaps()
@@ -74,10 +76,12 @@ done
 
 # Default values
 win_gaps=${win_gaps:-"4"}
-padding=${padding:-"15"}
+padding=${padding:-"10"}
 panel_size=${panel_size:-"35"}
 panel_side=${panel_side:-"bottom"}
-monitor=${monitor:-"eDP-1"}
+monitor=${monitor:-$(xrandr --listactivemonitors \
+  | grep "DP" \
+  | awk 'NF {print $NF}')}
 
-set_padding
-set_gaps
+set_padding &
+set_gaps &
