@@ -27,10 +27,7 @@ set show-all-if-unmodified on
 set skip-completed-text on
 
 # <C-l> to clear the screen
-:clear-screen
+Control-l:clear-screen
 
 # <C-a> go to beginning of line
-"\C-a":beginning-of-line
-
-# <C-e> go to end of line
-"\C-e":end-of-line
+Control-a:beginning-of-line

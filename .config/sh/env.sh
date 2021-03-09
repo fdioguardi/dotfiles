@@ -9,6 +9,11 @@ export PAGER="less"
 export BROWSER="qutebrowser"
 export READER="zathura"
 
+# Clean $HOME
+export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/bash/bash_history"
+export INPUTRC="${XDG_CONFIG_HOME:-${HOME}/.config}/sh/inputrc"
+export XINITRC="${XDG_CONFIG_HOME:-${HOME}/.config}/x11/xinitrc"
+
 # Less
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
