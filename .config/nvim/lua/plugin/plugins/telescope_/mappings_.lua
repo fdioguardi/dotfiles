@@ -16,7 +16,9 @@ end
 
 local mappings = {
   ['<leader>f'] = 'git_files',
-  ['<leader>F'] = 'find_all_files',
+  ['<leader>Ff'] = 'find_all_files',
+  ['<leader>Fc'] = 'config_files',
+  ['<leader>Fv'] = 'vim_files',
 }
 
 for lhs, func in pairs(mappings) do

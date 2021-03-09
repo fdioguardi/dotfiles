@@ -20,6 +20,7 @@ paq { 'norcalli/snippets.nvim' }           -- snippet management
 paq { 'nvim-telescope/telescope.nvim' }    -- fuzzy finder
 paq { 'nvim-lua/plenary.nvim' }
 paq { 'nvim-lua/popup.nvim' }
+paq { 'nvim-telescope/telescope-fzy-native.nvim' }
 
   -- Syntax highlighting
 paq { 'nvim-treesitter/nvim-treesitter',   -- parser generator

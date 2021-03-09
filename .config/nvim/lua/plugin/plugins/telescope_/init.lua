@@ -11,44 +11,54 @@ require('telescope').setup({
       'Pharo/*',
       '.cargo/*',
     },
-    ['file_sorter'] = require('telescope.sorters').get_fzy_sorter,
     ['prompt_position'] = 'top',
     ['sorting_strategy'] = 'ascending',
-}})
+  },
+})
+
+require('telescope').load_extension('fzy_native')
 
 local function merge_options(external_options, default_options)
   return vim.tbl_deep_extend('keep', external_options, default_options)
 end
 
-local function base_dir()
-  local home = vim.loop.os_homedir()
-  local cwd = vim.loop.cwd()
+local M = {}
 
-  if cwd == home then
-    return home
-  end
-
-  if cwd:find(home) then
-    return home .. "/" .. vim.split(cwd, "/")[4]
-  end
-
-  return "/" .. vim.split(cwd, "/")[2]
-end
-
-local T = {}
-
-function T:find_files(builtin, options)
-  local cwd
-  if not options['cwd'] then
-    cwd = base_dir()
-  end
-
+function M:find_files(builtin, options)
   builtin.find_files(merge_options(options, {
-      ['cwd'] = cwd,
+    ['find_command'] = {
+      'rg',
+      '--no-heading',
+      '--smart-case',
+      '--files',
+      '--hidden',
+    },
   }))
 end
 
-function T:git_files(builtin, options)
+function M:config_files(_, options)
+  self.find_files(merge_options(options, {
+    prompt_title = ".config/",
+    ['cwd'] = vim.env.XDG_CONFIG_HOME or (vim.env.HOME .. "/.config/"),
+  }))
+end
+
+function M:find_all_files(_, options)
+  self.find_files(merge_options(options, {
+        prompt_title = vim.env.HOME,
+        ['cwd'] = vim.env.HOME,
+    }))
+end
+
+function M:vim_files(_, options)
+  self.find_files(merge_options(options, {
+    prompt_title = "Vimrc",
+      ['cwd'] = (vim.env.XDG_CONFIG_HOME
+      or (vim.env.HOME .. "/.config")) .. "/nvim/",
+  }))
+end
+
+function M:git_files(builtin, options)
   local is_project = pcall(builtin.git_files, merge_options(options, {
       ['recurse_submodules'] = true,
       ['show_untracked'] = false,
@@ -59,25 +69,11 @@ function T:git_files(builtin, options)
   end
 end
 
-function T:find_all_files(builtin, options)
-    self.find_files(merge_options(options, {
-      ['cwd'] = '~',
-      ['find_command'] = {
-        'rg',
-        '--color=never',
-        '--no-heading',
-        '--smart-case',
-        '--files',
-        '--hidden',
-      },
-    }))
-end
-
 return setmetatable({}, {
   __index = function(self, key)
     local builtin = require('telescope.builtin')
-    if T[key] then
-      return function(options) T[key](self, builtin, options or {}) end
+    if M[key] then
+      return function(options) M[key](self, builtin, options or {}) end
     else
       return function(options) builtin[key](options) end
     end
