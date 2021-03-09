@@ -1,0 +1,18 @@
+[user]
+	email = felipedioguardi@gmail.com
+	name = Felipe Dioguardi
+[pull]
+	rebase = false
+[core]
+	autocrlf = input
+	pager = bat
+[alias]
+	a = add
+	co = checkout
+	ci = commit
+	b = branch
+	s = status
+	us = restore --staged
+    last = log -1 HEAD
+    l = log --oneline -10 HEAD
+    ups = commit --amend
