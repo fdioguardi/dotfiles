@@ -1,15 +1,13 @@
 #!/bin/sh
 
-## Apps
 __clistart() { $TERMINAL --title "$1" --command  "$@" & }
 
 __start() { pkill "$1"; "$@" & }
 
+
 __start feh --no-fehbg --bg-fill --randomize "$HOME"/.wallpaper/*/*
 
 __start sxhkd -m -1
-
-__start picom -b
 
 __start unclutter --ignore-scrolling --fork
 
