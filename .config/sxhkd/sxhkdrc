@@ -23,7 +23,7 @@ alt + n
     "$TERMINAL" --title ncspot --command ncspot
 
 # chat
-alt + C
+alt + D
     discord & \
     telegram-desktop &
 
