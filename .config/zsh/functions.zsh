@@ -1,5 +1,5 @@
 #
-# functions.bash
+# functions.zsh
 #
 
 # create directory and cd inside

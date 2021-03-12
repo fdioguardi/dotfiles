@@ -1,5 +1,5 @@
 #
-# exports.sh
+# env.zsh
 #
 
 # Default applications
@@ -10,9 +10,13 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 
 # Clean $HOME
-export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/bash/bash_history"
-export INPUTRC="${XDG_CONFIG_HOME:-${HOME}/.config}/sh/inputrc"
+export HISTFILE=${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/history
 export XINITRC="${XDG_CONFIG_HOME:-${HOME}/.config}/x11/xinitrc"
+export ZDOTDIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zsh"
+
+# History
+export HISTSIZE=1000
+export SAVEHIST=1000
 
 # Less
 export LESS_TERMCAP_mb=$'\e[1;32m'
