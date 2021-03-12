@@ -26,6 +26,8 @@ U.nnoremap("'", '`')
 -- cut into an auxiliar register
 U.nnoremap('<leader>c', '"ac')
 U.nnoremap('<leader>d', '"ad')
+U.vnoremap('<leader>c', '"ac')
+U.vnoremap('<leader>d', '"ad')
 
 -- ]b in normal mode will move to next buffer
 U.nnoremap(']b', ':bnext<CR>')
