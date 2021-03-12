@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + d
-    "$HOME"/.config/bspwm/scripts/menu.sh
+    "$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh
 
 # web browser
 alt + q
@@ -29,7 +29,7 @@ alt + C
 
 # power management prompt
 alt + x
-    "$HOME"/.config/bspwm/scripts/sysmenu.sh
+    "$XDG_CONFIG_HOME"/bspwm/scripts/sysmenu.sh
 
 # take a screenshot
 Print
@@ -69,7 +69,7 @@ button{8,9}
 
 # adjust primary monitor’s brightness
 XF86MonBrightness{Up,Down}
-    ~/.config/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
+    "$XDG_CONFIG_HOME"/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
 
 # set display orientation
 alt + shift + {Up,Down}
@@ -105,7 +105,7 @@ alt + g
 
 # toggle between current and last state
 alt + {t,p,s,f}
-    bspc node -t ~{tiled,pseudo_tiled,floating,fullscreen}
+    bspc node -t \~{tiled,pseudo_tiled,floating,fullscreen}
 
 #
 # focus/swap
@@ -177,4 +177,4 @@ alt + underscore
 
 # restore gap size
 alt + equal
-    "$HOME"/.config/bspwm/config/desktop_setup.sh
+    "$XDG_CONFIG_HOME"/bspwm/config/desktop_setup.sh
