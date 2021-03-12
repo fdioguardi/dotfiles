@@ -4,12 +4,10 @@
 
 -- variables
 local U = require('utils_')
-local cmd = vim.cmd
-local g = vim.g
 
 -- set leader key
 vim.api.nvim_set_keymap('', ' ', '', {})
-g.mapleader = ' '
+vim.g.mapleader = ' '
 
 -- move a selected text up or down
 U.xnoremap('K', ':call mappings#visual#move_up()<CR>')
