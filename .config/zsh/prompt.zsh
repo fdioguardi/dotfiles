@@ -20,4 +20,6 @@ precmd() {
     vcs_info
 }
 
+unset right_prompt
+
 RPROMPT='${vcs_info_msg_0_}'
