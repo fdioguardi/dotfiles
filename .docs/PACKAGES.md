@@ -70,12 +70,12 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Alacritty](https://archlinux.org/packages/community/x86_64/alacritty/)**
 
-	To apply fonts:
+  To apply fonts:
   ```bash
   fc-cache
   ```
 
-	To apply settings and load a random colorscheme:
+  To apply settings and load a random colorscheme:
   ```bash
   recolorize
   ```
@@ -91,7 +91,7 @@ List of manually installed packages, and some information on how to set them up.
 
     - [bluez-utils](https://archlinux.org/packages/extra/x86_64/bluez-utils/)
 
-	Enable _bluetoothctl_ command line utility
+  Enable _bluetoothctl_ command line utility
   ```bash
   sudo systemctl enable --now bluetooth.service
   ```
@@ -138,7 +138,7 @@ List of manually installed packages, and some information on how to set them up.
 
     - [git](https://archlinux.org/packages/extra/x86_64/git/)
 
-	After installing `base-devel`, clone with `git` and install
+  After installing `base-devel`, clone with `git` and install
   ```bash
   git clone https://aur.archlinux.org/paru.git
   cd paru
@@ -149,7 +149,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[informant](https://aur.archlinux.org/packages/informant/)**
 
-	Add yourself to group "informant" to avoid the need for sudo
+  Add yourself to group "informant" to avoid the need for sudo
   ```bash
   sudo usermod -aG informant $USER
   ```
@@ -175,6 +175,11 @@ List of manually installed packages, and some information on how to set them up.
 - **[Zsh](https://archlinux.org/packages/extra/x86_64/zsh/)**
 
     - [Syntax highlighting](https://aur.archlinux.org/packages/zsh-fast-syntax-highlighting)
+
+  Make zsh the default shell:
+  ```bash
+  chsh -s $(which zsh) $USER
+  ```
 
 ## Utilities
 
@@ -226,12 +231,12 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
 
-	Enable and start it's systemd service:
+  Enable and start it's systemd service:
   ```bash
   sudo systemctl enable --now NetworkManager.service
   ```
 
-	Discover and connect to Wi-Fi networks through a nice interface:
+  Discover and connect to Wi-Fi networks through a nice interface:
   ```bash
   nmtui
   ```
