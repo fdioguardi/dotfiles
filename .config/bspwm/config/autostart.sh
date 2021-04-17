@@ -1,6 +1,6 @@
 #!/bin/sh
 
-__clistart() { $TERMINAL --title "$1" --command  "$@" & }
+__clistart() { $TERMINAL --title "$1" --execute  "$@" & }
 
 __start() { pkill "$1"; "$@" & }
 

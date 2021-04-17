@@ -20,7 +20,7 @@ alt + a
 
 # music player
 alt + n
-    "$TERMINAL" --title ncspot --command ncspot
+    "$TERMINAL" --title ncspot --execute ncspot
 
 # chat
 alt + D

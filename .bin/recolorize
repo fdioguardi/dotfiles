@@ -11,8 +11,9 @@ update_apps()
   ${XDG_CONFIG_HOME:-"$HOME/.config"}/bspwm/config/color_setup.sh &
 
   if [ -z "$quickstart" ]; then
-    # Alacritty
-    ${XDG_CONFIG_HOME:-"$HOME/.config"}/alacritty/colorize_alacritty.sh &
+
+    # Kitty
+    ${XDG_CONFIG_HOME:-"$HOME/.config"}/kitty/colorize_kitty.sh &
 
     # Zathura
     ${XDG_CONFIG_HOME:-"$HOME/.config"}/zathura/genzathurarc.sh &
