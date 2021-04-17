@@ -1,5 +1,5 @@
 #
-# .profile
+# .zprofile
 #
 
 # Path
