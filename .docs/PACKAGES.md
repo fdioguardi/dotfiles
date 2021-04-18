@@ -172,6 +172,31 @@ List of manually installed packages, and some information on how to set them up.
 
     - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
 
+- **[Dash](https://archlinux.org/packages/core/x86_64/dash/)**
+
+  ##### Conflict with LightDM
+
+  The file /etc/lightdm/Xsession has "bashisms" even though it uses `#!/bin/sh`. Change the shebang to `#!/bin/bash` or replace with [this file](.system/etc/lightdm/Xsession).
+
+  Use dash as /bin/sh:
+  ```bash
+  sudo ln -sfT dash /usr/bin/sh
+  ```
+  Updates of dash will overwrite /bin/sh. To prevent this, create this pacman hook in `/usr/share/libalpm/hooks/dash-sh.hook`.
+  ```
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = bash
+
+[Action]
+Description = Re-pointing /bin/sh symlink to dash...
+When = PostTransaction
+Exec = /usr/bin/ln -sfT dash /usr/bin/sh
+Depends = dash
+  ```
+
 - **[Zsh](https://archlinux.org/packages/extra/x86_64/zsh/)**
 
     - [Syntax highlighting](https://aur.archlinux.org/packages/zsh-fast-syntax-highlighting)
