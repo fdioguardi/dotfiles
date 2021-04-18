@@ -68,7 +68,7 @@ List of manually installed packages, and some information on how to set them up.
 
 ## Terminal emulator
 
-- **[Alacritty](https://archlinux.org/packages/community/x86_64/alacritty/)**
+- **[Kitty](https://archlinux.org/packages/community/x86_64/kitty/)**
 
   To apply fonts:
   ```bash
