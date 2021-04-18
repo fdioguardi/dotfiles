@@ -270,11 +270,7 @@ Depends = dash
   <code>nmcli connection up <i>SSID</i></code>
   </pre>
 
-- **[qutebrowser](https://archlinux.org/packages/community/any/qutebrowser/)**
-
-    - [Spotify-required plugin](https://aur.archlinux.org/packages/qt5-webengine-widevine/)
-
-    - [Pdf plugin](https://archlinux.org/packages/community/any/pdfjs/)
+- **[Brave](https://aur.archlinux.org/packages/brave/)**
 
 ## Media
 
