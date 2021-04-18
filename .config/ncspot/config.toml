@@ -1,8 +1,5 @@
 [keybindings]
-"=" = "volup"
 "G" = "move bottom"
-"H" = "previous"
-"L" = "next"
 "d" = "noop"
 "g" = "move top"
 "p" = "playpause"
