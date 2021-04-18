@@ -3,6 +3,3 @@
 "d" = "noop"
 "g" = "move top"
 "p" = "playpause"
-
-[saved_state]
-repeat = "playlist"
