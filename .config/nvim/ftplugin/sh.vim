@@ -4,8 +4,8 @@
 
 setlocal textwidth=80
 setlocal colorcolumn=80
+setlocal shiftwidth=2
 setlocal nowrap
 setlocal expandtab
-setlocal shiftwidth=2
 
-nnoremap <leader>e :w<CR>:! clear; bash %<CR>
+nnoremap <leader>e :w<CR>:vs term://clear; bash %<CR>
