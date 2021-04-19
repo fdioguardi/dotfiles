@@ -1,5 +1,0 @@
-"
-" diff.vim
-"
-
-setlocal nofoldenable
