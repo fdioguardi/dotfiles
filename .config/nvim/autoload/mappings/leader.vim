@@ -1,3 +1,7 @@
+"
+" leader.vim
+"
+
 " Cycle through relativenumber + number, number (only), and no numbering.
 function! mappings#leader#cycle_numbering() abort
     if exists('+relativenumber')
