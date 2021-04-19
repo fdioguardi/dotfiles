@@ -25,19 +25,6 @@ local function map_lsp()
   end
 end
 
-local function on_attach()
-
-  vim.wo.signcolumn = 'yes'
-
-  map_lsp()
-
-  require('snippets_'):setup()
-
-  require('completion').on_attach({
-    matching_smart_case = 1,
-    matching_strategy_list = { 'exact', 'substring', 'fuzzy' },
-  })
-end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
@@ -49,7 +36,14 @@ local servers = {
 
 for _, server in pairs(servers) do
   lspconfig[server].setup({
-    on_attach = on_attach,
+    on_attach = function()
+                  require('completion_')({ source = {
+                    nvim_lsp = true,
+                    snippets_nvim = true,
+                  }})
+                  vim.wo.signcolumn = 'yes'
+                  map_lsp()
+                end,
     capabilities = capabilities,
   })
 end
