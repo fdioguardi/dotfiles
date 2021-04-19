@@ -43,9 +43,10 @@ readonly primary_monitor_name=$(xrandr --listactivemonitors \
   | awk 'NF {print $NF}')
 
 if [ "$(xrandr -q | grep -wc connected)" -eq 2 ]; then
-  readonly external_monitor_name=$(xrandr --listactivemonitors \
+  readonly external_monitor_name=$(xrandr -q \
+    | grep -w connected \
     | grep -v $primary_monitor_name \
-    | awk 'NF {print $NF}')
+    | cut -f1 -d" ")
 
   two_monitor_settings $primary_monitor_name $external_monitor_name
 else
