@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 __clistart() { $TERMINAL --title "$1" --execute  "$@" & }
 
