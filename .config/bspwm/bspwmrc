@@ -15,6 +15,7 @@ bspc config automatic_scheme    alternate
 
 bspc config borderless_monocle	true
 bspc config gapless_monocle 	true
+bspc config single_monocle 	true
 
 bspc config pointer_modifier	    	control
 bspc config click_to_focus	        	none
