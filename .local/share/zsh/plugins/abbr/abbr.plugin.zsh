@@ -16,7 +16,8 @@ function abbr() {
 
 # expand any aliases in the current line buffer
 function expand-abbreviation() {
-  if echo "|"${(j:|:)_abbreviations}"|" | grep -q "|${LBUFFER}|"; then
+  set -o extendedglob
+  if echo "|"${(j:|:)_abbreviations}"|" | grep -q "|${LBUFFER##[[:blank:]]##}|"; then
     zle _expand_alias
     zle expand-word
   fi
