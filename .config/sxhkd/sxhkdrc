@@ -11,7 +11,7 @@ alt + d
     "$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh
 
 # web browser
-alt + q
+alt + w
     "$BROWSER"
 
 # GUI file manager
@@ -84,11 +84,11 @@ alt + Delete
     bspc wm -r
 
 # close current window
-alt + w
+alt + q
     bspc node -c
 
 # kill current window
-alt + shift + w
+alt + shift + q
     bspc node -k
 
 # alternate between the tiled and monocle layout
