@@ -2,37 +2,30 @@
 -- init.lua
 --
 
-vim.cmd('packadd paq-nvim')
+-- set leader key
+vim.api.nvim_set_keymap("", " ", "", {})
+vim.g.mapleader = " "
 
-local paq = require('paq-nvim').paq
-
--- Plugin managing
-paq {'savq/paq-nvim', opt = true}
+require("paq")({
+  -- Plugin managing
+  "savq/paq-nvim",
 
   -- Colorschemes
-paq { 'gruvbox-community/gruvbox' }        -- gruvbox colorscheme
-paq { 'ayu-theme/ayu-vim' }                -- ayu colorscheme
+  "ayu-theme/ayu-vim",
 
--- Functionality
-paq {'tpope/vim-surround'}                  -- simple quoting/parenthesizing
-paq {'tpope/vim-commentary'}                -- comment out motions
-paq {'norcalli/snippets.nvim'}              -- snippet management
-paq {'nvim-telescope/telescope.nvim'}       -- fuzzy finder
-paq {'nvim-lua/plenary.nvim'}
-paq {'nvim-lua/popup.nvim'}
-paq {'nvim-telescope/telescope-fzy-native.nvim'}
+  -- Functionality
+  "tpope/vim-surround",                        -- simple quoting/parenthesizing
+  "tpope/vim-commentary",                      -- comment out motions
+  "nvim-telescope/telescope.nvim",             -- fuzzy finder
+  "nvim-lua/plenary.nvim",
+  "nvim-lua/popup.nvim",                       -- syntax highlighting
+  {"nvim-treesitter/nvim-treesitter",          -- parser generator
+    run = function() vim.cmd("TSUpdate") end},
+  "p00f/nvim-ts-rainbow",                      -- colorize matching parenthesis
 
--- Syntax highlighting
-paq { 'nvim-treesitter/nvim-treesitter',    -- parser generator
-  run = function()
-          vim.cmd('TSUpdate')
-        end
-}
-paq {'p00f/nvim-ts-rainbow'}                -- colorize matching parenthesis
-
--- Language Server Protocol
-paq {'neovim/nvim-lspconfig'}               -- common configurations
-paq {'hrsh7th/nvim-compe'}                  -- completion framework
-
--- Sourcing
-paq {'tjdevries/astronauta.nvim'}           -- emulate runtimepath in lua
+  -- Language Server Protocol
+  "neovim/nvim-lspconfig",                     -- common configurations
+  "hrsh7th/nvim-compe",                        -- completion framework
+  "ray-x/lsp_signature.nvim",                  -- signature help
+  "mfussenegger/nvim-jdtls",                   -- full java support
+})

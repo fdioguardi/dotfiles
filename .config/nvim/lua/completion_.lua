@@ -3,12 +3,15 @@
 --
 
 return function(options)
-  local inoremap = require('utils_').inoremap
+  local buf_inoremap = require("mappings_.keymaps").buf_inoremap
 
-  inoremap('<C-Space>', 'compe#complete("<C-Space>")', { expr = true })
-  inoremap('<C-y>', 'compe#confirm("<C-y>")', { expr = true })
+  buf_inoremap(0, "<C-Space>", "compe#complete('<C-Space>')", {expr = true})
+  buf_inoremap(0, "<C-y>", "compe#confirm('<C-y>')", {expr = true})
+  buf_inoremap(0, "<C-c>", "<Esc>")
 
-  require('compe').setup(vim.tbl_deep_extend('keep', options or {}, {
-    source = { path = true, buffer = true, }
+  vim.opt.completeopt = {"menuone", "noselect"}
+
+  require("compe").setup(vim.tbl_deep_extend("keep", options or {}, {
+    source = {path = true, buffer = true},
   }), 0)
 end
