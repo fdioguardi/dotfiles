@@ -3,6 +3,10 @@
 window_id=$1
 window_class=$2
 
-[ "$window_class" = "$TERMINAL" ] \
-  && [ $(xtitle "$window_id") = "bluetoothctl" ] \
-  && echo "desktop=^10 state=floating follow=off rectangle=1378x79+15+947"
+if [ "$window_class" = "$TERMINAL" ]; then
+  [ "$(xtitle $window_id)" = "bluetoothctl" ] \
+    && echo "desktop=^10 state=floating rectangle=1378x79+15+947"
+
+elif echo "$window_class" | grep -q "^Gimp*"; then
+  echo "desktop=^3"
+fi

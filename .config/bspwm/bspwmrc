@@ -11,22 +11,35 @@ config="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm/config"
 [ -x "$config"/desktop_setup.sh ] && "$config"/desktop_setup.sh
 
 ## Global Settings
-bspc config automatic_scheme    alternate
+bspc config automatic_scheme alternate
 
-bspc config borderless_monocle	true
-bspc config gapless_monocle 	true
-bspc config single_monocle 	true
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config single_monocle true
 
-bspc config pointer_modifier	    	control
-bspc config click_to_focus	        	none
+bspc config pointer_modifier control
+bspc config click_to_focus none
 
 ## Node Settings
-bspc config border_width	2
+bspc config border_width 2
 
 ## Rule Commands
-
 # General
+bspc config external_rules_command "$config"/external_rules.sh
 bspc rule -a feh state=floating
+
+# Desktop 1
+bspc rule -a Brave-browser desktop=^1
+
+# Desktop 2
+bspc rule -a "$TERMINAL" desktop=^2
+
+# Desktop 4
+bspc rule -a Steam desktop=^4
+
+# Desktop 6
+bspc rule -a "VirtualBox Manager" desktop=^6
+bspc rule -a "VirtualBox Machine" desktop=^6
 
 # Desktop 9
 bspc rule -a discord desktop=^9 follow=on state=tiled
@@ -34,12 +47,10 @@ bspc rule -a TelegramDesktop desktop=^8 follow=on state=tiled
 
 # Desktop 10
 bspc rule -a "$TERMINAL":"$TERMINAL":pulsemixer \
-  desktop=^10 follow=off state=floating rectangle=500x660+1401+366
+  desktop=^10 state=floating rectangle=500x660+1401+366
 
 bspc rule -a "$TERMINAL":"$TERMINAL":ncspot \
-  desktop=^10 follow=off state=floating rectangle=1378x924+15+15
-
-bspc config external_rules_command "$config"/external_rules.sh
+  desktop=^10 state=floating rectangle=1378x924+15+15
 
 ## Autostart
 [ -x "$config"/autostart.sh ] && "$config"/autostart.sh
