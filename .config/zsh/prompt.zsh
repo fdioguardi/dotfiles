@@ -15,10 +15,8 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 
 # This line obtains information from the vcs.
-zstyle ':vcs_info:git*' formats ${right_prompt}
-precmd() {
-    vcs_info
-}
+zstyle ':vcs_info:git*' formats "${right_prompt}"
+precmd() { vcs_info; }
 
 unset right_prompt
 

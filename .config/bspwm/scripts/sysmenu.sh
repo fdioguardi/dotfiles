@@ -35,28 +35,28 @@ LIGHT_GREEN="#7cb342"
 
 # Launch Rofi
 MENU="$(rofi -no-lazy-grab -sep "|" -dmenu -i -p 'System :' \
--hide-scrollbar true \
--bw 0 \
--lines 5 \
--line-padding 5 \
--padding 15 \
--width 15 \
--xoffset -17 -yoffset -52 \
--location 5 \
--columns 1 \
--show-icons -icon-theme "Papirus" \
--font "Noto Sans 9" \
--color-enabled true \
--color-window "$BACKGROUND,$BORDER,$SEPARATOR" \
--color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
--color-active "$BACKGROUND,$MAGENTA,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
--color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
-<<< ">> Shut down|>> Reboot|>> Suspend|>> Hibernate|>> Cancel")"
+  -hide-scrollbar true \
+  -bw 0 \
+  -lines 5 \
+  -line-padding 5 \
+  -padding 15 \
+  -width 15 \
+  -xoffset -17 -yoffset -52 \
+  -location 5 \
+  -columns 1 \
+  -show-icons -icon-theme "Papirus" \
+  -font "Noto Sans 9" \
+  -color-enabled true \
+  -color-window "$BACKGROUND,$BORDER,$SEPARATOR" \
+  -color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
+  -color-active "$BACKGROUND,$MAGENTA,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
+  -color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
+  <<< ">> Shut down|>> Reboot|>> Suspend|>> Hibernate|>> Cancel")"
 
 case "$MENU" in
-    *Shut\ down)   shutdown -P now "Shutting down..."   ;;
-    *Reboot)       shutdown -r now "Rebooting..."       ;;
-	*Suspend)      systemctl suspend                    ;;
-	*Hibernate)    systemctl hibernate                  ;;
-	*Cancel)       exit 0                               ;;
+  *Shut\ down) shutdown -P now "Shutting down..." ;;
+  *Reboot) shutdown -r now "Rebooting..." ;;
+  *Suspend) systemctl suspend ;;
+  *Hibernate) systemctl hibernate ;;
+  *Cancel) exit 0 ;;
 esac

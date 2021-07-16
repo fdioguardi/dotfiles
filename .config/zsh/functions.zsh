@@ -12,8 +12,7 @@ bkp() { cp -r "$1" "$1_$(date +%Y-%m-%d_%H:%M:%S).bk"; }
 calc() { echo "scale=5; $*" | bc; }
 
 # open files with sudo if necessary
-v()
-{
+v() {
   if [ ! -e "$1" ] || [ "$(stat -c '%U' "$1")" = "$USER" ]; then
     "$EDITOR" "$@"
   else

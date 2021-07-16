@@ -3,41 +3,44 @@
 #
 
 alias \
-  ls='ls --color'                                 \
-  grep='grep --color=auto'
+  grep='grep --color=auto' \
+  ls='ls --color'
 
 abbr \
-  l='ls --color -A --group-directories-first'     \
+  cat='bat --decorations=never' \
+  chx='chmod +x' \
+  f='find . -name' \
+  ff='sudo find / -name' \
+  l='ls --color -A --group-directories-first' \
   ll='ls --color -Agho --group-directories-first' \
-  cat='bat'                                       \
-  ..='cd ..'                                      \
-  ...='cd ../../'                                 \
-  ....='cd ../../../'                             \
-  .....='cd ../../../../'                         \
-  ff='sudo find / -name'                          \
-  f='find . -name'                                \
-  tmp='mc /tmp/$RANDOM'                           \
-  rmd='rmdir'                                     \
-  mkd='mkdir -pv'
+  tmp='cd $(mktemp -d)' \
+  rmd='rmdir' \
+  mkd='mkdir -pv' \
+  ...='cd ../../' \
+  ....='cd ../../../' \
+  .....='cd ../../../../'
 
 abbr \
-  p='paru'              \
-  i='paru -S --needed'  \
-  r='paru -Rns'         \
-  ro='paru --clean'
+  p='paru' \
+  i='paru -S --needed' \
+  r='paru -Rns' \
+  clean='paru --clean --noconfirm && topgrade -yc' \
+  u='topgrade -y &'
 
 abbr \
+  calc='noglob math' \
+  cu='nmcli connection up' \
+  g='git' \
+  ka='killall' \
   pls='sudo $(fc -ln -1)' \
-  g='git'                 \
-  ka='killall'            \
-  rc='recolorize'         \
+  rc='recolorize' \
+  venv='source .venv/bin/activate'
 
 alias \
-  vi='v'                                          \
-  vim='v'                                         \
-  vimrc='"$EDITOR" "$HOME"/.config/nvim/init.lua'
+  vi='v' \
+  vim='v'
 
 alias \
-  brightness='xrandr --output eDP-1 --brightness'                   \
-  pharo='pharo $HOME/Pharo/Pharo8.0-SNAPSHOT-64bit-1b7a8d8.image &' \
+  battery='cat /sys/class/power_supply/BAT0/uevent' \
+  brightness='xrandr --output eDP-1 --brightness' \
   d='/usr/bin/git --git-dir="$HOME"/.dotfiles --work-tree="$HOME"' # Managing dotfiles

@@ -1,35 +1,33 @@
 #!/bin/bash
 
-usage()
-{
+usage() {
   echo "Usage: $(basename "$0") COLOR"
   exit 7
 }
 
-color_value()
-{
+color_value() {
   local search
   case $1 in
-    FOREGROUND)    search="foreground:"     ;;
-    BACKGROUND)    search="background:"     ;;
-    CURSOR)        search="cursorColor:"    ;;
-    BLACK|0)       search="color0:"         ;;
-    RED|1)         search="color1:"         ;;
-    GREEN|2)       search="color2:"         ;;
-    YELLOW|3)      search="color3:"         ;;
-    BLUE|4)        search="color4:"         ;;
-    MAGENTA|5)     search="color5:"         ;;
-    CYAN|6)        search="color6:"         ;;
-    WHITE|7)       search="color7:"         ;;
-    ALTBLACK|8)    search="color8:"         ;;
-    ALTRED|9)      search="color9:"         ;;
-    ALTGREEN|10)   search="color10:"        ;;
-    ALTYELLOW|11)  search="color11:"        ;;
-    ALTBLUE|12)    search="color12:"        ;;
-    ALTMAGENTA|13) search="color13:"        ;;
-    ALTCYAN|14)    search="color14:"        ;;
-    ALTWHITE|15)   search="color15:"        ;;
-    *)          usage                       ;;
+    FOREGROUND)      search="foreground:"  ;;
+    BACKGROUND)      search="background:"  ;;
+    CURSOR)          search="cursorColor:" ;;
+    BLACK | 0)       search="color0:"      ;;
+    RED | 1)         search="color1:"      ;;
+    GREEN | 2)       search="color2:"      ;;
+    YELLOW | 3)      search="color3:"      ;;
+    BLUE | 4)        search="color4:"      ;;
+    MAGENTA | 5)     search="color5:"      ;;
+    CYAN | 6)        search="color6:"      ;;
+    WHITE | 7)       search="color7:"      ;;
+    ALTBLACK | 8)    search="color8:"      ;;
+    ALTRED | 9)      search="color9:"      ;;
+    ALTGREEN | 10)   search="color10:"     ;;
+    ALTYELLOW | 11)  search="color11:"     ;;
+    ALTBLUE | 12)    search="color12:"     ;;
+    ALTMAGENTA | 13) search="color13:"     ;;
+    ALTCYAN | 14)    search="color14:"     ;;
+    ALTWHITE | 15)   search="color15:"     ;;
+    *) usage ;;
   esac
   xrdb -query | grep "$search" | awk '{print $NF}'
 }

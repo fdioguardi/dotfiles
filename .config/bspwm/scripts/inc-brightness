@@ -4,7 +4,7 @@
 # receives an increment and uses it with `xrandr --brightness`
 # also keeps brightness between 0.1 and 1 because what's the point of not doing it
 
-[ "$#" -ne 1 ] && echo "Usage: $( basename "$0" ) N" && exit 7
+[ "$#" -ne 1 ] && echo "Usage: $(basename "$0") N" && exit 7
 
 monitor=$(xrandr --listactivemonitors \
   | grep "DP" \
@@ -17,7 +17,7 @@ max_brightness=1
 wanted_brightness=$(echo "$actual_brightness+$1" | bc)
 
 [ "$(echo "$wanted_brightness < $max_brightness" | bc -l)" ] \
-    && new_brightness="$wanted_brightness" \
-    || new_brightness="$max_brightness"
+  && new_brightness="$wanted_brightness" \
+  || new_brightness="$max_brightness"
 
 xrandr --output "$monitor" --brightness "$new_brightness"

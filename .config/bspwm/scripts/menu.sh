@@ -35,20 +35,20 @@ LIGHT_GREEN="#7cb342"
 
 # Launch Rofi
 rofi -no-lazy-grab -show drun \
--display-drun "Applications :" -drun-display-format "{name}" \
--hide-scrollbar true \
--bw 0 \
--lines 15 \
--line-padding 6 \
--padding 15 \
--width 17 \
--xoffset 17 -yoffset -52 \
--location 7 \
--columns 1 \
--show-icons -icon-theme "Papirus" \
--font "Noto Sans 9" \
--color-enabled true \
--color-window "$BACKGROUND,$BORDER,$SEPARATOR" \
--color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
--color-active "$BACKGROUND,$MAGENTA,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
--color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND"
+  -display-drun "Applications :" -drun-display-format "{name}" \
+  -hide-scrollbar true \
+  -bw 0 \
+  -lines 15 \
+  -line-padding 6 \
+  -padding 15 \
+  -width 17 \
+  -xoffset 17 -yoffset -52 \
+  -location 7 \
+  -columns 1 \
+  -show-icons -icon-theme "Papirus" \
+  -font "Noto Sans 9" \
+  -color-enabled true \
+  -color-window "$BACKGROUND,$BORDER,$SEPARATOR" \
+  -color-normal "$BACKGROUND_ALT,$FOREGROUND,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
+  -color-active "$BACKGROUND,$MAGENTA,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND" \
+  -color-urgent "$BACKGROUND,$YELLOW,$BACKGROUND_ALT,$HIGHLIGHT_BACKGROUND,$HIGHLIGHT_FOREGROUND"

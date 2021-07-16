@@ -3,7 +3,7 @@
 # dec-brightness
 # the same as inc-brightness, just the exact opposite
 
-[ "$#" -ne 1 ] && echo "Usage: $( basename "$0" ) N" && exit 7
+[ "$#" -ne 1 ] && echo "Usage: $(basename "$0") N" && exit 7
 
 monitor=$(xrandr --listactivemonitors \
   | grep "DP" \
@@ -16,7 +16,7 @@ min_brightness=0.1
 wanted_brightness=$(echo "$actual_brightness-$1" | bc)
 
 [ "$(echo "$wanted_brightness > $min_brightness" | bc -l)" ] \
-    && new_brightness="$wanted_brightness" \
-    || new_brightness="$min_brightness"
+  && new_brightness="$wanted_brightness" \
+  || new_brightness="$min_brightness"
 
-xrandr --output $monitor -1 --brightness "$new_brightness"
+xrandr --output "$monitor" -1 --brightness "$new_brightness"

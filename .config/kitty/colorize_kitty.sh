@@ -9,8 +9,7 @@ fill_indexed_placeholder() {
 
 fill_placeholders() {
   # Numbered colors
-  for i in {0..15}
-  do
+  for i in {0..15}; do
     fill_indexed_placeholder "$i" "$1"
   done
 
