@@ -3,6 +3,7 @@
 #
 
 # Shell settings
+stty -ixon
 setopt autocd hist_ignore_dups interactive_comments prompt_subst
 unsetopt nocaseglob
 
@@ -13,7 +14,7 @@ for file in /usr/share/zsh/plugins/*/*.plugin.zsh \
 done
 
 # Modules
-for file in ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/*.zsh; do
+for file in "${ZDOTDIR:-${HOME}/.config/zsh}"/*.zsh; do
   [ -r "$file" ] && source "$file"
 done
 unset file
