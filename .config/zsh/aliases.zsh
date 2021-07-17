@@ -25,7 +25,7 @@ abbr \
   i='paru -S --needed' \
   r='paru -Rns' \
   clean='paru --clean --noconfirm && topgrade -yc' \
-  u='topgrade -y &'
+  u='topgrade -y &; "$XDG_DATA_HOME"/nvim/install_nvim.sh &'
 
 abbr \
   calc='noglob math' \
