@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# play music from youtube
+
+# usage: yt-play GENRE
+
+# example:
+#   $ yt-play lofi
+
+# supported genres:
+#   jazz
+#   lofi
+#   synthwave
+
+usage() {
+  echo "Usage: $(basename "$0") (lofi | synthwave | jazz)" >&2
+}
+
+play() {
+  mpv --no-video "$1" &> /dev/null
+}
+
+[ "$#" -lt 1 ] && usage && exit 22
+
+readonly dependencies=("mpv" "youtube-dl")
+for dependency in "${dependencies[@]}"; do
+  if ! command -v "$dependency" &> /dev/null; then
+    echo "Missing dependency: $dependency"
+    exit 65
+  fi
+done
+
+case "$1" in
+  "lofi") play "https://www.youtube.com/watch?v=5qap5aO4i9A" ;;
+  "synthwave") play "https://www.youtube.com/watch?v=BbGOa8UIbAc" ;;
+  "jazz") play "https://www.youtube.com/watch?v=VR4H81bz-Bs" ;;
+  *) usage && exit 22 ;;
+esac
