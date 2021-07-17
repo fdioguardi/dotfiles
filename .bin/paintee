@@ -7,13 +7,11 @@
 # https://github.com/addy-dclxvi/void-bspwm-dotfiles/
 # * Modified by me
 
-usage ()
-{
-  echo "Usage: $( basename "$0" ) [-c PATH] [-x PATH] FILE..." >&2
+usage() {
+  echo "Usage: $(basename "$0") [-c PATH] [-x PATH] FILE..." >&2
 }
 
-getcolors()
-{
+getcolors() {
   FOREGROUND=$(getcolor foreground)
   BACKGROUND=$(getcolor background)
   CURSOR=$(getcolor cursor)
@@ -35,8 +33,7 @@ getcolors()
   ALTWHITE=$(getcolor altwhite)
 }
 
-cachecolors ()
-{
+cachecolors() {
   read -d '' cache <<- EOF
 	FOREGROUND="${FOREGROUND}"
 	BACKGROUND="${BACKGROUND}"
@@ -60,12 +57,10 @@ cachecolors ()
 	EOF
 }
 
-sendescape ()
-{
+sendescape() {
   for term in /dev/pts/[0-9]*; do
     printf "%b" "\033]10;$FOREGROUND\007" > "$term" &
     printf "%b" "\033]11;$BACKGROUND\007" > "$term" &
-    printf "%b" "\033]708;$BACKGROUND\007" > "$term" &
     printf "%b" "\033]12;$CURSOR\007" > "$term" &
     printf "%b" "\033]4;0;$BLACK\007" > "$term" &
     printf "%b" "\033]4;1;$RED\007" > "$term" &
