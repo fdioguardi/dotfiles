@@ -3,7 +3,7 @@
 #
 
 # create directory and cd inside
-mc() { mkdir -pv "$1" && cd "$1" || return; }
+mc() { mkdir -pv "$@" && cd "${@:$#}" || return; }
 
 # backup files/directories
 bkp() { cp -r "$1" "$1_$(date +%Y-%m-%d_%H:%M:%S).bk"; }
