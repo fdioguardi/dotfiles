@@ -21,23 +21,22 @@ v() {
 }
 
 # open everything
-o()
-{
-  case "$(file -ib "$1")" in
-    */dir*)             cd "$1" || return ;;
-    *video*|*gif*)      mpv "$1" & disown ;;
-    *image*)            feh "$1" & disown ;;
-    *audio*)            mpv "$1" ;;
-    */epub+zip*|*pdf*)  zathura "$1" ;;
-    */zip*)             unzip "$1" ;;
-    *x-tar*)            tar xf "$1" ;;
-    *x-rar*)            unrar x "$1" ;;
-    *html*)             $BROWSER "$1" ;;
-    *http*)
+o() {
+  case "$(file -bL "$1" | cut -d/ -f1)" in
+    dir) cd "$1" || return ;;
+    video | gif) mpv "$1" & disown ;;
+    image) feh "$1" & disown ;;
+    audio) mpv "$1" ;;
+    *PDF*) zathura "$1" ;;
+    zip) unzip "$1" ;;
+    x-tar) tar xf "$1" ;;
+    x-rar) unrar x "$1" ;;
+    html) $BROWSER "$1" ;;
+    http)
       curl -Ls "$1" -o "/tmp/${1##*/}"
-      o     "/tmp/${1##*/}"
+      o "/tmp/${1##*/}"
       rm -f "/tmp/${1##*/}"
       ;;
-    *)                  v "$1" ;;
+    *) v "$1" ;;
   esac
 }
