@@ -6,10 +6,10 @@
 mc() { mkdir -pv "$@" && cd "${@:$#}" || return; }
 
 # backup files/directories
-bkp() { cp -r "$1" "$1_$(date +%Y-%m-%d_%H:%M:%S).bk"; }
+bkp() { cp -r "$1"{,"_$(date +%Y-%m-%d_%H:%M:%S).bkp"}; }
 
 # math operation with 5 decimals
-calc() { echo "scale=5; $*" | bc; }
+math() { bc <<< "scale=6; $*"; }
 
 # open files with sudo if necessary
 v() {
