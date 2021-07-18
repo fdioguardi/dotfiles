@@ -2,7 +2,7 @@
 # prompt.zsh
 #
 
-PROMPT="%F{black}: "
+PROMPT="%F{black};: "
 PROMPT="${PROMPT}%F{blue}%1~ "
 PROMPT="${PROMPT}%(?.%F{green}.%F{red}); "
 
