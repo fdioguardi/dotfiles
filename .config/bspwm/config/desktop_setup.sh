@@ -73,9 +73,9 @@ win_gaps=${win_gaps:-"4"}
 padding=${padding:-"10"}
 panel_size=${panel_size:-"35"}
 panel_side=${panel_side:-"bottom"}
-monitor=${monitor:-$(xrandr --listactivemonitors \
-  | grep "DP" \
-  | awk 'NF {print $NF}')}
+monitor=${monitor:-$(xrandr --query \
+  | grep "primary" \
+  | cut -f1 -d" ")}
 
 set_padding &
 set_gaps &

@@ -5,9 +5,7 @@
 
 [ "$#" -ne 1 ] && echo "Usage: $(basename "$0") N" && exit 7
 
-monitor=$(xrandr --listactivemonitors \
-  | grep "DP" \
-  | awk 'NF {print $NF}')
+monitor=$(xrandr --query | grep "primary" | cut -f1 -d" ")
 
 actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 
