@@ -41,4 +41,4 @@ They can be installed by:
 
 and
 
-2. Running [this script](./install-packages.sh).
+2. Running [this script](./install-packages.sh): `"$HOME"/.docs/install-packages.sh`.

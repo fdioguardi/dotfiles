@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Download every package in "$file" that contains it's link to the
+# Arch Package Database
+
 readonly file="$HOME/.docs/PACKAGES.md"
 declare -a packages
 
