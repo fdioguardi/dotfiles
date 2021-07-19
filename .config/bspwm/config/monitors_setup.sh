@@ -57,14 +57,6 @@ two_monitor_settings() {
       --monitor "$2" &
 }
 
-# use_secondary_monitor_settings() {
-#   [ "$(bspc query -D --monitor "$1" | wc -l)" -gt 1 ] && exit 1
-
-#   xrandr --output "$1" --off --output "$2" --auto --primary
-#   one_monitor_settings "$2"
-#   bspc monitor "$1" --remove
-# }
-
 toggle() {
   [ "$(bspc query -D --monitor "$1" | wc -l)" -eq 1 ] \
     && one_monitor_settings "$1"
