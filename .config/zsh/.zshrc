@@ -5,7 +5,6 @@
 # Shell settings
 stty -ixon
 setopt autocd hist_ignore_dups interactive_comments prompt_subst
-unsetopt nocaseglob
 
 # Plugins
 for file in /usr/share/zsh/plugins/*/*.plugin.zsh \
