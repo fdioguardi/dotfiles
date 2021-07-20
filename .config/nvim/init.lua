@@ -6,6 +6,9 @@
 vim.api.nvim_set_keymap("", " ", "", {})
 vim.g.mapleader = " "
 
+-- disable defaults
+require("disabled_")
+
 require("paq")({
   -- Plugin managing
   "savq/paq-nvim",
