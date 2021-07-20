@@ -9,9 +9,12 @@ vim.g.mapleader = " "
 -- disable defaults
 require("disabled_")
 
+vim.cmd("packadd! paq-nvim")
+if not pcall(require, "paq") then return end
+
 require("paq")({
   -- Plugin managing
-  "savq/paq-nvim",
+  {"savq/paq-nvim", opt = true},
 
   -- Colorschemes
   "ayu-theme/ayu-vim",
@@ -21,7 +24,9 @@ require("paq")({
   "tpope/vim-commentary",                      -- comment out motions
   "nvim-telescope/telescope.nvim",             -- fuzzy finder
   "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",                       -- syntax highlighting
+  "nvim-lua/popup.nvim",
+
+  -- Syntax highlighting
   {"nvim-treesitter/nvim-treesitter",          -- parser generator
     run = function() vim.cmd("TSUpdate") end},
   "p00f/nvim-ts-rainbow",                      -- colorize matching parenthesis
@@ -30,5 +35,5 @@ require("paq")({
   "neovim/nvim-lspconfig",                     -- common configurations
   "hrsh7th/nvim-compe",                        -- completion framework
   "ray-x/lsp_signature.nvim",                  -- signature help
-  "mfussenegger/nvim-jdtls",                   -- full java support
+  "mfussenegger/nvim-jdtls",                   -- java support
 })
