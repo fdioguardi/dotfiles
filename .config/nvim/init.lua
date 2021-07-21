@@ -6,8 +6,11 @@
 vim.api.nvim_set_keymap("", " ", "", {})
 vim.g.mapleader = " "
 
--- disable defaults
+-- disable distribution plugin
 require("disabled_")
+
+-- set colorscheme
+require("colorschemes_").ayu()
 
 vim.cmd("packadd! paq-nvim")
 if not pcall(require, "paq") then return end
