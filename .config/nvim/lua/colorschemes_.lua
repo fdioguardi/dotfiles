@@ -21,18 +21,11 @@ function M.gruvbox()
   g.gruvbox_invert_selection = false
 end
 
-function M.set_colorscheme(colorscheme)
-  vim.cmd("colorscheme " .. colorscheme)
-end
-
 return setmetatable({}, {
   __index = function(self, key)
-    if M[key] then
-      return function()
-        M[key]()
-        M.set_colorscheme(key)
-      end
+    return function()
+      pcall(M[key])
+      vim.cmd("colorscheme " .. key)
     end
-    return function() M.set_colorscheme(key) end
   end,
 })
