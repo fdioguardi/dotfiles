@@ -16,14 +16,15 @@ d config --local status.showUntrackedFiles no
 
 1. Define an alias to work with the git bare repository.
 
-2. Clone the repository itself into a folder called _.dotfiles_ inside the home directory.
-   The name of this folder is unimportant, as long as it's consistent to the name given in the first command.
+2. Clone the repository itself into `$HOME/.dotfiles`.
+   The name of this folder is unimportant,
+   as long as it's consistent to the name given in the first command.
 
 3. Fetch remote files.
    This command will fail if there are any local files with identical names to the ones in the repository.
    Back up and remove those files, then execute this command again.
 
-4. Prevent untracked files from showing in `d status`.
+4. Prevent untracked files from showing when running `d status`.
 
 #### After cloning
 
@@ -35,10 +36,6 @@ and tell the repository to use it with `git remote set-url origin git@github.com
 #### Dependencies
 
 This dotfiles require [many packages](./PACKAGES.md) to work properly.
-They can be installed by:
-
-1. [Downloading paru](./PACKAGES.md#package-management).
-
-and
-
-2. Running [this script](./install-packages.sh): `"$HOME"/.docs/install-packages.sh`.
+They can be installed by running [this script](./install-packages.sh):
+`"$HOME"/.docs/install-packages.sh`,
+which downloads an AUR helper and uses it to get everything else.
