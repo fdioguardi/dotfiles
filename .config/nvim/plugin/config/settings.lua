@@ -18,7 +18,6 @@ vim.opt.number         = true           -- show absolute number of current line
 
 -- 5 syntax, highlighting and spelling
 vim.opt.guicursor     = ""		      -- show block cursor for every mode
-vim.opt.hlsearch      = false                 -- don't highlight search matches
 vim.opt.spelllang     = { "en", "es", "it" }  -- enable spell-check in more languages
 vim.opt.termguicolors = true                  -- use GUI colors for the terminal
 
@@ -38,7 +37,6 @@ vim.opt.mouse = "a"  -- enable using the mouse if available
 -- 10 printing
 -- 11 messages and info
 vim.opt.confirm    = true      -- start a dialog when a command fails
-vim.opt.errorbells = false     -- don't beep on errors
 vim.opt.ruler      = false     -- don't show cursor position
 vim.opt.showcmd    = false     -- don't show (partial) command keys
 vim.opt.showmode   = false     -- don't show current mode
@@ -55,8 +53,6 @@ vim.opt.undofile = true  -- persist undo history
 -- 16 diff mode
 -- 17 mapping
 -- 18 reading and writing files
-vim.opt.backup = false  -- don't store a backup after writing
-
 -- 19 the swap file
 vim.opt.swapfile = false  -- don't swap files
 
