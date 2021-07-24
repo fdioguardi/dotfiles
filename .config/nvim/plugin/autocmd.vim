@@ -22,6 +22,6 @@ augroup END
 
 augroup number_toggle
   autocmd!
-  autocmd BufEnter,FocusGained,WinEnter * if &number | set relativenumber   | endif
-  autocmd BufLeave,FocusLost,WinLeave   * if &number | set norelativenumber | endif
+  autocmd BufEnter,FocusGained,WinEnter * if &nu | set rnu   | endif
+  autocmd BufLeave,FocusLost,WinLeave   * if &nu | set nornu | endif
 augroup END

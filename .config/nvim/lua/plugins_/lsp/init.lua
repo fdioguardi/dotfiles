@@ -12,9 +12,12 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 for _, server in pairs({"clangd", "pyright", "tsserver"}) do
   lspconfig[server].setup({
-    on_attach = require("lsp_.on_attach"),
+    on_attach = require("plugins_.lsp.on_attach"),
     capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 500,
+    },
   })
 end
 
-require("lsp_.efm"):setup()
+require("plugins_.lsp.efm"):setup()

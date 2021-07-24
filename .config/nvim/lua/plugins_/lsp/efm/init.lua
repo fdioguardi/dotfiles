@@ -2,7 +2,7 @@
 -- efm.lua
 --
 
-local M = require("lsp_.efm.format")
+local M = require("plugins_.lsp.efm.format")
 
 return {
   languages = {

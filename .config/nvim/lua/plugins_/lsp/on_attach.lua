@@ -8,15 +8,12 @@ return function(client, bufnr)
     require("mappings_.keymaps").buf_nnoremap(bufnr, lhs, string.format(
       ":lua vim.lsp.buf['%s']()<CR>", fn))
   end
-  require("telescope_.mappings")("<leader>e", "lsp_document_diagnostics", {
+  require("plugins_.telescope").map("<leader>e", "lsp_document_diagnostics", {
     previewer = false, initial_mode = 'normal',
   })
 
   -- enable sign column
   vim.opt_local.signcolumn = "yes:1"
-
-  -- enable completion
-  require("completion_")({source = {nvim_lsp = true}})
 
   -- enable signature help when possible
   if client.resolved_capabilities.signature_help then

@@ -1,5 +1,5 @@
 --
--- telescope_.lua
+-- pickers.lua
 --
 
 require("telescope").setup({

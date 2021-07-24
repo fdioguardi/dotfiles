@@ -54,9 +54,9 @@ M.nnoremap("]S", "]s1z=")
 M.nnoremap("[S", "[s1z=")
 
 -- cut into an auxiliar register
-for _, motion in ipairs({'c', 'd', 'C', 'D'}) do
-M.nnoremap("<leader>" .. motion, '"a' .. motion)
-M.vnoremap("<leader>" .. motion, '"a' .. motion)
+for _, motion in ipairs({"c", "d", "C", "D"}) do
+  M.nnoremap("<leader>" .. motion, "\"a" .. motion)
+  M.vnoremap("<leader>" .. motion, "\"a" .. motion)
 end
 
 -- move through quickfix list

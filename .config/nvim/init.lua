@@ -6,37 +6,70 @@
 vim.api.nvim_set_keymap("", " ", "", {})
 vim.g.mapleader = " "
 
--- disable distribution plugin
-require("disabled_")
+-- disable builtin plugins
+require("plugins_.builtin")
 
--- set colorscheme
-require("colorschemes_").ayu()
+-- setup plugins
+if true then return end
 
-vim.cmd("packadd! paq-nvim")
-if not pcall(require, "paq") then return end
-
-require("paq")({
+require("packer").startup(function(use)
   -- Plugin managing
-  {"savq/paq-nvim", opt = true},
+  use { "wbthomason/packer.nvim" }
 
   -- Colorschemes
-  "ayu-theme/ayu-vim",
+  use {
+    "ayu-theme/ayu-vim",
+    event = "UIEnter",
+    config = function() require("plugins_.theme").ayu() end,
+  }
 
   -- Functionality
-  "tpope/vim-surround",                        -- simple quoting/parenthesizing
-  "tpope/vim-commentary",                      -- comment out motions
-  "nvim-telescope/telescope.nvim",             -- fuzzy finder
-  "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",
+  use { "tpope/vim-surround", event = "VimEnter" }      -- surround text objects
+
+  use {
+    "tpope/vim-commentary",                               -- comment out motions
+    keys = { "gc", { "v", "gc" }, },
+  }
+
+  use {
+    "nvim-telescope/telescope.nvim",                             -- fuzzy finder
+    config = function() require("plugins_.telescope"):setup() end,
+    event = "UIEnter",
+    requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+  }
 
   -- Syntax highlighting
-  {"nvim-treesitter/nvim-treesitter",          -- parser generator
-    run = function() vim.cmd("TSUpdate") end},
-  "p00f/nvim-ts-rainbow",                      -- colorize matching parenthesis
+  use {
+    "nvim-treesitter/nvim-treesitter",                       -- parser generator
+    config = function() require("plugins_.treesitter") end,
+    event = "BufRead",
+    run = ":TSUpdate",
+  }
+
+  use {
+   "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
+   after = "nvim-treesitter",
+  }
 
   -- Language Server Protocol
-  "neovim/nvim-lspconfig",                     -- common configurations
-  "hrsh7th/nvim-compe",                        -- completion framework
-  "ray-x/lsp_signature.nvim",                  -- signature help
-  "mfussenegger/nvim-jdtls",                   -- java support
-})
+  use {
+    "neovim/nvim-lspconfig",                            -- common configurations
+    config = function() require("plugins_.lsp") end,
+  }
+
+  use {
+    "hrsh7th/nvim-compe",                                -- completion framework
+    config = function() require("plugins_.completion") end,
+    event = "InsertEnter",
+  }
+
+  use { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" } -- signature help
+
+  use {
+    "mfussenegger/nvim-jdtls",                                   -- java support
+    config = function() require("plugins_.lsp.jdtls") end,
+    ft = "java",
+    requires = "nvim-lspconfig",
+  }
+
+end)
