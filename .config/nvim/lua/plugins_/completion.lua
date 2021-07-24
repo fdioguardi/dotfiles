@@ -1,5 +1,5 @@
 --
--- completion_.lua
+-- completion.lua
 --
 
 local buf_inoremap = require("mappings_.keymaps").buf_inoremap

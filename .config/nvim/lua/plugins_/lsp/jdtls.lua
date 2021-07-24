@@ -2,7 +2,6 @@
 -- jdtls.lua
 --
 
--- attach jdtls
 require("jdtls").start_or_attach({
   cmd = {"launch_jdtls"},
   on_attach = function()

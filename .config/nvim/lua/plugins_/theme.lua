@@ -1,5 +1,5 @@
 --
--- colorschemes_.lua
+-- theme.lua
 --
 
 -- variables

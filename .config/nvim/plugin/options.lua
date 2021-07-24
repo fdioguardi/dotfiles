@@ -1,5 +1,5 @@
 --
--- options_.lua
+-- options.lua
 --
 
 -- 1 important

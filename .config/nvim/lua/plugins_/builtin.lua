@@ -1,5 +1,5 @@
 --
--- disabled.lua
+-- builtin.lua
 --
 
 -- disable language providers
