@@ -12,6 +12,7 @@ function abbr() {
     alias "$abbreviation"
     _abbreviations+=("${abbreviation%%\=*}")
   done
+  unset abbreviation
 }
 
 # Expand any aliases in the current line buffer
