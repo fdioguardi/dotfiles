@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Note: This is a very simplistic approach because I alerady
-#   know the settings I want to apply
-
 setup_display() {
   xrandr --output "$1" \
     --primary --auto \
@@ -70,17 +67,19 @@ toggle() {
 }
 
 readonly config=${XDG_CONFIG_HOME:-${HOME}/.config}
-readonly primary=$(xrandr -q \
+primary=$(xrandr -q \
   | grep -w "primary" \
   | cut -f1 -d" ")
+readonly primary
 
 if [ "$(xrandr -q | grep -wc connected)" -eq 1 ] || [ "$#" -gt 1 ]; then
   one_monitor_settings "$primary"
 else
-  readonly secondary=$(xrandr -q \
+  secondary=$(xrandr -q \
     | grep -w "connected" \
     | grep -v "primary" \
     | cut -f1 -d" ")
+  readonly secondary
 
   if [ "$1" = "--toggle" ]; then
     toggle "$primary" "$secondary"

@@ -11,9 +11,12 @@ done
 readonly path="$HOME"/.screenshots
 [ -d "$path" ] || mkdir -pv "$path"
 
-readonly date=$(date "+%Y-%m-%d")
-readonly number=$(ls "$path" | grep -wc "$date")
-readonly name="${path}"/"${date}"-"${number}".png
+date=$(date "+%Y-%m-%d")
+readonly date
+number=$(find "$path" -name "${date}*" | wc -l)
+readonly number
+name="${path}"/"${date}"-"${number}".png
+readonly name
 
 if [ "$1" = "cut" ]; then
   cut="s"
