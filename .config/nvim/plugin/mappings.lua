@@ -9,30 +9,26 @@ local M = require("mappings_.keymaps")
 
 -- vim.g.mapleader = ' '
 
--- completion (only when active):
-      buf_inoremap('<C-Space>', 'compe#complete("<C-Space>")', {expr = true})
-      buf_inoremap('<C-y>', 'compe#confirm("<C-y>")', {expr = true})
-      buf_inoremap('<C-c>', '<Esc>')
+-- completion:
+      buf_inoremap(0, '<C-Space>', 'compe#complete("<C-Space>")', {expr = true})
+      buf_inoremap(0, '<C-y>', 'compe#confirm("<C-y>")', {expr = true})
 
 -- fuzzy finding:
-      map([n|v], '<leader>f', ":lua require('telescope_')['git_files']()<CR>")
-      map([n|v], '<leader>F', ":lua require('telescope_')['grep_string']()<CR>")
-      map([n|v], '<leader>v', ":lua require('telescope_')['vim_files']()<CR>")
+      map(n, '<leader>f', ":lua require('plugins_.telescope.pickers')['git_files']()<CR>")
+      map(n, '<leader>F', ":lua require('plugins_.telescope.pickers')['grep_string']()<CR>")
+      map(n, '<leader>v', ":lua require('plugins_.telescope.pickers')['vim_files']()<CR>")
 
 -- lsp (only on_attach):
       buf_nnoremap('gd', ':lua vim.lsp.buf['definition']()<CR>')
       buf_nnoremap('K', ':lua vim.lsp.buf['hover']()<CR>')
-      map_telescope([n|v], '<leader>e', ":lua
-        require('telescope_.mappings')['lsp_document_diagnostics']()<CR>")
+      map_telescope(n, '<leader>e', ":lua require('plugins_.telescope.pickers')['lsp_document_diagnostics']()<CR>")
 
   -- java:
       buf_nnoremap(0, "<leader>jc", ":lua require('jdtls').code_action()<CR>")
-      buf_nnoremap(0, "<leader>jr",
-                   ":lua require('jdtls').code_action(false, 'refactor')<CR>")
+      buf_nnoremap(0, "<leader>jr", ":lua require('jdtls').code_action(false, 'refactor')<CR>")
 
 -- run code on buffer (only on specific filetype):
-      buf_nnoremap(0, '<leader>r', :w<CR>:vs term://clear;
-                                   [python|bash|ts-node] %<CR>)
+      buf_nnoremap(0, '<leader>r', :w<CR>:vs term://clear; [python|bash|ts-node] %<CR>)
 
 --]]
 
@@ -65,9 +61,8 @@ M.nnoremap("<C-p>", ":lprev<CR>")
 M.nnoremap("<C-j>", ":cnext<CR>")
 M.nnoremap("<C-k>", ":cprev<CR>")
 
--- ]b in normal mode will move to next buffer
+-- move to next/previous buffer
 M.nnoremap("]b", ":bnext<CR>")
--- [b in normal mode will move to previous buffer
 M.nnoremap("[b", ":bprevious<CR>")
 
 -- exit terminal mode
