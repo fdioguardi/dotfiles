@@ -28,7 +28,7 @@ require("packer").startup(function(use)
 
   use {
     "tpope/vim-commentary",                               -- comment out motions
-    keys = { "gc", { "v", "gc" }, },
+    keys = { { "n", "gc" }, { "v", "gc" }, },
   }
 
   use {
@@ -41,14 +41,9 @@ require("packer").startup(function(use)
   -- Syntax highlighting
   use {
     "nvim-treesitter/nvim-treesitter",                       -- parser generator
-    config = function() require("plugins_.treesitter") end,
+    config = function() require('plugins_.treesitter') end,
     event = "BufRead",
-    run = ":TSUpdate",
-  }
-
-  use {
-   "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
-   after = "nvim-treesitter",
+    run = ":TSUpdate"
   }
 
   -- Language Server Protocol
