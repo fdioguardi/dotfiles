@@ -6,11 +6,14 @@ local M = {}
 
 -- default mapping options
 local function options(opts)
-  return vim.tbl_extend("keep", opts or {},
-                        {noremap = true, silent = true, unique = true})
+  return vim.tbl_extend(
+    "keep",
+    opts or {},
+    { noremap = true, silent = true, unique = true }
+  )
 end
 
-for _, mode in ipairs({"n", "i", "v", "x", "o"}) do
+for _, mode in ipairs({ "n", "i", "v", "x", "o" }) do
   M[mode .. "noremap"] = function(lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options(opts))
   end

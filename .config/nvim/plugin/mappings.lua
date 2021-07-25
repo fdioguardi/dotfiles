@@ -37,7 +37,11 @@ M.xnoremap("K", ":lua require('mappings_.visual').move_up()<CR>")
 M.xnoremap("J", ":lua require('mappings_.visual').move_down()<CR>")
 
 -- globally substitute a word
-M.nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>//g<Left><Left>", {silent = false})
+M.nnoremap(
+  "<leader>s",
+  ":%s/\\<<C-r><C-w>\\>//g<Left><Left>",
+  { silent = false }
+)
 
 -- Y now yanks until the end of the line
 M.nnoremap("Y", "y$")
@@ -50,9 +54,9 @@ M.nnoremap("]S", "]s1z=")
 M.nnoremap("[S", "[s1z=")
 
 -- cut into an auxiliar register
-for _, motion in ipairs({"c", "d", "C", "D"}) do
-  M.nnoremap("<leader>" .. motion, "\"a" .. motion)
-  M.vnoremap("<leader>" .. motion, "\"a" .. motion)
+for _, motion in ipairs({ "c", "d", "C", "D" }) do
+  M.nnoremap("<leader>" .. motion, '"a' .. motion)
+  M.vnoremap("<leader>" .. motion, '"a' .. motion)
 end
 
 -- move through quickfix list
@@ -66,8 +70,12 @@ M.nnoremap("]b", ":bnext<CR>")
 M.nnoremap("[b", ":bprevious<CR>")
 
 -- exit terminal mode
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>",
-                        {noremap = true, silent = true, unique = true})
+vim.api.nvim_set_keymap(
+  "t",
+  "<Esc>",
+  "<C-\\><C-n>",
+  { noremap = true, silent = true, unique = true }
+)
 
 -- Q executes macro instead of entering Ex mode
 M.nnoremap("Q", "@q")
@@ -85,5 +93,8 @@ M.nnoremap("<leader>n", ":lua require('mappings_.leader').cycle_numbers()<CR>")
 M.vnoremap("<BS>", "d")
 
 -- 0 toggles between 0 and ^
-M.nnoremap("0", "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'",
-           {expr = true})
+M.nnoremap(
+  "0",
+  "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'",
+  { expr = true }
+)
