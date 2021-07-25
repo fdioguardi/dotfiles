@@ -58,7 +58,7 @@ require("packer").startup(function(use)
     event = "InsertEnter",
   }
 
-  use { "ray-x/lsp_signature.nvim", after = "nvim-lspconfig" } -- signature help
+  use { "ray-x/lsp_signature.nvim", module = "lsp_signature" } -- signature help
 
   use {
     "mfussenegger/nvim-jdtls",                                   -- java support
