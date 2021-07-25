@@ -80,7 +80,6 @@ sendescape() {
     printf "%b" "\033]4;14;$ALTCYAN\007" > "$term" &
     printf "%b" "\033]4;15;$ALTWHITE\007" > "$term" &
   done
-  echo $term >> /home/felipe/testPts.txt
 }
 
 getcolors
