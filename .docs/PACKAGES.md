@@ -134,13 +134,13 @@ List of manually installed packages, and some information on how to set them up.
 
     - [google-java-format](https://aur.archlinux.org/packages/google-java-format/)
 
-    - [lua-format](https://aur.archlinux.org/packages/lua-format/)
-
     - [prettier](https://archlinux.org/packages/community/any/prettier/)
 
     - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
 
     - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+
+    - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
 
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
 
