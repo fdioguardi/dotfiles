@@ -22,9 +22,9 @@ abbr \
 
 abbr \
   p='paru' \
-  i='paru -S --needed' \
+  i='yes "" | paru -S --needed' \
   r='paru -Rns' \
-  clean='paru --clean --noconfirm && topgrade -yc' \
+  ro='paru --clean --noconfirm && topgrade -yc' \
   u='topgrade -y &; "$XDG_DATA_HOME"/nvim/install_nvim.sh &'
 
 abbr \
@@ -36,12 +36,9 @@ abbr \
   rc='recolorize' \
   venv='source .venv/bin/activate'
 
-alias \
-  vi='v' \
-  vim='v'
+alias vi='v' vim='v'
 
 alias \
   battery='cat /sys/class/power_supply/BAT0/uevent' \
-  brightness='xrandr \
-    --output $(xrandr --query | grep "primary" | cut -f1 -d" ") --brightness' \
+  brightness='xrandr --output $(xrandr --query | grep "primary" | cut -f1 -d" ") --brightness' \
   d='/usr/bin/git --git-dir="$HOME"/.dotfiles --work-tree="$HOME"' # Managing dotfiles
