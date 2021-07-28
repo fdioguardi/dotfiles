@@ -10,7 +10,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = { "documentation", "detail", "additionalTextEdits" },
 }
 
-for _, server in pairs({ "clangd", "pyright", "tsserver" }) do
+for _, server in ipairs({ "clangd", "pyright", "tsserver" }) do
   lspconfig[server].setup({
     on_attach = require("plugins_.lsp.on_attach"),
     capabilities = capabilities,
