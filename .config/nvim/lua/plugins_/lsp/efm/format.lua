@@ -3,7 +3,7 @@
 --
 
 return {
-  black = { formatCommand = "black -q --fast -l 79 -", formatStdin = true, },
+  black = { formatCommand = "black -q --fast -l 79 -", formatStdin = true },
 
   clang_format = {
     formatCommand = "clang-format",
@@ -36,7 +36,7 @@ return {
   },
 
   stylua = {
-    formatCommand = "stylua --column-width 80 --indent-type 'Spaces' --indent-width 2 -",
+    formatCommand = "stylua --search-parent-directories -",
     formatStdin = true,
   },
 }
