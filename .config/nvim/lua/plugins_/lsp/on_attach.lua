@@ -8,7 +8,7 @@ return function(client, bufnr)
     require("mappings_.keymaps").buf_nnoremap(
       bufnr,
       lhs,
-      string.format(":lua vim.lsp.buf['%s']()<CR>", fn)
+      string.format(":lua vim.lsp.buf.%s()<CR>", fn)
     )
   end
   require("plugins_.telescope").map("<leader>e", "lsp_document_diagnostics", {
