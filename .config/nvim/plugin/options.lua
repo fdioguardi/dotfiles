@@ -2,6 +2,8 @@
 -- options.lua
 --
 
+-- stylua: ignore start
+
 -- 1 important
 
 -- 2 moving arround, searching and patterns
@@ -65,3 +67,5 @@ vim.opt.wildignorecase = true  -- ignore case when completing file names
 -- 24 multi-byte characters
 -- 25 various
 vim.opt.virtualedit = "block"  -- allow cursor to move where there is no text in visual block mode
+
+-- stylua: ignore end

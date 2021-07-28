@@ -9,6 +9,7 @@ vim.g.mapleader = " "
 -- disable builtin plugins
 require("plugins_.builtin")
 
+-- stylua: ignore start
 -- setup plugins
 if true then return end
 
@@ -66,5 +67,5 @@ require("packer").startup(function(use)
     ft = "java",
     requires = "nvim-lspconfig",
   }
-
 end)
+-- stylua: ignore end
