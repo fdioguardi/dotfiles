@@ -14,58 +14,63 @@ require("plugins_.builtin")
 if true then return end
 
 require("packer").startup(function(use)
-  -- Plugin managing
+    -- Plugin managing
   use { "wbthomason/packer.nvim" }
 
-  -- Colorschemes
+    -- Colorschemes
   use {
-    "ayu-theme/ayu-vim",
-    event = "UIEnter",
-    config = function() require("plugins_.theme").ayu() end,
+    "tanvirtin/monokai.nvim",
+    config = function() require("plugins_.theme").monokai() end,
+    after = "nvim-treesitter",
   }
 
-  -- Functionality
-  use { "tpope/vim-surround", event = "VimEnter" }      -- surround text objects
+    -- Functionality
+  use { "tpope/vim-surround", event = "VimEnter" }     -- surround text objects
 
   use {
-    "tpope/vim-commentary",                               -- comment out motions
-    keys = { { "n", "gc" }, { "v", "gc" }, },
+    "tpope/vim-commentary",                              -- comment out motions
+    keys = { { "n", "gc" }, { "v", "gc" } },
   }
 
   use {
-    "nvim-telescope/telescope.nvim",                             -- fuzzy finder
+    "nvim-telescope/telescope.nvim",                            -- fuzzy finder
     config = function() require("plugins_.telescope"):setup() end,
     event = "UIEnter",
     requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
   }
 
-  -- Syntax highlighting
+    -- Syntax highlighting
   use {
-    "nvim-treesitter/nvim-treesitter",                       -- parser generator
-    config = function() require('plugins_.treesitter') end,
-    event = "BufRead",
-    run = ":TSUpdate"
+    "nvim-treesitter/nvim-treesitter",                      -- parser generator
+    run = ":TSUpdate",
+    module = "nvim-treesitter",
   }
 
-  -- Language Server Protocol
   use {
-    "neovim/nvim-lspconfig",                            -- common configurations
+    "p00f/nvim-ts-rainbow",
+    config = function() require("plugins_.treesitter") end,
+    event = "BufRead",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+  }
+
+    -- Language Server Protocol
+  use {
+    "neovim/nvim-lspconfig",                           -- common configurations
     config = function() require("plugins_.lsp") end,
   }
 
+  use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }-- signature help
+
   use {
-    "hrsh7th/nvim-compe",                                -- completion framework
+    "hrsh7th/nvim-compe",                               -- completion framework
     config = function() require("plugins_.completion") end,
     event = "InsertEnter",
   }
 
-  use { "ray-x/lsp_signature.nvim", module = "lsp_signature" } -- signature help
-
   use {
-    "mfussenegger/nvim-jdtls",                                   -- java support
+    "mfussenegger/nvim-jdtls",                                  -- java support
     config = function() require("plugins_.lsp.jdtls") end,
     ft = "java",
-    requires = "nvim-lspconfig",
   }
 end)
 -- stylua: ignore end
