@@ -37,6 +37,7 @@ for _, plugin in ipairs({
   "spellfile_plugin",
   "tar",
   "tarPlugin",
+  "tutor_mode",
   "vimball",
   "vimballPlugin",
   "zip",
