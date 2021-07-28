@@ -98,3 +98,6 @@ M.nnoremap(
   "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'",
   { expr = true }
 )
+
+-- Disable <C-c> for getting out of insert mode
+M.inoremap("<C-c>", "<NOP>")
