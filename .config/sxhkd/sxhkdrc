@@ -4,48 +4,43 @@
 
 # terminal emulator
 alt + Return
-    "$TERMINAL"
+	"$TERMINAL"
 
 # program launcher
 alt + d
-    "$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh
+	"$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh
 
 # web browser
 alt + w
-    "$BROWSER"
+	"$BROWSER"
 
 # GUI file manager
 alt + a
-    thunar
+	thunar
 
 # music player
 alt + n
-    "$TERMINAL" --title ncspot --execute ncspot
-
-# chat
-alt + D
-    discord & \
-    telegram-desktop &
+	"$TERMINAL" --title ncspot --execute ncspot
 
 # power management prompt
 alt + x
-    "$XDG_CONFIG_HOME"/bspwm/scripts/sysmenu.sh
+	"$XDG_CONFIG_HOME"/bspwm/scripts/sysmenu.sh
 
 # take a screenshot
 Print
-    screeny
+	screeny
 
 # take a partial screenshot
 alt + shift + s
-    screeny cut
+	screeny cut
 
 # reolad sxhkd
 alt + Escape
-    pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd
 
 # kill steam
 alt + F6
-    killall steam
+	killall steam
 
 #
 # adjust media
@@ -53,7 +48,7 @@ alt + F6
 
 # pause and play with headset
 XF86Audio{Pause,Play}
-    playerctl play-pause
+	playerctl play-pause
 
 # next and previous with headset
 XF86Audio{Next,Prev}
@@ -69,7 +64,7 @@ button{8,9}
 
 # adjust primary monitor’s brightness
 XF86MonBrightness{Up,Down}
-    "$XDG_CONFIG_HOME"/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
+	"$XDG_CONFIG_HOME"/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
 
 # set display orientation
 alt + shift + {Up,Down}
@@ -81,15 +76,15 @@ alt + shift + {Up,Down}
 
 # restart bspwm
 alt + Delete
-    bspc wm -r
+	bspc wm -r
 
 # close current window
 alt + q
-    bspc node -c
+	bspc node -c
 
 # kill current window
 alt + shift + q
-    bspc node -k
+	bspc node -k
 
 # alternate between the tiled and monocle layout
 alt + m
@@ -105,7 +100,7 @@ alt + g
 
 # toggle between current and last state
 alt + {t,p,s,f}
-    bspc node -t \~{tiled,pseudo_tiled,floating,fullscreen}
+	bspc node -t \~{tiled,pseudo_tiled,floating,fullscreen}
 
 #
 # focus/swap
@@ -133,7 +128,7 @@ alt + {_,shift + }{1-9,0}
 
 # rotate nodes 90° in the current desktop
 alt + {Left,Right}
-    bspc node @/ --rotate {+,-}90
+	bspc node @/ --rotate {+,-}90
 
 #
 # preselect
@@ -177,4 +172,4 @@ alt + underscore
 
 # restore gap size
 alt + equal
-    "$XDG_CONFIG_HOME"/bspwm/config/desktop_setup.sh
+	"$XDG_CONFIG_HOME"/bspwm/config/desktop_setup.sh
