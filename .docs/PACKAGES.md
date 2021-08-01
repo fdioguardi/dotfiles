@@ -97,11 +97,17 @@ List of manually installed packages, and some information on how to set them up.
 
 ### Audio
 
+- **[cadence](https://www.archlinux.org/packages/community/x86_64/cadence/)**
+
+  Start it with `pw-jack catia` or `pw-jack cadendce`
+
 - **[playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)**
 
 - **[pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)**
 
   - [pipewire-pulse](https://archlinux.org/packages/extra/x86_64/pipewire-pulse/)
+
+  - [pipewire-jack](https://archlinux.org/packages/extra/x86_64/pipewire-jack/)
 
 - **[pulsemixer](https://archlinux.org/packages/community/any/pulsemixer/)**
 
