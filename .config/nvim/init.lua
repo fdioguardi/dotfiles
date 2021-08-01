@@ -20,12 +20,12 @@ require("packer").startup(function(use)
     -- Colorschemes
   use {
     "tanvirtin/monokai.nvim",
-    config = function() require("plugins_.theme").monokai() end,
     after = "nvim-treesitter",
+    config = function() require("plugins_.theme").monokai() end,
   }
 
     -- Functionality
-  use { "tpope/vim-surround", event = "VimEnter" }     -- surround text objects
+  use { "tpope/vim-surround", event = "CursorMoved" }  -- surround text objects
 
   use {
     "tpope/vim-commentary",                              -- comment out motions
@@ -34,23 +34,26 @@ require("packer").startup(function(use)
 
   use {
     "nvim-telescope/telescope.nvim",                            -- fuzzy finder
-    config = function() require("plugins_.telescope"):setup() end,
-    event = "UIEnter",
-    requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+    module = 'plugins_.telescope.pickers',
+    requires = {
+      { "nvim-lua/plenary.nvim", module = "plenary" },
+      { "nvim-lua/popup.nvim", module = "popup" }
+    },
+    setup = function() require("plugins_.telescope"):setup() end,
   }
 
     -- Syntax highlighting
   use {
     "nvim-treesitter/nvim-treesitter",                      -- parser generator
-    run = ":TSUpdate",
     module = "nvim-treesitter",
+    run = ":TSUpdate",
   }
 
   use {
-    "p00f/nvim-ts-rainbow",
+    "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
     config = function() require("plugins_.treesitter") end,
-    event = "BufRead",
-    requires = { "nvim-treesitter/nvim-treesitter" },
+    event = "CursorMoved",
+    requires = "nvim-treesitter/nvim-treesitter",
   }
 
     -- Language Server Protocol

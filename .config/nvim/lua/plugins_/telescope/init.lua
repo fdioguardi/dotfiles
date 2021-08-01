@@ -31,7 +31,9 @@ return {
 
   setup = function(self)
     for lhs, rhs in pairs(self.mappings) do
-      if type(rhs) == "string" then rhs = { rhs } end
+      if type(rhs) == "string" then
+        rhs = { rhs }
+      end
       pcall(self.map, lhs, unpack(rhs))
     end
   end,
