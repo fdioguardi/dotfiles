@@ -2,30 +2,30 @@
 -- theme.lua
 --
 
--- variables
-local g = vim.g
-
 local M = {}
 
-function M.gruvbox()
-  -- enable italic text
-  g.gruvbox_italic = true
+function M.pre_gruvbox()
+  vim.g.gruvbox_italic = true
 
-  -- clear highlight from sign column
-  g.gruvbox_sign_column = "bg0"
+  vim.g.gruvbox_sign_column = "bg0"
 
-  -- use dark mode, hard contrast
-  g.gruvbox_contrast_dark = "hard"
+  vim.g.gruvbox_contrast_dark = "hard"
 
-  -- don’t invert color of highlighted text
-  g.gruvbox_invert_selection = false
+  vim.g.gruvbox_invert_selection = false
+end
+
+function M.post_monokai()
+  vim.cmd("highlight LineNr       guibg=none")
+  vim.cmd("highlight CursorLineNr guibg=none")
+  vim.cmd("highlight SignColumn   guibg=none")
 end
 
 return setmetatable({}, {
   __index = function(self, key)
     return function()
-      pcall(M[key])
+      pcall(M["pre_" .. key])
       vim.cmd("colorscheme " .. key)
+      pcall(M["post_" .. key])
     end
   end,
 })
