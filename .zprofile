@@ -12,9 +12,9 @@ xset r rate 250 50
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/.local/nvim/bin"
 
 # XDG variables
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 # Default applications
 export EDITOR="nvim"
@@ -23,7 +23,7 @@ export BROWSER="brave"
 export READER="zathura"
 
 # Clean $HOME
-export CARGO_HOME="$XDG_DATA_HOME/.local/share}/cargo"
+export CARGO_HOME="$XDG_DATA_HOME/.local/share/cargo"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
