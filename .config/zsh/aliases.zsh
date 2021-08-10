@@ -7,7 +7,7 @@ alias \
   ls='ls --color'
 
 abbr \
-  cat='bat --decorations=never' \
+  bat='bat --decorations=never' \
   chx='chmod +x' \
   f='find . -name' \
   ff='sudo find / -name' \
@@ -25,7 +25,8 @@ abbr \
   i='yes "" | paru -S --needed' \
   r='paru -Rns' \
   ro='paru --clean --noconfirm && topgrade -yc' \
-  u='topgrade -y &; "$XDG_DATA_HOME"/nvim/install_nvim.sh &'
+  u='topgrade -y &; "$XDG_DATA_HOME"/nvim/install_nvim.sh &' \
+  gpip='PIP_REQUIRE_VIRTUALENV=0 pip'
 
 abbr \
   calc='noglob math' \
