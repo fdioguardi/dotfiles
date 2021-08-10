@@ -262,6 +262,14 @@ chsh -s $(which zsh) $USER
 
 - **[bc](https://archlinux.org/packages/extra/x86_64/bc/)**
 
+- **[fzf](https://archlinux.org/packages/community/x86_64/fzf/)**
+
+Use <C-f> to open `fzf` and cd into the selected directory:
+
+```
+sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/share/fzf/key-bindings.zsh
+```
+
 - **[htop](https://archlinux.org/packages/extra/x86_64/htop/)**
 
 - **[maim](https://archlinux.org/packages/community/x86_64/maim/)**
