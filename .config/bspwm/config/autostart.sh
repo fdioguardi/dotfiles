@@ -7,7 +7,8 @@ __start() {
   "$@" &
 }
 
-__start feh --no-fehbg --bg-fill --randomize "$HOME"/.wallpaper/*/*
+__start feh --no-fehbg --bg-fill \
+  --randomize "${XDG_DATA_HOME:-$HOME/.local/share}"/wallpapers/*/*
 
 __start sxhkd -m -1
 
