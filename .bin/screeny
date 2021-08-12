@@ -8,7 +8,7 @@ for dependency in "${dependencies[@]}"; do
   fi
 done
 
-readonly path="$HOME"/.screenshots
+readonly path="${XDG_DATA_HOME:-$HOME/.local/share}/screenshots"
 [ -d "$path" ] || mkdir -pv "$path"
 
 date=$(date "+%Y-%m-%d")
