@@ -11,8 +11,8 @@ abbr \
   chx='chmod +x' \
   f='find . -name' \
   ff='sudo find / -name' \
-  l='ls --color -A --group-directories-first' \
-  ll='ls --color -Agho --group-directories-first' \
+  l='ls -A --group-directories-first' \
+  ll='ls -Agho --group-directories-first' \
   tmp='cd $(mktemp -d)' \
   rmd='rmdir' \
   mkd='mkdir -pv' \
