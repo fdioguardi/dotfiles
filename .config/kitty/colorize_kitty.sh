@@ -1,16 +1,10 @@
 #!/bin/bash
 # Update kitty's config to apply Xresources color scheme
 
-fill_indexed_placeholder() {
-  local color
-  color=$(getcolor "$1")
-  sed -i "s/%cl${1}%/${color}/g" "$2"
-}
-
 fill_placeholders() {
   # Numbered colors
   for i in {0..15}; do
-    fill_indexed_placeholder "$i" "$1"
+    sed -i "s/%cl${i}%/$(getcolor "$i")/g" "$1"
   done
 
   # Named colors
@@ -18,10 +12,10 @@ fill_placeholders() {
   sed -i "s/%clbg%/$(getcolor background)/g" "$1"
 }
 
-template="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/colors.conf
-tmp_file=/tmp/kitty.tmp
+readonly template="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/colors.conf
+readonly settings_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/settings.conf
 target_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/kitty.conf
-settings_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/settings.conf
+tmp_file="$(mktemp)"
 
 cp "$template" "$tmp_file"
 
