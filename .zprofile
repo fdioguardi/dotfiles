@@ -44,6 +44,9 @@ export LESSHISTFILE=/dev/null
 # Java
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Python
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+
 # MPI
 export OPENMPI_PATH="/usr/local/openmpi"
 export PATH="$OPENMPI_PATH/bin:$PATH"

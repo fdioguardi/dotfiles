@@ -1,0 +1,9 @@
+from readline import write_history_file
+from os import getenv
+
+history_file: str = getenv("XDG_CACHE_HOME") if getenv("XDG_CACHE_HOME") else getenv("HOME") + "/.local/share"
+history_file += "/python/python_history"
+
+open(history_file, "a").close()
+
+write_history_file(history_file)
