@@ -213,13 +213,12 @@ List of manually installed packages, and some information on how to set them up.
 
 - **Bash**
 
-  - [Bash completion](https://archlinux.org/packages/extra/any/bash-completion/)
-
 - **[Dash](https://archlinux.org/packages/core/x86_64/dash/)**
 
   ##### Conflict with LightDM
 
-  The file /etc/lightdm/Xsession has "bashisms" even though it uses `#!/bin/sh`. Change the shebang to `#!/bin/bash` or replace the file with [this one](.system/etc/lightdm/Xsession).
+  The file /etc/lightdm/Xsession has "bashisms" even though it uses `#!/bin/sh`.
+  Change the shebang to `#!/bin/bash` or replace the file with [this one](.system/etc/lightdm/Xsession).
 
   Use dash as /bin/sh:
 
@@ -279,6 +278,8 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
 - **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
+
+- **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
 
 - **[unclutter](https://archlinux.org/packages/community/x86_64/unclutter/)**
 
