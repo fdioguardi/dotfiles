@@ -30,7 +30,7 @@ require("packer").startup(function(use)
 
   use {
     "nvim-telescope/telescope.nvim",                            -- fuzzy finder
-    module = 'plugins_.telescope.pickers',
+    module = 'telescope',
     requires = {
       { "nvim-lua/plenary.nvim", module = "plenary" },
       { "nvim-lua/popup.nvim", module = "popup" }
