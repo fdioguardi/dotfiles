@@ -10,48 +10,25 @@ local M = require("mappings_.keymaps")
 -- vim.g.mapleader = ' '
 
 -- completion:
-      buf_inoremap(0, '<C-Space>', 'compe#complete("<C-Space>")', {expr = true})
-      buf_inoremap(0, '<C-y>', 'compe#confirm("<C-y>")', {expr = true})
+      inoremap(0, '<C-Space>', 'compe#complete("<C-Space>")', {expr = true})
+      inoremap(0, '<C-y>', 'compe#confirm("<C-y>")', {expr = true})
 
 -- fuzzy finding:
       map(n, '<leader>f', ":lua require('plugins_.telescope.pickers')['git_files']()<CR>")
       map(n, '<leader>F', ":lua require('plugins_.telescope.pickers')['grep_string']()<CR>")
       map(n, '<leader>v', ":lua require('plugins_.telescope.pickers')['vim_files']()<CR>")
 
--- lsp (only on_attach):
-      buf_nnoremap('gd', ':lua vim.lsp.buf['definition']()<CR>')
-      buf_nnoremap('K', ':lua vim.lsp.buf['hover']()<CR>')
-      map_telescope(n, '<leader>e', ":lua require('plugins_.telescope.pickers')['lsp_document_diagnostics']()<CR>")
+-- lsp (only on_attach, and local to buffer):
+      buf_nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
+      buf_nnoremap('K', ':lua vim.lsp.buf.hover()<CR>')
 
-  -- java:
-      buf_nnoremap(0, "<leader>jc", ":lua require('jdtls').code_action()<CR>")
-      buf_nnoremap(0, "<leader>jr", ":lua require('jdtls').code_action(false, 'refactor')<CR>")
-
--- run code on buffer (only on specific filetype):
-      buf_nnoremap(0, '<leader>r', :w<CR>:vs term://clear; [python|bash|ts-node] %<CR>)
+      map_telescope(n, '<leader>e', ":lua require('plugins_.telescope.pickers').lsp_document_diagnostics()<CR>", bufnr)
 
 --]]
 
--- move a selected text up or down
-M.xnoremap("K", ":lua require('mappings_.visual').move_up()<CR>")
-M.xnoremap("J", ":lua require('mappings_.visual').move_down()<CR>")
-
--- globally substitute a word
-M.nnoremap(
-  "<leader>s",
-  ":%s/\\<<C-r><C-w>\\>//g<Left><Left>",
-  { silent = false }
-)
-
--- Y now yanks until the end of the line
-M.nnoremap("Y", "y$")
-
--- avoid mistakes
-M.nnoremap("U", "u")
-
--- correct misspelled word
-M.nnoremap("]S", "]s1z=")
-M.nnoremap("[S", "[s1z=")
+-- set leader key
+vim.api.nvim_set_keymap("", " ", "", {})
+vim.g.mapleader = " "
 
 -- cut into an auxiliar register
 for _, motion in ipairs({ "c", "d", "C", "D" }) do
@@ -59,23 +36,12 @@ for _, motion in ipairs({ "c", "d", "C", "D" }) do
   M.vnoremap("<leader>" .. motion, '"a' .. motion)
 end
 
--- move through quickfix list
-M.nnoremap("<C-n>", ":lnext<CR>")
-M.nnoremap("<C-p>", ":lprev<CR>")
-M.nnoremap("<C-j>", ":cnext<CR>")
-M.nnoremap("<C-k>", ":cprev<CR>")
-
 -- move to next/previous buffer
 M.nnoremap("]b", ":bnext<CR>")
 M.nnoremap("[b", ":bprevious<CR>")
 
--- exit terminal mode
-vim.api.nvim_set_keymap(
-  "t",
-  "<Esc>",
-  "<C-\\><C-n>",
-  { noremap = true, silent = true, unique = true }
-)
+-- avoid mistakes
+M.nnoremap("U", "u")
 
 -- Q executes macro instead of entering Ex mode
 M.nnoremap("Q", "@q")
@@ -86,11 +52,27 @@ M.nnoremap("ZB", ":bn|bd#<CR>")
 -- save buffer
 M.nnoremap("ZW", ":update<CR>")
 
+-- correct misspelled word
+M.nnoremap("]S", "]s1z=")
+M.nnoremap("[S", "[s1z=")
+
 -- cycle through relativenumber + number, number (only), and no numbering
 M.nnoremap("<leader>n", ":lua require('mappings_.leader').cycle_numbers()<CR>")
 
--- backspace in Visual mode deletes selection
-M.vnoremap("<BS>", "d")
+-- globally substitute a word
+M.nnoremap(
+  "<leader>s",
+  ":%s/\\<<C-r><C-w>\\>//g<Left><Left>",
+  { silent = false }
+)
+
+-- Store relative movement in the jumplist
+M.nnoremap("k", [[(v:count > 5 ? "m'" . v:count : "") . "k"]], { expr = true })
+M.nnoremap("j", [[(v:count > 5 ? "m'" . v:count : "") . "j"]], { expr = true })
+
+-- move a selected text up or down
+M.xnoremap("K", ":lua require('mappings_.visual').move_up()<CR>")
+M.xnoremap("J", ":lua require('mappings_.visual').move_down()<CR>")
 
 -- 0 toggles between 0 and ^
 M.nnoremap(
@@ -98,6 +80,3 @@ M.nnoremap(
   "getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'",
   { expr = true }
 )
-
--- Disable <C-c> for getting out of insert mode
-M.inoremap("<C-c>", "<NOP>")

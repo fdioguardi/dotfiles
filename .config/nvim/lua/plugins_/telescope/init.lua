@@ -3,17 +3,18 @@
 --
 
 return {
-  map = function(lhs, fn, opts)
-    local nnoremap = require("mappings_.keymaps").nnoremap
-
-    nnoremap(
-      lhs,
-      string.format(
-        ":lua require('plugins_.telescope.pickers').%s(%s)<CR>",
-        fn,
-        vim.inspect(opts or {}):gsub("\n", "")
-      )
+  map = function(lhs, fn, opts, bufnr)
+    local rhs = string.format(
+      ":lua require('plugins_.telescope.pickers').%s(%s)<CR>",
+      fn,
+      vim.inspect(opts or {}):gsub("\n", "")
     )
+
+    if bufnr then
+      require("mappings_.keymaps").buf_nnoremap(bufnr, lhs, rhs)
+    else
+      require("mappings_.keymaps").nnoremap(lhs, rhs)
+    end
   end,
 
   mappings = {

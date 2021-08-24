@@ -2,10 +2,6 @@
 -- init.lua
 --
 
--- set leader key
-vim.api.nvim_set_keymap("", " ", "", {})
-vim.g.mapleader = " "
-
 -- disable builtin plugins
 require("plugins_.builtin")
 
