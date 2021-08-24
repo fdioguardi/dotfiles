@@ -2,10 +2,10 @@
 -- completion.lua
 --
 
-local buf_inoremap = require("mappings_.keymaps").buf_inoremap
+local inoremap = require("mappings_.keymaps").inoremap
 
-buf_inoremap(0, "<C-Space>", "compe#complete('<C-Space>')", { expr = true })
-buf_inoremap(0, "<C-y>", "compe#confirm('<C-y>')", { expr = true })
+inoremap("<C-Space>", "compe#complete('<C-Space>')", { expr = true })
+inoremap("<C-y>", "compe#confirm('<C-y>')", { expr = true })
 
 vim.opt.completeopt = { "menuone", "noselect" }
 
