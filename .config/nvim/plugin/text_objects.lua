@@ -13,3 +13,8 @@ for _, char in ipairs(characters) do
   M.xnoremap("a" .. char, ":<C-u>normal! F" .. char .. "vf" .. char .. "<CR>")
   M.onoremap("a" .. char, ":normal va" .. char .. "<CR>")
 end
+
+-- break undo sequence
+for _, char in ipairs(characters) do
+  M.inoremap(char, char .. "<C-g>u")
+end
