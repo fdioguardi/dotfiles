@@ -19,7 +19,10 @@ vim.opt.lazyredraw     = true           -- don't redraw while executing macros
 vim.opt.number         = true           -- show absolute number of current line
 
 -- 5 syntax, highlighting and spelling
-vim.opt.guicursor     = ""		      -- show block cursor for every mode
+vim.opt.cursorline    = true                  -- enable highlight at cursor position
+vim.opt.cursorlineopt = "number"              -- highlight current line number
+vim.opt.guicursor     = ""                    -- show block cursor for every mode
+vim.opt.hlsearch      = false                 -- don't highlight search results
 vim.opt.spelllang     = { "en", "es", "it" }  -- enable spell-check in more languages
 vim.opt.termguicolors = true                  -- use GUI colors for the terminal
 
