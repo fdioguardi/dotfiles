@@ -19,7 +19,6 @@ local __cycle_numbers = {
 
 return {
   cycle_numbers = function()
-    __cycle_numbers[(vim.opt.nu:get() and "1" or "0") ..
-      (vim.opt.rnu:get() and "1" or "0")]()
+    __cycle_numbers[(vim.wo.nu and "1" or "0") .. (vim.wo.rnu and "1" or "0")]()
   end,
 }
