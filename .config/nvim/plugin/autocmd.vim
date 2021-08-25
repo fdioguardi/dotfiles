@@ -8,16 +8,20 @@ function! TrimWhiteSpace() abort
   call winrestview(l:save)
 endfunction
 
-augroup custom_group
+augroup trim_white_space
   autocmd!
-  autocmd BufWritePre  * :call TrimWhiteSpace()
+  autocmd BufWritePre * call TrimWhiteSpace()
+augroup END
+
+augroup highlight_on_yank
+  autocmd!
   autocmd TextYankPost * lua vim.highlight.on_yank{ timeout = 300, on_visual = false }
 augroup END
 
 augroup vimrc_incsearch_highlight
   autocmd!
-  autocmd CmdlineEnter /,\? :set hlsearch
-  autocmd CmdlineLeave /,\? :set nohlsearch
+  autocmd CmdlineEnter /,\? set hlsearch
+  autocmd CmdlineLeave /,\? set nohlsearch
 augroup END
 
 augroup number_toggle
