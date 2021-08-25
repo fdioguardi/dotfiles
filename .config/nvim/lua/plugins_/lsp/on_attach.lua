@@ -14,7 +14,7 @@ return function(client, bufnr)
   require("plugins_.telescope").map("<leader>e", "lsp_document_diagnostics", {
     previewer = false,
     initial_mode = "normal",
-  })
+  }, bufnr)
 
   -- enable sign column
   vim.opt_local.signcolumn = "yes:1"
