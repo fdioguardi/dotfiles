@@ -9,7 +9,7 @@ mc() { mkdir -pv "$@" && cd "${@:$#}" || return; }
 bkp() { cp -r "$1"{,"_$(date +%Y-%m-%d_%H:%M:%S).bkp"}; }
 
 # math operation with 5 decimals
-math() { bc <<< "scale=6; $*"; }
+math() { bc -l <<< "scale=6; $*"; }
 
 # open files with sudo if necessary
 v() {
