@@ -8,7 +8,6 @@
 
 -- 2 moving arround, searching and patterns
 vim.opt.ignorecase = true       -- ignore case when searching
-vim.opt.inccommand = "nosplit"  -- show the effects of a command incrementally
 vim.opt.smartcase  = true       -- overwrite ignorecase when search pattern contains upper case characters
 
 -- 3 tags
@@ -27,7 +26,6 @@ vim.opt.spelllang     = { "en", "es", "it" }  -- enable spell-check in more lang
 vim.opt.termguicolors = true                  -- use GUI colors for the terminal
 
 -- 6 multiple windows
-vim.opt.hidden     = true  -- hide a buffer when abandoned
 vim.opt.laststatus = 1     -- only show statusline with multiple windows
 vim.opt.splitbelow = true  -- open new split bellow
 vim.opt.splitright = true  -- open new split to the right
