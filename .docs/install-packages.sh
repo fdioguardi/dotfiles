@@ -16,21 +16,19 @@ readonly INSTALLATION_ARGS="-S --needed --skipreview"
 declare -a packages
 
 while read -r line; do
-  [ "${line: -2:-1}" = '/' ] && line="${line::-2}" || line="${line::-1}"
-  packages+=("${line##*/}")
-done <<< "$(grep -Eio '\(https://(aur\.)?archlinux\.org/packages.+\)' "$FILE")"
+  line=${line//\/)/} && line=${line//)/} && packages+=("${line##*/}")
+done <<< "$(grep -v '<!--.*-->' "$FILE" \
+  | grep -Eio '\(https://(aur\.)?archlinux\.org/packages.+\)')"
 
 if ! which "$AUR_HELPER" &> /dev/null; then
   which git makepkg &> /dev/null \
     || sudo pacman -S --noconfirm --needed "base-devel" "git" \
-    || { echo "$(basename "$0"): Error - Download git and base-devel" \
+    || { echo "$0: Error - Download git and (or) base-devel" \
       && exit 65; }
 
-  readonly dir
-  dir="$(mktemp -d)"
-  git clone "https://aur.archlinux.org/${AUR_HELPER_PKG}.git" "$dir"
-  pushd "$dir" > /dev/null && yes "" | makepkg -si
-  popd > /dev/null && rm -rf "$dir"
+  git clone "https://aur.archlinux.org/${AUR_HELPER_PKG}.git" "$(mktemp -d)"
+  cd "$_" > /dev/null && yes "" | makepkg -si
+  cd - > /dev/null
 fi
 
 yes "" | eval "${AUR_HELPER}" "${INSTALLATION_ARGS}" "${packages[@]}"
