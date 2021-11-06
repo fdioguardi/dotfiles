@@ -39,13 +39,11 @@ bspc rule -a "$TERMINAL" desktop=^2
 # Desktop 3
 bspc rule -a jetbrains-idea desktop=^3
 
-# Desktop 6
-bspc rule -a "VirtualBox Manager" desktop=^6
-bspc rule -a "VirtualBox Machine" desktop=^6
+# Desktop 8
+bspc rule -a TelegramDesktop desktop=^8 follow=on state=tiled
 
 # Desktop 9
 bspc rule -a discord desktop=^9 follow=on state=tiled
-bspc rule -a TelegramDesktop desktop=^8 follow=on state=tiled
 
 # Desktop 10
 bspc rule -a "$TERMINAL":"$TERMINAL":pulsemixer \
