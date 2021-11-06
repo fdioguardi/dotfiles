@@ -19,7 +19,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Default applications
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="brave"
+export BROWSER="firefox"
 export READER="zathura"
 
 # Clean $HOME

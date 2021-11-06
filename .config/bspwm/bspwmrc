@@ -1,4 +1,5 @@
 #!/bin/sh
+
 bspc rule -r "*"
 
 ## Variables
@@ -25,11 +26,12 @@ bspc config border_width 2
 
 ## Rule Commands
 # General
-bspc config external_rules_command "$config"/external_rules.sh
+[ -x "$config"/external_rules.sh ] \
+  && bspc config external_rules_command "$config"/external_rules.sh
 bspc rule -a feh state=floating
 
 # Desktop 1
-bspc rule -a Brave-browser desktop=^1
+bspc rule -a "$BROWSER" desktop=^1
 
 # Desktop 2
 bspc rule -a "$TERMINAL" desktop=^2

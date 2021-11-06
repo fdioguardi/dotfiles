@@ -313,11 +313,12 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
   ```
 
   and switch between known networks:
-  <pre>
-  <code>nmcli connection up <i>SSID</i></code>
-  </pre>
 
-- **[Brave](https://aur.archlinux.org/packages/brave-bin/)**
+  ```bash
+  nmcli connection up <SSID>
+  ```
+
+- **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
 
 ### Media
 
