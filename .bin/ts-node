@@ -3,12 +3,11 @@
 set -e
 
 usage() {
-  echo "Usage: $(basename "$0") file.ts" >&2
+  echo "Usage: $(basename "$0") <filename>.ts" && exit "$1"
 }
 
 if [ $# -ne 1 ]; then
-  usage
-  exit 22
+  usage 22
 fi
 
 tsc --target "es2016" "$1" && node "${1%.ts}.js" && rm "${1%.ts}.js"
