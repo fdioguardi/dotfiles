@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + d
-	"$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh
+	"$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh launcher
 
 # web browser
 alt + w
@@ -24,7 +24,7 @@ alt + n
 
 # power management prompt
 alt + x
-	"$XDG_CONFIG_HOME"/bspwm/scripts/sysmenu.sh
+	"$XDG_CONFIG_HOME"/bspwm/scripts/menu.sh sysmenu
 
 # take a screenshot
 Print

@@ -163,7 +163,7 @@ List of manually installed packages, and some information on how to set them up.
 
 ### Menus
 
-- **[Rofi](https://archlinux.org/packages/community/x86_64/rofi/)**
+- **[dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)**
 
 ### Package management
 
