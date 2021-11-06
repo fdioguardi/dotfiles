@@ -7,10 +7,6 @@
 # https://github.com/addy-dclxvi/void-bspwm-dotfiles/
 # * Modified by me
 
-usage() {
-  echo "Usage: $(basename "$0") [-c PATH] [-x PATH] FILE..." >&2
-}
-
 getcolors() {
   FOREGROUND=$(getcolor foreground)
   BACKGROUND=$(getcolor background)
@@ -34,27 +30,27 @@ getcolors() {
 }
 
 cachecolors() {
-  read -d '' cache <<- EOF
-	FOREGROUND="${FOREGROUND}"
-	BACKGROUND="${BACKGROUND}"
-	CURSOR="${CURSOR}"
-	BLACK="${BLACK}"
-	RED="${RED}"
-	GREEN="${GREEN}"
-	YELLOW="${YELLOW}"
-	BLUE="${BLUE}"
-	MAGENTA="${MAGENTA}"
-	CYAN="${CYAN}"
-	WHITE="${WHITE}"
-	ALTBLACK="${BLACK}"
-	ALTRED="${RED}"
-	ALTGREEN="${GREEN}"
-	ALTYELLOW="${YELLOW}"
-	ALTBLUE="${BLUE}"
-	ALTMAGENTA="${MAGENTA}"
-	ALTCYAN="${CYAN}"
-	ALTWHITE="${WHITE}"
-	EOF
+  echo "Colors:
+  FOREGROUND=${FOREGROUND}
+  BACKGROUND=${BACKGROUND}
+  CURSOR=${CURSOR}
+  BLACK=${BLACK}
+  RED=${RED}
+  GREEN=${GREEN}
+  YELLOW=${YELLOW}
+  BLUE=${BLUE}
+  MAGENTA=${MAGENTA}
+  CYAN=${CYAN}
+  WHITE=${WHITE}
+  ALTBLACK=${BLACK}
+  ALTRED=${RED}
+  ALTGREEN=${GREEN}
+  ALTYELLOW=${YELLOW}
+  ALTBLUE=${BLUE}
+  ALTMAGENTA=${MAGENTA}
+  ALTCYAN=${CYAN}
+  ALTWHITE=${WHITE}
+" > "$1"
 }
 
 sendescape() {
@@ -83,6 +79,5 @@ sendescape() {
 }
 
 getcolors
-cachecolors
-echo "$cache" > ~/.cache/paintee
+cachecolors "$HOME/.cache/paintee"
 sendescape
