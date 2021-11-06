@@ -23,7 +23,7 @@ export BROWSER="brave"
 export READER="zathura"
 
 # Clean $HOME
-export CARGO_HOME="$XDG_DATA_HOME/.local/share/cargo"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
