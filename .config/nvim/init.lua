@@ -58,6 +58,7 @@ require("packer").startup(function(use)
     config = function() require("plugins_.lsp") end,
   }
 
+
   use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }-- signature help
 
   use {
@@ -66,10 +67,5 @@ require("packer").startup(function(use)
     event = "InsertEnter",
   }
 
-  use {
-    "mfussenegger/nvim-jdtls",                                  -- java support
-    config = function() require("plugins_.lsp.jdtls") end,
-    ft = "java",
-  }
 end)
 -- stylua: ignore end

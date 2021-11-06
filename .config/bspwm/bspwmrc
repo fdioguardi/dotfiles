@@ -36,8 +36,8 @@ bspc rule -a "$BROWSER" desktop=^1
 # Desktop 2
 bspc rule -a "$TERMINAL" desktop=^2
 
-# Desktop 4
-bspc rule -a Steam desktop=^4
+# Desktop 3
+bspc rule -a jetbrains-idea desktop=^3
 
 # Desktop 6
 bspc rule -a "VirtualBox Manager" desktop=^6
