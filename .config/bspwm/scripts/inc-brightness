@@ -14,7 +14,7 @@ actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 max_brightness=1
 wanted_brightness=$(echo "$actual_brightness+$1" | bc)
 
-[ "$(echo "$wanted_brightness < $max_brightness" | bc -l)" ] \
+[ "$(echo "$wanted_brightness < $max_brightness" | bc -l)" -eq 1 ] \
   && new_brightness="$wanted_brightness" \
   || new_brightness="$max_brightness"
 

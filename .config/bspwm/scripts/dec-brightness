@@ -13,8 +13,8 @@ actual_brightness=$(xrandr --verbose | awk '/Brightness/ { print $2; exit }')
 min_brightness=0.1
 wanted_brightness=$(echo "$actual_brightness-$1" | bc)
 
-[ "$(echo "$wanted_brightness > $min_brightness" | bc -l)" ] \
+[ "$(echo "$wanted_brightness > $min_brightness" | bc -l)" -eq 1 ] \
   && new_brightness="$wanted_brightness" \
   || new_brightness="$min_brightness"
 
-xrandr --output "$monitor" -1 --brightness "$new_brightness"
+xrandr --output "$monitor" --brightness "$new_brightness"

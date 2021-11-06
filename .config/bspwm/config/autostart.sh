@@ -14,8 +14,7 @@ __start sxhkd -m -1
 
 __start unclutter --ignore-scrolling --fork
 
-__start xrandr \
-  --output "$(xrandr -q | grep "primary" | cut -f1 -d' ')" \
+__start xrandr --output "$(xrandr -q | grep "primary" | cut -f1 -d' ')" \
   --brightness 0.5
 
 __start redshift 2 &> /dev/null
