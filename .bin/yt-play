@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # play music from youtube
 
@@ -17,18 +17,13 @@ usage() {
 }
 
 play() {
-  mpv --no-video "$1" &> /dev/null
+  mpv --no-video "$1" > /dev/null 2>&1
 }
 
 [ "$#" -lt 1 ] && usage && exit 22
 
-readonly dependencies=("mpv" "youtube-dl")
-for dependency in "${dependencies[@]}"; do
-  if ! command -v "$dependency" &> /dev/null; then
-    echo "Missing dependency: $dependency"
-    exit 65
-  fi
-done
+command -v "mpv" "youtube-dl" > /dev/null 2>&1 \
+  || { echo "Error - missing dependency" && exit 65; }
 
 case "$1" in
   "lofi") play "https://www.youtube.com/watch?v=5qap5aO4i9A" ;;
