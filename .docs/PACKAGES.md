@@ -1,24 +1,24 @@
-## Packages
+# Packages
 
 List of manually installed packages, and some information on how to set them up.
 
-### Table of contents
+## Table of contents
 
-- [Core](#core)<br>
-- [Drivers](#drivers)<br>
-- [Graphical environment](#graphical-environment)<br>
-- [Terminal emulator](#terminal-emulator)<br>
-- [Bluetooth](#bluetooth)<br>
-- [Audio](#audio)<br>
-- [Text edition](#text-edition)<br>
-- [Menus](#menus)<br>
-- [Package management](#package-management)<br>
-- [Shell](#shell)<br>
-- [Utilities](#utilities)<br>
-- [Chat](#chat)<br>
-- [File Management](#file-management)<br>
-- [Network](#network)<br>
-- [Media](#media)<br>
+- [Core](#core)
+- [Drivers](#drivers)
+- [Graphical environment](#graphical-environment)
+- [Terminal emulator](#terminal-emulator)
+- [Bluetooth](#bluetooth)
+- [Audio](#audio)
+- [Text edition](#text-edition)
+- [Menus](#menus)
+- [Package management](#package-management)
+- [Shell](#shell)
+- [Utilities](#utilities)
+- [Chat](#chat)
+- [File Management](#file-management)
+- [Network](#network)
+- [Media](#media)
 
 ### Core
 
@@ -72,16 +72,11 @@ List of manually installed packages, and some information on how to set them up.
   fc-cache
   ```
 
-  To apply settings and load a random colorscheme:
+  To apply settings and load a colorscheme:
 
   ```bash
-  recolorize
+  recolorize [ colorscheme ]
   ```
-
-  or a specific one:
-  <pre>
-  <code>recolorize <i>colorscheme</i></code>
-  </pre>
 
 ### Bluetooth
 
@@ -193,7 +188,7 @@ List of manually installed packages, and some information on how to set them up.
   Add yourself to group "informant" to avoid the need for sudo
 
   ```bash
-  sudo usermod -aG informant $USER
+  sudo usermod -aG informant "$USER"
   ```
 
 - **[reflector](https://archlinux.org/packages/community/any/reflector/)**
@@ -215,7 +210,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Dash](https://archlinux.org/packages/core/x86_64/dash/)**
 
-  ##### Conflict with LightDM
+  **Conflict with LightDM**
 
   The file /etc/lightdm/Xsession has "bashisms" even though it uses `#!/bin/sh`.
   Change the shebang to `#!/bin/bash` or replace the file with [this one](.system/etc/lightdm/Xsession).
@@ -226,9 +221,10 @@ List of manually installed packages, and some information on how to set them up.
   sudo ln -sfT dash /usr/bin/sh
   ```
 
-  Updates of dash will overwrite /bin/sh. To prevent this, create this pacman hook in `/usr/share/libalpm/hooks/dash-sh.hook`.
+  Updates of dash will overwrite /bin/sh.
+  To prevent this, create this pacman hook in `/usr/share/libalpm/hooks/dash-sh.hook`.
 
-  ```
+  ```systemd-hook
   [Trigger]
   Type = Package
   Operation = Install
@@ -236,7 +232,7 @@ List of manually installed packages, and some information on how to set them up.
   Target = bash
 
   [Action]
-  Description = Re-pointing /bin/sh symlink to dash...
+  Description = Re-pointing /bin/sh symlink to dash…
   When = PostTransaction
   Exec = /usr/bin/ln -sfT dash /usr/bin/sh
   Depends = dash
@@ -263,9 +259,9 @@ chsh -s $(which zsh) $USER
 
 - **[fzf](https://archlinux.org/packages/community/x86_64/fzf/)**
 
-Use <C-f> to open `fzf` and cd into the selected directory:
+Use <C-f\> to open `fzf` and cd into the selected directory:
 
-```
+```bash
 sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/share/fzf/key-bindings.zsh
 ```
 
@@ -338,21 +334,14 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 
 - **[mpv](https://archlinux.org/packages/community/x86_64/mpv/)**
 
-  - **[youtube-dl](https://archlinux.org/packages/community/any/youtube-dl/)**
+  - [youtube-dl](https://archlinux.org/packages/community/any/youtube-dl/)
 
 - **[Zathura](https://archlinux.org/packages/community/x86_64/zathura/)**
 
-  - **[zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/)**
+  - [zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/)
 
-  To apply settings and load a random colorscheme:
+  To apply settings and load a colorscheme:
 
   ```bash
-  recolorize
+  recolorize [ colorscheme ]
   ```
-
-  or a specific one:
-  <pre>
-  <code>recolorize <i>colorscheme</i></code>
-  </pre>
-
-- **[Steam](https://archlinux.org/packages/multilib/x86_64/steam/)**
