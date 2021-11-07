@@ -4,13 +4,26 @@
 
 return function(client, bufnr)
   -- set up mappings
-  for lhs, fn in pairs({ ["gd"] = "definition", ["K"] = "hover" }) do
+  for lhs, fn in pairs({
+    ["gd"] = "definition",
+    ["K"] = "hover",
+    ["<leader>la"] = "code_action",
+  }) do
     require("mappings_.keymaps").buf_nnoremap(
       bufnr,
       lhs,
       string.format(":lua vim.lsp.buf.%s()<CR>", fn)
     )
   end
+
+  for lhs, fn in pairs({ ["[d"] = "goto_prev", ["]d"] = "goto_next" }) do
+    require("mappings_.keymaps").buf_nnoremap(
+      bufnr,
+      lhs,
+      string.format(":lua vim.diagnostic.%s()<CR>", fn)
+    )
+  end
+
   require("plugins_.telescope").map("<leader>e", "lsp_document_diagnostics", {
     previewer = false,
     initial_mode = "normal",
