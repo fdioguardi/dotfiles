@@ -3,7 +3,7 @@
 
 # Disable specific steps - same options as the command line flag
 #disable = ["system", "emacs"]
-disable = ["vim", "pip3"]
+disable = ["vim", "pip3", "gnome_shell_extensions"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -41,7 +41,7 @@ disable = ["vim", "pip3"]
 repos = [
 #    "~/src/*/",
 #    "~/.config/something",
-    "~/.local/share/nvim/site/pack/paqs/start/*/"
+    "~/.local/share/nvim/site/pack/*/*/*/",
 ]
 
 # Don't pull the predefined git repos
