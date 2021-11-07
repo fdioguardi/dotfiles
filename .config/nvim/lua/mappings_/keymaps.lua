@@ -9,7 +9,7 @@ local function options(opts)
   return vim.tbl_extend("keep", opts or {}, { noremap = true, silent = true })
 end
 
-for _, mode in ipairs({ "n", "i", "v", "x", "o" }) do
+for _, mode in ipairs({ "i", "n", "o", "s", "v", "x" }) do
   M[mode .. "noremap"] = function(lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options(opts))
   end
