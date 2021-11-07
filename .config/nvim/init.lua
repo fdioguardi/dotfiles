@@ -47,24 +47,44 @@ require("packer").startup(function(use)
 
   use {
     "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
-    config = function() require("plugins_.treesitter") end,
-    event = "CursorMoved",
+    config = function() require("plugins_.treesitter").config() end,
+    event = "BufEnter",
     requires = "nvim-treesitter/nvim-treesitter",
   }
 
     -- Language Server Protocol
   use {
-    "neovim/nvim-lspconfig",                           -- common configurations
-    config = function() require("plugins_.lsp") end,
+    "jose-elias-alvarez/null-ls.nvim",               -- generic language server
+    config = function()
+      require("plugins_.lsp.null-ls").config()
+    end,
+    requires = {
+      { "nvim-lua/plenary.nvim", module = "plenary" },
+      {
+        "neovim/nvim-lspconfig",                       -- common configurations
+        config = function() require("plugins_.lsp").config() end,
+      },
+    },
   }
 
 
   use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }-- signature help
 
   use {
-    "hrsh7th/nvim-compe",                               -- completion framework
-    config = function() require("plugins_.completion") end,
-    event = "InsertEnter",
+    "hrsh7th/nvim-cmp",                                 -- completion framework
+    config = function() require("cmp").setup(require("plugins_.cmp")) end,
+    requires = {
+      { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+      "hrsh7th/cmp-nvim-lsp",
+      { "hrsh7th/cmp-nvim-lua", ft = "lua" },
+      { "hrsh7th/cmp-path", event = "InsertEnter" },
+      { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
+      {
+        "L3MON4D3/LuaSnip",
+        config = function() require("plugins_.luasnip").config() end,
+        module = "luasnip",
+      },
+    },
   }
 
 end)

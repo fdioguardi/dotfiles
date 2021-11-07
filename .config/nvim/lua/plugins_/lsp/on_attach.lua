@@ -16,6 +16,15 @@ return function(client, bufnr)
     initial_mode = "normal",
   }, bufnr)
 
+  -- enable completion source
+  require("cmp").setup.buffer({
+    sources = {
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+      unpack(require("plugins_.cmp").sources),
+    },
+  })
+
   -- enable sign column
   vim.opt_local.signcolumn = "yes:1"
 
