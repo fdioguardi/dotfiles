@@ -102,7 +102,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[pulsemixer](https://archlinux.org/packages/community/any/pulsemixer/)**
 
-- **[ncspot](https://aur.archlinux.org/packages/ncspot/)**
+- **[ncspot](https://aur.archlinux.org/packages/ncspot-bin/)**
 
 ### Text edition
 
