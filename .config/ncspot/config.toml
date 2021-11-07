@@ -1,3 +1,7 @@
+# Options
+album_column           = false
+flip_status_indicators = true
+
 [keybindings]
 "G" = "move bottom"
 "d" = "noop"
