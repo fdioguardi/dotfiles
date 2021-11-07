@@ -46,6 +46,14 @@ M.nnoremap("U", "u")
 -- Q executes macro instead of entering Ex mode
 M.nnoremap("Q", "@q")
 
+-- exit terminal mode
+vim.api.nvim_set_keymap(
+  "t",
+  "<Esc>",
+  "<C-\\><C-n>",
+  { noremap = true, silent = true, unique = true }
+)
+
 -- close buffer
 M.nnoremap("ZB", ":bn|bd#<CR>")
 
