@@ -17,10 +17,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Default applications
-export EDITOR="nvim"
-export TERMINAL="kitty"
-export BROWSER="firefox"
-export READER="zathura"
+export BROWSER="/usr/bin/firefox"
+export EDITOR="$HOME.local/nvim/bin/nvim"
+export READER="/usr/bin/zathura"
+export TERMINAL="/usr/bin/kitty"
 
 # Clean $HOME
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
@@ -32,6 +32,7 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 
 # Less
+export LESSHISTFILE=/dev/null
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -39,7 +40,6 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-export LESSHISTFILE=/dev/null
 
 # Java
 export _JAVA_AWT_WM_NONREPARENTING=1
