@@ -264,6 +264,8 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
+- **[ncdu](https://archlinux.org/packages/community/x86_64/ncdu/)**
+
 - **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
 
 - **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
