@@ -13,8 +13,8 @@ local pre_hook = {
 
 local post_hook = {
   monokai = function()
-    for _, group in ipairs({ "CursorLineNr", "LineNr", "Normal", "SignColumn" }) do
-      vim.cmd("highlight " .. group .. " guibg=none")
+    for _, hg in ipairs({ "CursorLineNr", "LineNr", "Normal", "SignColumn" }) do
+      vim.cmd("highlight " .. hg .. " guibg=none")
     end
   end,
 }
