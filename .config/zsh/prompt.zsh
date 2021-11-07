@@ -4,11 +4,11 @@
 
 PROMPT="%F{black};: "
 PROMPT="${PROMPT}%F{blue}%1~ "
-PROMPT="${PROMPT}%(?.%F{green}.%F{red}); "
+PROMPT="${PROMPT}%(?.%F{green}.%F{red});%f "
 
 RPROMPT="%F{black};: '"
 RPROMPT="${RPROMPT}%F{red}\${vcs_info_msg_0_}"
-RPROMPT="${RPROMPT}%F{black}'"
+RPROMPT="${RPROMPT}%F{black}'%f"
 
 autoload -Uz add-zsh-hook vcs_info
 
