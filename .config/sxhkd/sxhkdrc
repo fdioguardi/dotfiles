@@ -38,10 +38,6 @@ alt + shift + s
 alt + Escape
 	pkill -USR1 -x sxhkd
 
-# kill steam
-alt + F6
-	killall steam
-
 #
 # adjust media
 #
@@ -64,7 +60,7 @@ button{8,9}
 
 # adjust primary monitor’s brightness
 XF86MonBrightness{Up,Down}
-	"$XDG_CONFIG_HOME"/bspwm/scripts/{inc-brightness,dec-brightness} 0.05
+	"$XDG_CONFIG_HOME"/bspwm/scripts/{inc-brightness,dec-brightness} 0.05 &
 
 # set display orientation
 alt + shift + {Up,Down}
