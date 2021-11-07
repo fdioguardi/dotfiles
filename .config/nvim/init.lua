@@ -3,7 +3,7 @@
 --
 
 -- disable builtin plugins
-require("plugins_.builtin")
+require("plugins_.builtin").setup()
 
 -- stylua: ignore start
 -- setup plugins
@@ -30,6 +30,7 @@ require("packer").startup(function(use)
 
   use {
     "nvim-telescope/telescope.nvim",                            -- fuzzy finder
+    config = function() require("plugins_.telescope"):config() end,
     module = 'telescope',
     requires = {
       { "nvim-lua/plenary.nvim", module = "plenary" },
