@@ -2,17 +2,6 @@
 " autocmd.vim
 "
 
-function! TrimWhiteSpace() abort
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
-endfunction
-
-augroup trim_white_space
-  autocmd!
-  autocmd BufWritePre * call TrimWhiteSpace()
-augroup END
-
 augroup highlight_on_yank
   autocmd!
   autocmd TextYankPost * lua vim.highlight.on_yank{ timeout = 300, on_visual = false }

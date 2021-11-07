@@ -112,39 +112,29 @@ List of manually installed packages, and some information on how to set them up.
 
   - [Cmake](https://archlinux.org/packages/extra/x86_64/cmake/)
 
-  - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
+  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
 
-  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
-
-  - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
-
-  - [efm-langserver](https://archlinux.org/packages/community/x86_64/efm-langserver/)
-
-    - [black](https://archlinux.org/packages/community/any/python-black/)
-
-    - [eslint](https://archlinux.org/packages/community/any/eslint/)
-
-    - [google-java-format](https://aur.archlinux.org/packages/google-java-format/)
-
-    - [prettier](https://archlinux.org/packages/community/any/prettier/)
-
-    - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
-
-    - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
-
-    - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
+  - [black](https://archlinux.org/packages/community/any/python-black/)
 
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
 
-  - [jdtls](https://ftp.fau.de/eclipse/jdtls/snapshots/jdt-language-server-latest.tar.gz)
+  - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
 
-    - [jdk11-openjdk](https://archlinux.org/packages/extra/x86_64/jdk11-openjdk/)
+  - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
 
-    Extract it into `"$XDG_CACHE_HOME"/nvim/jdtls`
+  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
+
+  - [prettier](https://archlinux.org/packages/community/any/prettier/)
 
   - [pyright](https://archlinux.org/packages/community/any/pyright/)
 
-  - [tsserver](https://aur.archlinux.org/packages/typescript-language-server-bin/)
+  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+
+  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
+
+  - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
+
+  - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
 
 - **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
 
