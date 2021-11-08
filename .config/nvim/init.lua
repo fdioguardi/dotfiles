@@ -48,9 +48,13 @@ require("packer").startup(function(use)
 
   use {
     "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
+    event = "UIEnter",
+  }
+
+  use {
+    "nvim-treesitter/nvim-treesitter-textobjects",              -- text objects
     config = function() require("plugins_.treesitter").config() end,
-    event = "BufEnter",
-    requires = "nvim-treesitter/nvim-treesitter",
+    after = "nvim-ts-rainbow"
   }
 
     -- Language Server Protocol
