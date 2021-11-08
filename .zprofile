@@ -17,10 +17,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Default applications
-export BROWSER="/usr/bin/firefox"
-export EDITOR="$HOME.local/nvim/bin/nvim"
-export READER="/usr/bin/zathura"
-export TERMINAL="/usr/bin/kitty"
+export BROWSER="firefox"
+export EDITOR="nvim"
+export READER="zathura"
+export TERMINAL="kitty"
 
 # Clean $HOME
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
