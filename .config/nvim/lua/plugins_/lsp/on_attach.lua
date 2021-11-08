@@ -5,9 +5,12 @@
 return function(client, bufnr)
   -- set up mappings
   for lhs, fn in pairs({
-    ["gd"] = "definition",
+    ["<leader>lca"] = "code_action",
+    ["<leader>lr"] = "rename",
     ["K"] = "hover",
-    ["<leader>la"] = "code_action",
+    ["gd"] = "definition",
+    ["gi"] = "implementation",
+    ["gr"] = "references",
   }) do
     require("mappings_.keymaps").buf_nnoremap(
       bufnr,
