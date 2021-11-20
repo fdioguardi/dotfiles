@@ -23,11 +23,7 @@ awk -v histfile="$historyfile" '
 			x[$0]=1
 		}
 	} !x[$0]++ ' "$cache" \
-  | dmenu "$@" -i -fn "Noto Sans-18" \
-    -nb "$(getcolor background)" \
-    -nf "$(getcolor foreground)" \
-    -sb "$(getcolor yellow)" \
-    -sf "$(getcolor background)" \
+  | dmenu "$@" \
   | awk -v histfile="$historyfile" '
 		BEGIN {
 			FS=OFS="\t"
