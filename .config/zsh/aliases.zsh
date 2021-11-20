@@ -33,7 +33,7 @@ abbr \
   cu="nmcli connection up" \
   g="git" \
   ka="killall" \
-  pls="sudo \"\$(fc -ln -1)\"" \
+  pls="sudo \$(fc -ln -1)" \
   rc="recolorize" \
   venv="source .venv/bin/activate"
 
