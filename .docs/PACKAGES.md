@@ -15,6 +15,7 @@ List of manually installed packages, and some information on how to set them up.
 - [Package management](#package-management)
 - [Shell](#shell)
 - [Utilities](#utilities)
+- [Containers](#chat)
 - [Chat](#chat)
 - [File Management](#file-management)
 - [Network](#network)
@@ -166,7 +167,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[informant](https://aur.archlinux.org/packages/informant/)**
 
-  Add yourself to group "informant" to avoid the need for sudo
+  Add yourself to the "informant" group to avoid the need for sudo:
 
   ```bash
   sudo usermod -aG informant "$USER"
@@ -261,6 +262,23 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 - **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
 
 - **[unclutter](https://archlinux.org/packages/community/x86_64/unclutter/)**
+
+### Containers
+
+- **[docker](https://archlinux.org/packages/community/x86_64/docker/)**
+
+  Enable and start it's systemd service:
+
+  ```bash
+  sudo systemctl enable --now docker.service
+  ```
+
+  Add yourself to the "docker" group to avoid the need for sudo:
+
+  ```bash
+  sudo usermod -aG docker "$USER"
+  newgrp docker
+  ```
 
 ### Chat
 
