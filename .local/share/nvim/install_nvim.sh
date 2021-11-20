@@ -46,7 +46,8 @@ if [ $# -eq 1 ]; then
 fi
 
 if [ ! -d "$source_location" ]; then
-  git clone -b "$branch" --single-branch "$remote" "$source_location" \
+  git clone --depth 1 -b "$branch" --single-branch "$remote" \
+    "$source_location" \
     && build_nvim
   exit 0
 fi
