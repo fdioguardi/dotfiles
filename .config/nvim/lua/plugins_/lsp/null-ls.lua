@@ -28,6 +28,22 @@ return {
         require("null-ls").builtins.formatting.stylua,
         require("null-ls").builtins.formatting.trim_newlines,
         require("null-ls").builtins.formatting.trim_whitespace,
+        require("null-ls.helpers").make_builtin({
+          method = require("null-ls.methods").internal.DIAGNOSTICS,
+          filetypes = { "java" },
+          generator_opts = {
+            command = "java",
+            args = { "$FILENAME" },
+            to_stdin = false,
+            format = "raw",
+            from_stderr = true,
+            on_output = require("null-ls.helpers").diagnostics.from_errorformat(
+              [[%f:%l: %trror: %m]],
+              "java"
+            ),
+          },
+          factory = require("null-ls.helpers").generator_factory,
+        }),
       },
     })
 
