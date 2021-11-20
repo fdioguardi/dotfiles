@@ -11,14 +11,17 @@
 	b = branch
 	ci = commit
 	co = checkout
-	s = status
-	us = restore --staged
+	g = grep --break --heading --line-number
 	l = log --oneline -10 HEAD
 	last = log -1 HEAD
+	s = status
 	ups = commit --amend
+	us = restore --staged
 [init]
 	defaultBranch = main
 [submodule]
 	recurse = true
 [fetch]
 	prune = true
+[grep]
+	lineNumber = true
