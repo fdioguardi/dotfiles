@@ -1,12 +1,15 @@
 #!/bin/bash
 
 usage() {
-  echo -ne "Usage: $(basename "$0") "
-  echo -ne "[ --monitor NAME ] "
-  echo -ne "[ --panel_side SIDE ] "
-  echo -ne "[ --gaps NUM ] "
-  echo -ne "[ --padding NUM ] "
-  echo -e "[ --panel-size NUM ]"
+    echo "Usage: $0 [option]"
+    echo "Options:"
+    echo "  -h, --help"
+    echo "  -m, --monitor NAME"
+    echo "  -s, --panel_side SIDE"
+    echo "  -g, --gaps NUM"
+    echo "  -p, --padding NUM"
+    echo "  -z, --panel-size NUM"
+    exit "$1"
 }
 
 check_number() {
@@ -37,28 +40,32 @@ declare -a sides=("top" "bottom" "left" "right")
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    --gaps)
+    -g|--gaps)
+
       check_number "$2"
       win_gaps=$2
       ;;
 
-    --padding)
+    -p|--padding)
       check_number "$2"
       padding=$2
       ;;
 
-    --panel-size)
+    -z|--panel-size)
       check_number "$2"
       panel_size=$2
       ;;
 
-    --panel-side)
+    -s|--panel-side)
       [ "${sides[*]}" != "*$2*" ] && usage && exit 22
       ;;
 
-    --monitor)
+    -m|--monitor)
       monitor="$2"
       ;;
+
+    -h|--help)
+      usage 0;;
 
     *)
       usage && exit 22
