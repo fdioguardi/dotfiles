@@ -22,7 +22,7 @@ abbr \
 
 abbr \
   p="paru" \
-  i="yes "" | paru -S --needed" \
+  i="yes \"\" | paru -S --needed" \
   r="paru -Rns" \
   ro="paru --clean --noconfirm && yes | topgrade -c" \
   u="topgrade -y &; \"\$XDG_DATA_HOME\"/nvim/install_nvim.sh &" \

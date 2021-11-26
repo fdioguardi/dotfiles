@@ -1,5 +1,14 @@
 #!/bin/sh
 
+usage() {
+  echo "Usage: $0 [option]"
+  echo "Options:"
+  echo "  --toggle|-t: toggle between two monitors"
+  echo "  --help|-h: show this help"
+  echo "Default: merge/spread desktops evenly across monitors"
+  exit "$1"
+}
+
 setup_display() {
   xrandr --output "$1" \
     --primary --auto \
@@ -66,7 +75,11 @@ toggle() {
   bspc monitor "$1" --rename "$2" 2> /dev/null
 }
 
-readonly config=${XDG_CONFIG_HOME:-${HOME}/.config}
+if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  usage 0
+fi
+
+readonly config="${XDG_CONFIG_HOME:-${HOME}/.config}"
 primary=$(xrandr -q \
   | grep -w "primary" \
   | cut -f1 -d" ")
@@ -81,7 +94,7 @@ else
     | cut -f1 -d" ")
   readonly secondary
 
-  if [ "$1" = "--toggle" ]; then
+  if [ "$1" = "--toggle" ] || [ "$1" = "-t" ]; then
     toggle "$primary" "$secondary"
   else
     two_monitor_settings "$primary" "$secondary"
