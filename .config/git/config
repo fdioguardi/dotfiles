@@ -1,6 +1,7 @@
 [user]
 	email = felipedioguardi@gmail.com
 	name = Felipe Dioguardi
+	signingkey = 17330DCEC47EC2FA
 [pull]
 	rebase = true
 [core]
@@ -25,3 +26,9 @@
 	prune = true
 [grep]
 	lineNumber = true
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+[gpg]
+	program = gpg2
