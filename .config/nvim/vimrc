@@ -3,74 +3,89 @@
 "
 
 " Settings
-filetype plugin indent on
-syntax on
+filetype plugin indent on " enable Vim-like filetype detection
+syntax on " enable syntax highlighting
 
-colorscheme koehler
+colorscheme koehler " use the koehler color scheme
 
-set backspace=indent,eol,start
+set backspace=indent,eol,start " set backspace behaviour
 
-set autoindent
-set expandtab shiftwidth=4
+set autoindent " automatically set the indent of a new line
+set expandtab shiftwidth=4 " expand tab to 4 spaces
 
-set mouse=a
+set mouse=a " enable mouse support for all modes
 
-set number
-set cursorline
-set laststatus=1
-set noshowmode noshowcmd
-set confirm
+set number " show line numbers
+set cursorline " highlight the current line
+set laststatus=1 " show a statusline when there's more than one window
+set noshowmode noshowcmd " don't show the mode/command in the statusline
+set confirm " ask for confirmation before exiting
 
-set ignorecase smartcase
-set incsearch
+set ignorecase smartcase " ignore case when searching, smartly
+set incsearch " search for the next match
 
-set noswapfile
-set undofile undodir=$HOME/.vim/files/undo
+set noswapfile " don't use a swapfile
+set undofile undodir=$HOME/.vim/files/undo " use a separate undo directory
 
-set hidden
+set hidden " don't unload a buffer when no longer shown in a window
 
-set splitright splitbelow
+set splitright splitbelow " split windows below and horizontally by default
 
 " Mappings
+
+" set leader to <Space>
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
+" change and delete to the void register
 nnoremap <leader>d "_d
 nnoremap <leader>c "_d
 nnoremap <leader>D "_D
 nnoremap <leader>C "_C
 
+" move to the next/previous buffer
 nnoremap ]b <cmd>bnext<CR>
 nnoremap [b <cmd>bprevious<CR>
 
+" U uses regular undo
 nnoremap U u
 
-nnoremap Q @q
+" repeat the last used macro
+nnoremap Q @@
 
+" save buffer
 nnoremap ZW <cmd>update<CR>
 
+" replace current word
 nnoremap <leader>s :%s/\\<<C-r><C-w>\\>//g<Left><Left>
 
+" add j/k to the jump list when used with a count greater than 5
 nnoremap <expr> <silent> k (v:count > 5 ? "m'" . v:count : "") . "k"
 nnoremap <expr> <silent> j (v:count > 5 ? "m'" . v:count : "") . "j"
 
+" 0 toggles between 0 and ^
 nnoremap <expr> <silent> 0 getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'
 
+" move lines up/down in visual mode
 vnoremap <silent> J <cmd>m '>+1<CR>gv=gv
 vnoremap <silent> K <cmd>m '>-2<CR>gv=gv
 
 " Autocmds
+
+" remove trailing whitespace on save
 augroup trim_white_space
   autocmd!
   autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
+" only highlight search results when writing the search pattern
 augroup vimrc_incsearch_highlight
   autocmd!
   autocmd CmdlineEnter /,\? set hlsearch
   autocmd CmdlineLeave /,\? set nohlsearch
 augroup END
 
+" set relative line numbers in the current buffer only
 augroup number_toggle
   autocmd!
   autocmd BufEnter,FocusGained,WinEnter * if &nu | set rnu   | endif
