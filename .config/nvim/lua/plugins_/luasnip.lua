@@ -4,17 +4,23 @@
 
 return {
   config = function()
-    local inoremap = require("mappings_.keymaps").inoremap
-    local snoremap = require("mappings_.keymaps").snoremap
+    local imap = require("keymap_").imap
+    local smap = require("keymap_").smap
 
-    inoremap(
+    imap(
       "<C-k>",
       "luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'",
-      { expr = true, noremap = false }
+      { expr = true, remap = true }
     )
-    inoremap("<C-j>", "<cmd>lua require('luasnip').jump(-1)<CR>")
+    imap("<C-j>", function()
+      require("luasnip").jump(-1)
+    end)
 
-    snoremap("<C-k>", "<cmd>lua require('luasnip').jump(1)<CR>")
-    snoremap("<C-j>", "<cmd>lua require('luasnip').jump(-1)<CR>")
+    smap("<C-k>", function()
+      require("luasnip").jump(1)
+    end)
+    smap("<C-j>", function()
+      require("luasnip").jump(-1)
+    end)
   end,
 }

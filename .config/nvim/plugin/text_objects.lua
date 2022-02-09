@@ -2,19 +2,26 @@
 -- text_objects.lua
 --
 
-local M = require("mappings_.keymaps")
+local imap = require("keymap_").imap
 
 local characters = { "$", ",", ".", "/", "_" }
 
+local M = {}
+for _, mode in pairs({ "x", "o" }) do
+  M[mode .. "map"] = function(...)
+    vim.keymap.set(mode, ...)
+  end
+end
+
 -- setup text objects
 for _, char in ipairs(characters) do
-  M.xnoremap("i" .. char, ":<C-u>normal! T" .. char .. "vt" .. char .. "<CR>")
-  M.onoremap("i" .. char, ":normal vi" .. char .. "<CR>")
-  M.xnoremap("a" .. char, ":<C-u>normal! F" .. char .. "vf" .. char .. "<CR>")
-  M.onoremap("a" .. char, ":normal va" .. char .. "<CR>")
+  M.xmap("i" .. char, ":<C-u>normal! T" .. char .. "vt" .. char .. "<CR>")
+  M.omap("i" .. char, ":normal vi" .. char .. "<CR>")
+  M.xmap("a" .. char, ":<C-u>normal! F" .. char .. "vf" .. char .. "<CR>")
+  M.omap("a" .. char, ":normal va" .. char .. "<CR>")
 end
 
 -- break undo sequence
 for _, char in ipairs(characters) do
-  M.inoremap(char, char .. "<C-g>u")
+  imap(char, char .. "<C-g>u", "break undo sequence")
 end

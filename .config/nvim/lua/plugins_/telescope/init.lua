@@ -4,10 +4,11 @@
 
 return {
   mappings = {
-    ["<leader>f"] = "git_files",
-    ["<leader>F"] = "grep_string",
+    ["<leader>f"] = { "git_files", "search through git files" },
+    ["<leader>F"] = { "grep_string", "search the string under the cursor" },
     ["<leader>v"] = {
       "find_files",
+      "search through vim files",
       {
         file_ignore_patterns = { "undodir/", "spell/" },
         prompt_title = "Vimrc",
@@ -16,26 +17,15 @@ return {
     },
   },
 
-  map = function(lhs, fn, opts, bufnr)
-    local rhs = string.format(
-      ":lua require('plugins_.telescope.pickers').%s(%s)<CR>",
-      fn,
-      vim.inspect(opts or {}):gsub("\n", "")
-    )
-
-    if bufnr then
-      require("mappings_.keymaps").buf_nnoremap(bufnr, lhs, rhs)
-    else
-      require("mappings_.keymaps").nnoremap(lhs, rhs)
-    end
+  map = function(lhs, fn, desc, telescope_opts, mapping_opts)
+    require("keymap_").nmap(lhs, function()
+      require("plugins_.telescope.pickers")[fn](telescope_opts)
+    end, desc, mapping_opts)
   end,
 
   setup = function(self)
-    for lhs, rhs in pairs(self.mappings) do
-      if type(rhs) == "string" then
-        rhs = { rhs }
-      end
-      pcall(self.map, lhs, unpack(rhs))
+    for key, value in pairs(self.mappings) do
+      pcall(self.map, key, unpack(value))
     end
   end,
 
