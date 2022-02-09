@@ -59,17 +59,13 @@ require("packer").startup(function(use)
 
     -- Language Server Protocol
   use {
+    "neovim/nvim-lspconfig",                           -- common configurations
+    config = function() require("plugins_.lsp"):config() end,
+  }
+
+  use {
     "jose-elias-alvarez/null-ls.nvim",               -- generic language server
-    config = function()
-      require("plugins_.lsp.null-ls").config()
-    end,
-    requires = {
-      { "nvim-lua/plenary.nvim", module = "plenary" },
-      {
-        "neovim/nvim-lspconfig",                       -- common configurations
-        config = function() require("plugins_.lsp").config() end,
-      },
-    },
+    config = function() require("plugins_.lsp.null-ls").config() end
   }
 
 
