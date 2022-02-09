@@ -24,8 +24,9 @@ require("packer").startup(function(use)
   use { "tpope/vim-surround", event = "CursorMoved" }  -- surround text objects
 
   use {
-    "tpope/vim-commentary",                              -- comment out motions
-    keys = { { "n", "gc" }, { "v", "gc" } },
+    "numToStr/Comment.nvim",                             -- (un)comment motions
+    config = function() require('Comment').setup({ ignore = "^$" }) end,
+    keys = { { "n", "gc" }, { "v", "gc" }, { "n", "gb" }, { "v", "gb" }  },
   }
 
   use {
