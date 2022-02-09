@@ -40,6 +40,7 @@ abbr \
 alias vi="v" vim="v"
 
 alias \
+  \$= \
   battery="cat /sys/class/power_supply/BAT0/uevent" \
   brightness="xrandr --output \"\$(xrandr --query | grep primary | cut -f1 -d' ')\" --brightness" \
   d="/usr/bin/git --git-dir=\"\$HOME/.dotfiles\" --work-tree=\"\$HOME\"" # Managing dotfiles
