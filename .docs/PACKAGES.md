@@ -4,22 +4,72 @@ List of manually installed packages, and some information on how to set them up.
 
 ## Table of contents
 
+- [Audio](#audio)
+- [Bluetooth](#bluetooth)
+- [Chat](#chat)
+- [Containers](#chat)
 - [Core](#core)
 - [Drivers](#drivers)
+- [File Management](#file-management)
 - [Graphical environment](#graphical-environment)
-- [Terminal emulator](#terminal-emulator)
-- [Bluetooth](#bluetooth)
-- [Audio](#audio)
-- [Text edition](#text-edition)
+- [Media](#media)
 - [Menus](#menus)
+- [Network](#network)
 - [Package management](#package-management)
 - [Shell](#shell)
+- [System monitoring](#system-monitoring)
+- [Terminal emulator](#terminal-emulator)
+- [Text edition](#text-edition)
 - [Utilities](#utilities)
-- [Containers](#chat)
-- [Chat](#chat)
-- [File Management](#file-management)
-- [Network](#network)
-- [Media](#media)
+
+### Audio
+
+- **[pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)**
+
+- **[pipewire-pulse](https://archlinux.org/packages/extra/x86_64/pipewire-pulse/)**
+
+- **[playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)**
+
+- **[pulsemixer](https://archlinux.org/packages/community/any/pulsemixer/)**
+
+- **[ncspot](https://aur.archlinux.org/packages/ncspot-bin/)**
+
+- **[wireplumber](https://archlinux.org/packages/extra/x86_64/wireplumber/)**
+
+### Bluetooth
+
+- **[bluez](https://archlinux.org/packages/extra/x86_64/bluez/)**
+
+  - [bluez-utils](https://archlinux.org/packages/extra/x86_64/bluez-utils/)
+
+  Enable _bluetoothctl_ command line utility
+
+  ```bash
+  sudo systemctl enable --now bluetooth.service
+  ```
+
+### Chat
+
+- **[Discord](https://archlinux.org/packages/community/x86_64/discord/)**
+
+- **[Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/)**
+
+### Containers
+
+- **[docker](https://archlinux.org/packages/community/x86_64/docker/)**
+
+  Enable and start it's systemd service:
+
+  ```bash
+  sudo systemctl enable --now docker.service
+  ```
+
+  Add yourself to the "docker" group to avoid the need for sudo:
+
+  ```bash
+  sudo usermod -aG docker "$USER"
+  newgrp docker
+  ```
 
 ### Core
 
@@ -35,6 +85,36 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[xf86-input-libinput](https://archlinux.org/packages/extra/x86_64/libinput/)**
 
+### File Management
+
+- **[fzf](https://archlinux.org/packages/community/x86_64/fzf/)**
+
+Use <C-f\> to open `fzf` and cd into the selected directory:
+
+```bash
+sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/share/fzf/key-bindings.zsh
+```
+
+- **[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)**
+
+  - [Trash support](https://archlinux.org/packages/extra/x86_64/gvfs/)
+
+  - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
+
+  - [SSH support](https://archlinux.org/packages/community/x86_64/sshfs/)
+
+  - [Archive plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/)
+
+  - [Archive manager](https://archlinux.org/packages/community/x86_64/xarchiver/)
+
+    - [rar](https://aur.archlinux.org/packages/rar/)
+
+    - [zip](https://archlinux.org/packages/extra/x86_64/zip/)
+
+    - [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
+
+- **[trash-cli](https://archlinux.org/packages/community/any/trash-cli/)**
+
 ### Graphical environment
 
 - **[xorg-server](https://archlinux.org/packages/extra/x86_64/xorg-server/)**
@@ -45,7 +125,7 @@ List of manually installed packages, and some information on how to set them up.
 
   - [mini-greeter](https://aur.archlinux.org/packages/lightdm-mini-greeter/)
 
-- **[bspwm](https://archlinux.org/packages/community/x86_64/bspwm/)**
+- **[bspwm](https://aur.archlinux.org/packages/bspwm-git/)**
 
   - [sxhkd](https://archlinux.org/packages/community/x86_64/sxhkd/)
 
@@ -63,15 +143,17 @@ List of manually installed packages, and some information on how to set them up.
   fc-cache
   ```
 
-### Terminal emulator
+### Media
 
-- **[Kitty](https://archlinux.org/packages/community/x86_64/kitty/)**
+- **[feh](https://archlinux.org/packages/extra/x86_64/feh/)**
 
-  To apply fonts:
+- **[mpv](https://archlinux.org/packages/community/x86_64/mpv/)**
 
-  ```bash
-  fc-cache
-  ```
+  - [youtube-dl](https://archlinux.org/packages/community/any/youtube-dl/)
+
+- **[Zathura](https://archlinux.org/packages/community/x86_64/zathura/)**
+
+  - [zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/)
 
   To apply settings and load a colorscheme:
 
@@ -79,73 +161,33 @@ List of manually installed packages, and some information on how to set them up.
   recolorize [ colorscheme ]
   ```
 
-### Bluetooth
-
-- **[bluez](https://archlinux.org/packages/extra/x86_64/bluez/)**
-
-  - [bluez-utils](https://archlinux.org/packages/extra/x86_64/bluez-utils/)
-
-  Enable _bluetoothctl_ command line utility
-
-  ```bash
-  sudo systemctl enable --now bluetooth.service
-  ```
-
-### Audio
-
-- **[alsa-utils](https://archlinux.org/packages/extra/x86_64/alsa-utils/)**
-
-- **[pulseaudio](https://archlinux.org/packages/extra/x86_64/pulseaudio/)**
-
-  - [pulseaudio-bluetooth](https://archlinux.org/packages/extra/x86_64/pulseaudio-bluetooth/)
-
-- **[playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)**
-
-- **[pulsemixer](https://archlinux.org/packages/community/any/pulsemixer/)**
-
-- **[ncspot](https://aur.archlinux.org/packages/ncspot-bin/)**
-
-### Text edition
-
-- **[Neovim](https://www.github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)**
-
-  - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
-
-  - [Cmake](https://archlinux.org/packages/extra/x86_64/cmake/)
-
-  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
-
-  - [black](https://archlinux.org/packages/community/any/python-black/)
-
-  - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
-
-  - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
-
-  - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
-
-  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
-
-  - [prettier](https://archlinux.org/packages/community/any/prettier/)
-
-  - [pyright](https://archlinux.org/packages/community/any/pyright/)
-
-  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
-
-  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
-
-  - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
-
-  - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
-
-- **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
-
-  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts/)
-
-  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
-
 ### Menus
 
 - **[dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)**
+
+### Network
+
+- **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
+
+  Enable and start it's systemd service:
+
+  ```bash
+  sudo systemctl enable --now NetworkManager.service
+  ```
+
+  Discover and connect to Wi-Fi networks through a nice interface:
+
+  ```bash
+  nmtui
+  ```
+
+  and switch between known networks:
+
+  ```bash
+  nmcli connection up <SSID>
+  ```
+
+- **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
 
 ### Package management
 
@@ -231,6 +273,87 @@ Make zsh the default interactive shell for the current user:
 chsh -s $(which zsh) $USER
 ```
 
+### System monitoring
+
+- **[htop](https://archlinux.org/packages/extra/x86_64/htop/)**
+
+- **[ncdu](https://archlinux.org/packages/community/x86_64/ncdu/)**
+
+- **[tlp](https://archlinux.org/packages/community/any/tlp/)**
+
+  -**[ethtool](https://archlinux.org/packages/extra/x86_64/ethtool/)**
+
+  -**[smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)**
+
+Enable and start it's systemd service:
+
+```bash
+sudo systemctl enable --now tlp.service
+```
+
+Mask `systemd-rfkill.service` and `systemd-rfkill.socket` to remove warnings:
+
+```bash
+sudo systemctl mask systemd-rfkill.service
+sudo systemctl mask systemd-rfkill.socket
+```
+
+### Terminal emulator
+
+- **[Kitty](https://archlinux.org/packages/community/x86_64/kitty/)**
+
+  To apply fonts:
+
+  ```bash
+  fc-cache
+  ```
+
+  To apply settings and load a colorscheme:
+
+  ```bash
+  recolorize [ colorscheme ]
+  ```
+
+### Text edition
+
+- **[Neovim](https://www.github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)**
+
+  - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
+
+  - [Cmake](https://archlinux.org/packages/extra/x86_64/cmake/)
+
+  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+
+  - [black](https://archlinux.org/packages/community/any/python-black/)
+
+  - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
+
+  - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
+
+  - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
+
+  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
+
+  - [prettier](https://archlinux.org/packages/community/any/prettier/)
+
+  - [pyright](https://archlinux.org/packages/community/any/pyright/)
+
+  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+
+  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
+
+  - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
+
+  - [lua-language-server](https://archlinux.org/packages/community/x86_64/lua-language-server/)
+
+  - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
+
+- **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
+
+  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts/)
+
+  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
+
 ### Utilities
 
 - **[archlinux-contrib](https://archlinux.org/packages/community/any/archlinux-contrib/)**
@@ -239,111 +362,14 @@ chsh -s $(which zsh) $USER
 
 - **[bc](https://archlinux.org/packages/extra/x86_64/bc/)**
 
-- **[fzf](https://archlinux.org/packages/community/x86_64/fzf/)**
-
-Use <C-f\> to open `fzf` and cd into the selected directory:
-
-```bash
-sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/share/fzf/key-bindings.zsh
-```
-
-- **[htop](https://archlinux.org/packages/extra/x86_64/htop/)**
-
 - **[maim](https://archlinux.org/packages/community/x86_64/maim/)**
 
 - **[man-db](https://archlinux.org/packages/core/x86_64/man-db/)**
 
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
-- **[ncdu](https://archlinux.org/packages/community/x86_64/ncdu/)**
-
 - **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
 
 - **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
 
 - **[unclutter](https://archlinux.org/packages/community/x86_64/unclutter/)**
-
-### Containers
-
-- **[docker](https://archlinux.org/packages/community/x86_64/docker/)**
-
-  Enable and start it's systemd service:
-
-  ```bash
-  sudo systemctl enable --now docker.service
-  ```
-
-  Add yourself to the "docker" group to avoid the need for sudo:
-
-  ```bash
-  sudo usermod -aG docker "$USER"
-  newgrp docker
-  ```
-
-### Chat
-
-- **[Discord](https://archlinux.org/packages/community/x86_64/discord/)**
-
-- **[Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/)**
-
-### File Management
-
-- **[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)**
-
-  - [Trash support](https://archlinux.org/packages/extra/x86_64/gvfs/)
-
-  - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
-
-  - [SSH support](https://archlinux.org/packages/community/x86_64/sshfs/)
-
-  - [Archive plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/)
-
-  - [Archive manager](https://archlinux.org/packages/community/x86_64/xarchiver/)
-
-    - [rar](https://aur.archlinux.org/packages/rar/)
-
-    - [zip](https://archlinux.org/packages/extra/x86_64/zip/)
-
-    - [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
-
-### Network
-
-- **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
-
-  Enable and start it's systemd service:
-
-  ```bash
-  sudo systemctl enable --now NetworkManager.service
-  ```
-
-  Discover and connect to Wi-Fi networks through a nice interface:
-
-  ```bash
-  nmtui
-  ```
-
-  and switch between known networks:
-
-  ```bash
-  nmcli connection up <SSID>
-  ```
-
-- **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
-
-### Media
-
-- **[feh](https://archlinux.org/packages/extra/x86_64/feh/)**
-
-- **[mpv](https://archlinux.org/packages/community/x86_64/mpv/)**
-
-  - [youtube-dl](https://archlinux.org/packages/community/any/youtube-dl/)
-
-- **[Zathura](https://archlinux.org/packages/community/x86_64/zathura/)**
-
-  - [zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/)
-
-  To apply settings and load a colorscheme:
-
-  ```bash
-  recolorize [ colorscheme ]
-  ```
