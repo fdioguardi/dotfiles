@@ -2,12 +2,6 @@
 # .zprofile
 #
 
-# Remove 'X' cursor
-xsetroot -cursor_name left_ptr
-
-# Increase key speed via a rate change
-xset r rate 250 50
-
 ## Global variables
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/.local/nvim/bin"
 

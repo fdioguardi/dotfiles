@@ -12,7 +12,7 @@ __start sxhkd -m -1
 __start unclutter --ignore-scrolling --fork
 
 __start xrandr --output "$(xrandr -q | grep "primary" | cut -f1 -d' ')" \
-  --brightness 0.5
+  --brightness 0.4
 
 __start redshift 2 > /dev/null 2>&1
 
@@ -27,3 +27,9 @@ __clistart bluetoothctl
 __clistart pulsemixer
 
 "${XDG_CONFIG_HOME:-$HOME/.config}"/polybar/launch.sh &
+
+# Remove 'X' cursor
+xsetroot -cursor_name left_ptr
+
+# Increase key speed via a rate change
+xset r rate 250 50
