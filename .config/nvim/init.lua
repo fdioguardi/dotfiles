@@ -2,13 +2,11 @@
 -- init.lua
 --
 
--- disable builtin plugins
+-- change builtin settings
 require("plugins_.builtin").setup()
 
 -- stylua: ignore start
 -- setup plugins
-if true then return end
-
 require("packer").startup(function(use)
     -- Plugin managing
   use { "wbthomason/packer.nvim" }
