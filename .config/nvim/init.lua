@@ -77,11 +77,10 @@ require("packer").startup(function(use)
 
   use {
     "hrsh7th/nvim-cmp",                                 -- completion framework
-    config = function() require("cmp").setup(require("plugins_.cmp")) end,
+    config = function() require("plugins_.cmp"):config() end,
     requires = {
       { "hrsh7th/cmp-buffer", event = "InsertEnter" },
-      "hrsh7th/cmp-nvim-lsp",
-      { "hrsh7th/cmp-nvim-lua", ft = "lua" },
+      { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-path", event = "InsertEnter" },
       { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
       {
