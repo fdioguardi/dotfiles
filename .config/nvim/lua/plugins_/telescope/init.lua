@@ -32,8 +32,18 @@ return {
   config = function()
     require("telescope").setup({
       defaults = {
-        layout_config = { prompt_position = "top" },
+        layout_config = {
+          horizontal = {
+            preview_width = 0.55,
+            prompt_position = "top",
+          },
+          height = 0.80,
+          width = 0.85,
+        },
+        prompt_prefix = "  ",
+        selection_caret = "  ",
         sorting_strategy = "ascending",
+        path_display = { "truncate" },
       },
       pickers = { find_files = { follow = true, hidden = true } },
     })
