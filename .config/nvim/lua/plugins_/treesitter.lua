@@ -6,7 +6,7 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup({
       highlight = { enable = true, use_languagetree = true },
-      indent = { enable = true },
+      indent = { enable = true, disable = { "python" } },
       rainbow = { enable = true },
       textobjects = {
         select = {
