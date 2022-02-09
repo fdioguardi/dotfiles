@@ -1,0 +1,37 @@
+// Reset css
+* {
+  all: unset;
+  font-family: Noto Sans;
+  background-color: #0F1419;
+  color: #E6E1CF;
+}
+
+/**************************/
+/*        CALENDAR        */
+/**************************/
+
+.calendar {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.calendar:selected {
+  color: #0F1419; // font color of selected day
+  background-color: #E6E1CF; // background color of selected day
+  border-radius: 10%;
+}
+
+.calendar.header {
+  color: #ff7733; // font color of month and year
+}
+
+.calendar.highlight {
+  color: #0a0e14; // color of day names
+  background-color: #e6b673;
+}
+
+.calendar:inconsistent {
+  // color: #95e6cb;
+  color: #757575;
+  // color: #6c809e;
+}

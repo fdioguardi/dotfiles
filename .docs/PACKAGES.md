@@ -137,6 +137,8 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 
 - **[polybar](https://aur.archlinux.org/packages/polybar/)**
 
+  - [eww](https://aur.archlinux.org/packages/eww-git/)
+
   To apply fonts:
 
   ```bash

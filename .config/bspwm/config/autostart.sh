@@ -16,12 +16,14 @@ __start xrandr --output "$(xrandr -q | grep "primary" | cut -f1 -d' ')" \
 
 __start redshift 2 > /dev/null 2>&1
 
-__start recolorize -q ayu
+__start eww daemon
 
-__clistart pulsemixer
+__start recolorize -q ayu
 
 __clistart ncspot
 
 __clistart bluetoothctl
+
+__clistart pulsemixer
 
 "${XDG_CONFIG_HOME:-$HOME/.config}"/polybar/launch.sh &

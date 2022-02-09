@@ -14,6 +14,9 @@ update_apps() {
     # Polybar
     pkill -USR1 polybar &
 
+    # Eww
+    "${XDG_CONFIG_HOME:-$HOME/.config}/eww/colorize_eww.sh" &
+
     # Kitty
     "${XDG_CONFIG_HOME:-$HOME/.config}/kitty/colorize_kitty.sh" &
 
