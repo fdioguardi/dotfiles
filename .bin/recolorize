@@ -9,20 +9,21 @@ update_apps() {
   # Bspwm
   "${XDG_CONFIG_HOME:-$HOME/.config}/bspwm/config/color_setup.sh" &
 
-  if [ -z "$quickstart" ]; then
+  # Polybar
+  "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/launch.sh" &
 
-    # Polybar
-    pkill -USR1 polybar &
-
-    # Eww
-    "${XDG_CONFIG_HOME:-$HOME/.config}/eww/colorize_eww.sh" &
-
-    # Kitty
-    "${XDG_CONFIG_HOME:-$HOME/.config}/kitty/colorize_kitty.sh" &
-
-    # Zathura
-    "${XDG_CONFIG_HOME:-$HOME/.config}/zathura/genzathurarc.sh" &
+  if [ -n "$quickstart" ]; then
+    return
   fi
+
+  # Eww
+  "${XDG_CONFIG_HOME:-$HOME/.config}/eww/colorize_eww.sh" &
+
+  # Kitty
+  "${XDG_CONFIG_HOME:-$HOME/.config}/kitty/colorize_kitty.sh" &
+
+  # Zathura
+  "${XDG_CONFIG_HOME:-$HOME/.config}/zathura/genzathurarc.sh" &
 }
 
 usage() {

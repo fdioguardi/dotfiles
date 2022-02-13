@@ -26,8 +26,6 @@ __clistart bluetoothctl
 
 __clistart pulsemixer
 
-"${XDG_CONFIG_HOME:-$HOME/.config}"/polybar/launch.sh &
-
 # Remove 'X' cursor
 xsetroot -cursor_name left_ptr
 
