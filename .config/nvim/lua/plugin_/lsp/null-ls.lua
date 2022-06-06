@@ -14,7 +14,6 @@ return {
         require("null-ls").builtins.formatting.black,
         require("null-ls").builtins.formatting.clang_format,
         require("null-ls").builtins.formatting.prettier,
-        require("null-ls").builtins.formatting.rustfmt,
         require("null-ls").builtins.formatting.shfmt.with({
           extra_args = {
             "-s",
@@ -34,8 +33,16 @@ return {
       },
 
       on_attach = function(client, bufnr)
-        require("plugins_.lsp.on_attach")(client, bufnr)
-        vim.cmd("autocmd! BufWrite <buffer> lua vim.lsp.buf.formatting_sync()")
+        require("plugin_.lsp.on_attach")(client, bufnr)
+        vim.api.nvim_create_augroup("format_on_save", {})
+        vim.api.nvim_create_autocmd("BufWrite", {
+          callback = function()
+            vim.lsp.buf.format({ async = true })
+          end,
+          buffer = 0,
+          desc = "Auto format buffer on save",
+          group = "format_on_save",
+        })
       end,
     })
   end,

@@ -9,7 +9,7 @@ return {
     end
 
     nmap("<leader>lca", vim.lsp.buf.code_action, "LSP code actions")
-    nmap("<leader>lr", vim.lsp.buf.rename, "LSP rename symbol")
+    nmap("<leader>lr", ":IncRename ", "LSP rename symbol")
     nmap("K", vim.lsp.buf.hover, "LSP display hover information")
     nmap("gd", vim.lsp.buf.definition, "LSP go to definition")
     nmap("gi", vim.lsp.buf.implementation, "LSP list implementations")
@@ -18,7 +18,7 @@ return {
     nmap("[d", vim.diagnostic.goto_prev, "LSP go to previous diagnostic")
     nmap("]d", vim.diagnostic.goto_next, "LSP go to next diagnostic")
 
-    require("plugins_.telescope").map(
+    require("plugin_.telescope").map(
       "<leader>e",
       "lsp_document_diagnostics",
       "LSP show diagnostics",

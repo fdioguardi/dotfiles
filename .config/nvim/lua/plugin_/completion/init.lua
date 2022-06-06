@@ -29,13 +29,13 @@ return {
       end,
     },
 
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ["<C-Space>"] = cmp.mapping.complete(),
       ["<C-y>"] = cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       }),
-    },
+    }),
 
     snippet = {
       expand = function(args)
@@ -44,6 +44,7 @@ return {
     },
 
     sources = {
+      { name = "luasnip" },
       { name = "buffer", keyword_length = 5 },
       { name = "path" },
     },
