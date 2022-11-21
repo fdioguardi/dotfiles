@@ -20,7 +20,7 @@ alt + a
 
 # music player
 alt + n
-	"$TERMINAL" --title ncspot --execute ncspot
+	pkill ncspot; "$TERMINAL" --title ncspot --execute ncspot
 
 # power management prompt
 alt + x
@@ -98,7 +98,7 @@ alt + g
 # state/flags
 #
 
-# toggle between current and last state
+# change the layout of the selected node
 alt + {t,p,s,f}
 	bspc node -t \~{tiled,pseudo_tiled,floating,fullscreen}
 
@@ -130,46 +130,17 @@ alt + {_,shift + }{1-9,0}
 alt + {Left,Right}
 	bspc node @/ --rotate {+,-}90
 
-#
-# preselect
-#
-
-# preselect the direction
-alt + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-alt + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-alt + ctrl + space
-	bspc node -p cancel
+alt + F10
+	"$XDG_CONFIG_HOME"/bspwm/config/monitors_setup.sh -t
 
 #
 # move/resize
 #
 
 # expand a window by moving one of its side outward
-alt + super + {h,j,k,l}
-	bspc node -z {left -10 0,bottom 0 10,top 0 -10,right 10 0}
-
-# contract a window by moving one of its side inward
-alt + super + shift + {h,j,k,l}
-	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
+alt + ctrl + {_, shift + } + {h,j,k,l}
+	"$XDG_CONFIG_HOME"/bspwm/scripts/resize.sh {+,-} {1,2,3,4}
 
 # move a floating window
-alt + super + {Left,Down,Up,Right}
+alt + ctrl + {Left,Down,Up,Right}
 	bspc node -v {-10 0,0 10,0 -10,10 0}
-
-# increase gap size
-alt + plus
-	bspc config window_gap $(($(bspc config window_gap) + 1 ))
-
-# descrease gap size
-alt + underscore
-	[ $(bspc config window_gap) -gt "0" ] && bspc config window_gap $(($(bspc config window_gap) - 1 ))
-
-# restore gap size
-alt + equal
-	"$XDG_CONFIG_HOME"/bspwm/config/desktop_setup.sh
