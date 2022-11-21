@@ -38,6 +38,10 @@ alt + shift + s
 alt + Escape
 	pkill -USR1 -x sxhkd
 
+# lock screen and suspend
+super + l
+	xset s activate dpms force suspend
+
 #
 # adjust media
 #
