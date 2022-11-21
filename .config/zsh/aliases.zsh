@@ -14,8 +14,8 @@ abbr \
   l="ls -A --group-directories-first" \
   ll="ls -Agho --group-directories-first" \
   tmp="cd \"\$(mktemp -d)\"" \
-  rmd="rmdir" \
   mkd="mkdir -pv" \
+  tp="trash-put" \
   ...="cd ../../" \
   ....="cd ../../../" \
   .....="cd ../../../../"
@@ -34,8 +34,11 @@ abbr \
   g="git" \
   ka="killall" \
   pls="sudo \$(fc -ln -1)" \
+  ncdu="ncdu -x --color=off" \
   rc="recolorize" \
-  venv="source .venv/bin/activate"
+  venv="source .venv/bin/activate" \
+  pyenv="python -m venv .venv; source .venv/bin/activate;
+    pip install --upgrade pip; pip install -r requirements.txt"
 
 alias vi="v" vim="v"
 
@@ -43,4 +46,5 @@ alias \
   \$= \
   battery="cat /sys/class/power_supply/BAT0/uevent" \
   brightness="xrandr --output \"\$(xrandr --query | grep primary | cut -f1 -d' ')\" --brightness" \
-  d="/usr/bin/git --git-dir=\"\$HOME/.dotfiles\" --work-tree=\"\$HOME\"" # Managing dotfiles
+  b1="while killall redshift 2> /dev/null; do sleep 0.1; done; brightness 1" \
+  d="/usr/bin/git --git-dir=\"\$XDG_DATA_HOME/dotfiles\" --work-tree=\"\$HOME\"" # Managing dotfiles
