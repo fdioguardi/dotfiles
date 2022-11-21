@@ -1,0 +1,7 @@
+# ncspot
+.config/ncspot/credentials.toml
+.config/ncspot/userstate.cbor
+.config/ncspot/userstate.toml
+
+# nvim
+.config/nvim/spell/
