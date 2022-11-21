@@ -2,10 +2,6 @@
 # .zshrc
 #
 
-# Shell settings
-stty -ixon
-setopt auto_cd hist_ignore_dups interactive_comments prompt_subst null_glob
-
 # Plugins
 for file in /usr/share/zsh/plugins/*/*.plugin.zsh \
   "${XDG_DATA_HOME:-${HOME}/local/share}"/zsh/plugins/*/*.plugin.zsh \
