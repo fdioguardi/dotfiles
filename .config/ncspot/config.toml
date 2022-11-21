@@ -1,6 +1,10 @@
 # Options
-album_column           = false
-flip_status_indicators = true
+album_column            = false
+flip_status_indicators  = true
+hide_display_names      = true
+library_tabs            = [ "tracks", "playlists", "podcasts" ]
+repeat                  = "playlist"
+volnorm                 = true
 
 [keybindings]
 "G" = "move bottom"
