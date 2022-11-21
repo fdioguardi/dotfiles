@@ -4,7 +4,11 @@
 # receives an increment and uses it with `xrandr --brightness`
 # also keeps brightness between 0.1 and 1 because what's the point of not doing it
 
-[ "$#" -ne 1 ] && echo "Usage: $(basename "$0") N" && exit 7
+usage() {
+  echo "Usage: $0 <increment>" && exit "$1"
+}
+
+[ "$#" -ne 1 ] && usage 7
 
 monitor=$(xrandr --query | grep "primary" | cut -f1 -d" ")
 

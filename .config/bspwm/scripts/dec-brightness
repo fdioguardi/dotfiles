@@ -3,7 +3,11 @@
 # dec-brightness
 # the same as inc-brightness, just the exact opposite
 
-[ "$#" -ne 1 ] && echo "Usage: $(basename "$0") N" && exit 7
+usage() {
+  echo "Usage: $0 <increment>" && exit "$1"
+}
+
+[ "$#" -ne 1 ] && usage 7
 
 monitor=$(xrandr --query | grep "primary" | cut -f1 -d" ")
 
