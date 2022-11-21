@@ -7,7 +7,7 @@ List of manually installed packages, and some information on how to set them up.
 - [Audio](#audio)
 - [Bluetooth](#bluetooth)
 - [Chat](#chat)
-- [Containers](#chat)
+- [Containers](#containers)
 - [Core](#core)
 - [Drivers](#drivers)
 - [File Management](#file-management)
@@ -77,6 +77,8 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Linux firmware](https://archlinux.org/packages/core/x86_64/linux-firmware/)**
 
+- **[More Linux firmware](https://aur.archlinux.org/packages/mkinitcpio-firmware)**
+
 - **[base](https://archlinux.org/packages/core/any/base/)**
 
 - **[intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/)**
@@ -92,18 +94,10 @@ List of manually installed packages, and some information on how to set them up.
 Use <C-f\> to open `fzf` and cd into the selected directory:
 
 ```bash
-sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/share/fzf/key-bindings.zsh
+sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 ```
 
 - **[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)**
-
-  - [Trash support](https://archlinux.org/packages/extra/x86_64/gvfs/)
-
-  - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
-
-  - [SSH support](https://archlinux.org/packages/community/x86_64/sshfs/)
-
-  - [Archive plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/)
 
   - [Archive manager](https://archlinux.org/packages/community/x86_64/xarchiver/)
 
@@ -112,6 +106,14 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
     - [zip](https://archlinux.org/packages/extra/x86_64/zip/)
 
     - [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
+
+  - [Archive plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/)
+
+  - [SSH support](https://archlinux.org/packages/community/x86_64/sshfs/)
+
+  - [Trash support](https://archlinux.org/packages/extra/x86_64/gvfs/)
+
+  - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
 
 - **[trash-cli](https://archlinux.org/packages/community/any/trash-cli/)**
 
@@ -125,9 +127,24 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 
   - [mini-greeter](https://aur.archlinux.org/packages/lightdm-mini-greeter/)
 
+  Add yourself to the `nopasswdlogin` group to be able to login without a password.
+
+  ```bash
+  sudo usermod -aG nopasswdlogin "$USER"
+  ```
+
 - **[bspwm](https://aur.archlinux.org/packages/bspwm-git/)**
 
   - [sxhkd](https://archlinux.org/packages/community/x86_64/sxhkd/)
+
+  There's a bug with the package `xkeyboard-config`.
+  It creates multiple copies of the same shortcut when working with
+  different keyboard layouts.
+  To fix it, downgrade `xkeyboard-config` to the version `3.36-3`.
+
+  ```bash
+  sudo pacman -U /var/cache/pacman/pkg/xkeyboard-config-2.36-3-any.pkg.tar.zst
+  ```
 
   - [xorg-xrandr](https://archlinux.org/packages/extra/x86_64/xorg-xrandr/)
 
@@ -144,6 +161,10 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
   ```bash
   fc-cache
   ```
+
+- **[xsecurelock](https://archlinux.org/packages/community/x86_64/xsecurelock/)**
+
+  - [xss-lock](https://archlinux.org/packages/community/x86_64/xss-lock/)
 
 ### Media
 
@@ -169,6 +190,8 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
 
 ### Network
 
+- **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
+
 - **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
 
   Enable and start it's systemd service:
@@ -188,8 +211,6 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
   ```bash
   nmcli connection up <SSID>
   ```
-
-- **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
 
 ### Package management
 
@@ -229,6 +250,10 @@ sudo sed -i "s/bindkey ..... fzf-cd-widget/bindkey \'^F\' fzf-cd-widget/g" /usr/
   ```
 
 - **[topgrade](https://aur.archlinux.org/packages/topgrade/)**
+
+- **[downgrader](https://aur.archlinux.org/packages/downgrade/)**
+
+- **[wget](https://archlinux.org/packages/extra/x86_64/wget/)**
 
 ### Shell
 
@@ -371,6 +396,8 @@ sudo systemctl mask systemd-rfkill.socket
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
 - **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
+
+- **[simplescreenrecorder](https://archlinux.org/packages/community/x86_64/simplescreenrecorder/)**
 
 - **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
 
