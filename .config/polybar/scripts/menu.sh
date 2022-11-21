@@ -1,7 +1,7 @@
 #!/bin/sh
 
 usage() {
-  echo "Usage: $0 (launcher|sysmenu)" >&2
+  echo "Usage: $0 [launcher|sysmenu]" && exit "$1"
 }
 
 sysmenu() {
@@ -19,8 +19,8 @@ launcher() {
   "$(dirname "$0")"/dmenu_run_history "$@"
 }
 
-[ "$#" != 1 ] && usage && exit 1
-[ "$1" != "launcher" ] && [ "$1" != "sysmenu" ] && usage && exit 22
+[ "$#" != 1 ] && usage 1
+[ "$1" != "launcher" ] && [ "$1" != "sysmenu" ] && usage 22
 
 "$1" -i -fn "Noto Sans-18" -nb "$(getcolor background)" \
   -nf "$(getcolor foreground)" -sb "$(getcolor yellow)" \
