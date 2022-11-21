@@ -29,6 +29,7 @@ bspc config border_width 2
 [ -x "$config"/external_rules.sh ] \
   && bspc config external_rules_command "$config"/external_rules.sh
 bspc rule -a feh state=floating
+bspc rule -a Pomello state=floating sticky=on
 
 # Desktop 1
 bspc rule -a "$BROWSER" desktop=^1
@@ -39,11 +40,17 @@ bspc rule -a "$TERMINAL" desktop=^2
 # Desktop 3
 bspc rule -a jetbrains-idea desktop=^3
 
+# Desktop 4
+bspc rule -a Steam desktop=^4
+
+# Desktop 7
+bspc rule -a "Microsoft Teams - Preview" desktop=^7
+
 # Desktop 8
-bspc rule -a TelegramDesktop desktop=^8 follow=on state=tiled
+bspc rule -a TelegramDesktop desktop=^8 follow=on
 
 # Desktop 9
-bspc rule -a discord desktop=^9 follow=on state=tiled
+bspc rule -a discord desktop=^9
 
 # Desktop 10
 bspc rule -a "$TERMINAL":"$TERMINAL":pulsemixer \
