@@ -11,7 +11,7 @@ set -e
 readonly FILE="$HOME/.docs/PACKAGES.md"
 readonly AUR_HELPER="paru"
 readonly AUR_HELPER_PKG="paru-bin"
-readonly INSTALLATION_ARGS="-S --needed --skipreview"
+readonly INSTALLATION_ARGS=("-S" "--needed" "--skipreview")
 
 declare -a packages
 
@@ -31,4 +31,4 @@ if ! which "$AUR_HELPER" &> /dev/null; then
   cd - > /dev/null
 fi
 
-yes "" | eval "${AUR_HELPER}" "${INSTALLATION_ARGS}" "${packages[@]}"
+yes "" | command "${AUR_HELPER}" "${INSTALLATION_ARGS[@]}" "${packages[@]}"
