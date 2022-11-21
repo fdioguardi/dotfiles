@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# This script automatically sets the timezone based on the geolocation of the IP address.
+# It depends on the "ipapi.co" service.
+
+timedate set-timezone "$(curl -fs ipapi.co/timezone)"
