@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = fzf
+
+[Action]
+Description = Updating fzf's zsh extension with sudo ...
+When = PostTransaction
+Depends = sed
+Exec = /bin/sed -i "s/\\\ec/^F/" /usr/share/fzf/key-bindings.zsh
