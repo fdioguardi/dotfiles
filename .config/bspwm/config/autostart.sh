@@ -31,3 +31,7 @@ xsetroot -cursor_name left_ptr
 
 # Increase key speed via a rate change
 xset r rate 250 50
+
+# Lock screen after 5 minutes of inactivity
+xset s 300 10
+xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- xsecurelock &
