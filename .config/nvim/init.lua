@@ -5,78 +5,78 @@
 -- change builtin settings
 require("plugin_.builtin").setup()
 
--- stylua: ignore start
 -- setup plugins
 require("packer").startup(function(use)
-    -- Plugin managing
-  use { "wbthomason/packer.nvim" }
+  -- Plugin managing
+  use({ "wbthomason/packer.nvim" })
 
-    -- Colorschemes
-  use {
+  -- Colorschemes
+  use({
     "tanvirtin/monokai.nvim",
     after = "nvim-treesitter",
     config = function() require("plugin_.theme").monokai() end,
-  }
+  })
 
-    -- Functionality
-  use { "tpope/vim-surround", event = "CursorMoved" }  -- surround text objects
+  -- Functionality
+  use({ "tpope/vim-surround", event = "CursorMoved" })
 
-  use {
-    "numToStr/Comment.nvim",                             -- (un)comment motions
-    config = function() require('Comment').setup({ ignore = "^$" }) end,
-    keys = { { "n", "gc" }, { "v", "gc" }, { "n", "gb" }, { "v", "gb" }  },
-  }
+  use({
+    "numToStr/Comment.nvim",
+    config = function() require("Comment").setup({ ignore = "^$" }) end,
+    keys = { { "n", "gc" }, { "v", "gc" }, { "n", "gb" }, { "v", "gb" } },
+  })
 
-  use {
-    "nvim-telescope/telescope.nvim",                            -- fuzzy finder
+  use({ "github/copilot.vim" })
+
+  use({
+    "nvim-telescope/telescope.nvim",
     config = function() require("plugin_.telescope"):config() end,
-    module = 'telescope',
+    module = "telescope",
     requires = {
       { "nvim-lua/plenary.nvim", module = "plenary" },
-      { "nvim-lua/popup.nvim", module = "popup" }
+      { "nvim-lua/popup.nvim", module = "popup" },
     },
     setup = function() require("plugin_.telescope"):setup() end,
-  }
+  })
 
-    -- Syntax highlighting
-  use {
-    "nvim-treesitter/nvim-treesitter",                      -- parser generator
+  -- Syntax highlighting
+  use({
+    "nvim-treesitter/nvim-treesitter",
     module = "nvim-treesitter",
     run = ":TSUpdate",
-  }
+  })
 
-  use {
-    "p00f/nvim-ts-rainbow",                    -- colorize matching parenthesis
+  use({
+    "p00f/nvim-ts-rainbow",
     event = "UIEnter",
-  }
+  })
 
-  use {
-    "nvim-treesitter/nvim-treesitter-textobjects",              -- text objects
+  use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
     config = function() require("plugin_.treesitter").config() end,
-    after = "nvim-ts-rainbow"
-  }
+    after = "nvim-ts-rainbow",
+  })
 
-    -- Language Server Protocol
-  use {
-    "neovim/nvim-lspconfig",                           -- common configurations
+  -- Language Server Protocol
+  use({
+    "neovim/nvim-lspconfig",
     config = function() require("plugin_.lsp"):config() end,
-  }
+  })
 
-  use {
-    "jose-elias-alvarez/null-ls.nvim",               -- generic language server
-    config = function() require("plugin_.lsp.null-ls").config() end
-  }
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function() require("plugin_.lsp.null-ls").config() end,
+  })
 
+  use({ "ray-x/lsp_signature.nvim", module = "lsp_signature" })
 
-  use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }-- signature help
-
-  use {                                                   -- incremental rename
+  use({
     "smjonas/inc-rename.nvim",
-    config = function() require("inc_rename").setup() end
-  }
+    config = function() require("inc_rename").setup() end,
+  })
 
-  use {
-    "hrsh7th/nvim-cmp",                                 -- completion framework
+  use({
+    "hrsh7th/nvim-cmp",
     config = function() require("plugin_.completion"):config() end,
     requires = {
       { "hrsh7th/cmp-buffer", event = "InsertEnter" },
@@ -89,7 +89,5 @@ require("packer").startup(function(use)
         event = "InsertEnter",
       },
     },
-  }
-
+  })
 end)
--- stylua: ignore end

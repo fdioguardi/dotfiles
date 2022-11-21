@@ -6,13 +6,14 @@
 
 -- 1 important
 
--- 2 moving arround, searching and patterns
+-- 2 moving around, searching and patterns
 vim.opt.ignorecase = true       -- ignore case when searching
 vim.opt.smartcase  = true       -- overwrite ignorecase when search pattern contains upper case characters
 
 -- 3 tags
 -- 4 displaying text
 vim.opt.breakindent    = true           -- visually indent wrapped lines
+vim.opt.cmdheight      = 0              -- number of lines used for the command-line
 vim.opt.fillchars      = { eob = " " }  -- don't show ~ on empty lines
 vim.opt.lazyredraw     = true           -- don't redraw while executing macros
 vim.opt.number         = true           -- show absolute number of current line
@@ -23,6 +24,7 @@ vim.opt.cursorlineopt = "number"              -- highlight current line number
 vim.opt.guicursor     = ""                    -- show block cursor for every mode
 vim.opt.hlsearch      = false                 -- don't highlight search results
 vim.opt.spelllang     = { "en", "es", "it" }  -- enable spell-check in more languages
+vim.opt.spell         = true                  -- highlight spelling mistakes
 vim.opt.termguicolors = true                  -- use GUI colors for the terminal
 
 -- 6 multiple windows

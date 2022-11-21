@@ -5,9 +5,7 @@
 local cmp = require("cmp")
 
 return {
-  config = function(self)
-    cmp.setup(self.cfg)
-  end,
+  config = function(self) cmp.setup(self.cfg) end,
 
   buf_setup = function(self, sources)
     require("cmp").setup.buffer({
@@ -38,9 +36,7 @@ return {
     }),
 
     snippet = {
-      expand = function(args)
-        require("luasnip").lsp_expand(args.body)
-      end,
+      expand = function(args) require("luasnip").lsp_expand(args.body) end,
     },
 
     sources = {

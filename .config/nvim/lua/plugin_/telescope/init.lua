@@ -18,9 +18,12 @@ return {
   },
 
   map = function(lhs, fn, desc, telescope_opts, mapping_opts)
-    require("keymap_").nmap(lhs, function()
-      require("plugin_.telescope.pickers")[fn](telescope_opts)
-    end, desc, mapping_opts)
+    require("keymap_").nmap(
+      lhs,
+      function() require("plugin_.telescope.pickers")[fn](telescope_opts) end,
+      desc,
+      mapping_opts
+    )
   end,
 
   setup = function(self)

@@ -8,9 +8,7 @@ local characters = { "$", ",", ".", "/", "_" }
 
 local M = {}
 for _, mode in pairs({ "x", "o" }) do
-  M[mode .. "map"] = function(...)
-    vim.keymap.set(mode, ...)
-  end
+  M[mode .. "map"] = function(...) vim.keymap.set(mode, ...) end
 end
 
 -- setup text objects

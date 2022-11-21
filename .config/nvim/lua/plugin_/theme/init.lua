@@ -43,7 +43,7 @@ local post_hook = {
         colors.base4, -- prompt bg
         colors.base8, -- text
         colors.red, -- title bg
-        colors.green -- title bg
+        colors.green-- title bg
       )
     end
   end,

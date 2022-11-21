@@ -9,41 +9,44 @@ local function setup_netrw()
 end
 
 local function disable_providers()
-  for _, language in
-    ipairs({ "node", "perl", "python", "python3", "pythonx", "ruby" })
-  do
+  for _, language in ipairs({
+    "node",
+    "perl",
+    "python",
+    "python3",
+    "pythonx",
+    "ruby",
+  }) do
     vim.g["loaded_" .. language .. "_provider"] = 0
   end
 end
 
 local function disable_plugins()
-  for _, plugin in
-    ipairs({
-      "2html_plugin",
-      "getscript",
-      "getscriptPlugin",
-      "gzip",
-      "2html_plugin",
-      "logipat",
-      "man",
-      "matchit",
-      "netrwFileHandlers",
-      "netrwSettings",
-      "remote_plugins",
-      "rplugin",
-      "rrhelper",
-      "shada_plugin",
-      "spec",
-      "spellfile_plugin",
-      "tar",
-      "tarPlugin",
-      "tutor_mode",
-      "vimball",
-      "vimballPlugin",
-      "zip",
-      "zipPlugin",
-    })
-  do
+  for _, plugin in ipairs({
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "2html_plugin",
+    "logipat",
+    "man",
+    "matchit",
+    "netrwFileHandlers",
+    "netrwSettings",
+    "remote_plugins",
+    "rplugin",
+    "rrhelper",
+    "shada_plugin",
+    "spec",
+    "spellfile_plugin",
+    "tar",
+    "tarPlugin",
+    "tutor_mode",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+  }) do
     vim.g["loaded_" .. plugin] = 1
   end
 end

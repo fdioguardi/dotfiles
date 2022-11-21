@@ -36,9 +36,7 @@ return {
         require("plugin_.lsp.on_attach")(client, bufnr)
         vim.api.nvim_create_augroup("format_on_save", {})
         vim.api.nvim_create_autocmd("BufWrite", {
-          callback = function()
-            vim.lsp.buf.format({ async = true })
-          end,
+          callback = function() vim.lsp.buf.format({ async = true }) end,
           buffer = 0,
           desc = "Auto format buffer on save",
           group = "format_on_save",

@@ -7,16 +7,12 @@ local M = {}
 -- Define bg color
 -- @param group Group
 -- @param color Color
-M.bg = function(group, col)
-  vim.cmd("highlight " .. group .. " guibg=" .. col)
-end
+M.bg = function(group, col) vim.cmd("highlight " .. group .. " guibg=" .. col) end
 
 -- Define fg color
 -- @param group Group
 -- @param color Color
-M.fg = function(group, col)
-  vim.cmd("highlight " .. group .. " guifg=" .. col)
-end
+M.fg = function(group, col) vim.cmd("highlight " .. group .. " guifg=" .. col) end
 
 -- Define bg and fg color
 -- @param group Group
