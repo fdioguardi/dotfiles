@@ -3,10 +3,7 @@
 --
 
 -- variables
-local M = require("keymap_")
-
-vim.keymap.set("", " ", "", { desc = "leader key" })
-vim.g.mapleader = " "
+local M = require("fdioguardi.keymaps")
 
 for _, motion in ipairs({ "c", "d", "C", "D" }) do
   vim.keymap.set(
@@ -16,6 +13,8 @@ for _, motion in ipairs({ "c", "d", "C", "D" }) do
     { desc = "cut into an auxiliar register", silent = true }
   )
 end
+
+M.nmap("q:", "<nop>", "disable command history")
 
 M.nmap("]b", ":bnext<CR>", "move to next buffer")
 M.nmap("[b", ":bprevious<CR>", "move to previous buffer")
@@ -40,7 +39,7 @@ M.nmap("[S", "[s1z=", "correct previous misspelled word")
 
 M.nmap(
   "<leader>n",
-  function() require("keymap_.leader").cycle_numbers() end,
+  function() require("fdioguardi.keymaps.leader").cycle_numbers() end,
   "cycle through number settings"
 )
 

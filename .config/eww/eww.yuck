@@ -1,3 +1,7 @@
+;**************************;
+;*        CALENDAR        *;
+;**************************;
+
 (defwindow calendar
            :monitor 0
            :geometry (geometry :x "-12px"
@@ -9,6 +13,8 @@
            :windowtype "dialog"
            :wm-ignore true
 
-  (calendar :halign "center"
-            :valign "center"
-            :onhover `cal -m`))
+	(calendar
+		:halign "center"
+		:valign "center"
+		:class "calendar"
+))

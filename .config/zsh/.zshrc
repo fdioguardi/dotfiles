@@ -14,3 +14,5 @@ for file in "${ZDOTDIR:-${HOME}/.config/zsh}"/*.zsh; do
   [ -r "$file" ] && source "$file"
 done
 unset file
+
+source /home/felipe/.zprofile

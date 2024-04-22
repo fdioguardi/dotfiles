@@ -1,12 +1,12 @@
 [user]
 	email = felipedioguardi@gmail.com
 	name = Felipe Dioguardi
-	signingkey = 17330DCEC47EC2FA
+	signingkey = 1BF4181DC1C57E1E
 [pull]
 	rebase = true
 [core]
-	autocrlf = input
 	pager = bat
+	autocrlf = input
 [alias]
 	a = add
 	b = branch
@@ -32,3 +32,5 @@
 	gpgSign = true
 [gpg]
 	program = gpg2
+[credential]
+	helper = cache

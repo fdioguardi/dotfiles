@@ -4,6 +4,7 @@ usage() {
   echo "Usage: $0 [option]"
   echo "Options:"
   echo "  --toggle|-t: toggle between two monitors"
+  echo "  --spread|-s: split desktops evenly across monitors"
   echo "  --help|-h: show this help"
   echo "Default: merge/spread desktops evenly across monitors"
   exit "$1"
@@ -12,8 +13,7 @@ usage() {
 setup_display() {
   xrandr --output "$1" \
     --primary --auto \
-    --output "$2" \
-    --auto \
+    --output "$2" --auto \
     --rotate normal \
     --right-of "$1"
 }
@@ -69,10 +69,15 @@ toggle() {
 
   [ "$(bspc query -D --monitor "$1" | wc -l)" -ne 10 ] && exit 1
 
-  xrandr --output "$1" --off --output "$2" --auto --primary
+  xrandr --output "$1" --off --output "$2" --primary --mode 1920x1080
   bspc monitor "$1" --swap "$2" 2> /dev/null
   bspc monitor "$2" --remove 2> /dev/null
   bspc monitor "$1" --rename "$2" 2> /dev/null
+}
+
+use_external_monitor() {
+  one_monitor_settings "$1"
+  toggle "$1" "$2"
 }
 
 if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
@@ -94,9 +99,11 @@ else
     | cut -f1 -d" ")
   readonly secondary
 
-  if [ "$1" = "--toggle" ] || [ "$1" = "-t" ]; then
+  if [ "$1" = "--spread" ] || [ "$1" = "-s" ]; then
+    two_monitor_settings "$primary" "$secondary"
+  elif [ "$1" = "--toggle" ] || [ "$1" = "-t" ]; then
     toggle "$primary" "$secondary"
   else
-    two_monitor_settings "$primary" "$secondary"
+    use_external_monitor "$primary" "$secondary"
   fi
 fi

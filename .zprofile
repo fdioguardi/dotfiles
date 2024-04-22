@@ -4,10 +4,12 @@
 
 ## Global variables
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/.local/nvim/bin"
+export PATH="${PATH}:${HOME}/.dotnet/tools"
 
 # XDG variables
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_DIRS="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
 # Default applications
@@ -35,8 +37,18 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
+# Go
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/pkg/mod"
+
 # Java
 export _JAVA_AWT_WM_NONREPARENTING=1
+export ANTLR_HOME="/usr/share/java/"
+export ANTLR_JAR="/usr/share/java/antlr-4.13.1-complete.jar"
+export JUNIT_JAR="/usr/share/java/junit-4.13.2.jar"
+export HAMCREST_JAR="/usr/share/java/hamcrest-core.jar"
+export CLASSPATH="$CLASSPATH:.:$ANTLR_JAR:$JUNIT_JAR:$HAMCREST_JAR"
+alias grun="java org.antlr.v4.gui.TestRig"
 
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"

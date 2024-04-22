@@ -39,36 +39,37 @@ vim.opt.showtabline = 0  -- hide tabline
 -- 9 using the mouse
 vim.opt.mouse = "a"  -- enable using the mouse if available
 
--- 10 printing
--- 11 messages and info
+-- 10 messages and info
 vim.opt.confirm    = true      -- start a dialog when a command fails
 vim.opt.ruler      = false     -- don't show cursor position
 vim.opt.showcmd    = false     -- don't show (partial) command keys
 vim.opt.showmode   = false     -- don't show current mode
 vim.opt.shortmess:append("c")  -- don't show completion messages
 
--- 12 selecting text
+-- 11 selecting text
 vim.opt.clipboard = { "unnamedplus" }  -- always use the system’s clipboard
 
--- 13 editing text
+-- 12 editing text
 vim.opt.undofile = true  -- persist undo history
 
--- 14 tabs and indenting
--- 15 folding
--- 16 diff mode
--- 17 mapping
--- 18 reading and writing files
--- 19 the swap file
+-- 13 tabs and indenting
+-- 14 folding
+-- 15 diff mode
+-- 16 mapping
+-- 17 reading and writing files
+vim.opt.bomb = false
+
+-- 18 the swap file
 vim.opt.swapfile = false  -- don't swap files
 
--- 20 command line editing
+-- 19 command line editing
 vim.opt.wildignorecase = true  -- ignore case when completing file names
 
--- 21 executing external commands
--- 22 running make and jumping to errors
--- 23 language specific
--- 24 multi-byte characters
--- 25 various
+-- 20 executing external commands
+-- 21 running make and jumping to errors
+-- 22 language specific
+-- 23 multi-byte characters
+-- 24 various
 vim.opt.virtualedit = "block"  -- allow cursor to move where there is no text in visual block mode
 
 -- stylua: ignore end

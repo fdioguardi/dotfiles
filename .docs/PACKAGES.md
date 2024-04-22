@@ -355,6 +355,10 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
 
+  - [commitlint](https://aur.archlinux.org/packages/nodejs-commitlint/)
+
+  - [isort](https://archlinux.org/packages/community/any/python-isort/)
+
   - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
 
   - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
@@ -362,6 +366,8 @@ sudo systemctl mask systemd-rfkill.socket
   - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
 
   - [prettier](https://archlinux.org/packages/community/any/prettier/)
+
+  - [proselint](https://aur.archlinux.org/packages/proselint/)
 
   - [pyright](https://archlinux.org/packages/community/any/pyright/)
 
@@ -381,6 +387,12 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
 
+- **[VSCode](https://aur.archlinux.org/packages/visual-studio-code-insiders-bin/)**
+
+  - [ASP .NET](https://aur.archlinux.org/packages/aspnet-runtime-6.0-bin/)
+
+  - [Dotnet](https://archlinux.org/packages/extra/x86_64/dotnet-sdk/)
+
 ### Utilities
 
 - **[archlinux-contrib](https://archlinux.org/packages/community/any/archlinux-contrib/)**
@@ -394,6 +406,26 @@ sudo systemctl mask systemd-rfkill.socket
 - **[man-db](https://archlinux.org/packages/core/x86_64/man-db/)**
 
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
+
+- **[pdbpp](https://aur.archlinux.org/packages/python-pdbpp/)**
+
+  - [sox](https://archlinux.org/packages/community/x86_64/sox/)
+
+    - [libmad](https://archlinux.org/packages/extra/x86_64/libmad/)
+
+    - [twolame](https://archlinux.org/packages/community/x86_64/twolame/)
+
+Change default location of `pdbpp`'s config file:
+
+```bash
+sudo sed -i "s/\.pdbrc.py/.config\/pdbpp\/pdbrc.py/" /usr/lib/python*/site-packages/pdb.py
+```
+
+Install `wmctrl` to enable sounds:
+
+```bash
+PIP_REQUIRE_VIRTUALENV=0 python -m pip install wmctrl
+```
 
 - **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
 

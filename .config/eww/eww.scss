@@ -2,8 +2,8 @@
 * {
   all: unset;
   font-family: Noto Sans;
-  background-color: #0F1419;
-  color: #E6E1CF;
+  background-color: #0f1419;
+  color: #e6e1cf;
 }
 
 /**************************/
@@ -16,8 +16,8 @@
 }
 
 .calendar:selected {
-  color: #0F1419; // font color of selected day
-  background-color: #E6E1CF; // background color of selected day
+  color: #0f1419; // font color of selected day
+  background-color: #e6e1cf; // background color of selected day
   border-radius: 10%;
 }
 
@@ -30,8 +30,8 @@
   background-color: #e6b673;
 }
 
-.calendar:inconsistent {
-  // color: #95e6cb;
-  color: #757575;
+.calendar:indeterminate {
+  color: #95e6cb;
+  // color: #757575;
   // color: #6c809e;
 }

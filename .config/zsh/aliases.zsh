@@ -25,7 +25,7 @@ abbr \
   i="yes \"\" | paru -S --needed" \
   r="paru -Rns" \
   ro="paru --clean --noconfirm && yes | topgrade -c" \
-  u="topgrade -y &; \"\$XDG_DATA_HOME\"/nvim/install_nvim.sh &" \
+  u="{ yes | topgrade } &; \"\$XDG_DATA_HOME\"/nvim/install_nvim.sh &" \
   gpip="PIP_REQUIRE_VIRTUALENV=0 pip"
 
 abbr \
@@ -36,15 +36,12 @@ abbr \
   pls="sudo \$(fc -ln -1)" \
   ncdu="ncdu -x --color=off" \
   rc="recolorize" \
-  venv="source .venv/bin/activate" \
-  pyenv="python -m venv .venv; source .venv/bin/activate;
-    pip install --upgrade pip; pip install -r requirements.txt"
+  venv="source .venv/bin/activate"
 
 alias vi="v" vim="v"
 
 alias \
   \$= \
-  battery="cat /sys/class/power_supply/BAT0/uevent" \
   brightness="xrandr --output \"\$(xrandr --query | grep primary | cut -f1 -d' ')\" --brightness" \
   b1="while killall redshift 2> /dev/null; do sleep 0.1; done; brightness 1" \
   d="/usr/bin/git --git-dir=\"\$XDG_DATA_HOME/dotfiles\" --work-tree=\"\$HOME\"" # Managing dotfiles

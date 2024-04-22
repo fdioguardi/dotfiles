@@ -39,12 +39,16 @@ bspc rule -a "$TERMINAL" desktop=^2
 
 # Desktop 3
 bspc rule -a jetbrains-idea desktop=^3
+bspc rule -a chromium desktop=^3
 
 # Desktop 4
-bspc rule -a Steam desktop=^4
+bspc rule -a steam desktop=^4
+bspc rule -a "*:*:Steam" desktop=^4
 
 # Desktop 7
 bspc rule -a "Microsoft Teams - Preview" desktop=^7
+
+bspc rule -a "$TERMINAL":"$TERMINAL":neomutt desktop=^7
 
 # Desktop 8
 bspc rule -a TelegramDesktop desktop=^8 follow=on

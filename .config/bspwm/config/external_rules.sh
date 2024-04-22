@@ -17,7 +17,4 @@ elif echo "$window_class" | grep -q "Zotero"; then
   else
     echo "state=floating"
   fi
-
-elif echo "$window_class" | grep -q "^steam_app_"; then
-  echo "desktop=^4"
 fi

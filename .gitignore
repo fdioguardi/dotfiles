@@ -5,3 +5,4 @@
 
 # nvim
 .config/nvim/spell/
+.config/nvim/lua/.luarc.json
