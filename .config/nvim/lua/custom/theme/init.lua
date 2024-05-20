@@ -2,7 +2,7 @@
 -- theme.lua
 --
 
-local utils = require("fdioguardi.theme.utils")
+local utils = require("custom.theme.utils")
 
 local function hl_telescope(dark_black, black, grey, white, red, green)
   utils.fg_bg("TelescopeBorder", black, black)

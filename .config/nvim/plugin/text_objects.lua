@@ -2,7 +2,7 @@
 -- text_objects.lua
 --
 
-local imap = require("fdioguardi.keymaps").imap
+local imap = require("custom.keymaps").imap
 
 local characters = { "$", ",", ".", "/", "_" }
 

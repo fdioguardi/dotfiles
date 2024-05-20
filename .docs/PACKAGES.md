@@ -349,15 +349,11 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [Cmake](https://archlinux.org/packages/extra/x86_64/cmake/)
 
+  - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
+
   - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
 
-  - [black](https://archlinux.org/packages/community/any/python-black/)
-
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
-
-  - [commitlint](https://aur.archlinux.org/packages/nodejs-commitlint/)
-
-  - [isort](https://archlinux.org/packages/community/any/python-isort/)
 
   - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
 
@@ -367,15 +363,15 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [prettier](https://archlinux.org/packages/community/any/prettier/)
 
-  - [proselint](https://aur.archlinux.org/packages/proselint/)
-
-  - [pyright](https://archlinux.org/packages/community/any/pyright/)
-
   - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+
+  - [ruff-lsp](https://archlinux.org/packages/extra/any/ruff-lsp/)
+
+  - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
 
   - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
 
-  - [stylua](https://aur.archlinux.org/packages/stylua-bin/)
+  - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
 
   - [lua-language-server](https://archlinux.org/packages/community/x86_64/lua-language-server/)
 

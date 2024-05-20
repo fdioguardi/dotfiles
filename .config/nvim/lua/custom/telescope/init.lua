@@ -18,9 +18,9 @@ return {
   },
 
   map = function(lhs, fn, desc, telescope_opts, mapping_opts)
-    require("fdioguardi.keymaps").nmap(
+    require("custom.keymaps").nmap(
       lhs,
-      function() require("fdioguardi.telescope.pickers")[fn](telescope_opts) end,
+      function() require("custom.telescope.pickers")[fn](telescope_opts) end,
       desc,
       mapping_opts
     )

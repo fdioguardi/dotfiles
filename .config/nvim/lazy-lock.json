@@ -1,0 +1,23 @@
+{
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
+  "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
+  "cmp-nvim-lsp": { "branch": "main", "commit": "39e2eda76828d88b773cc27a3f61d2ad782c922d" },
+  "cmp-nvim-lua": { "branch": "main", "commit": "f12408bdb54c39c23e67cab726264c10db33ada8" },
+  "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
+  "cmp-zsh": { "branch": "main", "commit": "c24db8e58fac9006ec23d93f236749288d00dec9" },
+  "conform.nvim": { "branch": "master", "commit": "00f9d91391b04b1935e2f15948bd96cc111e7d3a" },
+  "copilot.vim": { "branch": "release", "commit": "25feddf8e3aa79f0573c8f43ddb13c44c530cfa5" },
+  "inc-rename.nvim": { "branch": "main", "commit": "7c6125b1ee476b56708a6518a37b2a3357f57bfc" },
+  "lazy.nvim": { "branch": "main", "commit": "0de782a6b0ffba599dbd332a4019d852564bf28c" },
+  "lsp_signature.nvim": { "branch": "master", "commit": "5babe266b99a273a866525baaaee34c603997b8b" },
+  "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
+  "neodev.nvim": { "branch": "main", "commit": "ce9a2e8eaba5649b553529c5498acb43a6c317cd" },
+  "nvim-cmp": { "branch": "main", "commit": "5260e5e8ecadaf13e6b82cf867a909f54e15fd07" },
+  "nvim-lspconfig": { "branch": "master", "commit": "6d2ae9fdc3111a6e8fd5db2467aca11737195a30" },
+  "nvim-treesitter": { "branch": "master", "commit": "ccfa76d4cb53224cb0ecefb12f79ecdbbf1fd62d" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "5f9bf4b1ead7707e4e74e5319ee56bdc81fb73db" },
+  "nvim-ts-rainbow": { "branch": "master", "commit": "ef95c15a935f97c65a80e48e12fe72d49aacf9b9" },
+  "plenary.nvim": { "branch": "master", "commit": "b5c8de02a44ffeabff678090edd6a132ff8ab77d" },
+  "telescope.nvim": { "branch": "master", "commit": "0c12735d5aff6a48ffd8111bf144dc2ff44e5975" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" }
+}

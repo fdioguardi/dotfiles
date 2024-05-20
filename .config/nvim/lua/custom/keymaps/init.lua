@@ -1,5 +1,5 @@
 --
--- keymap.lua
+-- keymaps.lua
 --
 
 local M = {}

@@ -3,7 +3,7 @@
 --
 
 -- variables
-local M = require("fdioguardi.keymaps")
+local M = require("custom.keymaps")
 
 for _, motion in ipairs({ "c", "d", "C", "D" }) do
   vim.keymap.set(
@@ -39,7 +39,7 @@ M.nmap("[S", "[s1z=", "correct previous misspelled word")
 
 M.nmap(
   "<leader>n",
-  function() require("fdioguardi.keymaps.leader").cycle_numbers() end,
+  function() require("custom.keymaps.leader").cycle_numbers() end,
   "cycle through number settings"
 )
 
