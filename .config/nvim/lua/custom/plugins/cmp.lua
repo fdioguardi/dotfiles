@@ -15,9 +15,10 @@ return {
         format = function(entry, vim_item)
           vim_item.menu = ({
             buffer = "[B]",
-            path = "[P]",
+            lazydev = "[V]",
             nvim_lsp = "[L]",
             nvim_lua = "[V]",
+            path = "[P]",
           })[entry.source.name]
           return vim_item
         end,
@@ -33,10 +34,11 @@ return {
 
       sources = {
         { name = "buffer", keyword_length = 5 },
+        { name = "lazydev" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "path" },
       },
     }
-  end
+  end,
 }
