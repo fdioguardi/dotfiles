@@ -28,9 +28,9 @@ return {
       -- configure servers
       for _, server in ipairs({
         "bashls",
-        "jsonls",
+        "jdtls",
         "lua_ls",
-        "ruff_lsp",
+        "ruff",
         "taplo",
       }) do
         require("lspconfig")[server].setup({ capabilities = capabilities })

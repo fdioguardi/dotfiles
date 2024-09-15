@@ -15,6 +15,7 @@ return {
       lua = { "stylua" },
       markdown = { "markdownlint" },
       python = { "ruff_fix", "ruff_format" },
+      xml = { "xmllint" },
       ["*"] = { "trim_whitespace", "trim_newlines", "typos", "codespell" },
     },
     format_on_save = { timeout_ms = 500, lsp_fallback = true },
