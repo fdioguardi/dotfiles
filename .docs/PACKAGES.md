@@ -212,6 +212,8 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   nmcli connection up <SSID>
   ```
 
+- **[ssh-audit](https://archlinux.org/packages/extra/any/ssh-audit/)**
+
 ### Package management
 
 - **[Paru](https://aur.archlinux.org/packages/paru-bin/)**
