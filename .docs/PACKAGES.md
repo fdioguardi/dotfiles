@@ -357,8 +357,6 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
 
-  - [markdownlint-cli](https://aur.archlinux.org/packages/nodejs-markdownlint-cli/)
-
   - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
 
   - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
