@@ -172,7 +172,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[mpv](https://archlinux.org/packages/community/x86_64/mpv/)**
 
-  - [youtube-dl](https://archlinux.org/packages/community/any/youtube-dl/)
+  - [yt-dlp](https://archlinux.org/packages/extra/any/yt-dlp/)
 
 - **[Zathura](https://archlinux.org/packages/community/x86_64/zathura/)**
 
@@ -251,7 +251,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[topgrade](https://aur.archlinux.org/packages/topgrade/)**
 
-- **[downgrader](https://aur.archlinux.org/packages/downgrade/)**
+- **[downgrade](https://aur.archlinux.org/packages/downgrade/)**
 
 - **[wget](https://archlinux.org/packages/extra/x86_64/wget/)**
 
@@ -365,7 +365,7 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
 
-  - [ruff-lsp](https://archlinux.org/packages/extra/any/ruff-lsp/)
+  - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
 
   - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
 
