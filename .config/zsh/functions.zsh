@@ -11,6 +11,9 @@ bkp() { cp -r "$1"{,"_$(date +%Y-%m-%d_%H:%M:%S).bkp"}; }
 # math operation with 5 decimals
 math() { bc -l <<< "scale=6; $*"; }
 
+# synchronic `killall`
+die() { while killall "$1" 2> /dev/null; do ; done }
+
 # open files with sudo if necessary
 v() {
   if [ ! -e "$1" ] || [ "$(stat -c '%U' "$1")" = "$USER" ]; then
