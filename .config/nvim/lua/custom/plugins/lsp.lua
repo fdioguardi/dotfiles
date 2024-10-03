@@ -15,7 +15,11 @@ return {
 
       { "smjonas/inc-rename.nvim", opts = {} },
 
-      { "ray-x/lsp_signature.nvim", opts = {} },
+      {
+        "ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
+        opts = { hint_enable = false },
+      },
     },
 
     config = function()
