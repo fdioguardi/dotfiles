@@ -35,6 +35,7 @@ return {
         "jdtls",
         "lua_ls",
         "ruff",
+        "pyright",
         "taplo",
       }) do
         require("lspconfig")[server].setup({ capabilities = capabilities })
