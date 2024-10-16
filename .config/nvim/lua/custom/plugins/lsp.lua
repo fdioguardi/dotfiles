@@ -34,8 +34,9 @@ return {
         "bashls",
         "jdtls",
         "lua_ls",
-        "ruff",
         "pyright",
+        "ruff",
+        "solidity_ls_nomicfoundation",
         "taplo",
       }) do
         require("lspconfig")[server].setup({ capabilities = capabilities })
