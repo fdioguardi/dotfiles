@@ -4,7 +4,7 @@
 
 ## Global variables
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/.local/nvim/bin"
-export PATH="${PATH}:${HOME}/.dotnet/tools"
+export PATH="${PATH}:${HOME}/.local/npm/bin"
 
 # XDG variables
 export XDG_CACHE_HOME="$HOME/.cache"
