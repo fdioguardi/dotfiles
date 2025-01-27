@@ -13,7 +13,7 @@ return {
         },
       },
 
-      { "smjonas/inc-rename.nvim", opts = {} },
+      { "smjonas/inc-rename.nvim" },
 
       {
         "ray-x/lsp_signature.nvim",
