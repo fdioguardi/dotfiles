@@ -9,3 +9,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zmodload zsh/complist
 compinit -d "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompdump"
 _comp_options+=(globdots)
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
