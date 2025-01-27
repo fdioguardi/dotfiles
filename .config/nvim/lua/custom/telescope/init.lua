@@ -14,6 +14,7 @@ local default_opts = {
     ".*swp",
     "target/classes/",
     "target/test-classes/",
+    "node_modules/",
   },
 }
 

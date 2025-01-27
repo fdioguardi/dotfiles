@@ -36,11 +36,46 @@ return {
         "lua_ls",
         "pyright",
         "ruff",
+        "rust_analyzer",
         "solidity_ls_nomicfoundation",
         "taplo",
       }) do
         require("lspconfig")[server].setup({ capabilities = capabilities })
       end
+
+      -- TS + Vue.js setup
+      local lspconfig = require("lspconfig")
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "/usr/bin/vue-language-server",
+              languages = { "vue" },
+            },
+          },
+        },
+      })
+
+      lspconfig.volar.setup({
+        filetypes = { "vue" },
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
+      })
+
+      -- lspconfig.eslint.setup({
+      --   on_attach = function(client, bufnr)
+      --     vim.api.nvim_create_autocmd("BufWritePre", {
+      --       buffer = bufnr,
+      --       command = "EslintFixAll",
+      --     })
+      --   end,
+      -- })
+      -- end TS + Vue.js setup
 
       -- configure on_attach handler
       vim.api.nvim_create_autocmd("LspAttach", {
