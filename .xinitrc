@@ -1,4 +1,4 @@
 #!/bin/sh
 
-# Execute bspwm, everithing else is started there
+# Execute bspwm, everything else is started there
 exec bspwm
