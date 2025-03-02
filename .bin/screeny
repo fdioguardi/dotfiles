@@ -2,8 +2,8 @@
 
 set -o pipefail
 
-command -v "maim" "xclip" "feh" > /dev/null 2>&1 \
-  || { echo "Error - missing dependency" && exit 65; }
+command -v "maim" "xclip" "feh" >/dev/null 2>&1 ||
+  { echo "Error - missing dependency" && exit 65; }
 
 readonly path="${XDG_DATA_HOME:-$HOME/.local/share}/screenshots"
 [ -d "$path" ] || mkdir -pv "$path"

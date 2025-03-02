@@ -66,27 +66,27 @@ usage() {
 OPTIND=1
 while getopts "p:t:f:s:r:RBChv" arg; do
   case $arg in
-    p) ((p = (OPTARG > 0) ? OPTARG : p)) ;;
-    t)
-      if [[ $OPTARG == c???????????????? ]]; then
-        V+=(${#sets[@]})
-        sets+=("${OPTARG:1}")
-      else
-        ((OPTARG >= 0 && OPTARG < ${#sets[@]})) && V+=("$OPTARG")
-      fi
-      ;;
-    f) ((f = (OPTARG > 19 && OPTARG < 101) ? OPTARG : f)) ;;
-    s) ((s = (OPTARG > 4 && OPTARG < 16) ? OPTARG : s)) ;;
-    r) ((r = (OPTARG >= 0) ? OPTARG : r)) ;;
-    R) RNDSTART=1 ;;
-    B) BOLD=0 ;;
-    C) NOCOLOR=1 ;;
-    v)
-      echo "$(basename -- "$0") $VERSION"
-      exit 0
-      ;;
-    h) usage 0 ;;
-    *) usage 22 ;;
+  p) ((p = (OPTARG > 0) ? OPTARG : p)) ;;
+  t)
+    if [[ $OPTARG == c???????????????? ]]; then
+      V+=(${#sets[@]})
+      sets+=("${OPTARG:1}")
+    else
+      ((OPTARG >= 0 && OPTARG < ${#sets[@]})) && V+=("$OPTARG")
+    fi
+    ;;
+  f) ((f = (OPTARG > 19 && OPTARG < 101) ? OPTARG : f)) ;;
+  s) ((s = (OPTARG > 4 && OPTARG < 16) ? OPTARG : s)) ;;
+  r) ((r = (OPTARG >= 0) ? OPTARG : r)) ;;
+  R) RNDSTART=1 ;;
+  B) BOLD=0 ;;
+  C) NOCOLOR=1 ;;
+  v)
+    echo "$(basename -- "$0") $VERSION"
+    exit 0
+    ;;
+  h) usage 0 ;;
+  *) usage 22 ;;
   esac
 done
 
@@ -96,7 +96,7 @@ done
 cleanup() {
   # clear up standard input
   # shellcheck disable=SC2162
-  read -t 0.001 && cat < /dev/stdin > /dev/null
+  read -t 0.001 && cat </dev/stdin >/dev/null
 
   # terminal has no smcup and rmcup capabilities
   ((FORCE_RESET)) && reset && exit 0

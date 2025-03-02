@@ -44,8 +44,8 @@ msg() {
 
 update_colors() {
   xrdb "${xresources_path}"
-  [ "${xresources_path}" != "${color_path}/${color_basename}" ] \
-    && xrdb -merge "${color_path}/${color_basename}"
+  [ "${xresources_path}" != "${color_path}/${color_basename}" ] &&
+    xrdb -merge "${color_path}/${color_basename}"
 }
 
 cache_colors() {
@@ -53,7 +53,7 @@ cache_colors() {
   echo "
 Current color scheme: '${color_path}/${color_basename}'
 Current Xresources file: '${xresources_path}'
-Updated: $(date)" >> "${cache_file}"
+Updated: $(date)" >>"${cache_file}"
 }
 
 set_xresources_path() {
@@ -73,10 +73,10 @@ get_colorscheme() {
 }
 
 set_color_basename() {
-  [ -n "$1" ] \
-    && [ ! -f "${color_path}"/"$1" ] \
-    && msg "${color_path}/$1 does not exist" \
-    && exit 2
+  [ -n "$1" ] &&
+    [ ! -f "${color_path}"/"$1" ] &&
+    msg "${color_path}/$1 does not exist" &&
+    exit 2
 
   color_basename=${1:-$(basename "$(shuf -n1 -e "${color_path}"/*)")}
 }
@@ -87,37 +87,37 @@ main() {
   # parse options with a case switch
   while [ "$1" != "" ]; do
     case $1 in
-      -h | --help)
-        usage 0
-        ;;
-      -c | --current)
-        get_colorscheme && exit 0
-        ;;
-      -q | --quickstart)
-        quickstart=1
-        ;;
-      -x | --xresources)
-        set_xresources_path "$2"
-        shift
-        ;;
-      -p | --path)
-        set_color_path "$2"
-        shift
-        ;;
-      -l | --list)
-        list=1
-        ;;
-      --* | -*)
-        msg "Unrecognized option: $1"
-        usage 22
-        ;;
-      *)
-        if [ -z "${color}" ]; then
-          color="$1"
-        else
-          msg "Multiple colors specified" && usage 7
-        fi
-        ;;
+    -h | --help)
+      usage 0
+      ;;
+    -c | --current)
+      get_colorscheme && exit 0
+      ;;
+    -q | --quickstart)
+      quickstart=1
+      ;;
+    -x | --xresources)
+      set_xresources_path "$2"
+      shift
+      ;;
+    -p | --path)
+      set_color_path "$2"
+      shift
+      ;;
+    -l | --list)
+      list=1
+      ;;
+    --* | -*)
+      msg "Unrecognized option: $1"
+      usage 22
+      ;;
+    *)
+      if [ -z "${color}" ]; then
+        color="$1"
+      else
+        msg "Multiple colors specified" && usage 7
+      fi
+      ;;
     esac
     shift
   done
@@ -135,8 +135,8 @@ main() {
 
   set_color_basename "${color}"
 
-  [ -z "${xresources_path}" ] \
-    && set_xresources_path "${color_path}/${color_basename}"
+  [ -z "${xresources_path}" ] &&
+    set_xresources_path "${color_path}/${color_basename}"
 
   update_colors
   cache_colors &

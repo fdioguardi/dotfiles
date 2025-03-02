@@ -14,19 +14,19 @@ usage() {
 }
 
 play() {
-  mpv --no-video "$1" > /dev/null 2>&1
+  mpv --no-video "$1" >/dev/null 2>&1
 }
 
 [ "$#" -lt 1 ] && usage 22
 
-command -v "mpv" "yt-dlp" > /dev/null 2>&1 \
-  || { echo "Error - missing dependency" && exit 65; }
+command -v "mpv" "yt-dlp" >/dev/null 2>&1 ||
+  { echo "Error - missing dependency" && exit 65; }
 
 case "$1" in
-  "lofi") play "https://www.youtube.com/watch?v=5qap5aO4i9A" ;;
-  "synthwave") play "https://www.youtube.com/watch?v=MVPTGNGiI-4" ;;
-  "jazz") play "https://www.youtube.com/watch?v=VR4H81bz-Bs" ;;
-  "red92") play "https://radios.solumedia.com/6426/stream" ;;
-  "mega") play "https://myradioenvivo.ar/mega-98-3" ;;
-  *) usage 22 ;;
+"lofi") play "https://www.youtube.com/watch?v=5qap5aO4i9A" ;;
+"synthwave") play "https://www.youtube.com/watch?v=MVPTGNGiI-4" ;;
+"jazz") play "https://www.youtube.com/watch?v=VR4H81bz-Bs" ;;
+"red92") play "https://radios.solumedia.com/6426/stream" ;;
+"mega") play "https://myradioenvivo.ar/mega-98-3" ;;
+*) usage 22 ;;
 esac

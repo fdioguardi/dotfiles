@@ -1,19 +1,19 @@
 #!/bin/bash
 
 usage() {
-    echo "Usage: $0 [option]"
-    echo "Options:"
-    echo "  -h, --help"
-    echo "  -m, --monitor NAME"
-    echo "  -s, --panel_side SIDE"
-    echo "  -g, --gaps NUM"
-    echo "  -p, --padding NUM"
-    echo "  -z, --panel-size NUM"
-    exit "$1"
+  echo "Usage: $0 [option]"
+  echo "Options:"
+  echo "  -h, --help"
+  echo "  -m, --monitor NAME"
+  echo "  -s, --panel_side SIDE"
+  echo "  -g, --gaps NUM"
+  echo "  -p, --padding NUM"
+  echo "  -z, --panel-size NUM"
+  exit "$1"
 }
 
 check_number() {
-  [ "$1" -ne "$1" ] 2> /dev/null && usage && exit 22
+  [ "$1" -ne "$1" ] 2>/dev/null && usage && exit 22
 }
 
 set_individual_padding() {
@@ -40,36 +40,37 @@ declare -a sides=("top" "bottom" "left" "right")
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    -g|--gaps)
+  -g | --gaps)
 
-      check_number "$2"
-      win_gaps=$2
-      ;;
+    check_number "$2"
+    win_gaps=$2
+    ;;
 
-    -p|--padding)
-      check_number "$2"
-      padding=$2
-      ;;
+  -p | --padding)
+    check_number "$2"
+    padding=$2
+    ;;
 
-    -z|--panel-size)
-      check_number "$2"
-      panel_size=$2
-      ;;
+  -z | --panel-size)
+    check_number "$2"
+    panel_size=$2
+    ;;
 
-    -s|--panel-side)
-      [ "${sides[*]}" != "*$2*" ] && usage && exit 22
-      ;;
+  -s | --panel-side)
+    [ "${sides[*]}" != "*$2*" ] && usage && exit 22
+    ;;
 
-    -m|--monitor)
-      monitor="$2"
-      ;;
+  -m | --monitor)
+    monitor="$2"
+    ;;
 
-    -h|--help)
-      usage 0;;
+  -h | --help)
+    usage 0
+    ;;
 
-    *)
-      usage && exit 22
-      ;;
+  *)
+    usage && exit 22
+    ;;
 
   esac
   shift 2

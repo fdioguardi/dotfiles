@@ -26,8 +26,8 @@ bspc config border_width 2
 
 ## Rule Commands
 # General
-[ -x "$config"/external_rules.sh ] \
-  && bspc config external_rules_command "$config"/external_rules.sh
+[ -x "$config"/external_rules.sh ] &&
+  bspc config external_rules_command "$config"/external_rules.sh
 bspc rule -a feh state=floating
 bspc rule -a Pomello state=floating sticky=on
 

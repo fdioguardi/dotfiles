@@ -58,21 +58,21 @@ two_monitor_settings() {
     bspc monitor "$2" -d 6 7 8 9 10
   fi
 
-  [ -x "$config"/bspwm/config/desktop_setup.sh ] \
-    && "$config"/bspwm/config/desktop_setup.sh \
+  [ -x "$config"/bspwm/config/desktop_setup.sh ] &&
+    "$config"/bspwm/config/desktop_setup.sh \
       --monitor "$2" &
 }
 
 toggle() {
-  [ "$(bspc query -D --monitor "$1" | wc -l)" -eq 1 ] \
-    && one_monitor_settings "$1"
+  [ "$(bspc query -D --monitor "$1" | wc -l)" -eq 1 ] &&
+    one_monitor_settings "$1"
 
   [ "$(bspc query -D --monitor "$1" | wc -l)" -ne 10 ] && exit 1
 
   xrandr --output "$1" --off --output "$2" --primary --mode 1920x1080
-  bspc monitor "$1" --swap "$2" 2> /dev/null
-  bspc monitor "$2" --remove 2> /dev/null
-  bspc monitor "$1" --rename "$2" 2> /dev/null
+  bspc monitor "$1" --swap "$2" 2>/dev/null
+  bspc monitor "$2" --remove 2>/dev/null
+  bspc monitor "$1" --rename "$2" 2>/dev/null
 }
 
 use_external_monitor() {
@@ -93,10 +93,10 @@ readonly primary
 if [ "$(xrandr -q | grep -wc connected)" -eq 1 ] || [ "$#" -gt 1 ]; then
   one_monitor_settings "$primary"
 else
-  secondary=$(xrandr -q \
-    | grep -w "connected" \
-    | grep -v "primary" \
-    | cut -f1 -d" ")
+  secondary=$(xrandr -q |
+    grep -w "connected" |
+    grep -v "primary" |
+    cut -f1 -d" ")
   readonly secondary
 
   if [ "$1" = "--spread" ] || [ "$1" = "-s" ]; then

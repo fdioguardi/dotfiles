@@ -2,15 +2,18 @@
 # .zprofile
 #
 
-## Global variables
-export PATH="${PATH}:${HOME}/.bin:${HOME}/.local/bin:${HOME}/.local/nvim/bin"
-export PATH="${PATH}:${HOME}/.local/npm/bin"
-
 # XDG variables
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CONFIG_DIRS="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+
+## Global variables
+PATH="${PATH}:${HOME}/.bin"
+PATH+=":${HOME}/.local/bin"
+PATH+=":${HOME}/.local/nvim/bin"
+PATH+=":${HOME}/.local/npm/bin"
+export PATH
 
 # Default applications
 export BROWSER="firefox"
