@@ -2,7 +2,7 @@
 
 __clistart() {
   pkill "$1"
-  "$TERMINAL" --title "$1" --override "font_size=14" --execute "$@" &
+  "$TERMINAL" --title "$1" --override "font_size=10" --execute "$@" &
 }
 
 __start() {

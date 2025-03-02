@@ -20,7 +20,7 @@ alt + a
 
 # music player
 alt + n
-	pkill ncspot; "$TERMINAL" --title ncspot --override "font_size=14" --execute ncspot
+	pkill ncspot; "$TERMINAL" --title ncspot --override "font_size=10" --execute ncspot
 
 # power management prompt
 alt + x
