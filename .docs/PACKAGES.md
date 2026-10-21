@@ -154,8 +154,6 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [xorg-xsetroot](https://archlinux.org/packages/extra/x86_64/xorg-xsetroot/)
 
-  - [xtitle](https://aur.archlinux.org/packages/xtitle)
-
 - **[polybar](https://archlinux.org/packages/extra/x86_64/polybar/)**
 
   - [eww](https://aur.archlinux.org/packages/eww-git)
