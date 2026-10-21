@@ -25,6 +25,7 @@ export TERMINAL="kitty"
 # Clean $HOME
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
 # Less
