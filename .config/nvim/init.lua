@@ -9,8 +9,7 @@ vim.g.mapleader = " "
 require("custom.builtin").setup()
 
 -- setup plugins
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-vim.opt.rtp:prepend(lazypath)
+require("custom.bootstrap")
 
 require("lazy").setup({ import = "custom/plugins" }, {
   change_detection = {
