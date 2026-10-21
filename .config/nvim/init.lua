@@ -2,8 +2,9 @@
 -- init.lua
 --
 
--- set leader key
+-- set leader keys
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- change builtin settings
 require("custom.builtin").setup()
