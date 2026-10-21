@@ -28,9 +28,9 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[pipewire-pulse](https://archlinux.org/packages/extra/x86_64/pipewire-pulse/)**
 
-- **[playerctl](https://archlinux.org/packages/community/x86_64/playerctl/)**
+- **[playerctl](https://archlinux.org/packages/extra/x86_64/playerctl/)**
 
-- **[pulsemixer](https://archlinux.org/packages/community/any/pulsemixer/)**
+- **[pulsemixer](https://archlinux.org/packages/extra/any/pulsemixer/)**
 
 - **[ncspot](https://aur.archlinux.org/packages/ncspot-bin/)**
 
@@ -51,13 +51,13 @@ List of manually installed packages, and some information on how to set them up.
 
 ### Chat
 
-- **[Discord](https://archlinux.org/packages/community/x86_64/discord/)**
+- **[Discord](https://archlinux.org/packages/extra/x86_64/discord/)**
 
-- **[Telegram](https://archlinux.org/packages/community/x86_64/telegram-desktop/)**
+- **[Telegram](https://archlinux.org/packages/extra/x86_64/telegram-desktop/)**
 
 ### Containers
 
-- **[docker](https://archlinux.org/packages/community/x86_64/docker/)**
+- **[docker](https://archlinux.org/packages/extra/x86_64/docker/)**
 
   Enable and start it's systemd service:
 
@@ -76,7 +76,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Linux LTS](https://archlinux.org/packages/core/x86_64/linux-lts/)**
 
-- **[Linux firmware](https://archlinux.org/packages/core/x86_64/linux-firmware/)**
+- **[Linux firmware](https://archlinux.org/packages/core/any/linux-firmware/)**
 
 - **[More Linux firmware](https://aur.archlinux.org/packages/mkinitcpio-firmware)**
 
@@ -98,7 +98,7 @@ List of manually installed packages, and some information on how to set them up.
 
 ### File Management
 
-- **[fzf](https://archlinux.org/packages/community/x86_64/fzf/)**
+- **[fzf](https://archlinux.org/packages/extra/x86_64/fzf/)**
 
 Use <C-f\> to open `fzf` and cd into the selected directory:
 
@@ -108,9 +108,9 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)**
 
-  - [Archive manager](https://archlinux.org/packages/community/x86_64/xarchiver/)
+  - [Archive manager](https://archlinux.org/packages/extra/x86_64/xarchiver/)
 
-    - [rar](https://aur.archlinux.org/packages/rar/)
+    - [rar](https://aur.archlinux.org/packages/rar)
 
     - [zip](https://archlinux.org/packages/extra/x86_64/zip/)
 
@@ -118,13 +118,13 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [Archive plugin](https://archlinux.org/packages/extra/x86_64/thunar-archive-plugin/)
 
-  - [SSH support](https://archlinux.org/packages/community/x86_64/sshfs/)
+  - [SSH support](https://archlinux.org/packages/extra/x86_64/sshfs/)
 
   - [Trash support](https://archlinux.org/packages/extra/x86_64/gvfs/)
 
   - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
 
-- **[trash-cli](https://archlinux.org/packages/community/any/trash-cli/)**
+- **[trash-cli](https://archlinux.org/packages/extra/any/trash-cli/)**
 
 ### Graphical environment
 
@@ -134,7 +134,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[LightDM](https://archlinux.org/packages/extra/x86_64/lightdm/)**
 
-  - [mini-greeter](https://aur.archlinux.org/packages/lightdm-mini-greeter/)
+  - [mini-greeter](https://aur.archlinux.org/packages/lightdm-mini-greeter)
 
   - [numlockx](https://archlinux.org/packages/extra/x86_64/numlockx/)
 
@@ -146,9 +146,9 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   sudo usermod -aG nopasswdlogin "$USER"
   ```
 
-- **[bspwm](https://aur.archlinux.org/packages/bspwm-git/)**
+- **[bspwm](https://aur.archlinux.org/packages/bspwm-git)**
 
-  - [sxhkd](https://archlinux.org/packages/community/x86_64/sxhkd/)
+  - [sxhkd](https://archlinux.org/packages/extra/x86_64/sxhkd/)
 
   There's a bug with the package `xkeyboard-config`.
   It creates multiple copies of the same shortcut when working with
@@ -163,11 +163,11 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [xorg-xsetroot](https://archlinux.org/packages/extra/x86_64/xorg-xsetroot/)
 
-  - [xtitle](https://aur.archlinux.org/packages/xtitle/)
+  - [xtitle](https://aur.archlinux.org/packages/xtitle)
 
-- **[polybar](https://aur.archlinux.org/packages/polybar/)**
+- **[polybar](https://archlinux.org/packages/extra/x86_64/polybar/)**
 
-  - [eww](https://aur.archlinux.org/packages/eww-git/)
+  - [eww](https://aur.archlinux.org/packages/eww-git)
 
   - [noto-fonts](https://archlinux.org/packages/extra/any/noto-fonts/)
 
@@ -178,21 +178,21 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   fc-cache
   ```
 
-- **[xsecurelock](https://archlinux.org/packages/community/x86_64/xsecurelock/)**
+- **[xsecurelock](https://archlinux.org/packages/extra/x86_64/xsecurelock/)**
 
-  - [xss-lock](https://archlinux.org/packages/community/x86_64/xss-lock/)
+  - [xss-lock](https://archlinux.org/packages/extra/x86_64/xss-lock/)
 
 ### Media
 
 - **[feh](https://archlinux.org/packages/extra/x86_64/feh/)**
 
-- **[mpv](https://archlinux.org/packages/community/x86_64/mpv/)**
+- **[mpv](https://archlinux.org/packages/extra/x86_64/mpv/)**
 
   - [yt-dlp](https://archlinux.org/packages/extra/any/yt-dlp/)
 
-- **[Zathura](https://archlinux.org/packages/community/x86_64/zathura/)**
+- **[Zathura](https://archlinux.org/packages/extra/x86_64/zathura/)**
 
-  - [zathura-pdf-mupdf](https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/)
+  - [zathura-pdf-mupdf](https://archlinux.org/packages/extra/x86_64/zathura-pdf-mupdf/)
 
   To apply settings and load a colorscheme:
 
@@ -202,7 +202,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 ### Menus
 
-- **[dmenu](https://archlinux.org/packages/community/x86_64/dmenu/)**
+- **[dmenu](https://archlinux.org/packages/extra/x86_64/dmenu/)**
 
 ### Network
 
@@ -232,9 +232,9 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 ### Package management
 
-- **[Paru](https://aur.archlinux.org/packages/paru-bin/)**
+- **[Paru](https://aur.archlinux.org/packages/paru-bin)**
 
-  - [base-devel](https://archlinux.org/groups/x86_64/base-devel/)
+  - [base-devel](https://archlinux.org/packages/core/any/base-devel/)
 
   - [git](https://archlinux.org/packages/extra/x86_64/git/)
 
@@ -248,7 +248,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   rm -rf paru-bin/
   ```
 
-- **[informant](https://aur.archlinux.org/packages/informant/)**
+- **[informant](https://archlinux.org/packages/extra/any/informant/)**
 
   Add yourself to the "informant" group to avoid the need for sudo:
 
@@ -256,7 +256,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   sudo usermod -aG informant "$USER"
   ```
 
-- **[reflector](https://archlinux.org/packages/community/any/reflector/)**
+- **[reflector](https://archlinux.org/packages/extra/any/reflector/)**
 
   - [rsync](https://archlinux.org/packages/extra/x86_64/rsync/)
 
@@ -267,9 +267,9 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   sudo systemctl enable --now reflector.timer
   ```
 
-- **[topgrade](https://aur.archlinux.org/packages/topgrade/)**
+- **[topgrade](https://aur.archlinux.org/packages/topgrade)**
 
-- **[downgrade](https://aur.archlinux.org/packages/downgrade/)**
+- **[downgrade](https://aur.archlinux.org/packages/downgrade)**
 
 - **[wget](https://archlinux.org/packages/extra/x86_64/wget/)**
 
@@ -309,7 +309,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[Zsh](https://archlinux.org/packages/extra/x86_64/zsh/)**
 
-  - [Syntax highlighting](https://aur.archlinux.org/packages/zsh-fast-syntax-highlighting/)
+  - [Syntax highlighting](https://aur.archlinux.org/packages/zsh-fast-syntax-highlighting)
 
 Make zsh the default interactive shell for the current user:
 
@@ -327,9 +327,9 @@ mkdir -pv "$HOME"/.cache/zsh
 
 - **[htop](https://archlinux.org/packages/extra/x86_64/htop/)**
 
-- **[ncdu](https://archlinux.org/packages/community/x86_64/ncdu/)**
+- **[ncdu](https://archlinux.org/packages/extra/x86_64/ncdu/)**
 
-- **[tlp](https://archlinux.org/packages/community/any/tlp/)**
+- **[tlp](https://archlinux.org/packages/extra/any/tlp/)**
 
   -**[ethtool](https://archlinux.org/packages/extra/x86_64/ethtool/)**
 
@@ -350,7 +350,7 @@ sudo systemctl mask systemd-rfkill.socket
 
 ### Terminal emulator
 
-- **[Kitty](https://archlinux.org/packages/community/x86_64/kitty/)**
+- **[Kitty](https://archlinux.org/packages/extra/x86_64/kitty/)**
 
   - [ttf-jetbrains-mono](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono/)
 
@@ -370,9 +370,9 @@ sudo systemctl mask systemd-rfkill.socket
 
 - **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
 
-  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts/)
+  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts)
 
-  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
+  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts)
 
 
 #### Installing `nvim` from source:
@@ -389,29 +389,29 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
 
-  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin)
 
   - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
 
-  - [ninja](https://archlinux.org/packages/community/x86_64/ninja/)
+  - [ninja](https://archlinux.org/packages/extra/x86_64/ninja/)
 
-  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
+  - [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/)
 
-  - [prettier](https://archlinux.org/packages/community/any/prettier/)
+  - [prettier](https://archlinux.org/packages/extra/any/prettier/)
 
-  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+  - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
 
   - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
 
   - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
 
-  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
+  - [shfmt](https://archlinux.org/packages/extra/x86_64/shfmt/)
 
   - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
 
-  - [lua-language-server](https://archlinux.org/packages/community/x86_64/lua-language-server/)
+  - [lua-language-server](https://archlinux.org/packages/extra/x86_64/lua-language-server/)
 
-  - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
+  - [tree-sitter](https://archlinux.org/packages/extra/x86_64/tree-sitter/)
 
 To build the latest nvim, use the install script:
 
@@ -430,46 +430,46 @@ The binary will be placed in `~/.local/nvim/`. To use it, add the directory to t
 
   - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
 
-  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin)
 
-  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
+  - [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/)
 
-  - [prettier](https://archlinux.org/packages/community/any/prettier/)
+  - [prettier](https://archlinux.org/packages/extra/any/prettier/)
 
-  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+  - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
 
   - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
 
   - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
 
-  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
+  - [shfmt](https://archlinux.org/packages/extra/x86_64/shfmt/)
 
   - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
 
-  - [lua-language-server](https://archlinux.org/packages/community/x86_64/lua-language-server/)
+  - [lua-language-server](https://archlinux.org/packages/extra/x86_64/lua-language-server/)
 
 
 ### Utilities
 
-- **[archlinux-contrib](https://archlinux.org/packages/community/any/archlinux-contrib/)**
+- **[archlinux-contrib](https://archlinux.org/packages/extra/any/archlinux-contrib/)**
 
-- **[bat](https://archlinux.org/packages/community/x86_64/bat/)**
+- **[bat](https://archlinux.org/packages/extra/x86_64/bat/)**
 
 - **[bc](https://archlinux.org/packages/extra/x86_64/bc/)**
 
-- **[maim](https://archlinux.org/packages/community/x86_64/maim/)**
+- **[maim](https://archlinux.org/packages/extra/x86_64/maim/)**
 
 - **[man-db](https://archlinux.org/packages/core/x86_64/man-db/)**
 
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
-- **[pdbpp](https://aur.archlinux.org/packages/python-pdbpp/)**
+- **[pdbpp](https://aur.archlinux.org/packages/python-pdbpp)**
 
-  - [sox](https://archlinux.org/packages/community/x86_64/sox/)
+  - [sox](https://archlinux.org/packages/extra/x86_64/sox/)
 
     - [libmad](https://archlinux.org/packages/extra/x86_64/libmad/)
 
-    - [twolame](https://archlinux.org/packages/community/x86_64/twolame/)
+    - [twolame](https://archlinux.org/packages/extra/x86_64/twolame/)
 
 Change default location of `pdbpp`'s config file:
 
@@ -483,8 +483,8 @@ Install `wmctrl` to enable sounds:
 PIP_REQUIRE_VIRTUALENV=0 python -m pip install wmctrl
 ```
 
-- **[simplescreenrecorder](https://archlinux.org/packages/community/x86_64/simplescreenrecorder/)**
+- **[simplescreenrecorder](https://aur.archlinux.org/packages/simplescreenrecorder)**
 
-- **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
+- **[tokei](https://archlinux.org/packages/extra/x86_64/tokei/)**
 
-- **[unclutter](https://archlinux.org/packages/community/x86_64/unclutter/)**
+- **[unclutter](https://archlinux.org/packages/extra/x86_64/unclutter/)**
