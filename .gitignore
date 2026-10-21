@@ -12,3 +12,7 @@
 
 # zathura
 .config/zathura/theme
+
+# zsh
+.config/zsh/.zcompdump*
+.config/zsh/.zsh_history
