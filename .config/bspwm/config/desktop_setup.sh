@@ -13,7 +13,7 @@ usage() {
 }
 
 check_number() {
-  [ "$1" -ne "$1" ] 2>/dev/null && usage && exit 22
+  [ "$1" -eq "$1" ] 2>/dev/null || usage 22
 }
 
 set_individual_padding() {
@@ -57,7 +57,8 @@ while [ $# -gt 0 ]; do
     ;;
 
   -s | --panel-side)
-    [ "${sides[*]}" != "*$2*" ] && usage && exit 22
+    [[ " ${sides[*]} " == *" $2 "* ]] || usage 22
+    panel_side=$2
     ;;
 
   -m | --monitor)
@@ -69,7 +70,7 @@ while [ $# -gt 0 ]; do
     ;;
 
   *)
-    usage && exit 22
+    usage 22
     ;;
 
   esac
@@ -81,7 +82,7 @@ win_gaps=${win_gaps:-"4"}
 padding=${padding:-"10"}
 panel_size=${panel_size:-"35"}
 panel_side=${panel_side:-"bottom"}
-monitor=${monitor:-$(xrandr --query | grep -w "connected" | cut -f1 -d" ")}
+monitor=${monitor:-$(xrandr --query | grep -w "connected" | head -1 | cut -f1 -d" ")}
 
 set_padding &
 set_gaps &
