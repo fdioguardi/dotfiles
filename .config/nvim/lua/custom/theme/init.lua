@@ -32,20 +32,20 @@ local pre_hook = {
 
 local post_hook = {
   monokai = function()
+    local colors = require("monokai").classic
+
     for _, hg in ipairs({ "CursorLineNr", "LineNr", "Normal", "SignColumn" }) do
-      local colors = require("monokai").classic
-
       utils.bg(hg, "NONE")
-
-      hl_telescope(
-        colors.base0, -- titles
-        colors.base1, -- bg
-        colors.base4, -- prompt bg
-        colors.base8, -- text
-        colors.red,   -- title bg
-        colors.green  -- title bg
-      )
     end
+
+    hl_telescope(
+      colors.base0, -- titles
+      colors.base1, -- bg
+      colors.base4, -- prompt bg
+      colors.base8, -- text
+      colors.red,   -- title bg
+      colors.green  -- title bg
+    )
   end,
 }
 
