@@ -42,3 +42,6 @@
 	enabled = true
 [diff]
 	algorithm = histogram
+[rebase]
+	autoStash = true
+	updateRefs = true
