@@ -55,6 +55,8 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[Discord](https://archlinux.org/packages/extra/x86_64/discord/)**
 
+- **[Slack](https://aur.archlinux.org/packages/slack-desktop)**
+
 - **[Telegram](https://archlinux.org/packages/extra/x86_64/telegram-desktop/)**
 
 ### Containers
