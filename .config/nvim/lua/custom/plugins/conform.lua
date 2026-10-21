@@ -11,7 +11,7 @@ return {
   opts = {
     formatters_by_ft = {
       java = { "google-java-format" },
-      json = { "fixjson", "jq" },
+      json = { "jq" },
       lua = { "stylua" },
       markdown = { "markdownlint" },
       python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
