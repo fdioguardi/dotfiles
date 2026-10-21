@@ -38,3 +38,7 @@ xsetroot -cursor_name left_ptr &
 xset s 300 10
 xset dpms 300 600 900
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+
+# Don't blank while Firefox plays media
+pkill -f idle_inhibit.sh
+"$(dirname "$0")"/idle_inhibit.sh &
