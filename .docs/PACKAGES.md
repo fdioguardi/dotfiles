@@ -352,6 +352,8 @@ sudo systemctl mask systemd-rfkill.socket
 
 - **[Kitty](https://archlinux.org/packages/community/x86_64/kitty/)**
 
+  - [ttf-jetbrains-mono](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono/)
+
   To apply fonts:
 
   ```bash
