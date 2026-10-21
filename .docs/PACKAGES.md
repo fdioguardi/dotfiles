@@ -47,6 +47,7 @@ List of manually installed packages, and some information on how to set them up.
   ```bash
   sudo systemctl enable --now bluetooth.service
   ```
+- **[bluetui](https://archlinux.org/packages/extra/x86_64/bluetui/)**
 
 ### Chat
 
