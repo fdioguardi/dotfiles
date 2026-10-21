@@ -21,3 +21,6 @@ cp "$template" "$tmp_file"
 fill_placeholders "$tmp_file"
 
 mv "$tmp_file" "$target_file"
+
+# Reload running instances
+pkill -USR1 -x kitty
