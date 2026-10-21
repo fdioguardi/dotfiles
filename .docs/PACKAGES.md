@@ -200,6 +200,10 @@ List of manually installed packages, and some information on how to set them up.
 
   - [eww](https://aur.archlinux.org/packages/eww-git)
 
+  - [xorg-xinput](https://archlinux.org/packages/extra/x86_64/xorg-xinput/)
+    and [xdotool](https://archlinux.org/packages/extra/x86_64/xdotool/),
+    to close the calendar when clicking outside of it
+
   - [noto-fonts](https://archlinux.org/packages/extra/any/noto-fonts/)
 
 
