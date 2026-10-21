@@ -9,8 +9,10 @@ List of manually installed packages, and some information on how to set them up.
 - [Chat](#chat)
 - [Containers](#containers)
 - [Core](#core)
+- [Development](#development)
 - [Drivers](#drivers)
 - [File Management](#file-management)
+- [Games](#games)
 - [Graphical environment](#graphical-environment)
 - [Media](#media)
 - [Menus](#menus)
@@ -103,6 +105,26 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/)**
 
+### Development
+
+- **[Claude Code](https://aur.archlinux.org/packages/claude-code)**
+
+- **[JetBrains Toolbox](https://aur.archlinux.org/packages/jetbrains-toolbox)**
+
+- **[OpenJDK](https://archlinux.org/packages/extra/x86_64/jdk-openjdk/)**
+
+  - [OpenJDK 17](https://archlinux.org/packages/extra/x86_64/jdk17-openjdk/)
+
+  - [OpenJDK 8](https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/)
+
+- **[rustup](https://archlinux.org/packages/extra/x86_64/rustup/)**
+
+  - [cargo-update](https://archlinux.org/packages/extra/x86_64/cargo-update/)
+
+- **[Bun](https://aur.archlinux.org/packages/bun-bin)**
+
+- **[TypeScript language server](https://archlinux.org/packages/extra/any/typescript-language-server/)**
+
 ### Drivers
 
 - **[mesa](https://archlinux.org/packages/extra/x86_64/mesa/)**
@@ -141,6 +163,10 @@ List of manually installed packages, and some information on how to set them up.
   - [Virtual FS support](https://archlinux.org/packages/extra/x86_64/gvfs-smb/)
 
 - **[trash-cli](https://archlinux.org/packages/extra/any/trash-cli/)**
+
+### Games
+
+- **[Steam](https://archlinux.org/packages/multilib/x86_64/steam/)**
 
 ### Graphical environment
 
