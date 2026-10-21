@@ -24,21 +24,11 @@ end
 local function disable_plugins()
   for _, plugin in ipairs({
     "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
     "gzip",
-    "logipat",
-    "netrwFileHandlers",
-    "netrwSettings",
     "remote_plugins",
-    "rplugin",
-    "rrhelper",
-    "spec",
     "tar",
     "tarPlugin",
     "tutor_mode",
-    "vimball",
-    "vimballPlugin",
     "zip",
     "zipPlugin",
   }) do
