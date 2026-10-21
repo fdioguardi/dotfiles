@@ -19,6 +19,7 @@ setup_display() {
 }
 
 one_monitor_settings() {
+  xrandr --output "$1" --primary
   bspc monitor "$1" -d 1 2 3 4 5 6 7 8 9 10
 }
 
