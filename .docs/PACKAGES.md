@@ -36,6 +36,8 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[wireplumber](https://archlinux.org/packages/extra/x86_64/wireplumber/)**
 
+  sxhkd sets the volume with its `wpctl`.
+
 ### Bluetooth
 
 - **[bluez](https://archlinux.org/packages/extra/x86_64/bluez/)**
