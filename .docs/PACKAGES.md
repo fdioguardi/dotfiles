@@ -150,15 +150,6 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [sxhkd](https://archlinux.org/packages/extra/x86_64/sxhkd/)
 
-  There's a bug with the package `xkeyboard-config`.
-  It creates multiple copies of the same shortcut when working with
-  different keyboard layouts.
-  To fix it, downgrade `xkeyboard-config` to the version `3.36-3`.
-
-  ```bash
-  sudo pacman -U /var/cache/pacman/pkg/xkeyboard-config-2.36-3-any.pkg.tar.zst
-  ```
-
   - [xorg-xrandr](https://archlinux.org/packages/extra/x86_64/xorg-xrandr/)
 
   - [xorg-xsetroot](https://archlinux.org/packages/extra/x86_64/xorg-xsetroot/)
