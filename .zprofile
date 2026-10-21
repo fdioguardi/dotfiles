@@ -53,7 +53,7 @@ export HAMCREST_JAR="/usr/share/java/hamcrest-core.jar"
 export CLASSPATH="$CLASSPATH:.:$ANTLR_JAR:$JUNIT_JAR:$HAMCREST_JAR"
 
 # Python
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 
 # XSecureLock
 export XSECURELOCK_AUTH_CURSOR_BLINK=0
