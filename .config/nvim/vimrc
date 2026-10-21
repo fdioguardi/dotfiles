@@ -67,8 +67,8 @@ nnoremap <expr> <silent> j (v:count > 5 ? "m'" . v:count : "") . "j"
 nnoremap <expr> <silent> 0 getline('.')[0 : col('.') - 2] =~# '^\\s\\+$' ? '0' : '^'
 
 " move lines up/down in visual mode
-vnoremap <silent> J <cmd>m '>+1<CR>gv=gv
-vnoremap <silent> K <cmd>m '>-2<CR>gv=gv
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
 
 " Autocmds
 
