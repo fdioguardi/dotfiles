@@ -10,4 +10,5 @@ if [ $# -ne 1 ]; then
   usage 22
 fi
 
-tsc --target "es2016" "$1" && node "${1%.ts}.js" && rm "${1%.ts}.js"
+# node strips the types itself, no need to compile
+exec node "$1"
