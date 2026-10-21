@@ -72,6 +72,12 @@ List of manually installed packages, and some information on how to set them up.
   newgrp docker
   ```
 
+  - [docker-compose](https://archlinux.org/packages/extra/x86_64/docker-compose/)
+
+- **[kubectl](https://archlinux.org/packages/extra/x86_64/kubectl/)**
+
+  - [minikube](https://archlinux.org/packages/extra/x86_64/minikube/)
+
 ### Core
 
 - **[Linux](https://archlinux.org/packages/core/x86_64/linux/)**
