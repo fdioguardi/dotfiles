@@ -368,6 +368,19 @@ sudo systemctl mask systemd-rfkill.socket
 
 ### Text edition
 
+- **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
+
+  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts/)
+
+  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
+
+
+#### Installing `nvim` from source:
+
+<!-- luarocks -->
+<!-- codespell -->
+<!-- typos -->
+
 - **[Neovim](https://www.github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)**
 
   - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
@@ -400,17 +413,41 @@ sudo systemctl mask systemd-rfkill.socket
 
   - [tree-sitter](https://archlinux.org/packages/community/x86_64/tree-sitter/)
 
-- **[Libre Office](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)**
+To build the latest nvim, use the install script:
 
-  - [Vista fonts](https://aur.archlinux.org/packages/ttf-vista-fonts/)
+```bash
+"$XDG_DATA_HOME"/nvim/install_nvim.sh
+```
 
-  - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts/)
+This will download the source code on `~/.local/share/nvim/source/`.
+The binary will be placed in `~/.local/nvim/`. To use it, add the directory to the `PATH` environment variable. To uninstall, simply delete `~/.local/nvim/` (and, optionally, `~/.local/share/nvim/source/`.
 
-- **[VSCode](https://aur.archlinux.org/packages/visual-studio-code-insiders-bin/)**
+#### With the AUR nightly build
 
-  - [ASP .NET](https://aur.archlinux.org/packages/aspnet-runtime-6.0-bin/)
+- **[Neovim](https://aur.archlinux.org/packages/neovim-nightly-bin)**
 
-  - [Dotnet](https://archlinux.org/packages/extra/x86_64/dotnet-sdk/)
+  - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
+
+  - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
+
+  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin/)
+
+  - [nodejs](https://archlinux.org/packages/community/x86_64/nodejs/)
+
+  - [prettier](https://archlinux.org/packages/community/any/prettier/)
+
+  - [ripgrep](https://archlinux.org/packages/community/x86_64/ripgrep/)
+
+  - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
+
+  - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
+
+  - [shfmt](https://archlinux.org/packages/community/x86_64/shfmt/)
+
+  - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
+
+  - [lua-language-server](https://archlinux.org/packages/community/x86_64/lua-language-server/)
+
 
 ### Utilities
 
