@@ -45,3 +45,5 @@
 [rebase]
 	autoStash = true
 	updateRefs = true
+[branch]
+	sort = -committerdate
