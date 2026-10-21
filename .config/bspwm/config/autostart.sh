@@ -28,7 +28,7 @@ __start recolorize -q ayu
 
 __clistart ncspot
 
-__clistart bluetoothctl
+__clistart bluetui
 
 __clistart pulsemixer
 
