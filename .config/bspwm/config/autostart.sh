@@ -31,5 +31,6 @@ __clistart pulsemixer
 xsetroot -cursor_name left_ptr &
 
 # Lock screen after 5 minutes of inactivity
-# xset s 300 10
-# xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- xsecurelock &
+xset s 300 10
+xset dpms 300 600 900
+xss-lock -n /usr/lib/xsecurelock/dimmer -l &
