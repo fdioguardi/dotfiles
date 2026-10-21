@@ -12,7 +12,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 PATH="${PATH}:${HOME}/.bin"
 PATH+=":${HOME}/.local/bin"
 PATH+=":${HOME}/.local/nvim/bin"
-PATH+=":${HOME}/.local/npm/bin"
+PATH+=":${XDG_DATA_HOME}/cargo/bin"
+PATH+=":${XDG_CACHE_HOME}/.bun/bin"
 export PATH
 
 # Default applications
