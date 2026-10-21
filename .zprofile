@@ -50,7 +50,6 @@ export ANTLR_JAR="/usr/share/java/antlr-4.13.1-complete.jar"
 export JUNIT_JAR="/usr/share/java/junit-4.13.2.jar"
 export HAMCREST_JAR="/usr/share/java/hamcrest-core.jar"
 export CLASSPATH="$CLASSPATH:.:$ANTLR_JAR:$JUNIT_JAR:$HAMCREST_JAR"
-alias grun="java org.antlr.v4.gui.TestRig"
 
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"

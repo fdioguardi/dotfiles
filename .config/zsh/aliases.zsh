@@ -39,6 +39,7 @@ abbr \
   venv="source .venv/bin/activate"
 
 alias vi="v" vim="v"
+alias grun="java org.antlr.v4.gui.TestRig"
 
 alias \
   \$= \
