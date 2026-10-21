@@ -59,7 +59,7 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[docker](https://archlinux.org/packages/extra/x86_64/docker/)**
 
-  Enable and start it's systemd service:
+  Enable and start its systemd service:
 
   ```bash
   sudo systemctl enable --now docker.service
@@ -210,7 +210,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
 - **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
 
-  Enable and start it's systemd service:
+  Enable and start its systemd service:
 
   ```bash
   sudo systemctl enable --now NetworkManager.service
@@ -260,7 +260,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [rsync](https://archlinux.org/packages/extra/x86_64/rsync/)
 
-  Enable and start it's systemd service and timer:
+  Enable and start its systemd service and timer:
 
   ```bash
   sudo systemctl enable --now reflector.service
@@ -282,7 +282,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   **Conflict with LightDM**
 
   The file /etc/lightdm/Xsession has "bashisms" even though it uses `#!/bin/sh`.
-  Change the shebang to `#!/bin/bash` or replace the file with [this one](.system/etc/lightdm/Xsession).
+  Change the shebang to `#!/bin/bash` or replace the file with [this one](../.config/system/etc/lightdm/Xsession).
 
   Use dash as /bin/sh:
 
@@ -335,7 +335,7 @@ mkdir -pv "$HOME"/.cache/zsh
 
   -**[smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)**
 
-Enable and start it's systemd service:
+Enable and start its systemd service:
 
 ```bash
 sudo systemctl enable --now tlp.service

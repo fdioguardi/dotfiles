@@ -16,9 +16,9 @@ d config --local status.showUntrackedFiles no
 
 1. Define an alias to work with the git bare repository.
 
-2. Clone the repository itself into `$HOME/.local/share/.dotfiles`.
+2. Clone the repository itself into `$HOME/.local/share/dotfiles`.
    The name of this folder is unimportant,
-   as long as it's consistent to the name given in the first command.
+   as long as it's consistent with the name given in the first command.
 
 3. Fetch remote files.
    This command will fail if there are any local files with identical
