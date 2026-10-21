@@ -74,7 +74,16 @@ List of manually installed packages, and some information on how to set them up.
 
 ### Core
 
-- **[Linux LTS](https://archlinux.org/packages/core/x86_64/linux-lts/)**
+- **[Linux](https://archlinux.org/packages/core/x86_64/linux/)**
+
+  - [linux-headers](https://archlinux.org/packages/core/x86_64/linux-headers/)
+
+- **[Linux LTS](https://archlinux.org/packages/core/x86_64/linux-lts/)**, as a fallback kernel
+
+- **[lvm2](https://archlinux.org/packages/core/x86_64/lvm2/)**
+
+  The root and swap volumes live in LVM, see the mkinitcpio drop-in in
+  [system files](./INSTALL.md#system-files).
 
 - **[Linux firmware](https://archlinux.org/packages/core/any/linux-firmware/)**
 
