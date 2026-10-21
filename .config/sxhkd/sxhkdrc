@@ -56,11 +56,11 @@ XF86Audio{Next,Prev}
 
 # adjust volume
 XF86Audio{Lower,Raise}Volume
-	amixer set Master 5%{-,+}
+	wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%{-,+}
 
 # adjust volume with mouse gestures
 button{8,9}
-	amixer set Master 5%{-,+}
+	wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%{-,+}
 
 # adjust primary monitor’s brightness
 XF86MonBrightness{Up,Down}
