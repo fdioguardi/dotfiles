@@ -38,3 +38,5 @@
 	helper = cache
 [merge]
 	conflictStyle = zdiff3
+[rerere]
+	enabled = true
