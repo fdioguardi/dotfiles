@@ -40,3 +40,35 @@ This dotfiles require [many packages](./PACKAGES.md) to work properly.
 They can be installed by running [this script](./install-packages.sh):
 `"$HOME"/.docs/install-packages.sh`,
 which downloads an AUR helper and uses it to get everything else.
+
+## Colors
+
+The color scheme of kitty, zathura, eww, polybar and bspwm comes from
+`~/.config/colorschemes`. The generated files aren't tracked,
+so create them once after cloning:
+
+```bash
+recolorize ayu
+```
+
+## System files
+
+`~/.config/system/` mirrors files that live outside of `$HOME`,
+under `/etc` and `/boot`. They aren't linked, copy them by hand:
+
+```bash
+sudo install -Dm644 ~/.config/system/etc/vconsole.conf /etc/vconsole.conf
+```
+
+Some of them need an extra step:
+
+- `etc/mkinitcpio.conf.d/watermelon.conf` loads `amdgpu` and `lvm2`
+  in the initramfs. Rebuild it with `sudo mkinitcpio -P`.
+- `boot/loader/` holds the systemd-boot entries, with `linux-lts` as a fallback.
+  The microcode is loaded by mkinitcpio's `microcode` hook.
+- `etc/systemd/logind.conf.d/idle.conf` and `etc/systemd/sleep.conf.d/idle.conf`
+  suspend the PC when idle, and hibernate it later.
+  This needs the swap volume in `resume=`.
+- `etc/lightdm/` logs in automatically into bspwm, with the mini greeter.
+- `etc/pacman.d/hooks/` keeps `dash` as `/bin/sh`
+  and refreshes the mirrors after `pacman-mirrorlist` updates.
