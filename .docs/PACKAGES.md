@@ -483,8 +483,6 @@ Install `wmctrl` to enable sounds:
 PIP_REQUIRE_VIRTUALENV=0 python -m pip install wmctrl
 ```
 
-- **[Redshift](https://archlinux.org/packages/community/x86_64/redshift/)**
-
 - **[simplescreenrecorder](https://archlinux.org/packages/community/x86_64/simplescreenrecorder/)**
 
 - **[tokei](https://archlinux.org/packages/community/x86_64/tokei/)**
