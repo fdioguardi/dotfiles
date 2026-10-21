@@ -28,7 +28,7 @@ local function disable_plugins()
     "remote_plugins",
     "tar",
     "tarPlugin",
-    "tutor_mode",
+    "tutor_mode_plugin",
     "zip",
     "zipPlugin",
   }) do
