@@ -119,7 +119,8 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[fzf](https://archlinux.org/packages/extra/x86_64/fzf/)**
 
-  `<C-f>` opens `fzf` and cds into the selected directory (bound in `input.zsh`).
+  `<C-f>` opens `fzf` and cds into the selected directory
+  (bound in `input.zsh`).
 
 - **[Thunar](https://archlinux.org/packages/extra/x86_64/thunar/)**
 
