@@ -24,7 +24,6 @@ export TERMINAL="kitty"
 # Clean $HOME
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # History
 export HISTSIZE=1000
