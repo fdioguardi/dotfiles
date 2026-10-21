@@ -58,11 +58,9 @@ bspc rule -a TelegramDesktop desktop=^8 follow=on
 bspc rule -a discord desktop=^9
 
 # Desktop 10
-bspc rule -a "$TERMINAL":"$TERMINAL":pulsemixer \
-  desktop=^10 state=floating rectangle=500x660+1401+366
+bspc rule -a "$TERMINAL":"$TERMINAL":pulsemixer desktop=^10
 
-bspc rule -a "$TERMINAL":"$TERMINAL":ncspot \
-  desktop=^10 state=floating rectangle=1378x924+15+15
+bspc rule -a "$TERMINAL":"$TERMINAL":ncspot desktop=^10
 
 ## Autostart
 [ -x "$config"/autostart.sh ] && "$config"/autostart.sh
