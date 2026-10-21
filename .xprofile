@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#
+# .xprofile
+#
+
+# Keyboard layout
+setxkbmap \
+  -layout us,us \
+  -variant colemak_dh,intl \
+  -option grp:win_space_toggle,ctrl:swapcaps,altwin:menu_win \
+  -model pc104
+
+# Keyboard repeat rate
+xset r rate 250 50
