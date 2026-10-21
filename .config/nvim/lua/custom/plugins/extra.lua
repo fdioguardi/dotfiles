@@ -1,7 +1,7 @@
 return {
 
   -- Functionality
-  { "tpope/vim-surround" },
+  { "kylechui/nvim-surround", version = "*", event = "VeryLazy", opts = {} },
 
   "github/copilot.vim",
 }
