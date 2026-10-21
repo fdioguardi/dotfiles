@@ -47,3 +47,5 @@
 	updateRefs = true
 [branch]
 	sort = -committerdate
+[help]
+	autocorrect = prompt
