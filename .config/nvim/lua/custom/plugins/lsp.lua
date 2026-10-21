@@ -26,6 +26,12 @@ return {
         )
       end
 
+      -- run jdtls with a recent java, the system default may be too old
+      local java_home = "/usr/lib/jvm/java-27-openjdk"
+      if vim.fn.isdirectory(java_home) == 1 then
+        vim.lsp.config("jdtls", { cmd_env = { JAVA_HOME = java_home } })
+      end
+
       -- configure servers, skipping the ones that aren't installed
       -- (when cmd is a function, e.g. jdtls, assume the binary is the name)
       vim.lsp.enable(vim.tbl_filter(function(name)
