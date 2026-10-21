@@ -226,6 +226,8 @@ List of manually installed packages, and some information on how to set them up.
 
 - **[firefox](https://archlinux.org/packages/extra/x86_64/firefox/)**
 
+- **[Chromium](https://archlinux.org/packages/extra/x86_64/chromium/)**
+
 - **[Network Manager](https://archlinux.org/packages/extra/x86_64/networkmanager/)**
 
   Enable and start its systemd service:
@@ -245,6 +247,8 @@ List of manually installed packages, and some information on how to set them up.
   ```bash
   nmcli connection up <SSID>
   ```
+
+- **[ngrok](https://aur.archlinux.org/packages/ngrok)**
 
 - **[ssh-audit](https://archlinux.org/packages/extra/any/ssh-audit/)**
 
