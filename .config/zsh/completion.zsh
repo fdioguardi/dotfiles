@@ -11,5 +11,5 @@ compinit -d "${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/zcompdump"
 _comp_options+=(globdots)
 
 if command -v ngrok &>/dev/null; then
-  eval "$(ngrok completion)"
+  eval "$(SHELL="${commands[zsh]}" ngrok completion)"
 fi
