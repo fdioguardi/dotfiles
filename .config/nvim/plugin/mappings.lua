@@ -10,7 +10,7 @@ for _, motion in ipairs({ "c", "d", "C", "D" }) do
     { "n", "v" },
     "<leader>" .. motion,
     '"a' .. motion,
-    { desc = "cut into an auxiliar register", silent = true }
+    { desc = "cut into an auxiliary register", silent = true }
   )
 end
 
