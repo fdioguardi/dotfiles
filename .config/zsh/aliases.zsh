@@ -25,7 +25,7 @@ abbr \
   i="yes \"\" | paru -S --needed" \
   r="paru -Rns" \
   ro="paru --clean --noconfirm && yes | topgrade -c" \
-  u="{ yes | topgrade } &; \"\$XDG_DATA_HOME\"/nvim/install_nvim.sh &" \
+  u="yes | topgrade" \
   gpip="PIP_REQUIRE_VIRTUALENV=0 pip"
 
 abbr \
