@@ -86,7 +86,15 @@ List of manually installed packages, and some information on how to set them up.
 
 ### Drivers
 
-- **[xf86-input-libinput](https://archlinux.org/packages/extra/x86_64/libinput/)**
+- **[mesa](https://archlinux.org/packages/extra/x86_64/mesa/)**
+
+- **[lib32-mesa](https://archlinux.org/packages/multilib/x86_64/lib32-mesa/)**
+
+- **[xf86-video-amdgpu](https://archlinux.org/packages/extra/x86_64/xf86-video-amdgpu/)**
+
+- **[vulkan-radeon](https://archlinux.org/packages/extra/x86_64/vulkan-radeon/)**
+
+- **[lib32-vulkan-radeon](https://archlinux.org/packages/multilib/x86_64/lib32-vulkan-radeon/)**
 
 ### File Management
 
