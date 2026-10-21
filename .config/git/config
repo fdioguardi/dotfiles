@@ -4,6 +4,8 @@
 	signingkey = 190A167A9131CD1F129C07DDA1DD837CB54AF17C
 [pull]
 	rebase = true
+[push]
+	autoSetupRemote = true
 [core]
 	pager = bat
 	autocrlf = input
