@@ -34,7 +34,7 @@ Print
 alt + shift + s
 	screeny cut
 
-# reolad sxhkd
+# reload sxhkd
 alt + Escape
 	pkill -USR1 -x sxhkd
 
