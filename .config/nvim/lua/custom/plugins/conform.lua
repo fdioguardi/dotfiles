@@ -23,7 +23,7 @@ return {
 
     formatters = {
       shfmt = {
-        prepend_args = { "-s", "-ln", "posix", "-i", "2", "-bn", "-ci", "-sr" },
+        prepend_args = { "-s", "-i", "2", "-bn", "-ci", "-sr" },
       },
     },
   },
