@@ -67,3 +67,13 @@ export XSECURELOCK_SHOW_USERNAME=0
 
 # Added by Toolbox App
 export PATH="$PATH:/home/felipe/.local/share/JetBrains/Toolbox/scripts"
+
+# Keyboard layout
+setxkbmap \
+  -layout us,us \
+  -variant colemak_dh,intl \
+  -option grp:win_space_toggle,ctrl:swapcaps,altwin:menu_win \
+  -model pc104
+
+# Keyboard repeat rate
+xset r rate 250 50
