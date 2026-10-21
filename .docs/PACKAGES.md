@@ -380,6 +380,10 @@ mkdir -pv "$HOME"/.cache/zsh
 
 - **[ncdu](https://archlinux.org/packages/extra/x86_64/ncdu/)**
 
+- **[lm_sensors](https://archlinux.org/packages/extra/x86_64/lm_sensors/)**
+
+  - [xsensors](https://archlinux.org/packages/extra/x86_64/xsensors/)
+
 - **[smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)**
 
 ### Terminal emulator
@@ -481,6 +485,8 @@ mkdir -pv "$HOME"/.cache/zsh
 
 - **[bc](https://archlinux.org/packages/extra/x86_64/bc/)**
 
+- **[delta](https://archlinux.org/packages/extra/x86_64/git-delta/)**, git's pager
+
 - **[maim](https://archlinux.org/packages/extra/x86_64/maim/)**
 
 - **[man-db](https://archlinux.org/packages/core/x86_64/man-db/)**
@@ -490,5 +496,7 @@ mkdir -pv "$HOME"/.cache/zsh
 - **[simplescreenrecorder](https://aur.archlinux.org/packages/simplescreenrecorder)**
 
 - **[tokei](https://archlinux.org/packages/extra/x86_64/tokei/)**
+
+- **[tree](https://archlinux.org/packages/extra/x86_64/tree/)**
 
 - **[unclutter](https://archlinux.org/packages/extra/x86_64/unclutter/)**
