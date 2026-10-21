@@ -49,8 +49,6 @@ bspc rule -a Stremio desktop=^4
 # Desktop 7
 bspc rule -a "Microsoft Teams - Preview" desktop=^7
 
-bspc rule -a "$TERMINAL":"$TERMINAL":neomutt desktop=^7
-
 # Desktop 8
 bspc rule -a TelegramDesktop desktop=^8 follow=on
 
