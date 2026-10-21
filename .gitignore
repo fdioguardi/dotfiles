@@ -6,3 +6,6 @@
 # nvim
 .config/nvim/spell/
 .config/nvim/lua/.luarc.json
+
+# kitty
+.config/kitty/theme.conf

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Update kitty's config to apply Xresources color scheme
+# Update kitty's theme to apply Xresources color scheme
 
 fill_placeholders() {
   # Numbered colors
@@ -13,14 +13,11 @@ fill_placeholders() {
 }
 
 readonly template="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/colors.conf
-readonly settings_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/settings.conf
-target_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/kitty.conf
+target_file="${XDG_CONFIG_HOME:-"$HOME/.config"}"/kitty/theme.conf
 tmp_file="$(mktemp)"
 
 cp "$template" "$tmp_file"
 
 fill_placeholders "$tmp_file"
 
-cat "$settings_file" "$tmp_file" > "$target_file"
-
-rm "$tmp_file"
+mv "$tmp_file" "$target_file"
