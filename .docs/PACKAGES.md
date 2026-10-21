@@ -431,26 +431,6 @@ The binary will be placed in `~/.local/nvim/`. To use it, add the directory to t
 
   - [man-pages](https://archlinux.org/packages/core/any/man-pages/)
 
-- **[pdbpp](https://aur.archlinux.org/packages/python-pdbpp)**
-
-  - [sox](https://archlinux.org/packages/extra/x86_64/sox/)
-
-    - [libmad](https://archlinux.org/packages/extra/x86_64/libmad/)
-
-    - [twolame](https://archlinux.org/packages/extra/x86_64/twolame/)
-
-Change default location of `pdbpp`'s config file:
-
-```bash
-sudo sed -i "s/\.pdbrc.py/.config\/pdbpp\/pdbrc.py/" /usr/lib/python*/site-packages/pdb.py
-```
-
-Install `wmctrl` to enable sounds:
-
-```bash
-PIP_REQUIRE_VIRTUALENV=0 python -m pip install wmctrl
-```
-
 - **[simplescreenrecorder](https://aur.archlinux.org/packages/simplescreenrecorder)**
 
 - **[tokei](https://archlinux.org/packages/extra/x86_64/tokei/)**
