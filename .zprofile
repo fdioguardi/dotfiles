@@ -13,7 +13,7 @@ PATH="${PATH}:${HOME}/.bin"
 PATH+=":${HOME}/.local/bin"
 PATH+=":${HOME}/.local/nvim/bin"
 PATH+=":${XDG_DATA_HOME}/cargo/bin"
-PATH+=":${XDG_CACHE_HOME}/.bun/bin"
+PATH+=":${XDG_DATA_HOME}/bun/bin"
 export PATH
 
 # Default applications
@@ -23,6 +23,7 @@ export READER="zathura"
 export TERMINAL="kitty"
 
 # Clean $HOME
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
