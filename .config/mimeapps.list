@@ -1,0 +1,16 @@
+[Added Associations]
+application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop;firefox.desktop;
+video/mp4=mpv.desktop;
+video/x-matroska=mpv.desktop;
+application/pdf=libreoffice-draw.desktop;firefox.desktop;
+application/x-zerosize=libreoffice-startcenter.desktop;
+image/png=feh.desktop;
+image/jpeg=feh.desktop;
+application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
+text/html=firefox.desktop;
+
+[Default Applications]
+application/x-zerosize=libreoffice-startcenter.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/claude=com.anthropic.Claude.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
