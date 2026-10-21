@@ -317,6 +317,12 @@ Make zsh the default interactive shell for the current user:
 chsh -s $(which zsh) $USER
 ```
 
+To save the command history between terminal instances, create the cache directory:
+
+```bash
+mkdir -pv "$HOME"/.cache/zsh
+```
+
 ### System monitoring
 
 - **[htop](https://archlinux.org/packages/extra/x86_64/htop/)**
