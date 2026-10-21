@@ -39,7 +39,7 @@ let mapleader = "\<Space>"
 
 " change and delete to the void register
 nnoremap <leader>d "_d
-nnoremap <leader>c "_d
+nnoremap <leader>c "_c
 nnoremap <leader>D "_D
 nnoremap <leader>C "_C
 
