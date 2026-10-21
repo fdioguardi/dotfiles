@@ -63,3 +63,7 @@ export XSECURELOCK_BLANK_TIMEOUT=30
 export XSECURELOCK_PASSWORD_PROMPT=time
 export XSECURELOCK_SHOW_HOSTNAME=0
 export XSECURELOCK_SHOW_USERNAME=0
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/felipe/.local/share/JetBrains/Toolbox/scripts"
