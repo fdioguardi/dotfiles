@@ -13,7 +13,7 @@ usage() {
 }
 
 check_number() {
-  [ "$1" -eq "$1" ] 2>/dev/null || usage 22
+  [ "$1" -eq "$1" ] 2> /dev/null || usage 22
 }
 
 set_individual_padding() {
@@ -40,38 +40,38 @@ declare -a sides=("top" "bottom" "left" "right")
 
 while [ $# -gt 0 ]; do
   case "$1" in
-  -g | --gaps)
+    -g | --gaps)
 
-    check_number "$2"
-    win_gaps=$2
-    ;;
+      check_number "$2"
+      win_gaps=$2
+      ;;
 
-  -p | --padding)
-    check_number "$2"
-    padding=$2
-    ;;
+    -p | --padding)
+      check_number "$2"
+      padding=$2
+      ;;
 
-  -z | --panel-size)
-    check_number "$2"
-    panel_size=$2
-    ;;
+    -z | --panel-size)
+      check_number "$2"
+      panel_size=$2
+      ;;
 
-  -s | --panel-side)
-    [[ " ${sides[*]} " == *" $2 "* ]] || usage 22
-    panel_side=$2
-    ;;
+    -s | --panel-side)
+      [[ " ${sides[*]} " == *" $2 "* ]] || usage 22
+      panel_side=$2
+      ;;
 
-  -m | --monitor)
-    monitor="$2"
-    ;;
+    -m | --monitor)
+      monitor="$2"
+      ;;
 
-  -h | --help)
-    usage 0
-    ;;
+    -h | --help)
+      usage 0
+      ;;
 
-  *)
-    usage 22
-    ;;
+    *)
+      usage 22
+      ;;
 
   esac
   shift 2
