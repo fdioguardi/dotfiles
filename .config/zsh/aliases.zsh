@@ -45,3 +45,5 @@ alias \
   brightness="xrandr --output \"\$(xrandr --query | grep -w connected | cut -f1 -d' ')\" --brightness" \
   b1="while killall redshift 2> /dev/null; do sleep 0.1; done; brightness 1" \
   d="/usr/bin/git --git-dir=\"\$XDG_DATA_HOME/dotfiles\" --work-tree=\"\$HOME\"" # Managing dotfiles
+
+abbr qwerty="setxkbmap -layout us,us -variant intl,colemak_dh -option grp:win_space_toggle,ctrl:swapcaps,altwin:menu_win -model pc104"
