@@ -19,13 +19,20 @@ return {
 
     config = function()
       -- configure capabilities
-      local capabilities = nil
       if pcall(require, "cmp_nvim_lsp") then
-        capabilities = require("cmp_nvim_lsp").default_capabilities()
+        vim.lsp.config(
+          "*",
+          { capabilities = require("cmp_nvim_lsp").default_capabilities() }
+        )
       end
 
-      -- configure servers
-      for _, server in ipairs({
+      -- configure servers, skipping the ones that aren't installed
+      -- (when cmd is a function, e.g. jdtls, assume the binary is the name)
+      vim.lsp.enable(vim.tbl_filter(function(name)
+        local cmd = vim.lsp.config[name] and vim.lsp.config[name].cmd
+        local bin = type(cmd) == "table" and cmd[1] or name
+        return vim.fn.executable(bin) == 1
+      end, {
         "bashls",
         "jdtls",
         "lua_ls",
@@ -33,13 +40,15 @@ return {
         "ruff",
         "rust_analyzer",
         "taplo",
-      }) do
-        require("lspconfig")[server].setup({ capabilities = capabilities })
-      end
+      }))
+
+      -- configure diagnostics
+      vim.diagnostic.config({ update_in_insert = true })
 
       -- configure on_attach handler
       -- (K, grn, gra, grr, gri, grt, [d, ]d and <C-s> are Neovim defaults)
       vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp_attach", { clear = true }),
         callback = function(args)
           local bufnr = args.buf
           -- set up mappings
@@ -69,9 +78,6 @@ return {
 
           -- enable sign column
           vim.opt_local.signcolumn = "yes:1"
-
-          -- configure handler
-          vim.diagnostic.config({ update_in_insert = true })
         end,
       })
     end,
