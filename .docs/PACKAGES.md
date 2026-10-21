@@ -320,24 +320,7 @@ mkdir -pv "$HOME"/.cache/zsh
 
 - **[ncdu](https://archlinux.org/packages/extra/x86_64/ncdu/)**
 
-- **[tlp](https://archlinux.org/packages/extra/any/tlp/)**
-
-  -**[ethtool](https://archlinux.org/packages/extra/x86_64/ethtool/)**
-
-  -**[smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)**
-
-Enable and start its systemd service:
-
-```bash
-sudo systemctl enable --now tlp.service
-```
-
-Mask `systemd-rfkill.service` and `systemd-rfkill.socket` to remove warnings:
-
-```bash
-sudo systemctl mask systemd-rfkill.service
-sudo systemctl mask systemd-rfkill.socket
-```
+- **[smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)**
 
 ### Terminal emulator
 
