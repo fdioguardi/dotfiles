@@ -291,7 +291,7 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   ```
 
   Updates of dash will overwrite /bin/sh.
-  To prevent this, create this pacman hook in `/usr/share/libalpm/hooks/dash-sh.hook`.
+  To prevent this, create this pacman hook in `/usr/share/libalpm/hooks/dash-sh.hook` (or `/etc/pacman.d/hooks` if this path is configured in the `HookDir` option of `pacman.conf`).
 
   ```systemd-hook
   [Trigger]
@@ -305,7 +305,6 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
   When = PostTransaction
   Exec = /usr/bin/ln -sfT dash /usr/bin/sh
   Depends = dash
-
   ```
 
 - **[Zsh](https://archlinux.org/packages/extra/x86_64/zsh/)**
