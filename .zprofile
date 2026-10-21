@@ -24,11 +24,6 @@ export TERMINAL="kitty"
 
 # Clean $HOME
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
-
-# History
-export HISTSIZE=1000
-export SAVEHIST=1000
 
 # Less
 export LESSHISTFILE=/dev/null
