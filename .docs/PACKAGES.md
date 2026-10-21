@@ -169,6 +169,9 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [eww](https://aur.archlinux.org/packages/eww-git/)
 
+  - [noto-fonts](https://archlinux.org/packages/extra/any/noto-fonts/)
+
+
   To apply fonts:
 
   ```bash
