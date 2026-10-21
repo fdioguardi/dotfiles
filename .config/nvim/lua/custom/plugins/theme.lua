@@ -1,5 +1,6 @@
 return {
   "tanvirtin/monokai.nvim",
-  init = function() require("custom.theme").monokai() end,
+  lazy = false,
   priority = 1000,
+  config = function() require("custom.theme").monokai() end,
 }
