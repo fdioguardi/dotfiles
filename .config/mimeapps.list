@@ -10,6 +10,7 @@ application/x-bittorrent=org.qbittorrent.qBittorrent.desktop;
 text/html=firefox.desktop;
 
 [Default Applications]
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 application/x-zerosize=libreoffice-startcenter.desktop
 x-scheme-handler/jetbrains=jetbrainsd.desktop
 x-scheme-handler/claude=com.anthropic.Claude.desktop
