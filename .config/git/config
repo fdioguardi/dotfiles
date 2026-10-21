@@ -1,7 +1,7 @@
 [user]
 	email = felipedioguardi@gmail.com
 	name = Felipe Dioguardi
-	signingkey = 1BF4181DC1C57E1E
+	signingkey = 190A167A9131CD1F129C07DDA1DD837CB54AF17C
 [pull]
 	rebase = true
 [core]
