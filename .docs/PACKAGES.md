@@ -421,8 +421,6 @@ The binary will be placed in `~/.local/nvim/`. To use it, add the directory to t
 
 - **[archlinux-contrib](https://archlinux.org/packages/extra/any/archlinux-contrib/)**
 
-- **[bat](https://archlinux.org/packages/extra/x86_64/bat/)**
-
 - **[bc](https://archlinux.org/packages/extra/x86_64/bc/)**
 
 - **[maim](https://archlinux.org/packages/extra/x86_64/maim/)**
