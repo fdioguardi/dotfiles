@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create a pastebin link to commands or file content
-# Add ?<lang> at the end to get syntax highlighting
+# Add .<lang> at the end to get syntax highlighting
 
 # Usage:
 # $ sprunge file
@@ -9,14 +9,14 @@
 # $ some command | sprunge
 
 # Example:
-# $ sprunge ~/.bashrc --> http://sprunge.us/abcdef
-#  with highlighting --> http://sprunge.us/abcdef?bash
+# $ sprunge ~/.bashrc --> https://paste.rs/abcde
+#  with highlighting --> https://paste.rs/abcde.sh
 
 # The explanation of the following code is left as an exercise to the user
 
 __sprunge() {
   if [ -z "$1" ] || [ -r "$1" ]; then
-    curl -F "sprunge=<${1:--}" sprunge.us
+    curl --data-binary "@${1:--}" https://paste.rs/
   else
     printf '$%s\n\n%s' "$*" "$("$@")" 2>&1 | __sprunge
   fi
