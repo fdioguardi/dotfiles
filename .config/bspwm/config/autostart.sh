@@ -33,4 +33,4 @@ xsetroot -cursor_name left_ptr &
 # Lock screen after 5 minutes of inactivity
 xset s 300 10
 xset dpms 300 600 900
-xss-lock -n /usr/lib/xsecurelock/dimmer -l &
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
