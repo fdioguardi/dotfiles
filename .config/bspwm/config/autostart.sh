@@ -21,7 +21,11 @@ __start eww daemon
 
 __start recolorize -q ayu
 
-__clistart ncspot
+# Wait for network (up to 60s) so ncspot can reach Spotify
+(
+  nm-online -q -t 60
+  __clistart ncspot
+) &
 
 __clistart bluetui
 
