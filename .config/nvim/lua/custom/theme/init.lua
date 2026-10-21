@@ -28,23 +28,29 @@ local pre_hook = {
     vim.g.gruvbox_contrast_dark = "hard"
     vim.g.gruvbox_invert_selection = false
   end,
+  ["monokai-pro-classic"] = function()
+    -- keep the telescope highlights defined below
+    require("monokai-pro").setup({
+      disabled_plugins = { "nvim-telescope/telescope.nvim" },
+    })
+  end,
 }
 
 local post_hook = {
-  monokai = function()
-    local colors = require("monokai").classic
+  ["monokai-pro-classic"] = function()
+    local colors = require("monokai-pro").get_palette("classic")
 
     for _, hg in ipairs({ "CursorLineNr", "LineNr", "Normal", "SignColumn" }) do
       utils.bg(hg, "NONE")
     end
 
     hl_telescope(
-      colors.base0, -- titles
-      colors.base1, -- bg
-      colors.base4, -- prompt bg
-      colors.base8, -- text
-      colors.red,   -- title bg
-      colors.green  -- title bg
+      colors.dark2, -- titles
+      colors.dark1, -- bg
+      colors.dimmed5, -- prompt bg
+      colors.text, -- text
+      colors.accent1, -- title bg
+      colors.accent4 -- title bg
     )
   end,
 }
