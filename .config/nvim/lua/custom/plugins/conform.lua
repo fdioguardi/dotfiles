@@ -19,13 +19,13 @@ return {
       ["*"] = { "trim_whitespace", "trim_newlines", "typos", "codespell" },
     },
     format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+
+    formatters = {
+      shfmt = {
+        prepend_args = { "-s", "-ln", "posix", "-i", "2", "-bn", "-ci", "-sr" },
+      },
+    },
   },
 
   init = function() vim.o.formatexpr = "v:lua.require'conform'.formatexpr()" end,
-
-  formatters = {
-    shfmt = {
-      prepend_args = { "-s", "-ln", "posix", "-i", "2", "-bn", "-ci", "-sr" },
-    },
-  },
 }
