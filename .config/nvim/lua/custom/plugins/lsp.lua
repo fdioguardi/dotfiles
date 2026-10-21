@@ -38,6 +38,7 @@ return {
       end
 
       -- configure on_attach handler
+      -- (K, grn, gra, grr, gri, grt, [d, ]d and <C-s> are Neovim defaults)
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local bufnr = args.buf
@@ -56,19 +57,13 @@ return {
           )
           nmap("<leader>lca", vim.lsp.buf.code_action, "LSP code actions")
           nmap("<leader>lr", ":IncRename ", "LSP rename symbol")
-          nmap("K", vim.lsp.buf.hover, "LSP display hover information")
           nmap("gd", vim.lsp.buf.definition, "LSP go to definition")
-          nmap("gi", vim.lsp.buf.implementation, "LSP list implementations")
-          nmap("gr", vim.lsp.buf.references, "LSP go to references")
-
-          nmap("[d", vim.diagnostic.goto_prev, "LSP go to previous diagnostic")
-          nmap("]d", vim.diagnostic.goto_next, "LSP go to next diagnostic")
 
           require("custom.telescope").map(
             "<leader>e",
-            "lsp_document_diagnostics",
+            "diagnostics",
             "LSP show diagnostics",
-            { previewer = false, initial_mode = "normal" },
+            { bufnr = 0, previewer = false, initial_mode = "normal" },
             { buffer = bufnr }
           )
 
