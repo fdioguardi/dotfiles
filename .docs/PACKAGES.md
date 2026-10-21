@@ -192,6 +192,22 @@ List of manually installed packages, and some information on how to set them up.
 
   - [yt-dlp](https://archlinux.org/packages/extra/any/yt-dlp/)
 
+  - [mpv-mpris](https://archlinux.org/packages/extra/x86_64/mpv-mpris/), to control it with `playerctl`
+
+  - [thumbfast](https://aur.archlinux.org/packages/mpv-thumbfast-git)
+
+  - [ModernZ](https://aur.archlinux.org/packages/mpv-modernz-git), an OSC with thumbfast's previews
+
+- **[qBittorrent](https://archlinux.org/packages/extra/x86_64/qbittorrent/)**
+
+- **[Stremio](https://aur.archlinux.org/packages/stremio)**
+
+- **[calibre](https://archlinux.org/packages/extra/x86_64/calibre/)**
+
+- **[catt](https://aur.archlinux.org/packages/catt)**
+
+  - [mkchromecast](https://aur.archlinux.org/packages/mkchromecast-git)
+
 - **[Zathura](https://archlinux.org/packages/extra/x86_64/zathura/)**
 
   - [zathura-pdf-mupdf](https://archlinux.org/packages/extra/x86_64/zathura-pdf-mupdf/)
