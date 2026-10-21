@@ -7,7 +7,7 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
-    "tamago324/cmp-zsh",
+    { "tamago324/cmp-zsh", opts = { filetypes = { "sh", "zsh" } } },
   },
 
   opts = function()
@@ -19,6 +19,7 @@ return {
             lazydev = "[V]",
             nvim_lsp = "[L]",
             path = "[P]",
+            zsh = "[Z]",
           })[entry.source.name]
           return vim_item
         end,
@@ -37,6 +38,7 @@ return {
         { name = "buffer", keyword_length = 5 },
         { name = "nvim_lsp" },
         { name = "path" },
+        { name = "zsh" },
       },
     }
   end,
