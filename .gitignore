@@ -9,3 +9,6 @@
 
 # kitty
 .config/kitty/theme.conf
+
+# zathura
+.config/zathura/theme
