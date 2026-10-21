@@ -15,12 +15,6 @@ return {
       },
 
       { "smjonas/inc-rename.nvim", opts = {} },
-
-      {
-        "ray-x/lsp_signature.nvim",
-        event = "InsertEnter",
-        opts = { hint_enable = false },
-      },
     },
 
     config = function()
@@ -82,10 +76,6 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local bufnr = args.buf
-          local client = assert(
-            vim.lsp.get_client_by_id(args.data.client_id),
-            "must have valid client"
-          )
           -- set up mappings
           local function nmap(lhs, rhs, desc)
             require("custom.keymaps").nmap(lhs, rhs, desc, { buffer = bufnr })
@@ -119,13 +109,6 @@ return {
 
           -- enable sign column
           vim.opt_local.signcolumn = "yes:1"
-
-          -- enable signature help when possible
-          if client.server_capabilities.signature_help then
-            if pcall(require, "lsp_signature") then
-              require("lsp_signature").on_attach({ hint_enable = false })
-            end
-          end
 
           -- configure handler
           vim.diagnostic.config({ update_in_insert = true })
