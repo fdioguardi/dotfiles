@@ -136,6 +136,10 @@ sudo sed -i "s/\\\ec/^F/g" /usr/share/fzf/key-bindings.zsh
 
   - [mini-greeter](https://aur.archlinux.org/packages/lightdm-mini-greeter/)
 
+  - [numlockx](https://archlinux.org/packages/extra/x86_64/numlockx/)
+
+  - [accountsservice](https://archlinux.org/packages/extra/x86_64/accountsservice/)
+
   Add yourself to the `nopasswdlogin` group to be able to login without a password.
 
   ```bash
