@@ -80,18 +80,23 @@ use_external_monitor() {
   toggle "$1" "$2"
 }
 
+get_monitor() {
+  xrandr -q | grep -w "$1" | cut -f1 -d" "
+}
+
 if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
   usage 0
 fi
 
 readonly config="${XDG_CONFIG_HOME:-${HOME}/.config}"
-primary=$(xrandr -q \
-  | grep -w "primary" \
-  | cut -f1 -d" ")
+
+primary="$(get_monitor 'primary')"
 readonly primary
+connected="$(get_monitor 'connected')"
+readonly connected
 
 if [ "$(xrandr -q | grep -wc connected)" -eq 1 ] || [ "$#" -gt 1 ]; then
-  one_monitor_settings "$primary"
+  one_monitor_settings "$connected"
 else
   secondary=$(xrandr -q |
     grep -w "connected" |
