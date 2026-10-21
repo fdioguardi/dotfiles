@@ -7,7 +7,7 @@
 [push]
 	autoSetupRemote = true
 [core]
-	pager = bat
+	pager = delta
 	autocrlf = input
 [alias]
 	a = add
@@ -47,3 +47,7 @@
 	sort = -committerdate
 [help]
 	autocorrect = prompt
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
