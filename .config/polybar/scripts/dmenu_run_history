@@ -9,6 +9,8 @@ else # if no xdg dir, fall back to dotfiles in ~
   historyfile="$HOME/.dmenu_history"
 fi
 
+dmenu_path # update cache
+
 IFS=:
 if stest -dqr -n "$cache" "$PATH"; then
   stest -flx "$PATH" | sort -u >"$cache"
