@@ -14,7 +14,7 @@ return {
       json = { "fixjson", "jq" },
       lua = { "stylua" },
       markdown = { "markdownlint" },
-      python = { "ruff_fix", "ruff_format" },
+      python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
       xml = { "xmllint" },
       ["*"] = { "trim_whitespace", "trim_newlines", "typos", "codespell" },
     },
