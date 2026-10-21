@@ -44,6 +44,7 @@ bspc rule -a chromium desktop=^3
 # Desktop 4
 bspc rule -a steam desktop=^4
 bspc rule -a "*:*:Steam" desktop=^4
+bspc rule -a Stremio desktop=^4
 
 # Desktop 7
 bspc rule -a "Microsoft Teams - Preview" desktop=^7
