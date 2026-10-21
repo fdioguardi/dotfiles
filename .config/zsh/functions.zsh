@@ -12,7 +12,7 @@ bkp() { cp -r "$1"{,"_$(date +%Y-%m-%d_%H:%M:%S).bkp"}; }
 math() { bc -l <<< "scale=6; $*"; }
 
 # synchronic `killall`
-die() { while killall "$1" 2> /dev/null; do ; done }
+die() { while killall "$1" 2> /dev/null; do sleep 0.1; done }
 
 # open files with sudo if necessary
 v() {
