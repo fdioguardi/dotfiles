@@ -343,79 +343,71 @@ mkdir -pv "$HOME"/.cache/zsh
   - [MS fonts](https://aur.archlinux.org/packages/ttf-ms-fonts)
 
 
-#### Installing `nvim` from source:
-
-<!-- luarocks -->
-<!-- codespell -->
-<!-- typos -->
-
-- **[Neovim](https://www.github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)**
+- **[Neovim](https://archlinux.org/packages/extra/x86_64/neovim/)**
 
   - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
 
-  - [Cmake](https://archlinux.org/packages/extra/x86_64/cmake/)
-
-  - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
-
-  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin)
-
-  - [clang](https://archlinux.org/packages/extra/x86_64/clang/)
-
-  - [ninja](https://archlinux.org/packages/extra/x86_64/ninja/)
-
   - [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/)
-
-  - [prettier](https://archlinux.org/packages/extra/any/prettier/)
 
   - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
 
-  - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
+  - [fd](https://archlinux.org/packages/extra/x86_64/fd/)
+
+  - [tree-sitter-cli](https://archlinux.org/packages/extra/x86_64/tree-sitter-cli/)
+
+  - [luarocks](https://archlinux.org/packages/extra/any/luarocks/)
+
+  Copilot runs on `nodejs`, Telescope searches with `ripgrep` and `fd`,
+  `tree-sitter-cli` builds the parsers and `luarocks` installs rockspecs.
+
+  Language servers:
+
+  - [bash-language-server](https://archlinux.org/packages/extra/any/bash-language-server/)
+
+  - [jdtls](https://aur.archlinux.org/packages/jdtls)
+
+  - [lua-language-server](https://archlinux.org/packages/extra/x86_64/lua-language-server/)
+
+  - [pyright](https://archlinux.org/packages/extra/any/pyright/)
+
+  - [ruff](https://archlinux.org/packages/extra/x86_64/ruff/)
+
+  - [rust-analyzer](https://archlinux.org/packages/extra/x86_64/rust-analyzer/)
 
   - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
+
+  Formatters and linters:
+
+  - [codespell](https://archlinux.org/packages/extra/any/codespell/)
+
+  - [google-java-format](https://aur.archlinux.org/packages/google-java-format)
+
+  - [jq](https://archlinux.org/packages/extra/x86_64/jq/)
+
+  - [markdownlint-cli](https://archlinux.org/packages/extra/any/markdownlint-cli/)
+
+  - [prettier](https://archlinux.org/packages/extra/any/prettier/)
+
+  - [shellcheck](https://aur.archlinux.org/packages/shellcheck-bin)
 
   - [shfmt](https://archlinux.org/packages/extra/x86_64/shfmt/)
 
   - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
 
-  - [lua-language-server](https://archlinux.org/packages/extra/x86_64/lua-language-server/)
+  - [typos](https://archlinux.org/packages/extra/x86_64/typos/)
 
-  - [tree-sitter](https://archlinux.org/packages/extra/x86_64/tree-sitter/)
+  To build the latest nvim from source instead
+  (it needs `cmake`, `ninja` and `clang`), use the install script:
 
-To build the latest nvim, use the install script:
+  ```bash
+  "$XDG_DATA_HOME"/nvim/install_nvim.sh
+  ```
 
-```bash
-"$XDG_DATA_HOME"/nvim/install_nvim.sh
-```
+  It downloads the source code to `~/.local/share/nvim/source/`
+  and installs the binary in `~/.local/nvim/`, which is already in the `PATH`.
+  To uninstall, delete `~/.local/nvim/` (and, optionally, `~/.local/share/nvim/source/`).
 
-This will download the source code on `~/.local/share/nvim/source/`.
-The binary will be placed in `~/.local/nvim/`. To use it, add the directory to the `PATH` environment variable. To uninstall, simply delete `~/.local/nvim/` (and, optionally, `~/.local/share/nvim/source/`.
-
-#### With the AUR nightly build
-
-- **[Neovim](https://aur.archlinux.org/packages/neovim-nightly-bin)**
-
-  - [Clipboard provider](https://archlinux.org/packages/extra/x86_64/xclip/)
-
-  - [Bash language server](https://archlinux.org/packages/extra/any/bash-language-server/)
-
-  - [Shellcheck](https://aur.archlinux.org/packages/shellcheck-bin)
-
-  - [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/)
-
-  - [prettier](https://archlinux.org/packages/extra/any/prettier/)
-
-  - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
-
-  - [ruff-lsp](https://aur.archlinux.org/packages/ruff-lsp)
-
-  - [taplo](https://archlinux.org/packages/extra/x86_64/taplo-cli/)
-
-  - [shfmt](https://archlinux.org/packages/extra/x86_64/shfmt/)
-
-  - [stylua](https://archlinux.org/packages/extra/x86_64/stylua/)
-
-  - [lua-language-server](https://archlinux.org/packages/extra/x86_64/lua-language-server/)
-
+  Or use the nightly build from the AUR, `neovim-nightly-bin`.
 
 ### Utilities
 
