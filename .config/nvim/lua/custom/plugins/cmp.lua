@@ -7,7 +7,6 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
     "tamago324/cmp-zsh",
   },
 
@@ -19,7 +18,6 @@ return {
             buffer = "[B]",
             lazydev = "[V]",
             nvim_lsp = "[L]",
-            nvim_lua = "[V]",
             path = "[P]",
           })[entry.source.name]
           return vim_item
@@ -35,10 +33,9 @@ return {
       }),
 
       sources = {
+        { name = "lazydev", group_index = 0 },
         { name = "buffer", keyword_length = 5 },
-        { name = "lazydev" },
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
         { name = "path" },
       },
     }
