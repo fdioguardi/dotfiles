@@ -15,7 +15,6 @@ vim.opt.smartcase  = true       -- overwrite ignorecase when search pattern cont
 vim.opt.breakindent    = true           -- visually indent wrapped lines
 vim.opt.cmdheight      = 0              -- number of lines used for the command-line
 vim.opt.fillchars      = { eob = " " }  -- don't show ~ on empty lines
-vim.opt.lazyredraw     = true           -- don't redraw while executing macros
 vim.opt.number         = true           -- show absolute number of current line
 
 -- 5 syntax, highlighting and spelling
