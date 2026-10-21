@@ -26,14 +26,14 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 vim.api.nvim_create_augroup("number_toggle", { clear = true })
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "WinEnter" }, {
   callback = function()
-    if vim.wo.number then vim.opt.relativenumber = true end
+    if vim.wo.number then vim.wo.relativenumber = true end
   end,
   group = "number_toggle",
   desc = "Toggle relative line numbers on",
 })
 vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave", "WinLeave" }, {
   callback = function()
-    if vim.wo.number then vim.opt.relativenumber = false end
+    if vim.wo.number then vim.wo.relativenumber = false end
   end,
   group = "number_toggle",
   desc = "Toggle relative line numbers off",
