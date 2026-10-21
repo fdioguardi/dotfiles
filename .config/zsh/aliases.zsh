@@ -7,7 +7,6 @@ alias \
   ls="ls --color"
 
 abbr \
-  bat="bat --decorations=never" \
   chx="chmod +x" \
   f="find . -name" \
   ff="sudo find / -name" \
