@@ -13,3 +13,6 @@ for file in "${ZDOTDIR:-${HOME}/.config/zsh}"/*.zsh; do
   [ -r "$file" ] && source "$file"
 done
 unset file
+
+# Claude Code
+[ -r "${HOME}/.claude/shell.sh" ] && source "${HOME}/.claude/shell.sh"
