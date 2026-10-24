@@ -388,7 +388,7 @@ chsh -s $(which zsh) $USER
 
 - **[Kitty](https://archlinux.org/packages/extra/x86_64/kitty/)**
 
-  - [ttf-jetbrains-mono](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono/)
+  - [noto-fonts](https://archlinux.org/packages/extra/any/noto-fonts/)
 
   To apply fonts:
 
