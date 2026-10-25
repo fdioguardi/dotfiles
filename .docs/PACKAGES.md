@@ -204,6 +204,9 @@ List of manually installed packages, and some information on how to set them up.
     and [xdotool](https://archlinux.org/packages/extra/x86_64/xdotool/),
     to close the calendar when clicking outside of it
 
+  - [xkb-switch](https://aur.archlinux.org/packages/xkb-switch),
+    to show and switch the keyboard layout
+
   - [noto-fonts](https://archlinux.org/packages/extra/any/noto-fonts/)
 
 
